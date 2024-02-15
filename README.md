@@ -29,17 +29,29 @@ We are working together to build a platform that transforms the way users approa
 
 ## Technologies Used
 - Python
+- JavaScript
 - Html/CSS
 - React
 - Flask
 - OpenAI
+- Google Cloud Storage
+- MySQL
+- GitKraken
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+1. Project Foundation and Base Webpage Setup
+	-This feature, "Project Foundation and Base Webpage Setup," is aimed at developers for initializing a web project. It includes creating a structured directory for code organization, developing a responsive landing page, 
+	 setting up a basic navigation, integrating key front-end and back-end frameworks, and establishing version control with Git. This foundational setup ensures the project's scalability and maintainability from the outset.
+	 Corresponding User Story: 1
+2. Google Sign-In Integration
+	-This feature introduces Google Sign-In for authentication, allowing users to access their personal accounts securely without needing to create new credentials. It employs OAuth 2.0 standards to ensure secure authentication, 
+	 presenting users with a consent screen for granting permissions. Upon successful login, users are directed to their personalized dashboard, streamlining the access process and enhancing user convenience.
+	 Corresponding User Story: 2
+3. Image Upload and Storage
+	-This feature enables users to easily upload images to their digital wardrobe via a user-friendly UI, supporting drag-and-drop and file selection methods. It provides instant feedback upon successful uploads and ensures secure 
+	storage of images, accessible only to the rightful owner. The backend is designed for reliability, accommodating multiple image formats and optimizing images for storage and display purposes.
+	Corresponding User Story: 3
 
 
 ## Screenshots
@@ -78,13 +90,19 @@ To do:
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by...
+- This project was inspired by a dream.
 - This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- Many thanks to Dr.Lehr
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Members:
+Umer Seliya - hme36@txstate.edu
+Ramiro Ramirez - 
+Rogelio Atilano-Hernandez - 
+Amina Naseer - 
+Matthew Lee - 
+ReadMe template created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 
 
 <!-- Optional -->
