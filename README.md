@@ -1,5 +1,9 @@
 # PicMyFit
-> Outline a brief description of your project.
+
+Welcome to PicMyFit, collaborating with team members, Ramiro Ramirez, Umer Seliya, Rogelio Atilano-Hernandez, Amina Naseer, and Matthew Lee, to create PicMyFit, a web-based application. Our goal is to make outfit coordination effortless for anyone who needs inspiration.
+By leveraging advanced AI algorithms, we aim to provide users with personalized outfit suggestions based on their existing wardrobe. The intended impact is to empower individuals to make informed and stylish wardrobe choices, promoting sustainability by encouraging thoughtful use of existing clothing and minimizing fashion waste. 
+We are working together to build a platform that transforms the way users approach fashion, ensuring a seamless and enjoyable experience for our diverse audience.
+
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
