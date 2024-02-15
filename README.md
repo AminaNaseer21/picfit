@@ -20,7 +20,7 @@ We are working together to build a platform that transforms the way users approa
 
 
 ## General Information
-- Provide general information about your project here.
+![Logo](img/LOGO_v1.png)
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
 - Why did you undertake it?
