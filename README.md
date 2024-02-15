@@ -37,6 +37,7 @@ We are working together to build a platform that transforms the way users approa
 - Google Cloud Storage
 - MySQL
 - GitKraken
+- Google Firebase
 
 
 ## Features
