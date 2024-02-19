@@ -53,6 +53,15 @@ We are working together to build a platform that transforms the way users approa
 	-This feature enables users to easily upload images to their digital wardrobe via a user-friendly UI, supporting drag-and-drop and file selection methods. It provides instant feedback upon successful uploads and ensures secure 
 	storage of images, accessible only to the rightful owner. The backend is designed for reliability, accommodating multiple image formats and optimizing images for storage and display purposes.
 	Corresponding User Story: 3
+4. Detailed View of Clothing Items
+	-This feature allows users to view the clothing item in detailed view in our AI-powered wardrobe management web app offers users a comprehensive overview of each item in their digital wardrobe, facilitating informed styling decisions. With an interactive and responsive front-end, users can explore detailed characteristics such as material, color, and style. 
+	Corresponding User Story: 5
+5. Seamless Data Integration for Real-Time Updates
+	-This feature focuses on achieving seamless integration for real-time wardrobe updates. The design includes a data integration strategy to synchronize user's physical wardrobe changes with the digital closet, ensuring accuracy and timeliness. The implementation involves utilizing Python for the backend logic, incorporating appropriate APIs or webhooks for real-time data synchronization. The user interface offers an intuitive experience for users to effortlessly manage and monitor their wardrobe updates in real-time. 
+	Corresponding User Story: 6
+6. Personal Profile Information
+	-This feature focuses on designing and implementing profile information view and edit functionality. The design incorporates a user-friendly profile page layout displaying essential information, including editable fields for users to update their details. The implementation involves using Python for the backend logic, enabling users to seamlessly edit and save changes to their profile information. The user interface is designed to be intuitive, facilitating easy navigation and customization according to user preferences. 
+	Corresponding User Story: 7
 
 
 ## Screenshots
