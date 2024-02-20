@@ -44,7 +44,7 @@ We are working together to build a platform that transforms the way users approa
 1. Project Foundation and Base Webpage Setup
 	-This feature, "Project Foundation and Base Webpage Setup," is aimed at developers for initializing a web project. It includes creating a structured directory for code organization, developing a responsive landing page, 
 	 setting up a basic navigation, integrating key front-end and back-end frameworks, and establishing version control with Git. This foundational setup ensures the project's scalability and maintainability from the outset.
-	 Corresponding User Story: 1
+	 Corresponding User Story: 1 
 2. Google Sign-In Integration
 	-This feature introduces Google Sign-In for authentication, allowing users to access their personal accounts securely without needing to create new credentials. It employs OAuth 2.0 standards to ensure secure authentication, 
 	 presenting users with a consent screen for granting permissions. Upon successful login, users are directed to their personalized dashboard, streamlining the access process and enhancing user convenience.
@@ -62,8 +62,12 @@ We are working together to build a platform that transforms the way users approa
 6. Personal Profile Information
 	-This feature focuses on designing and implementing profile information view and edit functionality. The design incorporates a user-friendly profile page layout displaying essential information, including editable fields for users to update their details. The implementation involves using Python for the backend logic, enabling users to seamlessly edit and save changes to their profile information. The user interface is designed to be intuitive, facilitating easy navigation and customization according to user preferences. 
 	Corresponding User Story: 7
-
-
+7. Personalized Outfit Suggestions
+	-This feature enhances user experience by providing personalized outfit suggestions tailored to the user's wardrobe and preferences. Utilizing an advanced algorithm, the system analyzes the user's wardrobe contents, style preferences, and external factors such as weather to generate relevant outfit combinations.
+	Corresponding User Story: 8,9
+	8.Automatic Clothing Attribute Extraction and Categorization
+	-This feature streamlines wardrobe organization by automatically extracting and categorizing details such as clothing type and color from uploaded images. Leveraging advanced image processing techniques and machine learning algorithms, the system analyzes clothing images to identify and extract relevant attributes.
+	Corresponding User Story: 10
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
