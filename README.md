@@ -68,6 +68,15 @@ We are working together to build a platform that transforms the way users approa
 	8.Automatic Clothing Attribute Extraction and Categorization
 	-This feature streamlines wardrobe organization by automatically extracting and categorizing details such as clothing type and color from uploaded images. Leveraging advanced image processing techniques and machine learning algorithms, the system analyzes clothing images to identify and extract relevant attributes.
 	Corresponding User Story: 10
+9. Weather Insight
+	-This feature integrates real-time weather data from a weather API (such as OpenWeatherMap or Weatherstack) into a user-friendly interface. 
+	Corresponding User Story: 11
+10. Wardrobe Manager
+	-This feature aims to provide a robust and well-structured database to store clothing items and their attributes efficiently. 
+	Corresponding User Story: 12
+11. Wardrobe Organizer
+	-This feature is designed to systematically organize users' clothing items based on their attributes, providing an intuitive interface for browsing through the wardrobe and finding items effortlessly. 
+	Corresponding User Story: 13
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
