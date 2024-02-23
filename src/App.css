@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #282c34;
-  padding: 20px;
+  background-color: #b08a69;
+  padding: 30px;
   color: white;
 }
 
 .picmyfit-logo img {
-  height: 50px; 
+  height: 40px; 
 }
 
 .nav-links {
@@ -22,10 +22,5 @@
 
 .nav-links a {
   text-decoration: none;
-  color: white;
-}
-
-.profile {
-  height: 4vmin;
-  pointer-events: none;
+  color: rgb(0, 0, 0);
 }

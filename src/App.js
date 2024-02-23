@@ -6,19 +6,19 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* Logo on the left */}
-        <div className="picmyfit-logo"></div>
+        <div className="picmyfit-logo">
           <img src={logo} alt="PicMyFit Logo" />
-
+        </div>
+          
         {/* Navigation Links */}
         <nav>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/My Wardrobe">Wardrobe</a></li>
+            <li><a href="/My Profile">Profile</a></li>
           </ul>
         </nav>
-
-        {/* Profile Icon on the right */}
-        <div className="profile">Profile</div>
+        
       </header>
 
       {/* Main content area */}
