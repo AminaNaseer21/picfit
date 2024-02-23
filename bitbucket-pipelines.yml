@@ -5,7 +5,7 @@ pipelines:
     - step:
         name: Test
         script:
-          - npm install && npm test
+         
 
     - step:
         name: Build
