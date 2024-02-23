@@ -1,4 +1,4 @@
-//import logo from './logo.svg';
+import logo from './PicMyFit_Logo.png';
 import './App.css';
 
 function App() {
@@ -6,13 +6,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* Logo on the left */}
-        <div className="logo">PICMYFIT</div>
+        <div className="picmyfit-logo"></div>
+          <img src={logo} alt="PicMyFit Logo" />
 
         {/* Navigation Links */}
         <nav>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/wardrobe">Wardrobe</a></li>
+            <li><a href="/My Wardrobe">Wardrobe</a></li>
           </ul>
         </nav>
 

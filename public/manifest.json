@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PicMyFit",
+  "name": "PicMyFit - Your personal AI stylist",
   "icons": [
     {
       "src": "favicon.ico",
