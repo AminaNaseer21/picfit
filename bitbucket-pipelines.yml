@@ -6,11 +6,7 @@ pipelines:
         name: Start
         script:
           - npm install 
-<<<<<<< HEAD
           - npm run build
-=======
-          - npm run start
->>>>>>> origin/MIRANDA-27-project-directory-structure-s
 
     - step:
         name: Deploy to Firebase
