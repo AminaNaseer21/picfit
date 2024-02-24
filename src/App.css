@@ -1,0 +1,26 @@
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b08a69;
+  padding: 30px;
+  color: white;
+}
+
+.picmyfit-logo img {
+  height: 40px; 
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  padding: 0 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
