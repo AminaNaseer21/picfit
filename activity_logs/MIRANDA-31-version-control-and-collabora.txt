@@ -5,16 +5,17 @@ This document serves as a guide for our upcoming meeting, aiming to ensure all p
 
 ## Date & Time
 - **Date:** 02/26/2024
-- **Time:** 6:30PM
+- **Time:** 6:00PM
 
 ## Location
-- **Physical Location:** 
-- **Virtual Meeting Link:** 
+- **Physical Location:** Classroom
 
 ## Participants
 - Umer
-- 
-- ...
+- Ramiro
+- Amina
+- Roger
+- Matthew
 
 ## Agenda
 1. **Activity_Log Folder**
@@ -23,10 +24,24 @@ This document serves as a guide for our upcoming meeting, aiming to ensure all p
 2. **Priority Allocation**
    - Come up with list of main tasks/features to show in first Sprint
    - Move current unnessesary tasked out of sprint.
+### Demo
+- Working Home Page
+- Working Waredrobe Page
+  - Take pictue/Upload from Libary Webpage
+  - Take pictures/Upload API
+- Working Login Page
+- Working Login Function
+- Creating a Database
+- Intigrate Database into Firebase
+- Intigrate Firebase Database into Wardrobe
+- Project Directory Setup
+- Base Backend Setup
+- Base Webpage Navigation Setup
+
 
 3. **Jira Tasks Update**
    - Rewrite jira task names to be accurate to our prioritys
-   - Fix hours - currently over 90 hours / 5 people  = 18 hours per person
+   - Fix hours - currently over 115 hours / 5 people  = 23 hours per person
 
 4. **Jira Branching**
    - Branching from Jira
