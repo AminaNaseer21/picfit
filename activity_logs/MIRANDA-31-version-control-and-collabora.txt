@@ -1,0 +1,66 @@
+# Version Control and Collaboration Setup
+
+## Purpose
+This document serves as a guide for our upcoming meeting, aiming to ensure all participants are well-informed, aligned, and prepared to move foraward with out project. The primary goal is to catch up on progress, address any issues, and align our efforts moving forward and make sure all professors instructions are being followed. 
+
+## Date & Time
+- **Date:** 02/26/2024
+- **Time:** 6:00PM
+
+## Location
+- **Physical Location:** Classroom
+
+## Participants
+- Umer
+- Ramiro
+- Amina
+- Roger
+- Matthew
+
+## Agenda
+1. **Activity_Log Folder**
+   - What to use this folder for
+
+2. **Priority Allocation**
+   - Come up with list of main tasks/features to show in first Sprint
+   - Move current unnessesary tasked out of sprint.
+### Demo
+- Working Home Page
+- Working Waredrobe Page
+  - Take pictue/Upload from Libary Webpage
+  - Take pictures/Upload API
+- Working Login Page
+- Working Login Function
+- Creating a Database
+- Intigrate Database into Firebase
+- Intigrate Firebase Database into Wardrobe
+- Project Directory Setup
+- Base Backend Setup
+- Base Webpage Navigation Setup
+
+
+3. **Jira Tasks Update**
+   - Rewrite jira task names to be accurate to our prioritys
+   - Fix hours - currently over 115 hours / 5 people  = 23 hours per person
+
+4. **Jira Branching**
+   - Branching from Jira
+   - Checking out branch and working on it
+   - Working on many branches
+
+5. **Pull Request + Merges**
+   - Put in a pull request.
+   - Approving it as a team member.
+
+6. **Modify Website + Deployment**
+   - Making changes to html, which file to make changes in
+   - viewing changes in real time
+   - building project to deploy
+
+
+## Resources & Relevant Documents
+- https://picmyfit.firebaseapp.com/
+- https://www.outfittery.com/
+- https://lookastic.com/men
+- ...
+
