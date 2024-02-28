@@ -1,0 +1,17 @@
+In a fashion akin to the code snippet provided on the website, 
+I will be utilizing a similar approach for interacting with the 
+OpenAI API. By initializing a client instance and making use of 
+the `chat.completions.create` method, I'll engage the GPT-4 Vision
+ Preview model to process image-related queries. Constructing the 
+ request involves specifying the model to use, crafting the user 
+ message along with associated image data, and setting parameters 
+ such as maximum tokens for the completion. Upon execution, the API 
+ returns a response containing potential completions, from which the
+most relevant choice is extracted and printed. However, my task goes
+beyond mere image recognition; I aim to tailor the prompt further, 
+delving into our database to extract specific details like the type 
+of clothing item depicted, its color, the prevailing weather conditions,
+and other pertinent attributes. This nuanced approach enhances the 
+accuracy and relevance of the AI's responses, making interactions more
+informative and insightful.
+EDIT: This was pushed after , since I did not branch out 
