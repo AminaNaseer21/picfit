@@ -1,33 +1,28 @@
-import logo from './PicMyFit_Logo.png';
-import './App.css';
+import Navbar from "./Navbar";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Wardrobe from "./pages/Wardrobe";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
+  let component
+  switch (window.location.pathname) {
+    case "/":
+      component = <Home />
+      break
+    case "/wardrobe":
+      component = <Wardrobe />
+      break
+    case "/profile":
+      component = <Profile />
+      break
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* Logo on the left */}
-        <div className="picmyfit-logo">
-          <img src={logo} alt="PicMyFit Logo" />
-        </div>
-          
-        {/* Navigation Links */}
-        <nav>
-          <ul className="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/My Wardrobe">Wardrobe</a></li>
-            <li><a href="profile.html">Profile</a></li>
-          </ul>
-        </nav>
-        
-      </header>
-
-      {/* Main content area */}
-      <main>
-        <h1>Welcome to Pic My Fit</h1>
-        {/* Other content goes here */}
-      </main>
-    </div>
-  );
+  <>
+    <Navbar/>
+    <div className="container">{component}</div>
+  </>
+  )
 }
 
-export default App;
+export default App
