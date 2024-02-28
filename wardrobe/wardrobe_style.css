@@ -28,3 +28,9 @@
         color:#000;
 }
 
+.card img{
+    width: 180px;
+    height: 180px;
+    border: 10px;
+
+}
