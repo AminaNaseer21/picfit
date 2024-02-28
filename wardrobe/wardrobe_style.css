@@ -13,3 +13,18 @@
     align-items: center;
     justify-content: center;
 }
+
+.card{
+    width: 400px;
+    background: #fff;
+    padding: 40px;
+    border-radius:15px; 
+    text-align: center;
+    color: #333;
+}
+
+.card h1{
+        font-weight: 500px;
+        color:#000;
+}
+
