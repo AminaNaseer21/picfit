@@ -14,7 +14,7 @@ function App() {
         <nav>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/My Wardrobe">Wardrobe</a></li>
+            <li><a href="/wardrobe/wardrobe.html">Wardrobe</a></li>
             <li><a href="/My Profile">Profile</a></li>
           </ul>
         </nav>
