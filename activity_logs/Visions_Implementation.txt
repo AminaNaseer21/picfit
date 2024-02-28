@@ -1,0 +1,19 @@
+In a manner akin to Assignment 6's task of tailoring Flask 
+applications to specific needs, I am embarking on the journey 
+to delve into the realm of computer vision, drawing insights 
+from the comprehensive guide provided by OpenAI at 
+https://platform.openai.com/docs/guides/vision. As I immerse myself 
+in understanding how to implement vision-based functionalities, 
+'ve discovered intriguing parallels between this endeavor and the
+process of converting speech to audio, a task familiar from previous
+explorations. Through this discovery, I anticipate employing a 
+similar procedural approach, leveraging existing knowledge and 
+methodologies, while adapting them to the unique nuances and challenges
+inherent in the domain of computer vision. Just as with speech-to-audio 
+conversion, where algorithms and techniques are meticulously crafted to
+transmute auditory signals into meaningful text representations, the 
+journey into computer vision promises to be equally fascinating and
+rewarding, as I navigate the intricacies of image processing, pattern
+recognition, and machine learning algorithms to decode and interpret 
+visual information.
+EDIT: This was pushed after , since I did not branch out 
