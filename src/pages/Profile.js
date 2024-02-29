@@ -1,3 +1,5 @@
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from './auth';
+
 export default function Profile() {
     return (
         <div>
