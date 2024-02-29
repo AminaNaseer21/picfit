@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo512 from '../img/logo512.png'; // Adjust the path as per your project structure
-import './upload_style.css'; // Importing the CSS file
+import '../upload_style.css'; // Adjust the path based on the actual location of the CSS file
 export default function Upload() {
     const [image, setImage] = useState(null);
 
