@@ -1,3 +1,6 @@
 8:00PM - Created this log
-9:00PM - 
+8:30PM - found error in pipeline causing it not to run
+	- looked in nood_bin
+9:00PM - created new project in firebase
+9:30PM - fixed firebase files from new firebase init
 10:00PM - 
