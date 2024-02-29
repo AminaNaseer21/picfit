@@ -3,4 +3,4 @@
 	- looked in nood_bin
 9:00PM - created new project in firebase
 9:30PM - fixed firebase files from new firebase init
-10:00PM - 
+10:00PM - added key to bitbucket and ran build
