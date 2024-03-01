@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import heart from "../img/heart.png";
+import camera from "../img/camera.png";
 
 export default function Wardrobe() {
     // State to track the active category for dropdown
@@ -27,10 +28,26 @@ export default function Wardrobe() {
         <div>
             
             <div className="header">
-                    <div className="title">MY WARDROBE</div>
+                    <div className="title">W A R D R O B E</div>
                     <div className="controls">
-                        <button className="upload-button">Upload</button>
-                        <button className="upload-button">Capture</button>
+
+
+                        <button className="uc-button learn-more">
+                            <span className="circle" aria-hidden="true">
+                                <span className="icon arrow"></span>
+                            </span>
+                            <span className="button-text">Upload</span>
+                        </button>
+
+
+                        <button className="uc-button learn-more">
+                            <span className="circle" aria-hidden="true">
+                                <img src={camera} alt="Capture" className="icon camera" />
+                            </span>
+                            <span className="button-text">Capture</span>
+                            </button>
+                    
+                    
                     </div>
                     <div className="right-side">
 
