@@ -16,6 +16,7 @@ function App() {
         <Route path="/wardrobe" element={ <Wardrobe />} />
         <Route path="/upload" element={ <Upload />} />
         <Route path="/profile" element={ <Profile />} />
+        <Route path="/upload" element={ <Upload />} />
       </Routes>
     </div>
   </>

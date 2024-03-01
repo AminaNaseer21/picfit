@@ -7,6 +7,7 @@ export default function Navbar() {
             <CustomLink to="wardrobe">Wardrobe</CustomLink>
             <CustomLink to="upload">Upload</CustomLink>
             <CustomLink to="profile">Profile</CustomLink>
+            <CustomLink to="upload">Upload</CustomLink>
         </ul>
     </nav>
     )
