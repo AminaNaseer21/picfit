@@ -1,0 +1,67 @@
+.item-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.photo-section {
+  margin-bottom: 20px;
+}
+
+.item-photo {
+  width: 300px;
+  height: 300px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.item-name,
+.item-category,
+.item-color,
+.item-notes {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.wear-counter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wear-counter button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.build-outfit-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.similar-items {
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: #fff
+}
