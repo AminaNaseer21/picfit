@@ -27,17 +27,17 @@ export default function Upload() {
                     {image && <img src={image} alt="Uploaded" />}
                     {!image && <img src={logo512} alt="Add Item Logo" />}
                 </div>
-            </div>
-            <div className="add-item-box">
-                <label htmlFor="input-file">
-                    <span>Add Clothing Item Picture</span>
-                </label>
-                <input
-                    type="file"
-                    accept="image/jpeg, image/png, image/jpg, image/heic"
-                    id="input-file"
-                    onChange={handleImageChange}
-                />
+                <div className="add-item-box">
+                    <label htmlFor="input-file">
+                        <span>Add Clothing Item Picture</span>
+                    </label>
+                    <input
+                        type="file"
+                        accept="image/jpeg, image/png, image/jpg, image/heic"
+                        id="input-file"
+                        onChange={handleImageChange}
+                    />
+                </div>
             </div>
         </div>
     );
