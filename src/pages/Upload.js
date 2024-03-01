@@ -37,7 +37,7 @@ export default function Upload() {
                 </div>
             </div>
             <div className="begin-making">
-                <img src={PointingPH} alt="Pointing" /> {/* Placing PointingPH.png above the text block */}
+                <img src={PointingPH} alt="Pointing" style={{ width: '440px', height: '440px' }} /> {/* Adjusted width and height */}
                 <p>Begin Making Today's Outfit</p>
                 <small>because everyone deserves to feel good in what they wear</small>
             </div>
