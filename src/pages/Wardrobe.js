@@ -1,3 +1,1 @@
-export default function Wardrobe() {
-    return <h1>Wardrobe</h1>
-}
+//Filler only to keep page from crashing from lack of wardrobe 
