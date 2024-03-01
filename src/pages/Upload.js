@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo512 from '../img/logo512.png';
+import PointingPH from '../img/PointingPH.png'; // Importing PointingPH.png
 import './Upload.css';
 
 export default function Upload() {
@@ -18,10 +19,6 @@ export default function Upload() {
 
     return (
         <div className="upload-container">
-            <div className="begin-making">
-                <p>Begin Making Today's Outfit</p>
-                <small>because everyone deserves to feel good in what they wear</small>
-            </div>
             <div className="image-holder">
                 <div className="image-display-box">
                     {image && <img src={image} alt="Uploaded" />}
@@ -38,6 +35,11 @@ export default function Upload() {
                         onChange={handleImageChange}
                     />
                 </div>
+            </div>
+            <div className="begin-making">
+                <img src={PointingPH} alt="Pointing" /> {/* Placing PointingPH.png above the text block */}
+                <p>Begin Making Today's Outfit</p>
+                <small>because everyone deserves to feel good in what they wear</small>
             </div>
         </div>
     );
