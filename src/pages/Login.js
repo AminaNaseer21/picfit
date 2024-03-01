@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {  AuthErrorCodes, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseApp } from "../Services/firebase";
 
 function Login() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   // initialised auth instance
   const auth = getAuth(firebaseApp);
@@ -23,6 +24,7 @@ function Login() {
         // Signed in
         console.log(userCredential.user);
         // ...
+        navigate("/Profile");
       })
       .catch((err) => {
         if (
