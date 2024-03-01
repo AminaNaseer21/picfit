@@ -1,0 +1,83 @@
+/* Styles for the wardrobe-container and categories/items are the same as before */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ececec; /* Light grey background, change as needed */
+  border-bottom: 1px solid #d1d1d1; /* Adds a subtle line under the header */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.controls {
+  /* Center the controls in the middle of the header */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  /* Add more button styling here */
+}
+
+.button.heart {
+  /* Special styling for the heart button if needed */
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.weather {
+  /* Placeholder styling for weather info */
+  padding-left: 20px;
+  /* Add more styling here */
+}
+
+/* Ensure you include the rest of the styles provided previously */
+
+.wardrobe-container {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.categories {
+  flex: 1; /* Takes up 1/6th of the space */
+  background-color: #f7f7f7; /* Light grey background, change as needed */
+  padding: 20px; /* Add some spacing */
+  overflow-y: auto; /* Enables scroll for overflow content */
+}
+
+.items {
+  flex: 5; /* Takes up the remaining 5/6th of the space */
+  background-color: #ffffff; /* White background, change as needed */
+  padding: 20px; /* Add some spacing */
+  display: flex; /* Enables flexbox for items */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px; /* Spacing between items */
+  overflow-y: auto; /* Enables scroll for overflow content */
+}
+
+.category {
+  margin-bottom: 10px; /* Spacing between categories */
+  /* Add additional styling for categories here */
+}
+
+.item {
+  width: calc(20% - 20px); /* Adjust the width of each item, minus the gap */
+  height: 100px; /* Set a fixed height for each item */
+  background-color: #e1e1e1; /* Light grey background, change as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add additional styling for items here */
+}
