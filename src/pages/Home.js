@@ -3,7 +3,7 @@ import './home.css'; // Make sure to import the CSS file
 
 const Home = () => {
   return (
-    <div className="header">
+    <div className="centerPicture">
       <h1>Home</h1>                             
 
       <div className="favoriteButtons"> 
