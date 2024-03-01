@@ -1,83 +1,357 @@
-/* Styles for the wardrobe-container and categories/items are the same as before */
 
+
+/* HEADER STYLES */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #ececec; /* Light grey background, change as needed */
-  border-bottom: 1px solid #d1d1d1; /* Adds a subtle line under the header */
+  margin-top: 0;
+  padding: 5px 30px;
+  background-color: #ececec;
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 
+/* CONTROL BUTTONS STYLES */
 .controls {
-  /* Center the controls in the middle of the header */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .button {
   padding: 5px 10px;
   margin: 0 10px;
   cursor: pointer;
-  /* Add more button styling here */
 }
 
-.button.heart {
-  /* Special styling for the heart button if needed */
-}
-
+/* RIGHT SIDE STYLES */
 .right-side {
   display: flex;
   align-items: center;
 }
 
 .weather {
-  /* Placeholder styling for weather info */
   padding-left: 20px;
-  /* Add more styling here */
 }
 
-/* Ensure you include the rest of the styles provided previously */
 
-.wardrobe-container {
-  display: flex;
-  height: 100vh; /* Full height of the viewport */
-}
-
+/* CATEGORIES STYLES */
 .categories {
-  flex: 1; /* Takes up 1/6th of the space */
-  background-color: #f7f7f7; /* Light grey background, change as needed */
-  padding: 20px; /* Add some spacing */
-  overflow-y: auto; /* Enables scroll for overflow content */
+  flex: 1;
+  background-color: #f7f7f7;
+  padding: 20px;
+  overflow-y: auto;
 }
 
+/* ITEMS STYLES */
 .items {
-  flex: 5; /* Takes up the remaining 5/6th of the space */
-  background-color: #ffffff; /* White background, change as needed */
-  padding: 20px; /* Add some spacing */
-  display: flex; /* Enables flexbox for items */
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 20px; /* Spacing between items */
-  overflow-y: auto; /* Enables scroll for overflow content */
-}
-
-.category {
-  margin-bottom: 10px; /* Spacing between categories */
-  /* Add additional styling for categories here */
+  flex: 5;
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
 }
 
 .item {
-  width: calc(20% - 20px); /* Adjust the width of each item, minus the gap */
-  height: 100px; /* Set a fixed height for each item */
-  background-color: #e1e1e1; /* Light grey background, change as needed */
+  width: calc(20% - 20px);
+  height: 150px;
+  background-color: #e1e1e1;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Add additional styling for items here */
+  border-radius: 30px;
+  background: rgb(255, 250, 250);
+  box-shadow: rgba(7, 19, 88, 0.25) 0px 30px 50px -12px inset, rgba(7, 19, 88, 0.25) 0px 18px 26px -18px inset;
+}
+
+/* DROPDOWN BUTTON STYLES */
+.wardrobe-container {
+  display: flex;
+  height: 100vh;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  
+}
+
+.dropdown-button:hover {
+  background-color: #e0e0e0;
+}
+
+.arrow {
+  position: absolute;
+  right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.active {
+  transform: rotate(180deg);
+}
+
+
+.subcategory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.subcategory {
+  padding: 8px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subcategory:hover {
+  background-color: #f7f7f7;
+}
+
+.subcategory:last-child {
+  border-bottom: none;
+}
+
+
+/* HEART BUTTON STYLES */
+.heart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 11px 10px 11px;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #282936;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 35px;
+    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5), 
+    border-color 400ms ease-in-out,
+    background-color 400ms ease-in-out;
+    word-spacing: -2px;
+  }
+  
+  @keyframes movingBorders {
+    0% {
+      border-color: #fce4e4;
+    }
+  
+    50% {
+      border-color: #ffd8d8;
+    }
+  
+    90% {
+      border-color: #fce4e4;
+    }
+  }
+  
+  .heart-button:hover {
+    background-color: #282936;
+    transform: scale(105%);
+    animation: movingBorders 3s infinite;
+  }
+  
+  .filled,
+  .empty {
+    fill: rgb(255, 110, 110);
+    transition: opacity 100ms ease-in-out;
+  }
+  
+  .filled {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  @keyframes beatingHeart {
+    0% {
+      transform: scale(1);
+    }
+  
+    15% {
+      transform: scale(1.15);
+    }
+  
+    30% {
+      transform: scale(1);
+    }
+  
+    45% {
+      transform: scale(1.15);
+    }
+  
+    60% {
+      transform: scale(1);
+    }
+  }
+  
+  .heart-button:hover .empty {
+    opacity: 0;
+  }
+  
+  .heart-button:hover .filled {
+    opacity: 1;
+    animation: beatingHeart 1.2s infinite;
+  }
+
+
+/* UPLOAD & CAPTURE BUTTON */
+.uc-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 2px 20px;
+  font-size: inherit;
+  font-family: inherit;
+ }
+ 
+ .uc-button.learn-more {
+  width: 12rem;
+  height: auto;
+ }
+ 
+ .uc-button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #282936;
+  border-radius: 1.625rem;
+ }
+ 
+ .uc-button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #282936;
+ }
+ 
+ .uc-button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.425rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ .uc-button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ .uc-button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+ }
+ 
+ .uc-button:hover .circle {
+  width: 100%;
+ }
+ 
+ .uc-button:hover .circle .icon.arrow {
+  background: #ffffff;
+  transform: translate(-2.2rem, 0);
+ }
+ 
+ .uc-button.learn-more:hover .button-text {
+  color: #ffffff;
+ }
+
+ .uc-button .icon.camera {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: auto;
+  height: 60%;
+}
+
+.uc-button.learn-more:hover .circle .icon.camera {
+  transform: translateX(-3.55rem);
+}
+
+/* SEARCH BAR */
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 230px;
+}
+
+.input {
+  width: 100%;
+  height: 30px;
+  line-height: 28px;
+  padding: 0 0rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+.input::placeholder {
+  color: #9e9ea7;
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(0, 48, 73, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(0 48 73 / 5%);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
 }
