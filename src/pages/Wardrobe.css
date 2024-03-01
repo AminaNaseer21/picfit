@@ -28,10 +28,6 @@
   /* Add more button styling here */
 }
 
-.button.heart {
-  /* Special styling for the heart button if needed */
-}
-
 .right-side {
   display: flex;
   align-items: center;
@@ -118,4 +114,25 @@
   padding: 5px 10px;
   cursor: pointer;
   /* Additional styling for subcategory items */
+}
+
+
+.button.heart {
+  position: relative;
+  width: 50px; /* Width of the heart */
+  height: 50px; /* Height of the heart */
+  background-color: pink; /* Color of the heart */
+  margin: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button.heart:hover {
+  background-color: red; /* Color of the heart on hover */
+}
+
+.button.heart:hover:before,
+.button.heart:hover:after {
+  background-color: red;
 }

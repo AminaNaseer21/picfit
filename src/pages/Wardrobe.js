@@ -24,6 +24,7 @@ export default function Wardrobe() {
 
     return (
         <div>
+            
             <div className="header">
                     <div className="title">MY WARDROBE</div>
                     <div className="controls">
@@ -35,6 +36,7 @@ export default function Wardrobe() {
                         <div className="weather">Weather Info</div>
                     </div>
             </div>
+
             <div className="wardrobe-container">
                 <div className="categories">
                     {Object.keys(categories).map((category) => (
@@ -55,6 +57,7 @@ export default function Wardrobe() {
                         </div>
                     ))}
                 </div>
+
                 <div className="items">
                     {items.map((item, index) => (
                         <div key={index} className="item">
@@ -62,6 +65,7 @@ export default function Wardrobe() {
                         </div>
                     ))}
                 </div>
+
             </div>
         </div>
     );
