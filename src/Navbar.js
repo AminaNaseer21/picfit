@@ -5,6 +5,7 @@ export default function Navbar() {
         <Link to="/" className="PicMyFit">PicMyFit</Link>
         <ul>
             <CustomLink to="wardrobe">Wardrobe</CustomLink>
+            <CustomLink to="upload">Upload</CustomLink>
             <CustomLink to="profile">Profile</CustomLink>
             <CustomLink to="signup">Signup</CustomLink>
             <CustomLink to="login">Login</CustomLink>
