@@ -1,8 +1,8 @@
 import Navbar from "./Navbar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Upload from "./pages/Upload";
-import Wardrobe from "./pages/Wardrobe";
+import Upload from "./pages/Wardobe";
+import Wardrobe from "./pages/Upload";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
