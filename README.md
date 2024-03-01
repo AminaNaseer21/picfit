@@ -41,46 +41,17 @@ We are working together to build a platform that transforms the way users approa
 
 
 ## Features
-1. Project Foundation and Base Webpage Setup
-	-This feature, "Project Foundation and Base Webpage Setup," is aimed at developers for initializing a web project. It includes creating a structured directory for code organization, developing a responsive landing page, 
-	 setting up a basic navigation, integrating key front-end and back-end frameworks, and establishing version control with Git. This foundational setup ensures the project's scalability and maintainability from the outset.
-	 Corresponding User Story: 1 
-2. Google Sign-In Integration
-	-This feature introduces Google Sign-In for authentication, allowing users to access their personal accounts securely without needing to create new credentials. It employs OAuth 2.0 standards to ensure secure authentication, 
-	 presenting users with a consent screen for granting permissions. Upon successful login, users are directed to their personalized dashboard, streamlining the access process and enhancing user convenience.
-	 Corresponding User Story: 2
-3. Image Upload and Storage
-	-This feature enables users to easily upload images to their digital wardrobe via a user-friendly UI, supporting drag-and-drop and file selection methods. It provides instant feedback upon successful uploads and ensures secure 
-	storage of images, accessible only to the rightful owner. The backend is designed for reliability, accommodating multiple image formats and optimizing images for storage and display purposes.
-	Corresponding User Story: 3
-4. Detailed View of Clothing Items
-	-This feature allows users to view the clothing item in detailed view in our AI-powered wardrobe management web app offers users a comprehensive overview of each item in their digital wardrobe, facilitating informed styling decisions. With an interactive and responsive front-end, users can explore detailed characteristics such as material, color, and style. 
-	Corresponding User Story: 5
-5. Seamless Data Integration for Real-Time Updates
-	-This feature focuses on achieving seamless integration for real-time wardrobe updates. The design includes a data integration strategy to synchronize user's physical wardrobe changes with the digital closet, ensuring accuracy and timeliness. The implementation involves utilizing Python for the backend logic, incorporating appropriate APIs or webhooks for real-time data synchronization. The user interface offers an intuitive experience for users to effortlessly manage and monitor their wardrobe updates in real-time. 
-	Corresponding User Story: 6
-6. Personal Profile Information
-	-This feature focuses on designing and implementing profile information view and edit functionality. The design incorporates a user-friendly profile page layout displaying essential information, including editable fields for users to update their details. The implementation involves using Python for the backend logic, enabling users to seamlessly edit and save changes to their profile information. The user interface is designed to be intuitive, facilitating easy navigation and customization according to user preferences. 
-	Corresponding User Story: 7
-7. Personalized Outfit Suggestions
-	-This feature enhances user experience by providing personalized outfit suggestions tailored to the user's wardrobe and preferences. Utilizing an advanced algorithm, the system analyzes the user's wardrobe contents, style preferences, and external factors such as weather to generate relevant outfit combinations.
-	Corresponding User Story: 8,9
-	8.Automatic Clothing Attribute Extraction and Categorization
-	-This feature streamlines wardrobe organization by automatically extracting and categorizing details such as clothing type and color from uploaded images. Leveraging advanced image processing techniques and machine learning algorithms, the system analyzes clothing images to identify and extract relevant attributes.
-	Corresponding User Story: 10
-9. Weather Insight
-	-This feature integrates real-time weather data from a weather API (such as OpenWeatherMap or Weatherstack) into a user-friendly interface. 
-	Corresponding User Story: 11
-10. Wardrobe Manager
-	-This feature aims to provide a robust and well-structured database to store clothing items and their attributes efficiently. 
-	Corresponding User Story: 12
-11. Wardrobe Organizer
-	-This feature is designed to systematically organize users' clothing items based on their attributes, providing an intuitive interface for browsing through the wardrobe and finding items effortlessly. 
-	Corresponding User Story: 13
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
+Ramiro: provided users with the ability to navigate the website as well as signing up / logging in"
+	• Jira Task 17: Research how to fix pipeline error and reestablish firebase connection
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/ec5763378826a869c0927c3c02dc0a38460c5c46
+	• Jira Task 50: Design user profile page
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/b3def3c80030d9488a304d4001127cbd242095f7
+	• Jira Task 51: Create web app and navbar redirects 
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/4b48a3373585a51cf28aa4ee670ce75b871ea63b
+	• Jira Task 52: Fixing Profile.js for signup/signin
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/12ba259da5de62ca95005ccdfac8f9dfcc067ec1
+	• Jira Task 54: Changed profile to work for react
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/6d710b8c643762dc50a466384ffb594275244f79
 
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
