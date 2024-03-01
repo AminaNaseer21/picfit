@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import logo512 from '../img/logo512.png'; // Adjust the path as per your project structure
-import './Upload.css'; // Adjust the path based on the actual location of the CSS file
+import logo512 from '../img/logo512.png';
+import PointingPH from '../img/PointingPH.png'; // Importing PointingPH.png
+import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
@@ -18,18 +19,29 @@ export default function Upload() {
 
     return (
         <div className="upload-container">
-            <div>
-                <h1>Image Input</h1>
-                <p>User's Name</p>
-                <label htmlFor="input-file">Add Clothing Item Picture</label>
-                <input
-                    type="file"
-                    accept="image/jpeg, image/png, image/jpg, image/heic"
-                    id="input-file"
-                    onChange={handleImageChange}
-                />
-                {image && <img src={image} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '100%' }} />}
-                <img src={logo512} alt="Default Logo" /> {/* Using the imported image */}
+            <div className="image-holder">
+                <div className="image-display-box">
+                    {image && <img src={image} alt="Uploaded" />}
+                    {!image && <img src={logo512} alt="Add Item Logo" />}
+                </div>
+                <div className="add-item-box">
+                    <label htmlFor="input-file">
+                        <span>Add Clothing Item Picture</span>
+                    </label>
+                    <input
+                        type="file"
+                        accept="image/jpeg, image/png, image/jpg, image/heic"
+                        id="input-file"
+                        onChange={handleImageChange}
+                    />
+                </div>
+            </div>
+            <div className="begin-making">
+                <img src={PointingPH} alt="Pointing" style={{ width: '600px', height: '600px' }} /> {/* Adjusted width and height */}
+            </div>
+            <div className="description">
+                <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Begin Making Today's Outfit</p>
+                <p style={{ fontSize: '18px', fontWeight: 'normal' }}>because everyone deserves to feel good in what they wear</p>
             </div>
         </div>
     );
