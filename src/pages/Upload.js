@@ -37,9 +37,11 @@ export default function Upload() {
                 </div>
             </div>
             <div className="begin-making">
-                <img src={PointingPH} alt="Pointing" style={{ width: '440px', height: '440px' }} /> {/* Adjusted width and height */}
-                <p>Begin Making Today's Outfit</p>
-                <small>because everyone deserves to feel good in what they wear</small>
+                <img src={PointingPH} alt="Pointing" style={{ width: '600px', height: '600px' }} /> {/* Adjusted width and height */}
+            </div>
+            <div className="description">
+                <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Begin Making Today's Outfit</p>
+                <p style={{ fontSize: '18px', fontWeight: 'normal' }}>because everyone deserves to feel good in what they wear</p>
             </div>
         </div>
     );
