@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
+import heart from "../img/heart.png";
 
 export default function Wardrobe() {
     // State to track the active category for dropdown
@@ -28,11 +29,15 @@ export default function Wardrobe() {
             <div className="header">
                     <div className="title">MY WARDROBE</div>
                     <div className="controls">
-                        <button className="button">Upload</button>
-                        <button className="button">Capture</button>
+                        <button className="upload-button">Upload</button>
+                        <button className="upload-button">Capture</button>
                     </div>
                     <div className="right-side">
-                        <button className="button heart">❤</button>
+
+                        <button className="button-heart">
+                        <img src={heart} alt="Heart" className="heart-img" />
+                        </button>
+
                         <div className="weather">Weather Info</div>
                     </div>
             </div>

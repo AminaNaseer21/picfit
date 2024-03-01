@@ -1,12 +1,11 @@
-/* Styles for the wardrobe-container and categories/items are the same as before */
-
+/* HEADER STYLES */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
-  background-color: #ececec; /* Light grey background, change as needed */
-  border-bottom: 1px solid #d1d1d1; /* Adds a subtle line under the header */
+  background-color: #ececec;
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .title {
@@ -14,70 +13,64 @@
   font-weight: bold;
 }
 
+/* CONTROL BUTTONS STYLES */
 .controls {
-  /* Center the controls in the middle of the header */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .button {
   padding: 5px 10px;
   margin: 0 10px;
   cursor: pointer;
-  /* Add more button styling here */
 }
 
+/* RIGHT SIDE STYLES */
 .right-side {
   display: flex;
   align-items: center;
 }
 
 .weather {
-  /* Placeholder styling for weather info */
   padding-left: 20px;
-  /* Add more styling here */
 }
 
-/* Ensure you include the rest of the styles provided previously */
-
+/* WARDROBE CONTAINER STYLES */
 .wardrobe-container {
   display: flex;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
 }
 
+/* CATEGORIES STYLES */
 .categories {
-  flex: 1; /* Takes up 1/6th of the space */
-  background-color: #f7f7f7; /* Light grey background, change as needed */
-  padding: 20px; /* Add some spacing */
-  overflow-y: auto; /* Enables scroll for overflow content */
+  flex: 1;
+  background-color: #f7f7f7;
+  padding: 20px;
+  overflow-y: auto;
 }
 
+/* ITEMS STYLES */
 .items {
-  flex: 5; /* Takes up the remaining 5/6th of the space */
-  background-color: #ffffff; /* White background, change as needed */
-  padding: 20px; /* Add some spacing */
-  display: flex; /* Enables flexbox for items */
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 20px; /* Spacing between items */
-  overflow-y: auto; /* Enables scroll for overflow content */
-}
-
-.category {
-  margin-bottom: 10px; /* Spacing between categories */
-  /* Add additional styling for categories here */
+  flex: 5;
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
 }
 
 .item {
-  width: calc(20% - 20px); /* Adjust the width of each item, minus the gap */
-  height: 100px; /* Set a fixed height for each item */
-  background-color: #e1e1e1; /* Light grey background, change as needed */
+  width: calc(20% - 20px);
+  height: 100px;
+  background-color: #e1e1e1;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Add additional styling for items here */
 }
 
+/* DROPDOWN BUTTON STYLES */
 .dropdown-button {
   background: none;
   border: none;
@@ -113,26 +106,76 @@
 .subcategory {
   padding: 5px 10px;
   cursor: pointer;
-  /* Additional styling for subcategory items */
 }
 
-
-.button.heart {
-  position: relative;
-  width: 50px; /* Width of the heart */
-  height: 50px; /* Height of the heart */
-  background-color: pink; /* Color of the heart */
-  margin: 10px;
-  outline: none;
+/* HEART BUTTON STYLES */
+.heart-button {
   border: none;
+  background: none;
+  padding: 0;
   cursor: pointer;
+  outline: none;
 }
 
-.button.heart:hover {
-  background-color: red; /* Color of the heart on hover */
+.heart-img {
+  width: 30px;
+  height: 25px;
+  display: block;
 }
 
-.button.heart:hover:before,
-.button.heart:hover:after {
-  background-color: red;
+
+/* UPLOAD & CAPTURE BUTTON */
+.upload-button {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.upload-button:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.upload-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.upload-button:hover::before {
+  filter: blur(20px);
+}
+
+.upload-button:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 }
