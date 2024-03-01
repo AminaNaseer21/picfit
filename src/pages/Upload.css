@@ -7,15 +7,35 @@
     box-sizing: border-box;
 }
 
+.upload-container .begin-making {
+    float: left; /* Align to left */
+    text-align: left;
+    font-size: 24px; /* Increased font size */
+    margin-top: 50px; /* Added margin-top */
+    padding-left: 20px; /* Added padding-left */
+    width: 300px;
+}
+
+.upload-container .begin-making small {
+    font-size: 14px;
+}
+
+.upload-container .image-holder {
+    float: right;
+    width: 300px; /* Increased width */
+    height: 300px; /* Increased height */
+    margin-top: 100px; /* Adjusted margin-top */
+    margin-right: 20px; /* Adjusted margin-right */
+}
+
 .upload-container .image-display-box {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border: 2px dashed #f54600; /* Added border */
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #ddd; /* Changed border to dashed */
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
 }
 
 .upload-container .image-display-box img {
@@ -25,7 +45,8 @@
 }
 
 .upload-container .add-item-box {
-    width: 200px;
+    clear: both; /* Added to clear the float */
+    width: 300px; /* Increased width */
     height: 50px; /* Reduced height */
     background: orange;
     display: flex;
@@ -33,7 +54,8 @@
     justify-content: center;
     border-radius: 15px;
     margin-top: 20px;
-    margin-bottom: 20px; /* Added margin-bottom */
+    margin-bottom: 50px; /* Adjusted margin-bottom */
+    cursor: pointer; /* Added cursor pointer */
 }
 
 .upload-container .add-item-box label {
@@ -45,11 +67,13 @@
     display: none;
 }
 
-.upload-container .begin-making {
-    text-align: center;
-    font-size: 18px; /* Increased font size */
+.upload-container .add-item-box span {
+    padding: 10px 20px; /* Added padding */
+    cursor: pointer; /* Added cursor pointer */
+    display: inline-block; /* Added for proper positioning */
 }
 
-.upload-container .begin-making small {
-    font-size: 14px;
+.upload-container .add-item-box:hover {
+    background: #ff7f50; /* Change background color on hover */
+    transition: background 0.3s ease; /* Added transition effect */
 }
