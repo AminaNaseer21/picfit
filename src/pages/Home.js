@@ -1,5 +1,5 @@
-import logo from './PicMyFit_logo.png';
-
+import logo from './PicMyFit_Logo.png';
+import  React from 'react';
 export default function Home() {
 /*Section 1: This section of the code centers the picture of the clothes from wardrobe and displays it in a way that can be similarly 
 seen in 'HomePagePic.jpg'. 
@@ -25,6 +25,7 @@ const favoriteButtons={ //This button should be displayed at the bottom left of 
     bottom: '0', 
     left: '0', 
 };
+
 const wardrobeButton={ // this should be displayed at the bottom middle of the webpage 
     display: 'flex',
     justifyContent: 'center', 
@@ -35,6 +36,7 @@ const wardrobeButton={ // this should be displayed at the bottom middle of the w
     width: 'auto', 
     padding: '10px', 
 };
+
 const uploadButton={ //This button should be displayed at the bottom right of the webpage.
     display: 'flex',
     justifyContent: 'center', 
