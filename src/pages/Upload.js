@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo512 from '../img/logo512.png'; // Adjust the path as per your project structure
-import './Upload.css'; // Adjust the path based on the actual location of the CSS file
+import logo512 from '../img/logo512.png';
+import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
@@ -18,9 +18,11 @@ export default function Upload() {
 
     return (
         <div className="upload-container">
-            <div>
-                <h1>Image Input</h1>
-                <p>User's Name</p>
+            <div className="image-display-box">
+                {image && <img src={image} alt="Uploaded" />}
+                {!image && <img src={logo512} alt="Add Item Logo" />}
+            </div>
+            <div className="add-item-box">
                 <label htmlFor="input-file">Add Clothing Item Picture</label>
                 <input
                     type="file"
@@ -28,8 +30,10 @@ export default function Upload() {
                     id="input-file"
                     onChange={handleImageChange}
                 />
-                {image && <img src={image} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '100%' }} />}
-                <img src={logo512} alt="Default Logo" /> {/* Using the imported image */}
+            </div>
+            <div className="begin-making">
+                <p>Begin Making Today's Outfit</p>
+                <small>because everyone deserves to feel good in what they wear</small>
             </div>
         </div>
     );

@@ -7,48 +7,49 @@
     box-sizing: border-box;
 }
 
-.upload-container .hero {
-    background: #fcdea7;
+.upload-container .image-display-box {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 2px dashed #f54600; /* Added border */
     display: flex;
     align-items: center;
-    justify-content: center; /* Fixed typo in justify-content value */
-    height: 100px;
-}
-
-.upload-container .card {
-    width: 400px;
-    height: 300px;
-    background: #fff;
-    padding: 40px;
+    justify-content: center;
     border-radius: 15px;
-    text-align: center;
-    color: #333;
-    margin-top: 20px;
 }
 
-.upload-container .card h1 {
-    font-weight: 500;
-    color: #000;
+.upload-container .image-display-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
 }
 
-.upload-container .card img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.upload-container label {
-    display: block;
+.upload-container .add-item-box {
     width: 200px;
-    background: #f54600;
-    color: #fff;
-    padding: 12px;
-    margin: 10px auto;
-    border-radius: 5px;
-    cursor: pointer;
+    height: 50px; /* Reduced height */
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Added margin-bottom */
 }
 
-.upload-container input {
+.upload-container .add-item-box label {
+    color: white;
+    font-size: 16px;
+}
+
+.upload-container .add-item-box input {
     display: none;
+}
+
+.upload-container .begin-making {
+    text-align: center;
+    font-size: 18px; /* Increased font size */
+}
+
+.upload-container .begin-making small {
+    font-size: 14px;
 }
