@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthErrorCodes, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { firebaseApp } from "../Services/firebase";
+import './Login.css'
 
 function Signup() {
   const [input, setInput] = useState({ email: "", password: "" });
