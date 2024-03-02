@@ -5,7 +5,7 @@ import Wardrobe from "./pages/Wardrobe";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Upload from "./pages/Upload";
-import Itempage from "./pages/Itempage";
+import Itempage from "./pages/itempage";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

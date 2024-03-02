@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Itempage.css';
+import './itempage.css';
 
 const ItemPage = () => {
   const [itemName, setItemName] = useState('Item Name');
