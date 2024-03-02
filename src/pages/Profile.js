@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Profile.css';
 
 
 function ProfilePage() {
@@ -30,20 +31,33 @@ function ProfilePage() {
     };
 
     return (
-        <div className="container">
+        <div className="container profile-container">
             <h1>User Profile</h1>
-            <form onSubmit={handleSubmit}>
+            <div className="profile-picture-container">
+                <div className="profile-picture">
+                    {profilePic ? (
+                        <img src={URL.createObjectURL(profilePic)} alt="Profile Preview" />
+                    ) : (
+                        <span>Upload Picture</span>
+                    )}
+                    <label htmlFor="profilePic" className="upload-button">
+                        <input
+                            type="file"
+                            id="profilePic"
+                            onChange={handleProfilePicChange}
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                        />
+                        +
+                    </label>
+                </div>
+            </div>
+            <form onSubmit={handleSubmit} className="profile-info">
                 <input type="text" value={name} onChange={handleNameChange} placeholder="Name" required />
                 <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" required />
                 <input type="tel" value={phone} onChange={handlePhoneChange} placeholder="Phone Number" required />
-                <input type="file" onChange={handleProfilePicChange} accept="image/*" required />
                 <button type="submit">Save</button>
             </form>
-            {profilePic && (
-                <div id="preview">
-                    <img src={URL.createObjectURL(profilePic)} alt="Profile Preview" />
-                </div>
-            )}
         </div>
     );
 }
