@@ -2,15 +2,21 @@ import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
 
+
 const Home = () => {
+  
   return (
+
     <div className="centerPicture">
-      <h1>Home</h1>   
+      <h1>Welcome to MyPicFit</h1> 
+
+<div className="lines">
+</div>
+
       <div className="centeredBox">
-        <button type="picture">OUTFIT #1</button>
+        <button type="picture">OUTFIT</button>
       </div>                          
       
-
       <div className="favoriteButtons"> 
       <Link to="/">
         <button type="favorites">Favorites</button>
