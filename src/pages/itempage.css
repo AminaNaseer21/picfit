@@ -2,66 +2,94 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
-.photo-section {
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.item-photo {
-  width: 300px;
-  height: 300px;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.details-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-}
-
-.item-name,
-.item-category,
-.item-color,
-.item-notes {
-  width: 100%;
-  margin-bottom: 10px;
+.item-name {
+  flex-grow: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-right: 10px;
+}
+
+.confirm-icon {
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.photo-section {
+  width: 50%;
+  padding-right: 10px;
+}
+
+.item-photo {
+  width: 100%;
+  padding-top: 100%; /* Aspect ratio 1:1 */
+  background-color: #f0f0f0;
+  text-align: center;
+  position: relative;
+}
+
+.details-section {
+  width: 50%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-category,
+.item-subcategory,
+.item-color,
+.wear-counter,
+.weather-range {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Adjust based on content height to match photo height */
 }
 
 .wear-counter {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .wear-counter button {
   padding: 5px 10px;
-  margin: 0 5px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   cursor: pointer;
 }
 
-.build-outfit-btn {
+.item-notes {
+  width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.similar-items {
-  margin-bottom: 10px;
-  padding: 20px;
-  background-color: #fff
+  height: 100px; /* Adjust as needed */
 }
