@@ -13,15 +13,32 @@
     height: 20vh;
   }
   
+  .centeredBox {
+    width: 1000px;
+    background-color: #282626;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 400px; /* Vertical centering for text */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    border: 4px solid black; /* Increase border width and set color */
+}
+
+  
   .favoriteButtons {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
     position: fixed;
-    width: 50%;
+    width: 33.33%;
     bottom: 0;
     left: 0;
+    line-height:200px;
+    padding: 10px;
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    border: 4px solid rgb(66, 65, 65); /* Increase border width and set color */
   }
   
   .wardrobeButton {
@@ -31,8 +48,11 @@
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: auto;
+    width: 33.33%;
     padding: 10px;
+    line-height: 200px;
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    border: 4px solid grey; /* Increase border width and set color */
   }
   
   .uploadButton {
@@ -41,7 +61,10 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    width: auto;
+    width: 33.33%;
     padding: 10px;
+    line-height: 200px;
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    border: 4px solid blue; /* Increase border width and set color */
   }
   
