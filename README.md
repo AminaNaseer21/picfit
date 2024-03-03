@@ -53,7 +53,7 @@ Ramiro: provided users with the ability to navigate the website as well as signi
 	• Jira Task 54: Changed profile to work for react
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/6d710b8c643762dc50a466384ffb594275244f79
 	• Jira Task 85: Updated Readme
-		- 
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/c586ac0991437429b2c546a9a45fbda08015f6b7
 Umer: Input overall what you did
 	• Jira Task 76: Implement HTML structure
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/1fd23d960a339b592a4859bcb703ac7086c20c04
