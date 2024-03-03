@@ -41,76 +41,78 @@ We are working together to build a platform that transforms the way users approa
 
 
 ## Features
-Ramiro: provided users with the ability to navigate the website as well as signing up / logging in"
-	• Jira Task 17: Research how to fix pipeline error and establish firebase connection
+### Ramiro: provided users with the ability to navigate the website as well as signing up / logging in"
+- Jira Task 17: Research how to fix pipeline error and establish firebase connection
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/ec5763378826a869c0927c3c02dc0a38460c5c46
-	• Jira Task 50: Design user profile page
+- Jira Task 50: Design user profile page
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/b3def3c80030d9488a304d4001127cbd242095f7
-	• Jira Task 51: Redoing web app and navbar redirects 
+- Jira Task 51: Redoing web app and navbar redirects 
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/4b48a3373585a51cf28aa4ee670ce75b871ea63b
-	• Jira Task 52: Fixing Profile.js for signup/signin
+- Jira Task 52: Fixing Profile.js for signup/signin
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/12ba259da5de62ca95005ccdfac8f9dfcc067ec1
-	• Jira Task 54: Changed profile to work for react
+- Jira Task 54: Changed profile to work for react
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/6d710b8c643762dc50a466384ffb594275244f79
-	• Jira Task 85: Updated Readme
+- Jira Task 85: Updated Readme
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/c586ac0991437429b2c546a9a45fbda08015f6b7
-Umer: Input overall what you did
-	• Jira Task 76: Implement HTML structure
+### Umer: Set up infistructer for repository, implimented react and firebase, created wardrobe and inputs page
+- Jira Task 76: Implement HTML structure
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/1fd23d960a339b592a4859bcb703ac7086c20c04
-	• Jira Task 14: Low fidelity design for wardrobe
+- Jira Task 14: Low fidelity design for wardrobe
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/111e3088ce33300d0cd172d07f2d3d4dcae735be
-	• Jira Task 31: Version control and collaboration setup
+- Jira Task 31: Version control and collaboration setup
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/bdad8602bfb62908e6889cf29eda7ae00fcaf7f8
-	• Jira Task 27: Project Directory Setup:
+- Jira Task 27: Project Directory Setup:
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/6394683c8a890154f807dfd26d827a71b2193cdb
-	• Jira Task 28: Basic webpage and navigation setup
-		- 
-	• Jira Task 30: Back-end framework setup
-		- 
-	• Jira Task 18: High fidelity design for wardrobe
+- Jira Task 28: Basic webpage and navigation setup
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/cc531daff1fa54dd9774012d510532b251fd1183
+- Jira Task 30: Back-end framework setup
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/37034c75e37256e248502a67a2fa06e87c0e135d 
+- Jira Task 18: High fidelity design for wardrobe
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/e48c6398b196eefc7c843f942a6171c5a90b6ec9
-	• Jira Task 24: Create individual item page
+- Jira Task 24: Create individual item page
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/d5b052e280382a720c21bb0c250c05b5e8cee557
-Amina: Input overall what you did
-	• Jira Task 93: Research on designing database
+### Amina: Input overall what you did
+- Jira Task 93: Research on designing database
 		-  
-	• Jira Task 75: Working on profile page
+- Jira Task 75: Working on profile page
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/bbeb5b10369729b05647419da55f3d8913b252ec
-	• Jira Task 74: Implement database using suitable database management system
+- Jira Task 74: Implement database using suitable database management system
 		-  
-	• Jira Task 96: Research using Firebase realtime database
+- Jira Task 96: Research using Firebase realtime database
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/c5a893b9ce55f19318879a18e2a4cea14697451e
-	• Jira Task 97: Implement user authentication
+- Jira Task 97: Implement user authentication
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/d588cffa3c545d961f17ad2e02bb38ac7535d032
-	• Jira Task 72: Linkin files to implement user authentication
+- Jira Task 72: Linkin files to implement user authentication
 		- https://bitbucket.org/cs3398s24miranda/picfit/commits/98b5a4fb155607b77168003d43ea0afeb29aba35
-Matthew: Input overall what you did
-	• Jira Task 82: Sketch desing for home
+### Matthew: Input overall what you did
+- Jira Task 82: Sketch desing for home
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/ce9fbb2857f22a3a90422d1ad13d4a16943e9518
-	• Jira Task 29: Implement basic html structure
+- Jira Task 29: Implement basic html structure
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/1c502a7ddb76fff941cabc79e2af1cf97f59eac6
-	• Jira Task 84: Style home page
+- Jira Task 84: Style home page
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-84-style-with-css
-Rogelio: Input overall what you did
-	• Jira Task 92: Reasearch OpenAi visions for attribute extraction
+### Rogelio: Input overall what you did
+- Jira Task 92: Reasearch OpenAi visions for attribute extraction
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-92-research-openai-visions-for-a
-	• Jira Task 45: Photo addition implementation feature
+- Jira Task 45: Photo addition implementation feature
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-45-photo-addition-implementation
-	• Jira Task 46: Design attribute extraction algorithm
+- Jira Task 46: Design attribute extraction algorithm
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-46-design-attribute-extraction-a
-	• Jira Task 47: Implement formate file UI
+- Jira Task 47: Implement formate file UI
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/047c6a35e5a1520a3624468680dc3e723a2a4ded
-	• Jira Task 48: Implement basic background remove feature
+- Jira Task 48: Implement basic background remove feature
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/30d7e39cf1309b85e119cc080ae493d685d8af34
-	• Jira Task 49: UI upload usability implementation
+- Jira Task 49: UI upload usability implementation
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-49-ui-upload
 
 
-Next Steps (for Sprint 2)
+## Next Steps (for Sprint 2)
 	• Ramiro:
 		- Work on database for storing and accessing users items
 	• Umer:
-		- 
+		- Impliment the database into wardrobe
+		- Add functionally to update database information from frontend (userside)
+		- Work on machine learning prompt for generating outfits.
 	• Amina:
 		- 
 	• Matthew:
