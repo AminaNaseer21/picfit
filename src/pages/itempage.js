@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './itempage.css';
+import { useNavigate } from 'react-router-dom';
 
 const ItemPage = () => {
   const [itemName, setItemName] = useState('Item Name');
@@ -8,6 +9,8 @@ const ItemPage = () => {
   const [itemColor, setItemColor] = useState('Color');
   const [wearCount, setWearCount] = useState(0);
   const [itemNotes, setItemNotes] = useState('');
+
+  const navigate = useNavigate();
 
   const handleNameChange = (e) => setItemName(e.target.value);
   const handleCategoryChange = (e) => setItemCategory(e.target.value);
@@ -22,6 +25,7 @@ const ItemPage = () => {
   return (
     <div className="item-page">
       <div className="header">
+        <button onClick={() => navigate(-1)} className="back-button">← Back</button> {/* Back button */}
         <input
           type="text"
           value={itemName}

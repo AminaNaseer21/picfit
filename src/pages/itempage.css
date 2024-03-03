@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 80%;
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -26,8 +26,8 @@
 }
 
 .confirm-icon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-color: green;
   color: white;
   display: flex;
@@ -92,4 +92,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   height: 100px; /* Adjust as needed */
+}
+
+.back-button {
+  margin-right: 20px; /* Adds some space between the back button and the next element */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  background: none; /* Removes any default background */
+  border: none; /* Removes any default border */
+  font-size: 16px; /* Adjusts the font size */
+  /* Add any additional styling as needed */
 }
