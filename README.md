@@ -71,7 +71,7 @@ We are working together to build a platform that transforms the way users approa
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/e48c6398b196eefc7c843f942a6171c5a90b6ec9
 - Jira Task 24: Create individual item page
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/d5b052e280382a720c21bb0c250c05b5e8cee557
-### Amina: Input overall what you did
+### Amina: Implement user authentication and Profile page frontend.
 - Jira Task 93: Research on designing database
 		-  
 - Jira Task 75: Working on profile page
@@ -114,7 +114,8 @@ We are working together to build a platform that transforms the way users approa
 		- Add functionally to update database information from frontend (userside)
 		- Work on machine learning prompt for generating outfits.
 	• Amina:
-		- 
+		- Work on database for user's profile information.
+		- Handling user input for storing personal data.  
 	• Matthew:
 		-
 	• Rogelio:
