@@ -116,11 +116,12 @@ We are working together to build a platform that transforms the way users approa
 	• Amina:
 		- Work on database for user's profile information.
 		- Handling user input for storing personal data.  
+	• Rogelio:
+		- Impliment ChatGPT's capabilities to recognize images
+		- Prompting of images to design outfit
+		- Algorithim to design outfits
 	• Matthew:
 		-
-	• Rogelio:
-		-
-	
 
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
@@ -159,6 +160,6 @@ To do:
 Members:
 Umer Seliya - hme36@txstate.edu
 Ramiro Ramirez - r_r888@txstate.edu
-Rogelio Atilano-Hernandez - 
+Rogelio Atilano-Hernandez -  bav74@txstate.edu
 Amina Naseer - 
 Matthew Lee - 
