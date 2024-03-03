@@ -8,11 +8,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .profile-picture {
   position: relative;
-  display: flex;
+  display: inline-block;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -41,11 +43,7 @@
 }
 
 .upload-button {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #6c87a4; /* Use a color that stands out */
+  background: #d7dadd; /* Use a color that stands out */
   border: none;
   border-radius: 20px; /* Rounded corners */
   padding: 8px 16px; /* Size of the button */
@@ -53,10 +51,9 @@
   text-align: center;
   font-size: 1rem;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block; /* Center the button below the profile picture */
 }
+
 
 #profilePic {
   opacity: 0;

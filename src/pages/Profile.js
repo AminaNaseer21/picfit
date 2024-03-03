@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Profile.css';
 
-
 function ProfilePage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -40,18 +39,16 @@ function ProfilePage() {
                     ) : (
                         <span>Upload Picture</span>
                     )}
-                    <label htmlFor="profilePic" className="upload-button">
-                        <input
-                            type="file"
-                            id="profilePic"
-                            onChange={handleProfilePicChange}
-                            accept="image/*"
-                            style={{ display: 'none' }}
-                        />
-                        +
-                    </label>
                 </div>
             </div>
+            <label htmlFor="profilePic" className="upload-button"> + </label>
+            <input
+                type="file"
+                id="profilePic"
+                onChange={handleProfilePicChange}
+                accept="image/*"
+                style={{ display: 'none' }}
+            />
             <form onSubmit={handleSubmit} className="profile-info">
                 <input type="text" value={name} onChange={handleNameChange} placeholder="Name" required />
                 <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" required />
