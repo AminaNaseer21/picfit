@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
+import item1 from "../img/items/1.png";
+import item2 from "../img/items/2.png";
+import item3 from "../img/items/3.png";
 
 export default function Wardrobe() {
     // State to track the active category for dropdown
@@ -15,7 +18,7 @@ export default function Wardrobe() {
     };
 
     // Replace with real items
-    const items = new Array(20).fill('Clothing Item');
+    const items = [item1, item2, item3];
 
     // Function to handle dropdown toggle
     const toggleDropdown = (category) => {
@@ -29,11 +32,14 @@ export default function Wardrobe() {
         const handleUploadClick = () => {
           navigate('/upload'); // Use the path you've defined for the Upload component in your router setup
         };
+        const handleItemClick = () => {
+            navigate('/itempage'); // Use the path you've defined for the Upload component in your router setup
+          };
 
     return (
         <div>
             
-            <div className="header">
+            <div className="headerx">
                     <div className="title">W A R D R O B E</div>
                     <div className="controls">
 
@@ -109,9 +115,12 @@ export default function Wardrobe() {
                 <div className="items">
                     {items.map((item, index) => (
                         <div key={index} className="item">
-                            {item}
+                            <img src={item} alt={`Item ${index + 1}`} /> {/* Display each item image */}
                         </div>
                     ))}
+                    <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
+                        <span className="plus-button">+</span> {/* You can style this as needed */}
+                    </div>
                 </div>
             </div>
         </div>    

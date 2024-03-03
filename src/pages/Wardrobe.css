@@ -1,12 +1,12 @@
 
 
 /* HEADER STYLES */
-.header {
+.headerx {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0;
-  padding: 5px 30px;
+  margin-top: 0px;
+  padding: 10px 30px;
   background-color: #ececec;
   border-bottom: 1px solid #d1d1d1;
 }
@@ -57,10 +57,11 @@
   flex-wrap: wrap;
   gap: 20px;
   overflow-y: auto;
+  justify-content: left;
 }
 
 .item {
-  width: calc(20% - 20px);
+  width: 150px;
   height: 150px;
   background-color: #e1e1e1;
   display: flex;
@@ -71,8 +72,35 @@
   box-shadow: rgba(7, 19, 88, 0.25) 0px 30px 50px -12px inset, rgba(7, 19, 88, 0.25) 0px 18px 26px -18px inset;
 }
 
+.item img {
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Keeps the image's aspect ratio */
+    max-height: 150px; /* Limits the image height. Adjust as needed */
+}
+
+.add-new-item {
+    display: flex; /* Aligns the plus button centrally */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    font-size: 24px; /* Sets the size of the plus button. Adjust as needed */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+.plus-button {
+    width: 50px; /* Width of the plus button */
+    height: 50px; /* Height of the plus button */
+    border-radius: 50%; /* Makes the plus button circular */
+    background-color: #ddd; /* Background color of the plus button. Adjust as needed */
+    display: flex; /* Aligns the plus sign centrally */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    color: #333; /* Color of the plus sign. Adjust as needed */
+}
+
+
 /* DROPDOWN BUTTON STYLES */
 .wardrobe-container {
+  margin-top: 0;
   display: flex;
   height: 100vh;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
