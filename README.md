@@ -107,7 +107,10 @@ Room for improvement:
 - Improvement to be done 2
 
 To do:
-- Feature to be added 1
+- Implementing ChatGPT's capabilities to recognize images: Rogelio Atilano 
+- Prompting of images to design outfit: Rogelio Atilano 
+- Algorithim to design outfits: Rogelio Atilano 
+- Intergrate Database into prompting: Rogelio Atilano 
 - Feature to be added 2
 
 
@@ -122,7 +125,7 @@ Give credit here.
 Members:
 Umer Seliya - hme36@txstate.edu
 Ramiro Ramirez - 
-Rogelio Atilano-Hernandez - 
+Rogelio Atilano-Hernandez - bav74@txstate.edu
 Amina Naseer - 
 Matthew Lee - 
 ReadMe template created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
