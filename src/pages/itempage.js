@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './itempage.css';
 import { useNavigate } from 'react-router-dom';
+import item1 from '../img/items/item1.png';
 
 const ItemPage = () => {
   const [itemName, setItemName] = useState('Item Name');
@@ -38,20 +39,24 @@ const ItemPage = () => {
       <div className="content">
         <div className="photo-section">
           {/* Placeholder for item photo */}
-          <div className="item-photo">Item Photo Here</div>
+          <img src={item1} alt="Item 1" className="item-photo"/>
         </div>
 
         <div className="details-section">
           <select value={itemCategory} onChange={handleCategoryChange} className="item-category">
             {/* Placeholder options */}
-            <option value="Category 1">Category 1</option>
-            <option value="Category 2">Category 2</option>
+            <option value="Category 1">Tops</option>
+            <option value="Category 2">Shirt</option>
+            <option value="Category 3">Layering</option>
           </select>
           <select value={itemSubcategory} onChange={handleSubcategoryChange} className="item-subcategory">
             {/* Placeholder options */}
-            <option value="Subcategory 1">Subcategory 1</option>
-            <option value="Subcategory 2">Subcategory 2</option>
+            <option value="Subcategory 1">Long-Sleeve Shirts</option>
+            <option value="Subcategory 2">Shirt Jackets</option>
+            <option value="Subcategory 2">Short-Sleeve Shirts</option>
+            <option value="Subcategory 2">Sweater Polos</option>
           </select>
+      
           <select value={itemColor} onChange={handleColorChange} className="item-color">
             {/* Placeholder options */}
             <option value="Color 1">Color 1</option>
