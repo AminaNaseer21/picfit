@@ -3,11 +3,13 @@ Collaborating with team members, Ramiro Ramirez, Umer Seliya, Rogelio Atilano-He
 By leveraging advanced AI algorithms, we aim to provide users with personalized outfit suggestions based on their existing wardrobe. The intended impact is to empower individuals to make informed and stylish wardrobe choices, promoting sustainability by encouraging thoughtful use of existing clothing and minimizing fashion waste. 
 We are working together to build a platform that transforms the way users approach fashion, ensuring a seamless and enjoyable experience for our diverse audience.
 
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo: https://picmyfitv2.firebaseapp.com/ <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
+* [Who Are We Doing This For?](#who-are-we-doing-this-for?)
+* [Why Are We Doing This?](#why-are-we-doing-this?)
+* [Technologies Used](#technologies-used?)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
@@ -16,71 +18,110 @@ We are working together to build a platform that transforms the way users approa
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+
 
 
 ## General Information
 ![Logo](img/LOGO_v1.png)
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
+## Who Are We Doing This For?
+- We're doing this for people who want outfits ideas with the clothes they already have.
+
+## Why Are We Doing This?
+- We're doing to because we want to help people if they want to wear the clothes they have and don't know how to style them.
 
 ## Technologies Used
-- Python
-- JavaScript
-- Html/CSS
-- React
-- Flask
+- Html
+- CSS
+- React.js
 - OpenAI
-- Google Cloud Storage
-- MySQL
 - GitKraken
-- Google Firebase
+- Firebase
+- Bitbucket
 
 
 ## Features
-1. Project Foundation and Base Webpage Setup
-	-This feature, "Project Foundation and Base Webpage Setup," is aimed at developers for initializing a web project. It includes creating a structured directory for code organization, developing a responsive landing page, 
-	 setting up a basic navigation, integrating key front-end and back-end frameworks, and establishing version control with Git. This foundational setup ensures the project's scalability and maintainability from the outset.
-	 Corresponding User Story: 1 
-2. Google Sign-In Integration
-	-This feature introduces Google Sign-In for authentication, allowing users to access their personal accounts securely without needing to create new credentials. It employs OAuth 2.0 standards to ensure secure authentication, 
-	 presenting users with a consent screen for granting permissions. Upon successful login, users are directed to their personalized dashboard, streamlining the access process and enhancing user convenience.
-	 Corresponding User Story: 2
-3. Image Upload and Storage
-	-This feature enables users to easily upload images to their digital wardrobe via a user-friendly UI, supporting drag-and-drop and file selection methods. It provides instant feedback upon successful uploads and ensures secure 
-	storage of images, accessible only to the rightful owner. The backend is designed for reliability, accommodating multiple image formats and optimizing images for storage and display purposes.
-	Corresponding User Story: 3
-4. Detailed View of Clothing Items
-	-This feature allows users to view the clothing item in detailed view in our AI-powered wardrobe management web app offers users a comprehensive overview of each item in their digital wardrobe, facilitating informed styling decisions. With an interactive and responsive front-end, users can explore detailed characteristics such as material, color, and style. 
-	Corresponding User Story: 5
-5. Seamless Data Integration for Real-Time Updates
-	-This feature focuses on achieving seamless integration for real-time wardrobe updates. The design includes a data integration strategy to synchronize user's physical wardrobe changes with the digital closet, ensuring accuracy and timeliness. The implementation involves utilizing Python for the backend logic, incorporating appropriate APIs or webhooks for real-time data synchronization. The user interface offers an intuitive experience for users to effortlessly manage and monitor their wardrobe updates in real-time. 
-	Corresponding User Story: 6
-6. Personal Profile Information
-	-This feature focuses on designing and implementing profile information view and edit functionality. The design incorporates a user-friendly profile page layout displaying essential information, including editable fields for users to update their details. The implementation involves using Python for the backend logic, enabling users to seamlessly edit and save changes to their profile information. The user interface is designed to be intuitive, facilitating easy navigation and customization according to user preferences. 
-	Corresponding User Story: 7
-7. Personalized Outfit Suggestions
-	-This feature enhances user experience by providing personalized outfit suggestions tailored to the user's wardrobe and preferences. Utilizing an advanced algorithm, the system analyzes the user's wardrobe contents, style preferences, and external factors such as weather to generate relevant outfit combinations.
-	Corresponding User Story: 8,9
-	8.Automatic Clothing Attribute Extraction and Categorization
-	-This feature streamlines wardrobe organization by automatically extracting and categorizing details such as clothing type and color from uploaded images. Leveraging advanced image processing techniques and machine learning algorithms, the system analyzes clothing images to identify and extract relevant attributes.
-	Corresponding User Story: 10
-9. Weather Insight
-	-This feature integrates real-time weather data from a weather API (such as OpenWeatherMap or Weatherstack) into a user-friendly interface. 
-	Corresponding User Story: 11
-10. Wardrobe Manager
-	-This feature aims to provide a robust and well-structured database to store clothing items and their attributes efficiently. 
-	Corresponding User Story: 12
-11. Wardrobe Organizer
-	-This feature is designed to systematically organize users' clothing items based on their attributes, providing an intuitive interface for browsing through the wardrobe and finding items effortlessly. 
-	Corresponding User Story: 13
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+### Ramiro: provided users with the ability to navigate the website as well as signing up / logging in"
+- Jira Task 17: Research how to fix pipeline error and establish firebase connection
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/ec5763378826a869c0927c3c02dc0a38460c5c46
+- Jira Task 50: Design user profile page
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/b3def3c80030d9488a304d4001127cbd242095f7
+- Jira Task 51: Redoing web app and navbar redirects 
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/4b48a3373585a51cf28aa4ee670ce75b871ea63b
+- Jira Task 52: Fixing Profile.js for signup/signin
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/12ba259da5de62ca95005ccdfac8f9dfcc067ec1
+- Jira Task 54: Changed profile to work for react
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/6d710b8c643762dc50a466384ffb594275244f79
+- Jira Task 85: Updated Readme
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/c586ac0991437429b2c546a9a45fbda08015f6b7
+### Umer: Set up infistructer for repository, implimented react and firebase, created wardrobe and inputs page
+- Jira Task 76: Implement HTML structure
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/1fd23d960a339b592a4859bcb703ac7086c20c04
+- Jira Task 14: Low fidelity design for wardrobe
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/111e3088ce33300d0cd172d07f2d3d4dcae735be
+- Jira Task 31: Version control and collaboration setup
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/bdad8602bfb62908e6889cf29eda7ae00fcaf7f8
+- Jira Task 27: Project Directory Setup:
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/6394683c8a890154f807dfd26d827a71b2193cdb
+- Jira Task 28: Basic webpage and navigation setup
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/cc531daff1fa54dd9774012d510532b251fd1183
+- Jira Task 30: Back-end framework setup
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/37034c75e37256e248502a67a2fa06e87c0e135d 
+- Jira Task 18: High fidelity design for wardrobe
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/e48c6398b196eefc7c843f942a6171c5a90b6ec9
+- Jira Task 24: Create individual item page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/d5b052e280382a720c21bb0c250c05b5e8cee557
+### Amina: Implement user authentication and Profile page frontend.
+- Jira Task 93: Research on designing database
+		-  
+- Jira Task 75: Working on profile page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/bbeb5b10369729b05647419da55f3d8913b252ec
+- Jira Task 74: Implement database using suitable database management system
+		-  
+- Jira Task 96: Research using Firebase realtime database
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/c5a893b9ce55f19318879a18e2a4cea14697451e
+- Jira Task 97: Implement user authentication
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/d588cffa3c545d961f17ad2e02bb38ac7535d032
+- Jira Task 72: Linkin files to implement user authentication
+		- https://bitbucket.org/cs3398s24miranda/picfit/commits/98b5a4fb155607b77168003d43ea0afeb29aba35
+### Matthew: Input overall what you did
+- Jira Task 82: Sketch desing for home
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/ce9fbb2857f22a3a90422d1ad13d4a16943e9518
+- Jira Task 29: Implement basic html structure
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/1c502a7ddb76fff941cabc79e2af1cf97f59eac6
+- Jira Task 84: Style home page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-84-style-with-css
+### Rogelio: Input overall what you did
+- Jira Task 92: Reasearch OpenAi visions for attribute extraction
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-92-research-openai-visions-for-a
+- Jira Task 45: Photo addition implementation feature
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-45-photo-addition-implementation
+- Jira Task 46: Design attribute extraction algorithm
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-46-design-attribute-extraction-a
+- Jira Task 47: Implement formate file UI
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/047c6a35e5a1520a3624468680dc3e723a2a4ded
+- Jira Task 48: Implement basic background remove feature
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/commits/30d7e39cf1309b85e119cc080ae493d685d8af34
+- Jira Task 49: UI upload usability implementation
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-49-ui-upload
 
+
+## Next Steps (for Sprint 2)
+	• Ramiro:
+		- Work on database for storing and accessing users items
+	• Umer:
+		- Impliment the database into wardrobe
+		- Add functionally to update database information from frontend (userside)
+		- Work on machine learning prompt for generating outfits.
+	• Amina:
+		- Work on database for user's profile information.
+		- Handling user input for storing personal data.  
+	• Rogelio:
+		- Impliment ChatGPT's capabilities to recognize images
+		- Prompting of images to design outfit
+		- Algorithim to design outfits
+	• Matthew:
+		-
 
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
@@ -96,7 +137,7 @@ Provide various use cases and code examples here.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: in progress
 
 
 ## Room for Improvement
@@ -107,32 +148,18 @@ Room for improvement:
 - Improvement to be done 2
 
 To do:
-- Implementing ChatGPT's capabilities to recognize images: Rogelio Atilano 
-- Prompting of images to design outfit: Rogelio Atilano 
-- Algorithim to design outfits: Rogelio Atilano 
-- Intergrate Database into prompting: Rogelio Atilano 
+- Feature to be added 1
 - Feature to be added 2
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by a dream.
-- This project was based on [this tutorial](https://www.example.com).
 - Many thanks to Dr.Lehr
 
 
 ## Contact
 Members:
 Umer Seliya - hme36@txstate.edu
-Ramiro Ramirez - 
-Rogelio Atilano-Hernandez - bav74@txstate.edu
+Ramiro Ramirez - r_r888@txstate.edu
+Rogelio Atilano-Hernandez -  bav74@txstate.edu
 Amina Naseer - 
 Matthew Lee - 
-ReadMe template created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
