@@ -98,19 +98,17 @@ Provide various use cases and code examples here.
 ## Project Status
 Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
 
-in progress
 
 ## Room for Improvement
 Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
 Room for improvement:
-- implement pictures to the homepage. 
-- Implement weather APIS.
-- edit user interfaces that link to wardrobes/favorites.. etc.
+- Improvement to be done 1
+- Improvement to be done 2
 
 To do:
-- Implement weather APIS.
-- edit user interfaces that link to wardrobes/favorites.. etc.
+- Feature to be added 1
+- Feature to be added 2
 
 
 ## Acknowledgements
