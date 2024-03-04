@@ -8,7 +8,7 @@ const Home = () => {
   return (
 
     <div className="centerPicture">
-      <h1>Welcome to MyPicFit</h1> 
+      <h1>Welcome to PicMyFit</h1> 
 
 <div className="lines">
 </div>
