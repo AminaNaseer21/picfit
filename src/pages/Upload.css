@@ -1,0 +1,77 @@
+.upload-container * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.upload-container .begin-making {
+    float: left;
+    text-align: left;
+    font-size: 24px;
+    margin-top: 50px;
+    padding-left: 20px;
+    width: 300px;
+}
+
+.upload-container .begin-making small {
+    font-size: 14px;
+}
+
+.upload-container .image-holder {
+    float: right;
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    margin-right: 100px;
+}
+
+.upload-container .image-display-box {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-container .image-display-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+}
+
+.upload-container .add-item-box {
+    clear: both;
+    width: 300px;
+    height: 50px;
+    background: blue; /* Changed background color to blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adjusted margin-bottom */
+    cursor: pointer;
+}
+
+.upload-container .add-item-box label {
+    color: white;
+    font-size: 16px;
+}
+
+.upload-container .add-item-box input {
+    display: none;
+}
+
+.upload-container .add-item-box span {
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.upload-container .add-item-box:hover {
+    background: #0044cc; /* Changed background color on hover to darker blue */
+    transition: background 0.3s ease;
+}

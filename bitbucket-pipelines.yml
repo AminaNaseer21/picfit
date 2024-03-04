@@ -3,9 +3,10 @@ image: node
 pipelines:
   default:
     - step:
-        name: Start
+        name: Build
         script:
           - npm install 
+          - npm i react-router-dom
           - npm run build
 
     - step:

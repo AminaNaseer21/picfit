@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.fa2ed487.css",
-    "main.js": "/static/js/main.e6ec3e77.js",
+    "main.css": "/static/css/main.458aebfe.css",
+    "main.js": "/static/js/main.38f907db.js",
     "static/js/453.eb25a34e.chunk.js": "/static/js/453.eb25a34e.chunk.js",
-    "static/media/PicMyFit_Logo.png": "/static/media/PicMyFit_Logo.fd94fc3768cf2e9e324b.png",
     "index.html": "/index.html",
-    "main.fa2ed487.css.map": "/static/css/main.fa2ed487.css.map",
-    "main.e6ec3e77.js.map": "/static/js/main.e6ec3e77.js.map",
+    "main.458aebfe.css.map": "/static/css/main.458aebfe.css.map",
+    "main.38f907db.js.map": "/static/js/main.38f907db.js.map",
     "453.eb25a34e.chunk.js.map": "/static/js/453.eb25a34e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa2ed487.css",
-    "static/js/main.e6ec3e77.js"
+    "static/css/main.458aebfe.css",
+    "static/js/main.38f907db.js"
   ]
 }

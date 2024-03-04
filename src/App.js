@@ -1,33 +1,31 @@
-import logo from './PicMyFit_Logo.png';
-import './App.css';
+import Navbar from "./Navbar";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Wardrobe from "./pages/Wardrobe";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Upload from "./pages/Upload";
+import Itempage from "./pages/itempage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* Logo on the left */}
-        <div className="picmyfit-logo">
-          <img src={logo} alt="PicMyFit Logo" />
-        </div>
-          
-        {/* Navigation Links */}
-        <nav>
-          <ul className="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/My Wardrobe">Wardrobe</a></li>
-            <li><a href="profile.html">Profile</a></li>
-          </ul>
-        </nav>
-        
-      </header>
-
-      {/* Main content area */}
-      <main>
-        <h1>Welcome to Pic My Fit</h1>
-        {/* Other content goes here */}
-      </main>
+  <>
+    <Navbar/>
+    <div className="container">
+      <Routes>
+        <Route path="/" element={ <Home />} />
+        <Route path="/wardrobe" element={ <Wardrobe />} />
+        <Route path="/itempage" element={ <Itempage />} />
+        <Route path="/upload" element={ <Upload />} />
+        <Route path="/profile" element={ <Profile />} />
+        <Route path="/signup" element={ <Signup />} />
+        <Route path="/login" element={ <Login />} />
+      </Routes>
     </div>
-  );
+  </>
+  )
 }
 
-export default App;
+export default App

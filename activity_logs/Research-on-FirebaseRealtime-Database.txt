@@ -1,0 +1,8 @@
+Set Up Firebase
+Install Firebase SDK
+Initialize Firebase in Your App
+Implement User Authentication
+Structure Your Realtime Database
+Perform CRUD Operations
+Secure Your Database
+Test Your Application
