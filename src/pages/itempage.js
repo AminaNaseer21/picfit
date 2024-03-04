@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import item1 from '../img/items/item1.png';
 
 const ItemPage = () => {
-  const [itemName, setItemName] = useState('Item Name');
+  const [itemName, setItemName] = useState('Blue Button Up');
   const [itemCategory, setItemCategory] = useState('Category');
   const [itemSubcategory, setItemSubcategory] = useState('Subcategory');
   const [itemColor, setItemColor] = useState('Color');
-  const [wearCount, setWearCount] = useState(0);
+  const [wearCount, setWearCount] = useState(3);
   const [itemNotes, setItemNotes] = useState('');
 
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ const ItemPage = () => {
   const incrementWearCount = () => setWearCount(wearCount + 1);
   const decrementWearCount = () => setWearCount(Math.max(0, wearCount - 1));
 
+  
   return (
     <div className="item-page">
       <div className="header">
@@ -59,8 +60,23 @@ const ItemPage = () => {
       
           <select value={itemColor} onChange={handleColorChange} className="item-color">
             {/* Placeholder options */}
-            <option value="Color 1">Color 1</option>
-            <option value="Color 2">Color 2</option>
+            <option value="Blue">Blue</option>
+            <option value="Orange">Orange</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+            <option value="Red">Red</option>
+            <option value="Indigo">Indigo</option>
+            <option value="Violet">Violet</option>
+            <option value="Purple">Purple</option>
+            <option value="Magenta">Magenta</option>
+            <option value="Pink">Pink</option>
+            <option value="Brown">Brown</option>
+            <option value="Black">Black</option>
+            <option value="Gray">Gray</option>
+            <option value="Silver">Silver</option>
+            <option value="White">White</option>
+            <option value="Cyan">Cyan</option>
+            <option value="Teal">Teal</option>
           </select>
           <div className="wear-counter">
             <button onClick={decrementWearCount}>-</button>
