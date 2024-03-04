@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './itempage.css';
 import { useNavigate } from 'react-router-dom';
-import item1 from '../img/items/item1.png';
+import item1 from '../img/items/1.png';
 
 const ItemPage = () => {
   const [itemName, setItemName] = useState('Blue Button Up');
