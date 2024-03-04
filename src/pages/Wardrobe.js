@@ -13,13 +13,20 @@ export default function Wardrobe() {
     // Categories and subcategories data structure
     const categories = {
         TOPS: {
-            "T-shirts": ["Graphic", "Plain", "Polo"],
-            "Long Sleeve": ["Dress Shirts", "Long Sleeve Crew neck"]
+            "T-shirts": ["Graphic", "Plain", "Polo", "Tank Tops"],
+            "Shirts": ["Shirt Jackets", "Short-Sleeve Shirts", "Long-Sleeve Shirts", "Sweater Polos"],
+            "Sweatshirts": ["Crew Neck Sweatshirts", "Graphic Sweatshirts"]
         },
         BOTTOMS: {
             Denim: ["Straight", "Tapered", "Boyfriend", "Baggy", "Slim", "Bootcut", "Flared", "Jeggings", "Mom", "Wide Leg"],
-            Sweatpants: ["Basic", "Cropped", "Drawstring", "Elastic Cuff", "Relaxed Fit", "Tailored"]
-            // Continue with your categories and subcategories...
+            Pants: ["Chinos", "Trousers", "Joggers", "Workwear", "Cargo"],
+            Sweatpants: ["Jogger", "Classic"],
+            Pants: ["Classic", "Active", "Mesh Shorts", "Denim Shorts", "Cargo"]
+
+        },
+        OUTERWEAR: {
+            "Hoodies": ["Zip-Up Hoodies", "Pullover Hoodies", "Graphic Hoodies"],
+            "Sweaters": ["Pullover Sweaters", "Cardigan Sweaters"]
         }
     };
 
