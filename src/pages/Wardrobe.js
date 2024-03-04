@@ -2,38 +2,47 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
+import item1 from "../img/items/1.png";
+import item2 from "../img/items/2.png";
+import item3 from "../img/items/3.png";
 
 export default function Wardrobe() {
     // State to track the active category for dropdown
-    const [activeCategory, setActiveCategory] = useState('');
+    const [activeSubcategory, setActiveSubcategory] = useState('');
 
     // Categories and subcategories data structure
     const categories = {
-        Tops: ['T-shirts', 'Dress Shirts', 'Sweaters', 'Hoodies', 'Blouses', 'Tank Tops', 'Polo Shirts', 'Crop Tops'],
-        Bottoms: ['Jeans', 'Shorts', 'Skirts', 'Trousers', 'Leggings', 'Cargo Pants', 'Chinos', 'Capris'],
-        Layering: ['Cardigans', 'Vests', 'Light Jackets', 'Blazers', 'Coats', 'Ponchos', 'Windbreakers']
+        TOPS: {
+            "T-shirts": ["Graphic", "Plain", "Polo"],
+            "Long Sleeve": ["Dress Shirts", "Long Sleeve Crew neck"]
+        },
+        BOTTOMS: {
+            Denim: ["Straight", "Tapered", "Boyfriend", "Baggy", "Slim", "Bootcut", "Flared", "Jeggings", "Mom", "Wide Leg"],
+            Sweatpants: ["Basic", "Cropped", "Drawstring", "Elastic Cuff", "Relaxed Fit", "Tailored"]
+            // Continue with your categories and subcategories...
+        }
     };
 
     // Replace with real items
-    const items = new Array(20).fill('Clothing Item');
+    const items = [item1, item2, item3];
 
-    // Function to handle dropdown toggle
-    const toggleDropdown = (category) => {
-        // Assuming `activeCategory` holds the currently active category name
-        // This will toggle the active state of the category
-        setActiveCategory(activeCategory === category ? '' : category);
-    };
+
 
         let navigate = useNavigate();
       
         const handleUploadClick = () => {
           navigate('/upload'); // Use the path you've defined for the Upload component in your router setup
         };
+        const handleItemClick = () => {
+            navigate('/itempage'); // Use the path you've defined for the Upload component in your router setup
+          };
+
+          const toggleSubcategory = (subcategory) => setActiveSubcategory(activeSubcategory === subcategory ? '' : subcategory);
 
     return (
         <div>
             
-            <div className="header">
+            <div className="headerx">
                     <div className="title">W A R D R O B E</div>
                     <div className="controls">
 
@@ -73,45 +82,38 @@ export default function Wardrobe() {
 
 
             <div className="wardrobe-container">
-                
                 <div className="categories">
-
-                    <div class="group">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
-                            <g>
-                            <path
-                                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-                            ></path>
-                            </g>
-                        </svg>
-                        <input class="input" type="search" placeholder="Something Specific?" />
-                    </div>
-
-                    {Object.keys(categories).map((category) => (
-                        <div key={category} className="category">
-                            <button className="dropdown-button" onClick={() => toggleDropdown(category)}>
-                                {category}
-                                <span className={`arrow ${activeCategory === category ? 'active' : ''}`}>↓</span>
-                            </button>
-                            {activeCategory === category && (
-                                <ul className="subcategory-list">
-                                    {categories[category].map((subcategory) => (
-                                        <li key={subcategory} className="subcategory">
-                                            {subcategory}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                    {Object.entries(categories).map(([categoryName, subcategories]) => (
+                        <div key={categoryName}>
+                            <div className="category-title">{categoryName}</div>
+                            {Object.keys(subcategories).map((subcategory) => (
+                                <div key={subcategory} className="subcategory">
+                                    <button className="dropdown-button" onClick={() => toggleSubcategory(subcategory)}>
+                                        {subcategory}
+                                        <span className={`arrow ${activeSubcategory === subcategory ? 'active' : ''}`}>↓</span>
+                                    </button>
+                                    {activeSubcategory === subcategory && (
+                                        <ul className="subcategory-list">
+                                            {subcategories[subcategory].map((item) => (
+                                                <li key={item} className="subcategory-item">{item}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>
 
                 <div className="items">
                     {items.map((item, index) => (
-                        <div key={index} className="item">
-                            {item}
+                        <div key={index} className="item" onClick={handleItemClick}>
+                            <img src={item} alt={`Item ${index + 1}`} /> {/* Display each item image */}
                         </div>
                     ))}
+                    <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
+                        <span className="plus-button">+</span> {/* You can style this as needed */}
+                    </div>
                 </div>
             </div>
         </div>    

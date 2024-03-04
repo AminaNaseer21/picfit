@@ -1,12 +1,10 @@
-
-
 /* HEADER STYLES */
-.header {
+.headerx {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0;
-  padding: 5px 30px;
+  margin-top: 0px;
+  padding: 10px 30px;
   background-color: #ececec;
   border-bottom: 1px solid #d1d1d1;
 }
@@ -57,10 +55,11 @@
   flex-wrap: wrap;
   gap: 20px;
   overflow-y: auto;
+  justify-content: left;
 }
 
 .item {
-  width: calc(20% - 20px);
+  width: 150px;
   height: 150px;
   background-color: #e1e1e1;
   display: flex;
@@ -71,8 +70,36 @@
   box-shadow: rgba(7, 19, 88, 0.25) 0px 30px 50px -12px inset, rgba(7, 19, 88, 0.25) 0px 18px 26px -18px inset;
 }
 
+.item img {
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Keeps the image's aspect ratio */
+    max-height: 150px; /* Limits the image height. Adjust as needed */
+    cursor: pointer;
+}
+
+.add-new-item {
+    display: flex; /* Aligns the plus button centrally */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    font-size: 24px; /* Sets the size of the plus button. Adjust as needed */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+.plus-button {
+    width: 50px; /* Width of the plus button */
+    height: 50px; /* Height of the plus button */
+    border-radius: 50%; /* Makes the plus button circular */
+    background-color: #ddd; /* Background color of the plus button. Adjust as needed */
+    display: flex; /* Aligns the plus sign centrally */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    color: #333; /* Color of the plus sign. Adjust as needed */
+}
+
+
 /* DROPDOWN BUTTON STYLES */
 .wardrobe-container {
+  margin-top: 0;
   display: flex;
   height: 100vh;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -88,6 +115,10 @@
   text-align: left;
   cursor: pointer;
   position: relative;
+  font-family: helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
   
 }
 
@@ -105,13 +136,27 @@
   transform: rotate(180deg);
 }
 
+.category-title {
+  font-size: 20px; /* Larger font size for category titles */
+  font-weight: bold; /* Bold font weight for emphasis */
+  margin: 10px 0; /* Space above and below the category title */
+  padding-left: 10px; /* Indent category titles slightly */
+  text-align: left;
+}
+
+/* SUBCATEGORY BUTTON STYLES */
+.subcategory .dropdown-button {
+  font-size: 16px; /* Slightly smaller font size for subcategories */
+  background-color: #e9e9e9; /* Lighter background for subcategory buttons */
+  margin-top: 5px; /* Space above each subcategory button */
+  padding: 8px 10px; /* Adjust padding for subcategory buttons */
+}
 
 .subcategory-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: #ffffff;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  padding-left: 20px; /* Indent subcategory items */
+  margin-top: 5px; /* Space above the subcategory list */
+  background-color: #f9f9f9; /* Light background for subcategory list */
+  border-left: 2px solid #d1d1d1; /* Left border to distinguish subcategories */
 }
 
 .subcategory {
@@ -127,6 +172,17 @@
 
 .subcategory:last-child {
   border-bottom: none;
+}
+
+.subcategory-item {
+  padding: 5px 0; /* Padding for subcategory items */
+  text-align: left;
+  list-style-type: none;
+}
+
+.subcategory .dropdown-button:hover,
+.subcategory-item:hover {
+  background-color: #dcdcdc; /* Slightly darker background on hover */
 }
 
 
