@@ -60,3 +60,16 @@
       align-items: flex-start;
   }
 }
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Profile Placeholder Styling */
+.profilePlaceholder {
+  height: 40px; /* Example size, adjust as needed */
+  width: 40px; /* Maintain aspect ratio and make it a circle */
+  border-radius: 50%; /* Makes the image round */
+  margin-right: 20px; /* Adds some space between the profile and the logo */
+}
