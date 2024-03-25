@@ -11,8 +11,6 @@ export default function Navbar() {
         <ul>
             <CustomLink to="wardrobe">Wardrobe</CustomLink>
             <CustomLink to="outfitter">Outfitter</CustomLink>
-            <CustomLink to="itempage">Item</CustomLink>
-            <CustomLink to="upload">Upload</CustomLink>
             <CustomLink to="profile">Profile</CustomLink>
             <CustomLink to="signup">Signup</CustomLink>
             <CustomLink to="login">Login</CustomLink>
