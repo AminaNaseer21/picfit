@@ -1,0 +1,58 @@
+/* General styling for the nav bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* Light gray background */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Logo styling */
+.PicMyFit {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Dark text for contrast */
+  text-decoration: none; /* Removes underline from links */
+}
+
+/* Unordered list styling */
+.nav ul {
+  list-style: none; /* Removes bullet points */
+  display: flex;
+  gap: 20px; /* Spacing between menu items */
+  margin: 0;
+  padding: 0;
+}
+
+/* List item styling */
+.nav li {
+  padding: 5px 10px;
+}
+
+/* Link styling */
+.nav a {
+  color: #333; /* Dark text for readability */
+  text-decoration: none; /* Removes underline */
+  font-size: 16px;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover and active link styling */
+.nav a:hover,
+.nav .active a {
+  color: #007bff; /* Highlight color for interactivity */
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 768px) {
+  .nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
