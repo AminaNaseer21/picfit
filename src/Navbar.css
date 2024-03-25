@@ -61,9 +61,8 @@
   }
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
+.nav-right {
+  position: relative; /* For absolute positioning of the dropdown */
 }
 
 /* Profile Placeholder Styling */
@@ -72,4 +71,29 @@
   width: 40px; /* Maintain aspect ratio and make it a circle */
   border-radius: 50%; /* Makes the image round */
   margin-right: 20px; /* Adds some space between the profile and the logo */
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; /* Position directly below the profile image */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 200px; /* Or your preferred width */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* Optional: if you want to separate links */
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #f8f9fa; /* Light hover background */
 }
