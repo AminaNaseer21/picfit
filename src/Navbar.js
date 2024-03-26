@@ -36,17 +36,26 @@ export default function Navbar() {
 
     return (
         <nav className="nav">
-    
-            <Link to="/" className="PicMyFit">
-                <img src={logo} alt="PicMyFit Logo" className="logo"/>
-            </Link>
-    
-            <ul>
-                <CustomLink to="wardrobe">Wardrobe</CustomLink>
-                <CustomLink to="outfitter">Outfitter</CustomLink>
-            </ul>
+            
+            <div className="nav-left">
+            
+            </div>  
+
+            <div className="nav-center">
+                <Link to="/" className="PicMyFit">
+                    <img src={logo} alt="PicMyFit Logo" className="logo"/>
+                </Link>
+            </div>  
+
+            
     
             <div className="nav-right">
+
+                <ul>
+                    <CustomLink to="wardrobe">Wardrobe</CustomLink>
+                    <CustomLink to="outfitter">Outfitter</CustomLink>
+                </ul>
+
                 {/* Toggle dropdown on click */}
                 <img src={profilePlaceholder} alt="Profile" className="profilePlaceholder" onClick={toggleDropdown}/>
                 {/* Dropdown menu */}

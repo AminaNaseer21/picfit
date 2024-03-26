@@ -1,86 +1,69 @@
-/* General styling for the nav bar */
+/* General and layout styles */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa; /* Light gray background */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.logo {
-  height: 40px; /* Example size, adjust as needed */
-  width: auto; /* Maintain aspect ratio */
-}
-
-/* Logo styling */
-.PicMyFit {
+.nav > div {
+  flex: 1;
   display: flex;
   align-items: center;
-  
 }
 
-/* Unordered list styling */
-.nav ul {
-  list-style: none; /* Removes bullet points */
+.nav-center {
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+  position: relative; /* Ensure dropdown is positioned relative to this */
+}
+
+/* Logo and navigation link styles */
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.PicMyFit, .nav a {
   display: flex;
-  gap: 20px; /* Spacing between menu items */
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover, .nav .active a {
+  color: #007bff;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 75px;
   margin: 0;
   padding: 0;
 }
 
-/* List item styling */
-.nav li {
-  padding: 5px 10px;
-}
-
-/* Link styling */
-.nav a {
-  color: #333; /* Dark text for readability */
-  text-decoration: none; /* Removes underline */
-  font-size: 16px;
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* Hover and active link styling */
-.nav a:hover,
-.nav .active a {
-  color: #007bff; /* Highlight color for interactivity */
-}
-
-/* Responsive adjustments (optional) */
-@media (max-width: 768px) {
-  .nav {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .nav ul {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-}
-
-.nav-right {
-  position: relative; /* For absolute positioning of the dropdown */
-}
-.nav-right:hover .dropdown {
-  display: block; /* Show dropdown on hover */
-}
-
-/* Profile Placeholder Styling */
+/* Profile placeholder and dropdown styles */
 .profilePlaceholder {
-  height: 40px; /* Example size, adjust as needed */
-  width: 40px; /* Maintain aspect ratio and make it a circle */
-  border-radius: 50%; /* Makes the image round */
-  margin-right: 20px; /* Adds some space between the profile and the logo */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-left: 75px;
   cursor: pointer;
 }
 
 .dropdown {
-  display: none; /* Hide dropdown by default */
+  display: none; /* Hide by default */
   position: absolute;
-  top: 100%; /* Adjust as needed to fit your navbar height */
+  top: 100%;
   right: 0;
   background-color: #fff;
   border-radius: 4px;
@@ -90,40 +73,34 @@
   overflow: hidden;
 }
 
-.dropdown-hidden {
-  transform: scaleY(0); /* Collapse the dropdown */
-  opacity: 0; /* Make the dropdown invisible */
-  visibility: hidden; /* Hide the dropdown */
-}
-
-/* Style for when the dropdown is visible */
-.dropdown-visible {
-  transform: scaleY(1); /* Show the dropdown in its full height */
-  opacity: 1; /* Make the dropdown visible */
-  visibility: visible; /* Show the dropdown */
+.nav-right:hover .dropdown {
+  display: block; /* Show on hover */
 }
 
 .dropdown a {
   display: block;
-  padding: 10px 15px; /* Uniform padding for a cleaner look */
+  padding: 10px 15px;
   color: #333;
   text-decoration: none;
-  border-bottom: 1px solid #f1f1f1; /* A light border for separation, remove if not desired */
+  border-bottom: 1px solid #f1f1f1;
 }
 
 .dropdown a:last-child {
   border-bottom: none;
 }
 
-/* Hover effect for dropdown links */
 .dropdown a:hover {
   background-color: #f8f9fa;
 }
 
-/* Remove bullet points from list items in dropdown, 
-   assuming CustomLink renders an 'li' */
-.dropdown li {
-  list-style-type: none; /* Removes bullet points */
-  padding: 0; /* Resets padding */
-  margin: 0; /* Resets margin */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav ul {
+    flex-direction: column;
+  }
 }
