@@ -76,24 +76,52 @@
 
 .dropdown {
   position: absolute;
-  top: 100%; /* Position directly below the profile image */
-  right: 0;
+  top: 60px; /* Adjust this value to create space between the navbar and the dropdown */
+  right: 10px;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: 200px; /* Or your preferred width */
-  z-index: 1000; /* Ensure it's on top of other content */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Larger shadow for more depth */
+  width: 150px;
+  z-index: 1000;
+  overflow: hidden; /* In case of any overflowing content */
+  transition: transform 0.3s, opacity 0.3s; /* Smooth transitions for transform and opacity */
+  transform-origin: top right; /* Origin of the transform should be top right to match the dropdown position */
+}
+
+.dropdown-hidden {
+  transform: scaleY(0); /* Collapse the dropdown */
+  opacity: 0; /* Make the dropdown invisible */
+  visibility: hidden; /* Hide the dropdown */
+}
+
+/* Style for when the dropdown is visible */
+.dropdown-visible {
+  transform: scaleY(1); /* Show the dropdown in its full height */
+  opacity: 1; /* Make the dropdown visible */
+  visibility: visible; /* Show the dropdown */
 }
 
 .dropdown a {
   display: block;
-  padding: 10px;
-  border-bottom: 1px solid #eee; /* Optional: if you want to separate links */
+  padding: 10px 15px; /* Uniform padding for a cleaner look */
   color: #333;
   text-decoration: none;
+  border-bottom: 1px solid #f1f1f1; /* A light border for separation, remove if not desired */
 }
 
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect for dropdown links */
 .dropdown a:hover {
-  background-color: #f8f9fa; /* Light hover background */
+  background-color: #f8f9fa;
+}
+
+/* Remove bullet points from list items in dropdown, 
+   assuming CustomLink renders an 'li' */
+.dropdown li {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Resets padding */
+  margin: 0; /* Resets margin */
 }
