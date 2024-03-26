@@ -3,63 +3,18 @@ import './Profile.css';
 
 
 function ProfilePage() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [profilePic, setProfilePic] = useState(null);
-
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
-
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    };
-
-    const handlePhoneChange = (event) => {
-        setPhone(event.target.value);
-    };
-
-    const handleProfilePicChange = (event) => {
-        const file = event.target.files[0];
-        setProfilePic(file);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Here you can perform actions with the data (name, email, phone, profilePic)
-    };
-
     return (
-        <div className="container profile-container">
-            <h1>User Profile</h1>
-            <div className="profile-picture-container">
-                <div className="profile-picture">
-                    {profilePic ? (
-                        <img src={URL.createObjectURL(profilePic)} alt="Profile Preview" />
-                    ) : (
-                        <span>Upload Picture</span>
-                    )}
-                    <label htmlFor="profilePic" className="upload-button">
-                        <input
-                            type="file"
-                            id="profilePic"
-                            onChange={handleProfilePicChange}
-                            accept="image/*"
-                            style={{ display: 'none' }}
-                        />
-                        +
-                    </label>
-                </div>
-            </div>
-            <form onSubmit={handleSubmit} className="profile-info">
-                <input type="text" value={name} onChange={handleNameChange} placeholder="Name" required />
-                <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" required />
-                <input type="tel" value={phone} onChange={handlePhoneChange} placeholder="Phone Number" required />
-                <button type="submit">Save</button>
-            </form>
-        </div>
+      <div className="profile-container">
+        <h1 className="profile-header">Your Profile</h1>
+        <div className="profile-picture"></div>
+        <form className="profile-form">
+          <input type="text" placeholder="Name" className="profile-input" />
+          <input type="email" placeholder="youremail@example.com" className="profile-input" />
+          <input type="password" placeholder="Password" className="profile-input" />
+          <input type="tel" placeholder="(555) 123-4567" className="profile-input" />
+        </form>
+      </div>
     );
-}
-
-export default ProfilePage;
+  }
+  
+  export default ProfilePage;
