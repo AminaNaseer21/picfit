@@ -1,42 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
-import { storage } from '../Services/firebase'; // Assuming your firebase setup is in 'Services/firebase'
+import { storage } from '../Services/firebase';
+import { useAuth } from '../Services/authentication';
 import { v4 } from 'uuid';
 
 export default function Upload() {
-    const [imageUpload, setImageUpload] = useState(null);
+    const [imageUploads, setImageUploads] = useState([]);
     const [imageUrls, setImageUrls] = useState([]);
+    const { currentUser } = useAuth();
 
-    const imagesListRef = ref(storage, 'images/');
-    const uploadFile = () => {
-        if (imageUpload == null) return;
-        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-        uploadBytes(imageRef, imageUpload).then((snapshot) => {
-            getDownloadURL(snapshot.ref).then((url) => {
-                setImageUrls((prev) => [...prev, url]);
+    const handleImageChange = (e) => {
+        const files = Array.from(e.target.files);
+        setImageUploads(files);
+    };
+
+    const uploadFiles = () => {
+        if (!currentUser || imageUploads.length === 0) return;
+
+        const promises = imageUploads.map((file) => {
+            const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + v4()}`);
+            return uploadBytes(imageRef, file).then((snapshot) => {
+                return getDownloadURL(snapshot.ref);
             });
         });
+
+        Promise.all(promises)
+            .then((urls) => {
+                setImageUrls(urls);
+            })
+            .catch((error) => {
+                console.error('Error uploading files:', error);
+            });
     };
 
     useEffect(() => {
-        listAll(imagesListRef).then((response) => {
-            response.items.forEach((item) => {
-                getDownloadURL(item).then((url) => {
-                    setImageUrls((prev) => [...prev, url]);
-                });
+        if (!currentUser) return;
+
+        const imagesListRef = ref(storage, `images/${currentUser.uid}/`);
+        listAll(imagesListRef)
+            .then((response) => {
+                return Promise.all(response.items.map((item) => getDownloadURL(item)));
+            })
+            .then((urls) => {
+                setImageUrls(urls);
+            })
+            .catch((error) => {
+                console.error('Error fetching images:', error);
             });
-        });
-    }, []);
+    }, [currentUser]);
 
     return (
         <div className="App">
             <input
                 type="file"
-                onChange={(event) => {
-                    setImageUpload(event.target.files[0]);
-                }}
+                onChange={handleImageChange}
+                multiple // Allow multiple file selection
             />
-            <button onClick={uploadFile}> Upload Image</button>
+            <button onClick={uploadFiles}>Upload Images</button>
             {imageUrls.map((url, index) => (
                 <img key={index} src={url} alt={`Uploaded Image ${index}`} />
             ))}
