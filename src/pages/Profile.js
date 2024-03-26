@@ -18,7 +18,7 @@ function ProfilePage() {
                     <input type="password" placeholder="Password" className="profile-input" />
                     <input type="tel" placeholder="(555) 123-4567" className="profile-input" />
                 </form>
-                {/* Add more sections like 'Projects', 'Recent', 'Most Viewed' as needed */}
+                {/* Add more sections */}
                 </div>
             </div>
             </div>
