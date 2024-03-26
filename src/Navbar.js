@@ -1,6 +1,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import { useState } from 'react';
-import {getAuth} from "firebase/auth";
+import { useState, useEffect } from 'react';
+import {getAuth, onAuthStateChanged } from "firebase/auth";
 import './Navbar.css';
 import logo from './img/PicMyFit_Logo.png';
 import profilePlaceholder from './img/profilePlaceholder.png';
