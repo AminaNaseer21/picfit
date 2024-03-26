@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import './Profile.css';
+import profilePlaceholder from '../img/profilePlaceholder.png';
 
 function ProfilePage() {
   const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '' });
@@ -86,7 +87,9 @@ function ProfilePage() {
         {userData.profilePicture ? (
           <img src={userData.profilePicture} alt="Profile" className="profile-picture" />
         ) : (
-          <div className="profile-picture">Profile Picture</div>
+          <div className="profile-picture">
+            <img src={profilePlaceholder} alt="PicMyFit Logo" className="profile-picture"/>
+          </div>
         )}
         <h2 className="profile-name">Welcome {userData.name}</h2>
       </div>
