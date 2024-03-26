@@ -64,6 +64,9 @@
 .nav-right {
   position: relative; /* For absolute positioning of the dropdown */
 }
+.nav-right:hover .dropdown {
+  display: block; /* Show dropdown on hover */
+}
 
 /* Profile Placeholder Styling */
 .profilePlaceholder {
@@ -75,17 +78,16 @@
 }
 
 .dropdown {
+  display: none; /* Hide dropdown by default */
   position: absolute;
-  top: 60px; /* Adjust this value to create space between the navbar and the dropdown */
-  right: 10px;
+  top: 100%; /* Adjust as needed to fit your navbar height */
+  right: 0;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Larger shadow for more depth */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   width: 150px;
   z-index: 1000;
-  overflow: hidden; /* In case of any overflowing content */
-  transition: transform 0.3s, opacity 0.3s; /* Smooth transitions for transform and opacity */
-  transform-origin: top right; /* Origin of the transform should be top right to match the dropdown position */
+  overflow: hidden;
 }
 
 .dropdown-hidden {
