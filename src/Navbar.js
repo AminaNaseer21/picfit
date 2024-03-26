@@ -9,10 +9,31 @@ export default function Navbar() {
     
     // State to control the visibility of the dropdown
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+   
+    const [user, setUser] = useState(null); // State to keep track of the user
+
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                setUser(user);
+            } else {
+                // User is signed out
+                setUser(null);
+            }
+        });
+        // Clean up the subscription on unmount
+        return unsubscribe;
+    }, []);
+
 
     // Function to toggle dropdown visibility
     const toggleDropdown = () => setIsDropdownVisible(prevState => !prevState);
     
+
+
     return (
     <nav className="nav">
 
