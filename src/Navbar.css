@@ -34,12 +34,12 @@
   align-items: center;
   color: #333;
   text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  font-size: 18px;
+  transition: all 0.3s ease;
 }
 
 .nav a:hover, .nav .active a {
-  color: #007bff;
+  color: #007bff; /* Highlight color for interactivity */
 }
 
 .nav ul {
