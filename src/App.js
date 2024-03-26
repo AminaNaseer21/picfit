@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import Wardrobe from "./pages/Wardrobe";
 import Outfitter from "./pages/Outfitter";
 import Login from "./pages/Login";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/profile" element={ <Profile />} />
         <Route path="/signup" element={ <Signup />} />
         <Route path="/login" element={ <Login />} />
+        <Route path="/settings" element={ <Settings />} />
       </Routes>
     </div>
   </>
