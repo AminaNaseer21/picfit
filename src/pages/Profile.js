@@ -6,55 +6,37 @@ import './Profile.css';
 import profilePlaceholder from '../img/profilePlaceholder.png';
 
 const commonColors = [
-  '#FF0000', // Red
-  '#00FF00', // Lime
-  '#0000FF', // Blue
-  '#FFFF00', // Yellow
-  '#00FFFF', // Aqua/Cyan
-  '#FF00FF', // Magenta/Fuchsia
-  '#FFFFFF', // White
-  '#000000', // Black
-  '#800000', // Maroon
-  '#808000', // Olive
-  '#008000', // Green
-  '#800080', // Purple
-  '#008080', // Teal
-  '#000080', // Navy
-  '#808080', // Gray
-  '#C0C0C0', // Silver
+  '#FF0000', '#00FF00', '#0000FF', '#FFFF00',
+  '#00FFFF', '#FF00FF', '#FFFFFF', '#000000',
+  '#800000', '#808000', '#008000', '#800080',
+  '#008080', '#000080', '#808080', '#C0C0C0',
 ];
 
 function ProfilePage() {
   const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '' });
-  const [profileImage, setProfileImage] = useState(null); // For the image file
+  const [profileImage, setProfileImage] = useState(null);
+  const [dislikedColors, setDislikedColors] = useState([]);
+  const [dislikedStyles, setDislikedStyles] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const auth = getAuth();
     const firestore = getFirestore();
 
-    // Subscribe to the user's authentication state
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // Set the email field from authentication
         setUserData(prevData => ({ ...prevData, email: user.email }));
-
-        // Get additional user data from Firestore
         const userDocRef = doc(firestore, 'users', user.uid);
         const userDoc = await getDoc(userDocRef);
+
         if (userDoc.exists()) {
           const data = userDoc.data();
           setUserData(data);
-
-          if (data.dislikedColors) {
-            setDislikedColors(data.dislikedColors);
-          }
-
-          if (data.dislikedStyles) {
-            setDislikedStyles(data.dislikedStyles);
-          }
+          setDislikedColors(data.dislikedColors || []);
+          setDislikedStyles(data.dislikedStyles || []);
         }
-    }
-  });
+      }
+    });
 
     return () => unsubscribe();
   }, []);
@@ -65,94 +47,63 @@ function ProfilePage() {
     }
   };
 
-  const updateUserProfile = async () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    const firestore = getFirestore();
-    const storage = getStorage();
-  
-    if (user) {
-      let photoURL = userData.profilePicture;
-      if (profileImage) {
-        // Create a file reference
-        const imageRef = ref(storage, `profilePictures/${user.uid}`);
-  
-        // Upload file
-        await uploadBytes(imageRef, profileImage);
-  
-        // Get file URL
-        photoURL = await getDownloadURL(imageRef);
-      }
-  
-      // Set user data in Firestore (this will create the document if it doesn't exist)
-      await setDoc(doc(firestore, "users", user.uid), {
-        name: userData.name,
-        phone: userData.phone,
-        ...(photoURL && { profilePicture: photoURL }) // Only set profilePicture if photoURL is truthy
-      }, { merge: true }); // Merge with existing document data
-  
-      // Update local state
-      setUserData(prevData => ({ ...prevData, profilePicture: photoURL }));
-    }
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateUserProfile();
-  };
-
-  // Handle input changes
-  const handleChange = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-  };
-
-  
-  const [dislikedColors, setDislikedColors] = useState([]);
-
   const toggleColor = (color) => {
-    setDislikedColors(prevColors => {
-      if (prevColors.includes(color)) {
-        return prevColors.filter(c => c !== color); // Remove color
-      } else {
-        return [...prevColors, color]; // Add color
-      }
-    });
+    setDislikedColors(prevColors => 
+      prevColors.includes(color) ? prevColors.filter(c => c !== color) : [...prevColors, color]
+    );
   };
 
-  const saveColorPreferences = async () => {
+  const toggleStyle = (style) => {
+    setDislikedStyles(prevStyles => 
+      prevStyles.includes(style) ? prevStyles.filter(s => s !== style) : [...prevStyles, style]
+    );
+  };
+
+  const savePreferences = async () => {
     const auth = getAuth();
     const user = auth.currentUser;
     const firestore = getFirestore();
 
     if (user) {
-      const userDocRef = doc(firestore, "users", user.uid);
       try {
-        // Save both color and style preferences
-        await setDoc(userDocRef, {
+        await setDoc(doc(firestore, "users", user.uid), {
+          name: userData.name,
+          phone: userData.phone,
           dislikedColors,
-          dislikedStyles
+          dislikedStyles,
+          profilePicture: await uploadProfilePicture()
         }, { merge: true });
-        console.log('Preferences saved!');
+
+        displayPopup();
       } catch (error) {
         console.error("Error saving preferences:", error);
       }
     }
-  };  
-
-  const [dislikedStyles, setDislikedStyles] = useState([]);
-
-  const toggleStyle = (style) => {
-    setDislikedStyles(prevStyles => {
-      if (prevStyles.includes(style)) {
-        return prevStyles.filter(s => s !== style); // Remove style
-      } else {
-        return [...prevStyles, style]; // Add style
-      }
-    });
   };
 
+  const uploadProfilePicture = async () => {
+    if (profileImage) {
+      const storage = getStorage();
+      const imageRef = ref(storage, `profilePictures/${getAuth().currentUser.uid}`);
+      await uploadBytes(imageRef, profileImage);
+      return getDownloadURL(imageRef);
+    }
+    return userData.profilePicture;
+  };
 
+  const displayPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 3000);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    savePreferences();
+  };
+
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
 
 
 
@@ -243,18 +194,19 @@ function ProfilePage() {
                   </div>
               </div>
 
-                    <button onClick={saveColorPreferences} className="save-colors-btn">Save Preferences</button>
+                    <button onClick={savePreferences} className="save-colors-btn">Save Preferences</button>
                 </div>
               </div>
 
             </form>
           </div>
 
-          
-
+          {showPopup && <div className="popup">Changes Saved</div>}
+        
         </div>
         
     </div>
+    
   );
 }
 
