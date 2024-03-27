@@ -23,9 +23,10 @@ export default function Upload() {
 
             try {
                 const response = await axios.request(options);
+                console.log(response); // Log the entire response object
                 setImage(URL.createObjectURL(response.data)); // Using URL.createObjectURL to display the image
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error:', error); // Log any errors that occur
             }
         }
     };
