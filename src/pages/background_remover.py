@@ -1,4 +1,6 @@
 import cv2
+import numpy as np
+import sys
 
 def remove_background(image_path):
     # Perform background removal using OpenCV
