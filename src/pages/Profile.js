@@ -122,6 +122,7 @@ function ProfilePage() {
               name="phone"
               onChange={handleChange}
             />
+            <div className="upload-photo">Upload Profile Picture</div>
             <input 
               type="file" 
               className="profile-input-file"
