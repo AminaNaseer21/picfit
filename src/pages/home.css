@@ -7,6 +7,33 @@
   /* Other styles */
   top:10%;
 }
+.bottom{
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+}
+.Top{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+.Middle{
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjusts for the element's own size */
+  text-align: center;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  width: auto; /* Adjust based on content, or set a specific width */
+  height: auto; /* Adjust based on content, or set a specific height */
+}
+
 
 .lines {
   display:flex;
@@ -31,7 +58,7 @@
     cursor: pointer;
     border: 0;
     background-color: white;
-    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    box-shadow: rgba(99, 99, 99, 0.05) 0 0 8px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 15px;
