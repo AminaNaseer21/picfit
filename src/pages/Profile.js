@@ -94,7 +94,7 @@ function ProfilePage() {
         <h2 className="profile-name">Welcome {userData.name}</h2>
       </div>
       <div className="profile-main">
-        <h1 className="profile-header">Your Profile</h1>
+        <div className="profile-header">P R O F I L E</div>
         <div className="profile-info">
           <form className="profile-form" onSubmit={handleSubmit}>
             <input 

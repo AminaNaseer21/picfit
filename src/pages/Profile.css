@@ -24,6 +24,7 @@
   width: 200px;
   height: 200px;
   background-color: #ddd;
+  border: 10px solid #ce5a5e;
   border-radius: 50%;
   margin-bottom: 20px;
   /* To ensure the image stays centered and does not stretch in flex container */
@@ -32,6 +33,7 @@
 
 .profile-name {
   font-size: 1.5em;
+  font-weight: bold;
   margin: 20px 0; /* Add space above and below the name */
 }
 
@@ -48,8 +50,9 @@
 }
 
 .profile-header {
-  margin-top: 0;
-  font-size: 24px;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bolder;
   color: #333;
 }
 
