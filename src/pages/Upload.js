@@ -1,121 +1,80 @@
-import React, { useState, useRef, useEffect } from 'react';
+// ImageProcessor.js
+import React, { useRef, useEffect, useState } from 'react';
 
-const ImageEditor = () => {
-  const canvasRef = useRef(null);
-  const [image, setImage] = useState(null);
-  const [erasing, setErasing] = useState(false);
-  const [undoHistory, setUndoHistory] = useState([]);
-  const [eraserSize, setEraserSize] = useState(10); // Default eraser size
+function applyThreshold(imageData, threshold) {
+    const { data } = imageData;
+    for (let i = 0; i < data.length; i += 4) {
+        const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        const value = avg > threshold ? 255 : 0;
+        data[i] = data[i + 1] = data[i + 2] = value;
+    }
+    return imageData;
+}
 
-  useEffect(() => {
-    if (image) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      const img = new Image();
-      img.onload = () => {
-        const aspectRatio = img.width / img.height;
-        const canvasSize = 400; // Increased size of the canvas box
-        let drawWidth = canvasSize;
-        let drawHeight = canvasSize / aspectRatio;
-
-        if (drawHeight > canvasSize) {
-          drawHeight = canvasSize;
-          drawWidth = canvasSize * aspectRatio;
+function removeBackground(imageData, threshold) {
+    // Implement your background removal algorithm here
+    // For simplicity, we'll just use a fixed threshold value for now
+    const { data } = imageData;
+    const thresholdSquared = threshold * threshold;
+    for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const distanceSquared = r * r + g * g + b * b;
+        if (distanceSquared < thresholdSquared) {
+            data[i] = data[i + 1] = data[i + 2] = 0; // Set as black (foreground)
         }
-
-        canvas.width = drawWidth;
-        canvas.height = drawHeight;
-        ctx.drawImage(img, 0, 0, drawWidth, drawHeight);
-      };
-      img.src = URL.createObjectURL(image);
     }
-  }, [image]);
+    return imageData;
+}
 
-  const handleMouseDown = () => {
-    setErasing(true);
-    setUndoHistory([...undoHistory, canvasRef.current.toDataURL()]);
-  };
+function ImageProcessor() {
+    const [imageSrc, setImageSrc] = useState(null);
+    const [threshold, setThreshold] = useState(100); // Adjust threshold range based on image data
 
-  const handleMouseUp = () => {
-    setErasing(false);
-  };
+    const canvasRef = useRef(null);
 
-  const handleMouseMove = (e) => {
-    if (erasing) {
-      erasePixel(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    }
-  };
+    const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            setImageSrc(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    };
 
-  const erasePixel = (x, y) => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    useEffect(() => {
+        if (!imageSrc) return;
 
-    ctx.save(); // Save current context state
-    ctx.beginPath();
-    ctx.arc(x, y, eraserSize / 2, 0, Math.PI * 2);
-    ctx.clip(); // Clip the area to be erased
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the clipped area
-    ctx.restore(); // Restore context state to undo clipping
-  };
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
 
-  const handleUndo = () => {
-    if (undoHistory.length > 0) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      const lastDataURL = undoHistory.pop();
-      const img = new Image();
-      img.onload = () => {
-        ctx.drawImage(img, 0, 0);
-      };
-      img.src = lastDataURL;
-    }
-  };
+        const img = new Image();
+        img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+            let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-    setUndoHistory([]); // Reset undo history when a new image is selected
-  };
+            // Apply threshold
+            imageData = applyThreshold(imageData, threshold);
 
-  const handleDownload = () => {
-    const canvas = canvasRef.current;
-    const link = document.createElement('a');
-    link.download = 'edited_image.png';
-    link.href = canvas.toDataURL();
-    link.click();
-  };
+            // Remove background
+            imageData = removeBackground(imageData, threshold);
 
-  return (
-    <div>
-      <div style={{ width: '400px', height: '400px', border: '1px solid black', position: 'relative', overflow: 'hidden' }}>
-        <canvas
-          ref={canvasRef}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', cursor: erasing ? 'crosshair' : 'default' }}
-        />
-      </div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      {image && (
-        <>
-          <button onClick={handleUndo}>Undo</button>
-          <button onClick={handleDownload}>Download Image</button>
-          <div>
-            <label htmlFor="eraserSize">Eraser Size:</label>
-            <input
-              type="range"
-              id="eraserSize"
-              min="1"
-              max="50"
-              value={eraserSize}
-              onChange={(e) => setEraserSize(parseInt(e.target.value))}
-            />
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
+            ctx.putImageData(imageData, 0, 0);
+        };
+        img.src = imageSrc;
+    }, [imageSrc, threshold]);
 
-export default ImageEditor;
+    return (
+        <div>
+            <input type="file" accept="image/*" onChange={handleFileUpload} />
+            <br />
+            Threshold: <input type="range" min="0" max="255" value={threshold} onChange={(e) => setThreshold(e.target.value)} />
+            <canvas ref={canvasRef} />
+        </div>
+    );
+}
+
+export default ImageProcessor;
