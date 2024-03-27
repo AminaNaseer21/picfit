@@ -40,13 +40,16 @@ function ProfilePage() {
 
         // Get additional user data from Firestore
         const userDocRef = doc(firestore, 'users', user.uid);
-        const userDoc = await getDoc(userDocRef);
-        if (userDoc.exists()) {
-          const data = userDoc.data();
-          setUserData(data);
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        const data = userDoc.data();
+        setUserData(data);
+        if (data.dislikedColors) {
+          setDislikedColors(data.dislikedColors);
         }
       }
-    });
+    }
+  });
 
     return () => unsubscribe();
   }, []);
