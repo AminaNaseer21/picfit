@@ -252,3 +252,30 @@
 .save-colors-btn:hover {
   background-color: #e8656a; /* Darken the button when hovering */
 }
+
+
+.style-preferences {
+  margin-top: 20px; /* Space from the color grid */
+}
+
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
+  gap: 10px;
+  margin-bottom: 10px; /* Space below the grid */
+}
+
+.style-button {
+  padding: 10px;
+  border: 2px solid #ddd; /* Border for the buttons */
+  border-radius: 5px;
+  background-color: #f0f0f0; /* Light grey background */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  font-size: 16px;
+  outline: none; /* Remove default focus outline */
+}
+
+.disliked-style {
+  background-color: #e8656a; /* Indicate the style is not preferred */
+  color: white;
+}

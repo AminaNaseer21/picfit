@@ -132,6 +132,43 @@ function ProfilePage() {
     }
   };  
 
+  const [dislikedStyles, setDislikedStyles] = useState([]);
+
+  const toggleStyle = (style) => {
+    setDislikedStyles(prevStyles => {
+      if (prevStyles.includes(style)) {
+        return prevStyles.filter(s => s !== style); // Remove style
+      } else {
+        return [...prevStyles, style]; // Add style
+      }
+    });
+  };
+
+  const savePreferences = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const firestore = getFirestore();
+
+    if (user) {
+      const userDocRef = doc(firestore, "users", user.uid);
+      try {
+        // Save both color and style preferences
+        await setDoc(userDocRef, {
+          dislikedColors,
+          dislikedStyles
+        }, { merge: true });
+        console.log('Preferences saved!');
+      } catch (error) {
+        console.error("Error saving preferences:", error);
+      }
+    }
+  };  
+
+
+
+
+
+
   return (
     <div className="profile-container">
       <div className="profile-sidebar">
@@ -188,7 +225,7 @@ function ProfilePage() {
               <div className="profile-additional-settings">
                 <h3 className="settings-header">P R E F E R E N C E</h3>
                 <div className="settings-content">
-                  <h1 className="settings2-header">Disliked Color</h1>
+                  <h1 className="settings2-header">Avoid Colors</h1>
                   <div className="settings3-header">Select any colors that you prefer not to wear.</div>
                     <div className="color-grid">
                       {commonColors.map(color => (
@@ -200,6 +237,24 @@ function ProfilePage() {
                         />
                       ))}
                     </div>
+
+
+              <div className="style-preferences">
+                <h1 className="settings2-header">Avoid Styles</h1>
+                <div className="settings3-header">Select any styles that you prefer not to wear.</div>
+                  <div className="style-grid">
+                    {['Casual', 'Athletic', 'Formal'].map(style => (
+                      <button
+                        key={style}
+                        className={`style-button ${dislikedStyles.includes(style) ? 'disliked-style' : ''}`}
+                        onClick={() => toggleStyle(style)}
+                      >
+                        {style}
+                      </button>
+                    ))}
+                  </div>
+              </div>
+
                     <button onClick={saveColorPreferences} className="save-colors-btn">Save Preferences</button>
                 </div>
               </div>
