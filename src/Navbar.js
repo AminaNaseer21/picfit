@@ -66,7 +66,7 @@ export default function Navbar() {
                         <>
                             <CustomLink to="profile">Profile</CustomLink>
                             <CustomLink to="settings">Settings</CustomLink>
-                            <CustomLink to="#" onClick={() => getAuth().signOut()}>Log Out</CustomLink>
+                            <CustomLink to="/" onClick={() => getAuth().signOut()}>Log Out</CustomLink>
                         </>
                     ) : (
                         // Dropdown for unauthenticated users
