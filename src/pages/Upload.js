@@ -49,12 +49,13 @@ const ImageEditor = () => {
   const erasePixel = (x, y) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
+
+    ctx.save(); // Save current context state
     ctx.beginPath();
     ctx.arc(x, y, eraserSize / 2, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.globalCompositeOperation = 'destination-out'; // Set to erase pixels
-    ctx.fill();
-    ctx.globalCompositeOperation = 'source-over'; // Reset composite operation
+    ctx.clip(); // Clip the area to be erased
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the clipped area
+    ctx.restore(); // Restore context state to undo clipping
   };
 
   const handleUndo = () => {
