@@ -1,12 +1,15 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import {getAuth, onAuthStateChanged } from "firebase/auth";
+import { useUser } from './UserContext';
 import './Navbar.css';
 import logo from './img/PicMyFit_Logo.png';
 import profilePlaceholder from './img/profilePlaceholder.png';
 
 export default function Navbar() {
     
+    const { profilePicURL } = useUser();
+
     // State to control the visibility of the dropdown
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
    
@@ -57,7 +60,7 @@ export default function Navbar() {
                 </ul>
 
                 {/* Toggle dropdown on click */}
-                <img src={profilePlaceholder} alt="Profile" className="profilePlaceholder" onClick={toggleDropdown}/>
+                <img src={profilePicURL || profilePlaceholder} alt="Profile" className="profilePlaceholder" onClick={toggleDropdown}/>
                 {/* Dropdown menu */}
                 {isDropdownVisible && (
                 <div className={`dropdown ${isDropdownVisible ? 'dropdown-visible' : 'dropdown-hidden'}`}>
@@ -65,8 +68,7 @@ export default function Navbar() {
                         // Dropdown for authenticated users
                         <>
                             <CustomLink to="profile">Profile</CustomLink>
-                            <CustomLink to="settings">Settings</CustomLink>
-                            <CustomLink to="#" onClick={() => getAuth().signOut()}>Log Out</CustomLink>
+                            <CustomLink to="/" onClick={() => getAuth().signOut()}>Log Out</CustomLink>
                         </>
                     ) : (
                         // Dropdown for unauthenticated users
