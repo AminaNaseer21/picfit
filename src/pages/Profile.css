@@ -267,15 +267,22 @@
 
 .style-button {
   padding: 10px;
-  border: 2px solid #ddd; /* Border for the buttons */
+  border: 2px solid #ddd;
   border-radius: 5px;
-  background-color: #f0f0f0; /* Light grey background */
-  cursor: pointer; /* Change cursor to indicate it's clickable */
+  background-color: #f0f0f0;
+  cursor: pointer;
   font-size: 16px;
-  outline: none; /* Remove default focus outline */
+  outline: none;
+  transition: box-shadow 0.3s;
+  /* Standard shadow to give depth */
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.style-button:active,
 .disliked-style {
-  background-color: #e8656a; /* Indicate the style is not preferred */
+  /* Apply inset shadow for active state or when the style is disliked */
+  box-shadow: inset 0 0 8px #662e30; /* Inset shadow on all sides */
+  transition: box-shadow 0.3s;
+  background-color: #f96d80;
   color: white;
 }
