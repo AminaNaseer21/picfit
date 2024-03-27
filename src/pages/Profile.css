@@ -5,26 +5,27 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  height: 500px;
+  height: 1000px;
 }
 
 .profile-sidebar {
-  background-color: #f96d80; /* Example color */
+  background-color: #4c566a; /* Example color */
   color: white;
   padding: 20px;
+  padding-top: 150px;
   width: 250px; /* Adjust based on your content */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* This will center the content vertically */
-  height: 500px; /* Adjust the height as needed */
+  justify-content: top; /* This will center the content vertically */
+  height: 1000px; /* Adjust the height as needed */
 }
 
 .profile-picture {
   width: 200px;
   height: 200px;
   background-color: #ddd;
-  border: 10px solid #ce5a5e;
+  border: 10px solid #d8dee9;
   border-radius: 50%;
   margin-bottom: 20px;
   /* To ensure the image stays centered and does not stretch in flex container */
@@ -46,14 +47,16 @@
 .profile-main {
   background-color: #fff;
   padding: 20px;
+  padding-top: 0px;
   width: calc(100% - 250px); /* Adjust based on sidebar width */
 }
 
 .profile-header {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 30px;
   font-weight: bolder;
-  color: #333;
+  color: #2e3440;
 }
 
 .upload-photo{
@@ -90,7 +93,11 @@
 .profile-form {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 80%;
 }
 
 .profile-input {
@@ -124,7 +131,7 @@
   margin-top: 10px; /* Add margin above the button */
   border: none; /* Remove the default border */
   border-radius: 5px;
-  background-color: #f96d80; /* Use the same color as the sidebar for consistency */
+  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
   color: white; /* Text color for the button */
   font-size: 16px;
   cursor: pointer; /* Change cursor to indicate it's clickable */
@@ -133,7 +140,7 @@
 }
 
 .profile-submit:hover {
-  background-color: #e8656a; /* Darken the button when hovering */
+  background-color: #3b4252; /* Darken the button when hovering */
 }
 
 /* Style to make the file input text look like the rest of the inputs */
@@ -149,7 +156,6 @@
   padding: 10px;
   outline: none;
   white-space: nowrap; /* Prevent text from wrapping */
-  -webkit-user-select: none;
   cursor: pointer;
   text-align: center;
   font-size: 16px;
@@ -165,4 +171,117 @@
 /* Adjust file input text when file is selected */
 .profile-form input[type="file"]:not(:empty) {
   color: #333; /* Show the file name */
+}
+
+.profile-additional-settings {
+  margin-top: 5px; /* Space from the previous section */
+  padding: 0px;
+}
+
+.settings-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #2e3440;
+}
+
+.settings2-header {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #333;
+}
+
+.settings3-header {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-label {
+  margin-bottom: 5px; /* Space below the label */
+}
+
+.settings-input {
+  padding: 10px;
+  margin-bottom: 10px; /* Space between inputs */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Creates an 8-column grid */
+  gap: 10px;
+}
+
+.color-square {
+  width: 30px; /* Square size */
+  height: 30px;
+  cursor: pointer;
+  border: 2px solid #ddd; /* Border for the squares */
+}
+
+.color-square.disliked {
+  border-color: #000; /* Border color when a color is disliked */
+  border: 4px solid #2e3440;
+}
+
+.save-colors-btn {
+  margin-top: 10px; /* Spacing from the grid */
+  padding: 10px;
+  background-color: #4c566a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-colors-btn:hover {
+  background-color: #3b4252; /* Darken the button when hovering */
+}
+
+
+.style-preferences {
+  margin-top: 20px; /* Space from the color grid */
+}
+
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
+  gap: 10px;
+  margin-bottom: 10px; /* Space below the grid */
+}
+
+.style-button {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #d8dee9;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s;
+  /* Standard shadow to give depth */
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.style-button:active,
+.disliked-style {
+  /* Apply inset shadow for active state or when the style is disliked */
+  box-shadow: inset 0 0 8px #2e3440; /* Inset shadow on all sides */
+  transition: box-shadow 0.3s;
+  background-color: #4c566a;
+  color: white;
 }
