@@ -17,7 +17,6 @@ function ProfilePage() {
   const [profileImage, setProfileImage] = useState(null);
   const [dislikedColors, setDislikedColors] = useState([]);
   const [dislikedStyles, setDislikedStyles] = useState([]);
-  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const auth = getAuth();
@@ -74,7 +73,6 @@ function ProfilePage() {
           profilePicture: await uploadProfilePicture()
         }, { merge: true });
 
-        displayPopup();
       } catch (error) {
         console.error("Error saving preferences:", error);
       }
@@ -89,11 +87,6 @@ function ProfilePage() {
       return getDownloadURL(imageRef);
     }
     return userData.profilePicture;
-  };
-
-  const displayPopup = () => {
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 3000);
   };
 
   const handleSubmit = (e) => {
@@ -200,9 +193,6 @@ function ProfilePage() {
 
             </form>
           </div>
-
-          {showPopup && <div className="popup">Changes Saved</div>}
-        
         </div>
         
     </div>
