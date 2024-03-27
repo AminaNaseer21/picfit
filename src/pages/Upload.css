@@ -5,21 +5,7 @@
     box-sizing: border-box;
 }
 
-.upload-container .begin-making {
-    float: left;
-    text-align: left;
-    font-size: 24px;
-    margin-top: 50px;
-    padding-left: 20px;
-    width: 300px;
-}
-
-.upload-container .begin-making small {
-    font-size: 14px;
-}
-
 .upload-container .image-holder {
-    float: right;
     width: 300px;
     height: 300px;
     margin-top: 40px;

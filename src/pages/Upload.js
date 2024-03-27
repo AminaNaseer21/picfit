@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
@@ -23,10 +24,16 @@ export default function Upload() {
 
             try {
                 const response = await axios.request(options);
-                console.log(response); // Log the entire response object
-                setImage(URL.createObjectURL(response.data)); // Using URL.createObjectURL to display the image
+                if (response.data.success) {
+                    const imageUrl = URL.createObjectURL(response.data.output); // Assuming output field contains image data
+                    setImage(imageUrl);
+                    setError(null);
+                } else {
+                    setError(response.data.error || 'Unknown error occurred');
+                }
             } catch (error) {
-                console.error('Error:', error); // Log any errors that occur
+                console.error('Error:', error);
+                setError('Failed to process image. Please try again.');
             }
         }
     };
@@ -35,7 +42,10 @@ export default function Upload() {
         <div className="upload-container">
             <div className="image-holder">
                 <div className="image-display-box">
-                    {image ? <img src={image} alt="Processed" /> : <p>Select an image to upload</p>}
+                    {/* Box for displaying the image */}
+                    <div className="image-box">
+                        {image ? <img src={image} alt="Processed" /> : <p>Select an image to upload</p>}
+                    </div>
                 </div>
                 <div className="add-item-box">
                     <label htmlFor="input-file">
@@ -49,6 +59,7 @@ export default function Upload() {
                     />
                 </div>
             </div>
+            {error && <p className="error">{error}</p>}
         </div>
     );
 }
