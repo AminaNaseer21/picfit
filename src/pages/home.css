@@ -55,8 +55,8 @@
   }
   .parent {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
+    justify-content: 0; /* Centers horizontally */
+    align-items: 0; /* Centers vertically */
     height: 100vh; /* Takes full viewport height */
   }
 
@@ -64,14 +64,14 @@
     width: 254px;
     height: 254px;
     border-radius: 30px;
-    background: black;
+    background: rgb(70, 69, 69);
     box-shadow: 15px 15px 30px #bebebe,
                -15px -15px 30px #ffffff;
   }
 
-  .Weather {
+  /* .Weather {
   padding-left: 20px;
-}
+} */
 
 .generateNowbutton{
   padding: 17px 40px;
@@ -98,7 +98,7 @@ button {
   background: var(--button_outline_color);
 }
 
-.button_top {
+/* .button_top {
   display: block;
   box-sizing: border-box;
   border: 2px solid var(--button_outline_color);
@@ -108,14 +108,5 @@ button {
   color: var(--button_outline_color);
   transform: translateY(-0.2em);
   transition: transform 0.1s ease;
-}
+} */
 
-button:hover .button_top {
-  /* Pull the button upwards when hovered */
-  transform: translateY(-0.33em);
-}
-
-button:active .button_top {
-  /* Push the button downwards when pressed */
-  transform: translateY(0);
-}

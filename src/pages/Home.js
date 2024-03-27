@@ -6,22 +6,10 @@ import { Link } from 'react-router-dom';
 const Home = () =>{
   
   return (
+<div className="Home"
 
-    <div className="centerPicture">
-      <h1>Welcome to PicMyFit</h1> 
-
-<div className="lines">
-</div>
-
-      <div class="parent">
-      <div class="card"></div>
-      </div>
-
-      {/* <div className="centeredBox">
-        <button type="picture">OUTFIT</button>
-      </div>                           */}
-      
-      <div className="favoriteButtons"> 
+><div className="Bottom">
+<div className="favoriteButtons"> 
       <Link to="/Outfitters">
         <button type="favorites">favoriteButtons</button>
         </Link>
@@ -39,15 +27,26 @@ const Home = () =>{
         </Link>
       </div> 
 
-
       <div class ="generateNowbutton">
         <Link to = "/Sign up">
           <button type ="Generate Now">generateNowbutton</button>
         </Link>
       </div>
 
-      </div>
+</div>
 
+    <div className="centerPicture">
+      <h1>Welcome to PicMyFit</h1> 
+
+{/* <div className="lines">
+</div> */}
+      
+
+
+      
+
+      </div>
+      </div>
     
   );
 }; export default Home;
