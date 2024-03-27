@@ -5,6 +5,25 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import './Profile.css';
 import profilePlaceholder from '../img/profilePlaceholder.png';
 
+const commonColors = [
+  '#FF0000', // Red
+  '#00FF00', // Lime
+  '#0000FF', // Blue
+  '#FFFF00', // Yellow
+  '#00FFFF', // Aqua/Cyan
+  '#FF00FF', // Magenta/Fuchsia
+  '#FFFFFF', // White
+  '#000000', // Black
+  '#800000', // Maroon
+  '#808000', // Olive
+  '#008000', // Green
+  '#800080', // Purple
+  '#008080', // Teal
+  '#000080', // Navy
+  '#808080', // Gray
+  '#C0C0C0', // Silver
+];
+
 function ProfilePage() {
   const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '' });
   const [profileImage, setProfileImage] = useState(null); // For the image file
@@ -80,6 +99,36 @@ function ProfilePage() {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
+  
+  const [dislikedColors, setDislikedColors] = useState([]);
+
+  const toggleColor = (color) => {
+    setDislikedColors(prevColors => {
+      if (prevColors.includes(color)) {
+        return prevColors.filter(c => c !== color); // Remove color
+      } else {
+        return [...prevColors, color]; // Add color
+      }
+    });
+  };
+
+  const saveColorPreferences = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const firestore = getFirestore();
+
+    if (user) {
+      // Update user's disliked colors in Firestore
+      const userDocRef = doc(firestore, "users", user.uid);
+      try {
+        await setDoc(userDocRef, { dislikedColors }, { merge: true });
+        console.log('Disliked colors saved!');
+      } catch (error) {
+        console.error("Error saving disliked colors:", error);
+      }
+    }
+  };  
+
   return (
     <div className="profile-container">
       <div className="profile-sidebar">
@@ -135,10 +184,18 @@ function ProfilePage() {
           <div className="profile-additional-settings">
             <h3 className="settings-header">P R E F E R E N C E</h3>
             <div className="settings-content">
-              {/* Include additional settings here */}
-              <label className="settings-label">Setting 1</label>
-              <input type="text" className="settings-input" />
-              {/* Add more settings as needed */}
+              <h1 className="settings2-header">Disliked Color</h1>
+                <div className="color-grid">
+                  {commonColors.map(color => (
+                    <div 
+                      key={color}
+                      className={`color-square ${dislikedColors.includes(color) ? 'disliked' : ''}`}
+                      style={{ backgroundColor: color }}
+                      onClick={() => toggleColor(color)}
+                    />
+                  ))}
+                </div>
+                <button onClick={saveColorPreferences} className="save-colors-btn">Save Preferences</button>
             </div>
           </div>
 

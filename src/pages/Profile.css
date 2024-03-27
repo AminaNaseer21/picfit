@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center; /* This will center the content vertically */
-  height: 500px; /* Adjust the height as needed */
+  height: 1000px; /* Adjust the height as needed */
 }
 
 .profile-picture {
@@ -179,6 +179,13 @@
   color: #333;
 }
 
+.settings2-header {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #333;
+}
+
 .settings-content {
   display: flex;
   flex-direction: column;
@@ -193,5 +200,34 @@
   margin-bottom: 10px; /* Space between inputs */
   border: 2px solid #ddd;
   border-radius: 5px;
+  font-size: 16px;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Creates an 8-column grid */
+  gap: 10px; /* Spacing between the squares */
+}
+
+.color-square {
+  width: 30px; /* Square size */
+  height: 30px;
+  cursor: pointer;
+  border: 2px solid #ddd; /* Border for the squares */
+}
+
+.color-square.disliked {
+  border-color: #000; /* Border color when a color is disliked */
+  border: 4px solid #000000;
+}
+
+.save-colors-btn {
+  margin-top: 20px; /* Spacing from the grid */
+  padding: 10px;
+  background-color: #f96d80;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 16px;
 }
