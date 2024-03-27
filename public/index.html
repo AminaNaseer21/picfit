@@ -28,7 +28,48 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <input type="file" id="imageInput" accept="image/*">
+      <button onclick="removeBackground()">Remove Background</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      // JavaScript code for background removal
+
+      const fetch = require('node-fetch');
+      const fs = require('fs');
+
+      async function removeBackground() {
+        const imageInput = document.getElementById('imageInput');
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = ''; // Clear previous result
+        
+        const file = imageInput.files[0];
+        if (!file) {
+            alert('Please select an image file.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async function(event) {
+            const imageData = event.target.result;
+            const response = await fetch('/remove-background', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ imageData })
+            });
+            const data = await response.json();
+            const base64Image = data.image;
+            // Display the processed image
+            const img = document.createElement('img');
+            img.src = 'data:image/jpeg;base64,' + base64Image;
+            resultDiv.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
