@@ -146,9 +146,12 @@ function ProfilePage() {
         <h2 className="profile-name">Welcome {userData.name}</h2>
       </div>
       <div className="profile-main">
-        <div className="profile-header">P R O F I L E</div>
+        
           <div className="profile-info">
             <form className="profile-form" onSubmit={handleSubmit}>
+              
+              <div className="profile-header">P R O F I L E</div>
+
               <input 
                 type="text" 
                 placeholder="Your Name" 
@@ -180,27 +183,31 @@ function ProfilePage() {
                 className="profile-input-file"
                 onChange={handleFileChange}
               />
-              <button type="submit" className="profile-submit">Update Profile</button>
+              <button type="submit" className="profile-submit">Update Profile Details</button>
+
+              <div className="profile-additional-settings">
+                <h3 className="settings-header">P R E F E R E N C E</h3>
+                <div className="settings-content">
+                  <h1 className="settings2-header">Disliked Color</h1>
+                  <div className="settings3-header">Select any colors that you prefer not to wear.</div>
+                    <div className="color-grid">
+                      {commonColors.map(color => (
+                        <div 
+                          key={color}
+                          className={`color-square ${dislikedColors.includes(color) ? 'disliked' : ''}`}
+                          style={{ backgroundColor: color }}
+                          onClick={() => toggleColor(color)}
+                        />
+                      ))}
+                    </div>
+                    <button onClick={saveColorPreferences} className="save-colors-btn">Save Preferences</button>
+                </div>
+              </div>
+
             </form>
           </div>
 
-          <div className="profile-additional-settings">
-            <h3 className="settings-header">P R E F E R E N C E</h3>
-            <div className="settings-content">
-              <h1 className="settings2-header">Disliked Color</h1>
-                <div className="color-grid">
-                  {commonColors.map(color => (
-                    <div 
-                      key={color}
-                      className={`color-square ${dislikedColors.includes(color) ? 'disliked' : ''}`}
-                      style={{ backgroundColor: color }}
-                      onClick={() => toggleColor(color)}
-                    />
-                  ))}
-                </div>
-                <button onClick={saveColorPreferences} className="save-colors-btn">Save Preferences</button>
-            </div>
-          </div>
+          
 
         </div>
         
