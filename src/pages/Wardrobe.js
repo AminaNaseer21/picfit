@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
+import { storage } from '../Services/firebase';
+import { useAuth } from '../Services/authentication';
+import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
@@ -9,6 +13,26 @@ import item3 from "../img/items/3.png";
 export default function Wardrobe() {
     // State to track the active category for dropdown
     const [activeSubcategory, setActiveSubcategory] = useState('');
+    const [imageUrls, setImageUrls] = useState([]);
+    const { currentUser } = useAuth();
+
+    useEffect(() => {
+        if (!currentUser) return;
+
+        const imagesListRef = ref(storage, `images/${currentUser.uid}/`);
+        listAll(imagesListRef)
+            .then((response) => {
+                return Promise.all(response.items.map((item) => getDownloadURL(item)));
+            })
+            .then((urls) => {
+                setImageUrls(urls);
+            })
+            .catch((error) => {
+                console.error('Error fetching images:', error);
+            });
+    }, [currentUser]);
+
+
 
     // Categories and subcategories data structure
     const categories = {
@@ -113,11 +137,9 @@ export default function Wardrobe() {
                 </div>
 
                 <div className="items">
-                    {items.map((item, index) => (
-                        <div key={index} className="item" onClick={handleItemClick}>
-                            <img src={item} alt={`Item ${index + 1}`} /> {/* Display each item image */}
-                        </div>
-                    ))}
+                {imageUrls.map((url, index) => (
+                <img key={index} src={url} alt={`Uploaded Image ${index}`} className='item-image'/>
+                ))}
                     <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
                         <span className="plus-button">+</span> {/* You can style this as needed */}
                     </div>
