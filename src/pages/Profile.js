@@ -40,14 +40,19 @@ function ProfilePage() {
 
         // Get additional user data from Firestore
         const userDocRef = doc(firestore, 'users', user.uid);
-      const userDoc = await getDoc(userDocRef);
-      if (userDoc.exists()) {
-        const data = userDoc.data();
-        setUserData(data);
-        if (data.dislikedColors) {
-          setDislikedColors(data.dislikedColors);
+        const userDoc = await getDoc(userDocRef);
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setUserData(data);
+
+          if (data.dislikedColors) {
+            setDislikedColors(data.dislikedColors);
+          }
+
+          if (data.dislikedStyles) {
+            setDislikedStyles(data.dislikedStyles);
+          }
         }
-      }
     }
   });
 
@@ -121,13 +126,16 @@ function ProfilePage() {
     const firestore = getFirestore();
 
     if (user) {
-      // Update user's disliked colors in Firestore
       const userDocRef = doc(firestore, "users", user.uid);
       try {
-        await setDoc(userDocRef, { dislikedColors }, { merge: true });
-        console.log('Disliked colors saved!');
+        // Save both color and style preferences
+        await setDoc(userDocRef, {
+          dislikedColors,
+          dislikedStyles
+        }, { merge: true });
+        console.log('Preferences saved!');
       } catch (error) {
-        console.error("Error saving disliked colors:", error);
+        console.error("Error saving preferences:", error);
       }
     }
   };  
@@ -143,26 +151,6 @@ function ProfilePage() {
       }
     });
   };
-
-  const savePreferences = async () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    const firestore = getFirestore();
-
-    if (user) {
-      const userDocRef = doc(firestore, "users", user.uid);
-      try {
-        // Save both color and style preferences
-        await setDoc(userDocRef, {
-          dislikedColors,
-          dislikedStyles
-        }, { merge: true });
-        console.log('Preferences saved!');
-      } catch (error) {
-        console.error("Error saving preferences:", error);
-      }
-    }
-  };  
 
 
 
