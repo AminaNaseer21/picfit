@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import logo512 from '../img/logo512.png';
-import PointingPH from '../img/PointingPH.png';
-import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
@@ -19,14 +16,14 @@ export default function Upload() {
                 headers: {
                     'X-RapidAPI-Key': 'cc1370c0d0msh0b8f903c46cc41cp1bf389jsn12f3e4c2024c',
                     'X-RapidAPI-Host': 'image-background-remover-ai-background-removal.p.rapidapi.com',
-                    ...formData.getHeaders(),
+                    'Content-Type': 'multipart/form-data'
                 },
                 data: formData
             };
 
             try {
                 const response = await axios.request(options);
-                setImage(response.data); // Assuming API returns processed image data
+                setImage(URL.createObjectURL(response.data)); // Using URL.createObjectURL to display the image
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -37,7 +34,7 @@ export default function Upload() {
         <div className="upload-container">
             <div className="image-holder">
                 <div className="image-display-box">
-                    {image ? <img src={image} alt="Processed" /> : <img src={logo512} alt="Add Item Logo" />}
+                    {image ? <img src={image} alt="Processed" /> : <p>Select an image to upload</p>}
                 </div>
                 <div className="add-item-box">
                     <label htmlFor="input-file">
@@ -51,14 +48,6 @@ export default function Upload() {
                     />
                 </div>
             </div>
-            <div className="begin-making">
-                <img src={PointingPH} alt="Pointing" style={{ width: '600px', height: '600px' }} />
-            </div>
-            <div className="description">
-                <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Begin Making Today's Outfit</p>
-                <p style={{ fontSize: '18px', fontWeight: 'normal' }}>because everyone deserves to feel good in what they wear</p>
-            </div>
         </div>
     );
 }
-
