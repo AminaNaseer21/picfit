@@ -148,7 +148,7 @@ function ProfilePage() {
             <form className="profile-form" onSubmit={handleSubmit}>
               <input 
                 type="text" 
-                placeholder="Name" 
+                placeholder="Your Name" 
                 className="profile-input" 
                 value={userData.name}
                 name="name"

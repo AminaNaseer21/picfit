@@ -12,11 +12,12 @@
   background-color: #f96d80; /* Example color */
   color: white;
   padding: 20px;
+  padding-top: 150px;
   width: 250px; /* Adjust based on your content */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* This will center the content vertically */
+  justify-content: top; /* This will center the content vertically */
   height: 1000px; /* Adjust the height as needed */
 }
 
@@ -206,7 +207,7 @@
 .color-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr); /* Creates an 8-column grid */
-  gap: 10px; /* Spacing between the squares */
+  gap: 10px;
 }
 
 .color-square {
@@ -230,4 +231,8 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+}
+
+.save-colors-btn:hover {
+  background-color: #e8656a; /* Darken the button when hovering */
 }
