@@ -5,6 +5,7 @@ const ImageEditor = () => {
   const [image, setImage] = useState(null);
   const [erasing, setErasing] = useState(false);
   const [undoHistory, setUndoHistory] = useState([]);
+  const [eraserSize, setEraserSize] = useState(10); // Default eraser size
 
   useEffect(() => {
     if (image) {
@@ -48,7 +49,7 @@ const ImageEditor = () => {
   const erasePixel = (x, y) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(x - 5, y - 5, 10, 10); // Adjust the clear area size as needed
+    ctx.clearRect(x - eraserSize / 2, y - eraserSize / 2, eraserSize, eraserSize);
   };
 
   const handleUndo = () => {
@@ -94,6 +95,17 @@ const ImageEditor = () => {
         <>
           <button onClick={handleUndo}>Undo</button>
           <button onClick={handleDownload}>Download Image</button>
+          <div>
+            <label htmlFor="eraserSize">Eraser Size:</label>
+            <input
+              type="range"
+              id="eraserSize"
+              min="1"
+              max="50"
+              value={eraserSize}
+              onChange={(e) => setEraserSize(parseInt(e.target.value))}
+            />
+          </div>
         </>
       )}
     </div>
