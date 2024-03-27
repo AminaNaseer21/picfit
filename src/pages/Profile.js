@@ -124,9 +124,10 @@ function ProfilePage() {
             />
             <input 
               type="file" 
+              className="profile-input-file"
               onChange={handleFileChange}
             />
-            <button type="submit">Update Profile</button>
+            <button type="submit" className="profile-submit">Update Profile</button>
           </form>
         </div>
       </div>

@@ -56,10 +56,11 @@
 .profile-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .profile-info-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .profile-info-section h3 {
@@ -78,6 +79,7 @@
 .profile-form {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .profile-input {
@@ -86,4 +88,70 @@
   border: 2px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+}
+
+.profile-input-file {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white; /* Match the background with other inputs */
+}
+
+/* Custom style for the file input 'Choose File' button */
+.profile-input-file::-webkit-file-upload-button {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background: #f0f0f0; /* Light grey background */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+.profile-submit {
+  padding: 10px;
+  margin-top: 10px; /* Add margin above the button */
+  border: none; /* Remove the default border */
+  border-radius: 5px;
+  background-color: #f96d80; /* Use the same color as the sidebar for consistency */
+  color: white; /* Text color for the button */
+  font-size: 16px;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  outline: none; /* Remove default focus outline */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.profile-submit:hover {
+  background-color: #e8656a; /* Darken the button when hovering */
+}
+
+/* Style to make the file input text look like the rest of the inputs */
+.profile-form input[type="file"] {
+  color: transparent; /* Hide the 'No file chosen' text */
+}
+
+.profile-form input[type="file"]::before {
+  content: 'Choose File'; /* The text you want to display */
+  color: #333; /* Text color */
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
+  outline: none;
+  white-space: nowrap; /* Prevent text from wrapping */
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Style for when a file is selected */
+.profile-form input[type="file"]:not(:empty)::before {
+  content: 'File Selected'; /* The text you want to display */
+  color: #333;
+}
+
+/* Adjust file input text when file is selected */
+.profile-form input[type="file"]:not(:empty) {
+  color: #333; /* Show the file name */
 }
