@@ -95,43 +95,55 @@ function ProfilePage() {
       </div>
       <div className="profile-main">
         <div className="profile-header">P R O F I L E</div>
-        <div className="profile-info">
-          <form className="profile-form" onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              placeholder="Name" 
-              className="profile-input" 
-              value={userData.name}
-              name="name"
-              onChange={handleChange}
-            />
-            <input 
-              type="email" 
-              placeholder="youremail@example.com" 
-              className="profile-input" 
-              value={userData.email}
-              name="email"
-              onChange={handleChange}
-              disabled // Email should not be editable as it's used for login
-            />
-            <input 
-              type="tel" 
-              placeholder="(555) 123-4567" 
-              className="profile-input" 
-              value={userData.phone}
-              name="phone"
-              onChange={handleChange}
-            />
-            <div className="upload-photo">Upload Profile Picture</div>
-            <input 
-              type="file" 
-              className="profile-input-file"
-              onChange={handleFileChange}
-            />
-            <button type="submit" className="profile-submit">Update Profile</button>
-          </form>
+          <div className="profile-info">
+            <form className="profile-form" onSubmit={handleSubmit}>
+              <input 
+                type="text" 
+                placeholder="Name" 
+                className="profile-input" 
+                value={userData.name}
+                name="name"
+                onChange={handleChange}
+              />
+              <input 
+                type="email" 
+                placeholder="youremail@example.com" 
+                className="profile-input" 
+                value={userData.email}
+                name="email"
+                onChange={handleChange}
+                disabled // Email should not be editable as it's used for login
+              />
+              <input 
+                type="tel" 
+                placeholder="(555) 123-4567" 
+                className="profile-input" 
+                value={userData.phone}
+                name="phone"
+                onChange={handleChange}
+              />
+              <div className="upload-photo">Upload Profile Picture</div>
+              <input 
+                type="file" 
+                className="profile-input-file"
+                onChange={handleFileChange}
+              />
+              <button type="submit" className="profile-submit">Update Profile</button>
+            </form>
+          </div>
+
+          <div className="profile-additional-settings">
+            <h3 className="settings-header">P R E F E R E N C E</h3>
+            <div className="settings-content">
+              {/* Include additional settings here */}
+              <label className="settings-label">Setting 1</label>
+              <input type="text" className="settings-input" />
+              {/* Add more settings as needed */}
+            </div>
+          </div>
+
         </div>
-      </div>
+        
     </div>
   );
 }

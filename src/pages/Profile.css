@@ -5,7 +5,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  height: 500px;
+  height: 1000px;
 }
 
 .profile-sidebar {
@@ -165,4 +165,33 @@
 /* Adjust file input text when file is selected */
 .profile-form input[type="file"]:not(:empty) {
   color: #333; /* Show the file name */
+}
+
+.profile-additional-settings {
+  margin-top: 5px; /* Space from the previous section */
+  padding: 0px;
+}
+
+.settings-header {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #333;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-label {
+  margin-bottom: 5px; /* Space below the label */
+}
+
+.settings-input {
+  padding: 10px;
+  margin-bottom: 10px; /* Space between inputs */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
 }
