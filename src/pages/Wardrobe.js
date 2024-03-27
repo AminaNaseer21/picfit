@@ -138,7 +138,7 @@ export default function Wardrobe() {
 
                 <div className="items">
                 {imageUrls.map((url, index) => (
-                <img key={index} src={url} alt={`Uploaded Image ${index}`} />
+                <img key={index} src={url} alt={`Uploaded Image ${index}`} className='item-image'/>
                 ))}
                     <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
                         <span className="plus-button">+</span> {/* You can style this as needed */}
