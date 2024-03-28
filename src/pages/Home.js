@@ -11,16 +11,16 @@ const Home = () =>{
 
 <div className="Home">
 
-<div className="centerPicture">
+<div className="header">
       <h1>Welcome to PicMyFit</h1> 
       </div>
 
-      <div clasName="centerPicture">
-{/* <div className="card">
-</div> */}
-</div>
 
 <div className="Bottom">
+
+<div className="cardMain">
+</div>
+
 
   <div className="bottomLeft">
   <div className="favoriteButtons"> 
@@ -46,9 +46,11 @@ const Home = () =>{
   </div> 
 </div>
 
+
+
   <div class ="generateNowbutton">
         <Link to = "/Sign up">
-          <button type ="Generate Now">generateNowbutton</button>
+          <button type ="Generate Now">generate Now button</button>
         </Link>
   </div>
 </div>
