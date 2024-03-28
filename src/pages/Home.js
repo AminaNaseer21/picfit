@@ -6,47 +6,63 @@ import { Link } from 'react-router-dom';
 const Home = () =>{
   
   return (
-<div className="Home"
 
-><div className="Bottom">
-<div className="favoriteButtons"> 
+   
+
+<div className="Home">
+
+<div className="centerPicture">
+      <h1>Welcome to PicMyFit</h1> 
+      </div>
+
+      <div clasName="centerPicture">
+{/* <div className="card">
+</div> */}
+</div>
+
+<div className="Bottom">
+
+  <div className="bottomLeft">
+  <div className="favoriteButtons"> 
       <Link to="/Outfitters">
         <button type="favorites">favoriteButtons</button>
         </Link>
-      </div>   
+  </div>   
+  </div>
 
-      <div className="wardrobeButton">
+<div className="bottomMiddle">
+  <div className="wardrobeButton">
         <Link to ="/Wardrobe">
         <button type="Wardrobe">Wardrobe</button>
         </Link>
-      </div>  
+  </div>  
+  </div>
 
-      <div className="uploadButton">
+<div className="bottomRight">
+  <div className="uploadButton">
         <Link to = "/Login">
         <button type="Upload">Upload</button>
         </Link>
-      </div> 
+  </div> 
+</div>
 
-      <div class ="generateNowbutton">
+  <div class ="generateNowbutton">
         <Link to = "/Sign up">
           <button type ="Generate Now">generateNowbutton</button>
         </Link>
-      </div>
-
+  </div>
 </div>
 
-    <div className="centerPicture">
-      <h1>Welcome to PicMyFit</h1> 
 
-{/* <div className="lines">
-</div> */}
+{/* <div clasName="centerPicture">
+<div className="card">
+</div>
+</div>     */}
+
+
+
+      </div> /*end of <div className="Home">*/
       
-
-
-      
-
-      </div>
-      </div>
     
   );
 }; export default Home;
