@@ -2,7 +2,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   text-align: center;
 }
 
@@ -72,7 +72,10 @@
     justify-content: center;
     align-items: center;
     height: 20vh;
-    transform: translate(center, -20%);
+    transform: translateX(center);
+    transform: translateY(-85%);
+    font-size: 30px;
+    letter-spacing: 1.5px;
   }
   
   button {
@@ -111,8 +114,8 @@
   }
 
   .cardMain{
-    width: 254px;
-    height: 254px;
+    width: 75%;
+    height: 40%;
     border-radius: 30px;
     background: transparent;
     border: rgb(19, 18, 18);
@@ -122,7 +125,7 @@
                position: fixed;
                top: 50%;
                left: 50%;
-               transform: translate(-50%, -50%);
+               transform: translate(-50%, -68%);
                text-align: center;
   }
   .cardFavorites{
@@ -147,11 +150,12 @@
   cursor: pointer;
   border: 0;
   background-color: transparent;
-  box-shadow: grey 0 0 8px;
+  /* box-shadow: grey 0 0 8px; */
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 15px;
   transition: all 0.5s ease;
+  transform: translateY(80px);
 }
 
 button {
@@ -165,5 +169,6 @@ button {
   border-radius: var(--button_radius);
   background: var(--button_outline_color);
 }
+
 
 

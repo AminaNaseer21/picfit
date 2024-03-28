@@ -19,6 +19,7 @@ const Home = () =>{
 <div className="Bottom">
 
 <div className="cardMain">
+  
 </div>
 
 
