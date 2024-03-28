@@ -22,7 +22,7 @@
   width: 33.22%;
   bottom: 0;
   left: 0;
-  transform: translate(left,10%);
+  transform: translate(left,70%);
 }
 
 .bottomMiddle{
@@ -132,7 +132,7 @@
     width: 254px;
     height: 254px;
     border-radius: 30px;
-    background: rgb(159, 158, 158);
+    background: transparent;
     border: rgb(19, 18, 18);
     border-radius: 50px;
     box-shadow: 15px 15px 30px #bebebe,
