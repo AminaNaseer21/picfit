@@ -20,7 +20,7 @@
   align-items: center;
   position: fixed;
   width: 33.22%;
-  bottom: 10%;
+  bottom: 0;
   left: 0;
   transform: translate(left,10%);
 }
@@ -31,7 +31,7 @@
   align-items: center;
   position: fixed;
   width: 33.22%;
-  bottom: 10%;
+  bottom: 0;
   left: 34%;
 }
 .bottomRight{
@@ -40,7 +40,7 @@
   align-items: center;
   position: fixed;
   width: 33.22%;
-  bottom: 10%;
+  bottom: 0;
   left: 68%;
   
 }

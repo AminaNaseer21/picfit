@@ -23,27 +23,39 @@ const Home = () =>{
 
 
   <div className="bottomLeft">
+    <div className = "cardFavorites">
+    <div className = "top">
   <div className="favoriteButtons"> 
       <Link to="/Outfitters">
         <button type="favorites">favoriteButtons</button>
         </Link>
-  </div>   
+  </div>  
+  </div>
+  </div> 
   </div>
 
 <div className="bottomMiddle">
+<div className = "cardFavorites">
+<div className = "top">
   <div className="wardrobeButton">
         <Link to ="/Wardrobe">
         <button type="Wardrobe">Wardrobe</button>
         </Link>
-  </div>  
   </div>
+</div>  
+</div>
+</div>
 
 <div className="bottomRight">
+<div className = "cardFavorites">
+  <div className = "top">
   <div className="uploadButton">
         <Link to = "/Login">
         <button type="Upload">Upload</button>
         </Link>
+        </div>
   </div> 
+  </div>
 </div>
 
 
