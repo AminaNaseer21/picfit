@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthErrorCodes, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { firebaseApp } from "../Services/firebase";
+import { firebaseApp, signInWithGooglePopup } from "../Services/firebase";
 import './Login.css'
 
 function Signup() {
@@ -11,6 +11,11 @@ function Signup() {
 
   // initialised auth instance
   const auth = getAuth(firebaseApp);
+
+  const logGoogleUser = async () => {
+    const response = await signInWithGooglePopup();
+    console.log(response);
+  }
 
 // handle form submit
   const handleSubmit = (e) => {
@@ -78,6 +83,7 @@ function Signup() {
           <button title="Sign up" aria-label="Signup" type="submit">
             Create account
           </button>
+          <button onClick={logGoogleUser}>Sign Up With Google</button>
         </div>
       </form>
       <div className="option">
