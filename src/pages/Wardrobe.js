@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
+import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
-import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
@@ -45,7 +44,7 @@ export default function Wardrobe() {
             Denim: ["Straight", "Tapered", "Boyfriend", "Baggy", "Slim", "Bootcut", "Flared", "Jeggings", "Mom", "Wide Leg"],
             Pants: ["Chinos", "Trousers", "Joggers", "Workwear", "Cargo"],
             Sweatpants: ["Jogger", "Classic"],
-            Pants: ["Classic", "Active", "Mesh Shorts", "Denim Shorts", "Cargo"]
+            Shorts: ["Classic", "Active", "Mesh Shorts", "Denim Shorts", "Cargo"]
 
         },
         OUTERWEAR: {
@@ -55,7 +54,6 @@ export default function Wardrobe() {
     };
 
     // Replace with real items
-    const items = [item1, item2, item3];
 
 
 
@@ -138,7 +136,7 @@ export default function Wardrobe() {
 
                 <div className="items">
                 {imageUrls.map((url, index) => (
-                <img key={index} src={url} alt={`Uploaded Image ${index}`} className='item-image'/>
+                <img key={index} src={url} alt={`Uploaded Image ${index}`} className="item-image"/>
                 ))}
                     <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
                         <span className="plus-button">+</span> {/* You can style this as needed */}

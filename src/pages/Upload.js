@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 
 export default function Upload() {
     const [imageUploads, setImageUploads] = useState([]);
-    const [imageUrls, setImageUrls] = useState([]);
+    const [ setImageUrls ] = useState([]);
     const { currentUser } = useAuth();
 
     const handleImageChange = (e) => {
