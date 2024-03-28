@@ -5,9 +5,6 @@ import { useAuth } from '../Services/authentication';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
-import item1 from "../img/items/1.png";
-import item2 from "../img/items/2.png";
-import item3 from "../img/items/3.png";
 
 export default function Wardrobe() {
     // State to track the active category for dropdown
@@ -136,7 +133,7 @@ export default function Wardrobe() {
 
                 <div className="items">
                 {imageUrls.map((url, index) => (
-                <img key={index} src={url} alt={`Uploaded Image ${index}`} className="item-image"/>
+                <img key={index} src={url} alt={`Uploaded ${index}`} className="item-image"/>
                 ))}
                     <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
                         <span className="plus-button">+</span> {/* You can style this as needed */}
