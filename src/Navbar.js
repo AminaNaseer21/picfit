@@ -57,7 +57,6 @@ export default function Navbar() {
                 <ul>
                     <CustomLink to="wardrobe">Wardrobe</CustomLink>
                     <CustomLink to="outfitter">Outfitter</CustomLink>
-                    <CustomLink to="weatherapp">WeatherApp</CustomLink>
                 </ul>
 
                 {/* Toggle dropdown on click */}
