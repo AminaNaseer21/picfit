@@ -16,10 +16,12 @@ function WeatherApp() {
       if (data.cod === '404') {
         setWeather('No City Found');
       } else {
-        const weatherDescription = data.weather[0].main;
+        const weatherDescription = data.weather[0].description;
         const temp = Math.round(data.main.temp);
+        const humidity = data.main.humidity;
+        const windSpeed = data.wind.speed;
         const iconCode = data.weather[0].icon;
-        setWeather({ weather: weatherDescription, temp });
+        setWeather({ weather: weatherDescription, temp, humidity, windSpeed });
         setWeatherIcon(`http://openweathermap.org/img/w/${iconCode}.png`);
       }
     } catch (error) {
@@ -39,8 +41,10 @@ function WeatherApp() {
       {weather && (
         <div>
           <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
-          <p>The weather in {location} is: {weather.weather}</p>
+          <p>The weather condition in {location} is: {weather.weather}</p>
           <p>The temperature in {location} is: {weather.temp}°F</p>
+          <p>The wind speed in {location} is: {weather.windSpeed} mph</p>
+          <p>The humidity in {location} is: {weather.humidity}%</p>
         </div>
       )}
     </div>
