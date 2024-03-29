@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Config from "../Services/Config";
+import './WeatherApp.css';
 
 function WeatherApp() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
+  const [weatherIcon, setWeatherIcon] = useState(null);
 
   const API_KEY = Config.API_KEY;
 
@@ -16,7 +18,9 @@ function WeatherApp() {
       } else {
         const weatherDescription = data.weather[0].main;
         const temp = Math.round(data.main.temp);
+        const iconCode = data.weather[0].icon;
         setWeather({ weather: weatherDescription, temp });
+        setWeatherIcon(`http://openweathermap.org/img/w/${iconCode}.png`);
       }
     } catch (error) {
       console.error('Error fetching weather data:', error);
@@ -34,6 +38,7 @@ function WeatherApp() {
       <button onClick={fetchWeather}>Get Weather</button>
       {weather && (
         <div>
+          <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
           <p>The weather in {city} is: {weather.weather}</p>
           <p>The temperature in {city} is: {weather.temp}°F</p>
         </div>
