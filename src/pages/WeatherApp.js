@@ -3,7 +3,7 @@ import Config from "../Services/Config";
 import './WeatherApp.css';
 
 function WeatherApp() {
-  const [city, setCity] = useState('');
+  const [location, setLocation] = useState('');
   const [weather, setWeather] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
 
@@ -11,7 +11,7 @@ function WeatherApp() {
 
   const fetchWeather = async () => {
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${API_KEY}`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID=${API_KEY}`);
       const data = await response.json();
       if (data.cod === '404') {
         setWeather('No City Found');
@@ -31,16 +31,16 @@ function WeatherApp() {
     <div>
       <input
         type="text"
-        placeholder="Enter city"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
+        placeholder="Enter city or ZIP code"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
       />
       <button onClick={fetchWeather}>Get Weather</button>
       {weather && (
         <div>
           <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
-          <p>The weather in {city} is: {weather.weather}</p>
-          <p>The temperature in {city} is: {weather.temp}°F</p>
+          <p>The weather in {location} is: {weather.weather}</p>
+          <p>The temperature in {location} is: {weather.temp}°F</p>
         </div>
       )}
     </div>
