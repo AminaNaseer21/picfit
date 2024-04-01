@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 33.22%;
   bottom: 0;
   left: 0;
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 33.22%;
   bottom: 0;
   left: 34%;
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 33.22%;
   bottom: 0;
   left: 68%;
@@ -72,7 +72,7 @@
     align-items: center;
     height: 20vh;
     transform: translateX(center);
-    transform: translateY(-85%);
+     transform: translateY(-100%); 
     font-size: 30px;
     letter-spacing: 1.5px;
   }
@@ -122,7 +122,7 @@
     border-radius: 25px;
     box-shadow: 15px 15px 30px #0e0d0d,
                -15px -15px 30px #ffffff;
-               position: fixed;
+               position: absolute;
                top: 50%;
                left: 50%;
                transform: translate(-50%, -68%);
@@ -254,7 +254,7 @@ button {
   border-radius: 30px;
   background: #212121;
   /* Centering */
-  position: absolute; /* or 'fixed' if you want it relative to the viewport */
+  position: fixed; /* or 'fixed' if you want it relative to the viewport */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
@@ -266,7 +266,7 @@ button {
   height: 254px;
   border-radius: 30px;
   background: #6c6b6b;
-  position: absolute;
+  position: fixed;
   /* Centering */
   top: 50%;
   left: 50%;
@@ -278,7 +278,7 @@ button {
   height: 254px;
   border-radius: 30px;
   background: #312a2a;
-  position: absolute;
+  position: fixed;
   /* Centering */
   top: 50%;
   left: 50%;
