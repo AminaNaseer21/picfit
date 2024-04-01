@@ -58,9 +58,9 @@ export default function Navbar() {
     
             <div className="nav-right">
 
-                <ul className="left-textbox">
-                    <CustomLink to="wardrobe">YOUR WARDROBE</CustomLink>
-                    <CustomLink to="outfitter">THE OUTFITTER</CustomLink>
+                <ul>
+                    <CustomLink className="right-textbox" to="wardrobe">YOUR WARDROBE</CustomLink>
+                    <CustomLink className="right-textbox" to="outfitter">THE OUTFITTER</CustomLink>
                 </ul>
 
                 {/* Toggle dropdown on click */}

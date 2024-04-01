@@ -5,7 +5,6 @@
   align-items: center;
   padding: 10px 20px;
   background-color: #E5E9F0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav > div {
@@ -32,14 +31,14 @@
 .PicMyFit, .nav a {
   display: flex;
   align-items: center;
-  color: #2E3440;
+  color: #434C5E;
   text-decoration: none;
   font-size: 18px;
   transition: all 0.3s ease;
 }
 
-.nav a:hover, .nav .active a {
-  color: #3669c7; /* Highlight color for interactivity */
+.nav-left:hover, .nav-left .active a {
+  color: #2E3440; /* Highlight color for interactivity */
 }
 
 .nav ul {
@@ -115,7 +114,31 @@
   font-weight: bold;
 }
 
-.left-textbox {
-
-  border: #2E3440;
+.right-textbox {
+  background-color:#3B4252;
+  color: #ECEFF4;
+  border: none;
+  border-radius: 0.1em;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  min-height: 2.75em;
+  padding: 1em 2.3em;
+  text-align: center;
 }
+
+.nav-right:hover, .nav-right .active a {
+  color: #D8DEE9; /* Highlight color for interactivity */
+}
+
+.right-textbox:disabled {
+  pointer-events: none;
+ }
+ 
+ .right-textbox:hover {
+  color: #fff;
+  
+ }
+ 
+ 
