@@ -38,10 +38,14 @@ export default function Navbar() {
 
 
     return (
+        <>
         <nav className="nav">
             
             <div className="nav-left">
-            
+                <ul>
+                    <CustomLink to="/">HOME</CustomLink>
+                    <CustomLink to="about">ABOUT PICMYFIT</CustomLink>
+                </ul>
             </div>  
 
             <div className="nav-center">
@@ -54,9 +58,9 @@ export default function Navbar() {
     
             <div className="nav-right">
 
-                <ul>
-                    <CustomLink to="wardrobe">Wardrobe</CustomLink>
-                    <CustomLink to="outfitter">Outfitter</CustomLink>
+                <ul className="left-textbox">
+                    <CustomLink to="wardrobe">YOUR WARDROBE</CustomLink>
+                    <CustomLink to="outfitter">THE OUTFITTER</CustomLink>
                 </ul>
 
                 {/* Toggle dropdown on click */}
@@ -80,8 +84,10 @@ export default function Navbar() {
                 </div>
             )}
             </div>
-    
+                        
         </nav>
+        <div className="navbar-subtitle">REVOLUTIONIZING YOUR STYLE: TAILORED FASHION INSIGHTS FROM YOUR WARDROBE</div>
+        </>
         )
     }
     

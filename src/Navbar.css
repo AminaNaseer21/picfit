@@ -105,3 +105,17 @@
     flex-direction: column;
   }
 }
+
+.navbar-subtitle {
+  background-color: #3B4252; /* Light grey background */
+  color: #ECEFF4; /* Dark text color */
+  text-align: center; /* Center the text */
+  padding: 5px 0; /* 5px padding on the top and bottom */
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold;
+}
+
+.left-textbox {
+
+  border: #2E3440;
+}
