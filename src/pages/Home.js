@@ -20,6 +20,7 @@ const Home = () =>{
 
 <div className="cardMain">
  <div className = "Wardrobecard">
+  <h1>Picture 1</h1>
 </div> 
 </div>
 

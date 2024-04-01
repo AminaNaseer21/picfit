@@ -230,13 +230,25 @@ button {
   touch-action: manipulation;
   /* will-change: transform; */
   box-sizing: border-box; /* Adjusted from 0 to border-box */
-  transform: translate(-350%, -60%);
+  transform: translate(-370%, -60%);
 
  }
  
  .NavbuttonLeft:hover {
-  transform: translate(-350%, -60%); /* Keeps the button in place */
+  transform: translate(-400%, -60%); /* Keeps the button in place */
 }
+ 
+.Wardrobecard {
+  width: 190px;
+  height: 254px;
+  border-radius: 30px;
+  background: #212121;
+  /* Centering */
+  position: absolute; /* or 'fixed' if you want it relative to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);           
+ }
  
  
  
