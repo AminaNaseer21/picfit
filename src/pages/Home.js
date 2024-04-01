@@ -19,8 +19,10 @@ const Home = () =>{
 <div className="Bottom">
 
 <div className="cardMain">
-  
+ <div className = "Wardrobecard">
+</div> 
 </div>
+
 
 
   <div className="bottomLeft">
@@ -51,6 +53,8 @@ const Home = () =>{
 </div>
 </div>
 
+
+
 <div className="bottomRight">
 <div className = "cardFavorites">
   <div className = "top">
@@ -63,6 +67,14 @@ const Home = () =>{
     <img src="camera.jpg" alt="Your Description Here" />
   </div> 
   </div>
+</div>
+
+
+<div className = "NavbuttonRight">
+  <button type="NavbuttonRight">Next</button>
+</div>
+<div className = "NavbuttonLeft">
+  <button type="NavbuttonLeft:hover">Previous</button>
 </div>
 
 

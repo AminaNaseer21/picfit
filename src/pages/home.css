@@ -66,7 +66,6 @@
 }
 
 
-
 .header {
     display: flex;
     justify-content: center;
@@ -155,7 +154,7 @@
   text-transform: uppercase;
   font-size: 15px;
   transition: all 0.5s ease;
-  transform: translateY(80px);
+  transform: translateY(50px);
 }
 
 button {
@@ -172,3 +171,72 @@ button {
 
 
 
+/*This is the button to navigate through the homepage outfits */
+
+.NavbuttonRight {
+  appearance: none;
+  background-color: transparent;
+  border: 0.123 solid #1A1A1A;
+  border-radius: 0.9375em;
+  box-sizing: 0;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 3.75em;
+  min-width: 0;
+  outline: none;
+  padding: 1em 2.3em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  transform:translate(500%,-60%);
+ }
+ 
+ .NavbuttonRight:disabled {
+  pointer-events: none;
+ }
+ 
+ .NavbuttonLeft {
+  appearance: none;
+  background-color: transparent;
+  border: 0 solid #1A1A1A;
+  border-radius: 0.9375em;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 3.75em;
+  min-width: 0;
+  outline: none;
+  padding: 1em 2.3em;
+  text-align: center;
+  text-decoration: none;
+  /* transition: all 300ms cubic-bezier(.23, 1, 0.32, 1); */
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* will-change: transform; */
+  box-sizing: border-box; /* Adjusted from 0 to border-box */
+  transform: translate(-350%, -60%);
+
+ }
+ 
+ .NavbuttonLeft:hover {
+  transform: translate(-350%, -60%); /* Keeps the button in place */
+}
+ 
+ 
+ 
