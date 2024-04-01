@@ -411,3 +411,24 @@ input:hover {
   width: 1rem;
   height: 1rem;
 }
+
+.item-image {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 5px;
+}
+
+.uc-button.learn-more .icon.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 60%;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1); /* Add transition */
+}
+
+.uc-button.learn-more:hover .circle .icon.sun {
+  transform: translate(-50%, -50%) translateX(-2.75rem); /* Adjust the translateX value */
+}
