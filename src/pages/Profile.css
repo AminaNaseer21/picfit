@@ -1,287 +1,109 @@
-.profile-container {
-  display: flex;
-  max-width: 900px;
-  margin: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  height: 1000px;
+.profile-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
-.profile-sidebar {
-  background-color: #4c566a; /* Example color */
-  color: white;
-  padding: 20px;
-  padding-top: 150px;
-  width: 250px; /* Adjust based on your content */
+.profile-picture-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: top; /* This will center the content vertically */
-  height: 1000px; /* Adjust the height as needed */
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .profile-picture {
-  width: 200px;
-  height: 200px;
-  background-color: #ddd;
-  border: 10px solid #d8dee9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ccc; /* Optional: adds a dashed border to indicate upload area */
+  background-color: #f0f0f0;
   border-radius: 50%;
-  margin-bottom: 20px;
-  /* To ensure the image stays centered and does not stretch in flex container */
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+
+.profile-picture span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.profile-name {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 20px 0; /* Add space above and below the name */
+.upload-button {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #6c87a4; /* Use a color that stands out */
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  padding: 8px 16px; /* Size of the button */
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-role {
-  margin: 0;
-  font-size: 1em;
-  color: #ffd1d1; /* Lighter shade for role */
-}
-
-.profile-main {
-  background-color: #fff;
-  padding: 20px;
-  padding-top: 0px;
-  width: calc(100% - 250px); /* Adjust based on sidebar width */
-}
-
-.profile-header {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: bolder;
-  color: #2e3440;
-}
-
-.upload-photo{
-  font-size: 16px;
-  font-weight: normal;
-  color: #333;
-  border: 2px solid #ddd;
-  border-bottom: none;
+#profilePic {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }
 
 .profile-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.profile-info-section {
-  margin-bottom: 10px;
-}
-
-.profile-info-section h3 {
-  font-size: 18px;
-  color: #333;
-}
-
-.profile-info-section p {
-  margin: 5px 0;
-}
-
-.profile-info-section span {
-  font-weight: bold;
-}
-
-.profile-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  padding-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 80%;
-}
-
-.profile-input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+.profile-info input {
   font-size: 16px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.profile-input-file {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+.profile-info button {
   font-size: 16px;
-  background: white; /* Match the background with other inputs */
-}
-
-/* Custom style for the file input 'Choose File' button */
-.profile-input-file::-webkit-file-upload-button {
   padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  background: #f0f0f0; /* Light grey background */
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-}
-
-.profile-submit {
-  padding: 10px;
-  margin-top: 10px; /* Add margin above the button */
-  border: none; /* Remove the default border */
-  border-radius: 5px;
-  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
-  color: white; /* Text color for the button */
-  font-size: 16px;
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-  outline: none; /* Remove default focus outline */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.profile-submit:hover {
-  background-color: #3b4252; /* Darken the button when hovering */
-}
-
-/* Style to make the file input text look like the rest of the inputs */
-.profile-form input[type="file"] {
-  color: transparent; /* Hide the 'No file chosen' text */
-}
-
-.profile-form input[type="file"]::before {
-  content: 'Choose File'; /* The text you want to display */
-  color: #333; /* Text color */
-  display: inline-block;
-  background-color: white;
-  padding: 10px;
-  outline: none;
-  white-space: nowrap; /* Prevent text from wrapping */
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-/* Style for when a file is selected */
-.profile-form input[type="file"]:not(:empty)::before {
-  content: 'File Selected'; /* The text you want to display */
-  color: #333;
-}
-
-/* Adjust file input text when file is selected */
-.profile-form input[type="file"]:not(:empty) {
-  color: #333; /* Show the file name */
-}
-
-.profile-additional-settings {
-  margin-top: 5px; /* Space from the previous section */
-  padding: 0px;
-}
-
-.settings-header {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: bolder;
-  color: #2e3440;
-}
-
-.settings2-header {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: bolder;
-  color: #333;
-}
-
-.settings3-header {
-  font-size: 14px;
-  font-weight: normal;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-
-.settings-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.settings-label {
-  margin-bottom: 5px; /* Space below the label */
-}
-
-.settings-input {
-  padding: 10px;
-  margin-bottom: 10px; /* Space between inputs */
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr); /* Creates an 8-column grid */
-  gap: 10px;
-}
-
-.color-square {
-  width: 30px; /* Square size */
-  height: 30px;
-  cursor: pointer;
-  border: 2px solid #ddd; /* Border for the squares */
-}
-
-.color-square.disliked {
-  border-color: #000; /* Border color when a color is disliked */
-  border: 4px solid #2e3440;
-}
-
-.save-colors-btn {
-  margin-top: 10px; /* Spacing from the grid */
-  padding: 10px;
-  background-color: #4c566a;
+  background-color: #1d6ddd;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.save-colors-btn:hover {
-  background-color: #3b4252; /* Darken the button when hovering */
+.profile-info button:hover {
+  background-color: #838996;
 }
 
+/* Responsive styling */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
 
-.style-preferences {
-  margin-top: 20px; /* Space from the color grid */
-}
-
-.style-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
-  gap: 10px;
-  margin-bottom: 10px; /* Space below the grid */
-}
-
-.style-button {
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  background-color: #d8dee9;
-  cursor: pointer;
-  font-size: 16px;
-  outline: none;
-  transition: box-shadow 0.3s;
-  /* Standard shadow to give depth */
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.style-button:active,
-.disliked-style {
-  /* Apply inset shadow for active state or when the style is disliked */
-  box-shadow: inset 0 0 8px #2e3440; /* Inset shadow on all sides */
-  transition: box-shadow 0.3s;
-  background-color: #4c566a;
-  color: white;
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+  }
 }

@@ -1,15 +1,19 @@
 image: node
 
 pipelines:
-  branches:
-    main:
-      - step:
-          name: Build and Deploy to Production
-          script:
-            - npm install
-            - npm i react-router-dom
-            - npm run build
-            - pipe: atlassian/firebase-deploy:0.2.4
-              variables:
-                FIREBASE_TOKEN: $FIREBASE_TOKEN
-                PROJECT_ID: $FIREBASE_PROJECT
+  default:
+    - step:
+        name: Build
+        script:
+          - npm install 
+          - npm i react-router-dom
+          - npm run build
+
+    - step:
+        name: Deploy to Firebase
+        deployment: production
+        script:
+          - pipe: atlassian/firebase-deploy:0.2.4
+            variables:
+              FIREBASE_TOKEN: $FIREBASE_TOKEN
+              PROJECT_ID: $FIREBASE_PROJECT

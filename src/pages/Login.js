@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {  AuthErrorCodes, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { firebaseApp, signInWithGooglePopup } from "../Services/firebase";
+import { firebaseApp } from "../Services/firebase";
 import './Login.css';
 
 function Login() {
@@ -12,11 +12,6 @@ function Login() {
   // initialised auth instance
   const auth = getAuth(firebaseApp);
 
-  const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response);
-  }
-
 // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +19,6 @@ function Login() {
     let email = input.email.toLowerCase().trim();
     let password = input.password;
 
-    
     // sign in user
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -85,7 +79,6 @@ function Login() {
           <button title="Login" aria-label="Login" type="submit">
             Login
           </button>
-          <button onClick={logGoogleUser}>Sign In With Google</button>
         </div>
       </form>
       <div className="option">
