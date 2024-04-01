@@ -3,13 +3,20 @@ import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
 
 
+
+
+
 const Home = () =>{
-  
+
+
+
+
   return (
 
    
 
 <div className="Home">
+
 
 <div className="header">
       <h1>Welcome to PicMyFit</h1> 
@@ -19,9 +26,15 @@ const Home = () =>{
 <div className="Bottom">
 
 <div className="cardMain">
- <div className = "Wardrobecard">
-  <h1>Picture 1</h1>
+ <div className = "Wardrobecard1">
+  <h1>Outfit 1</h1>
 </div> 
+<div className="Wardrobecard2">
+  <h2>Outfit 2</h2>
+</div>
+<div className="Wardrobecard3">
+  <h3>Outfit 3</h3>
+</div>
 </div>
 
 
@@ -34,7 +47,7 @@ const Home = () =>{
       <Link to="/Outfitters">
         <button type="favorites">favoriteButtons</button>
         </Link>
-        <img src="1.jpg" alt="Your Description Here" />
+        
   </div>  
   </div>
   </div> 
@@ -49,7 +62,8 @@ const Home = () =>{
         </Link>
        
   </div>
-  <img src="2.jpg" alt="AYour Description Here" />
+  
+
 </div>  
 </div>
 </div>
@@ -63,36 +77,28 @@ const Home = () =>{
         <Link to = "/Login">
         <button type="Upload">Upload</button>
         </Link>
-        
     </div>
-    <img src="camera.jpg" alt="Your Description Here" />
+
   </div> 
   </div>
 </div>
 
 
 <div className = "NavbuttonRight">
-  <button type="NavbuttonRight">Next</button>
+  <button type="NavbuttonRight" >Next</button>
 </div>
 <div className = "NavbuttonLeft">
-  <button type="NavbuttonLeft:hover">Previous</button>
+  <button type="NavbuttonLeft">Previous</button>
 </div>
 
 
 
   <div class ="generateNowbutton">
-        <Link to = "/Sign up">
+        <Link to = "/login">
           <button type ="Generate Now">generate Now button</button>
         </Link>
   </div>
 </div>
-
-
-{/* <div clasName="centerPicture">
-<div className="card">
-</div>
-</div>     */}
-
 
 
       </div> /*end of <div className="Home">*/

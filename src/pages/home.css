@@ -129,7 +129,7 @@
   }
   .cardFavorites{
     width: 254px;
-    height: 254px;
+    height: 300px;
     border-radius: 30px;
     background: transparent;
     border: rgb(19, 18, 18);
@@ -238,7 +238,7 @@ button {
   transform: translate(-400%, -60%); /* Keeps the button in place */
 }
  
-.Wardrobecard {
+.Wardrobecard1 {
   width: 190px;
   height: 254px;
   border-radius: 30px;
@@ -247,8 +247,32 @@ button {
   position: absolute; /* or 'fixed' if you want it relative to the viewport */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);           
+  transform: translate(-50%, -50%); 
+  z-index:3;      /*places outfit 1 on top*/     
  }
  
- 
+ .Wardrobecard2 {
+  width: 190px;
+  height: 254px;
+  border-radius: 30px;
+  background: #6c6b6b;
+  position: absolute;
+  /* Centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-130%, -50%);    
+  z-index: 2;
+ }
+ .Wardrobecard3 {
+  width: 190px;
+  height: 254px;
+  border-radius: 30px;
+  background: #312a2a;
+  position: absolute;
+  /* Centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(30%, -50%);    
+  z-index: 1;
+ }
  
