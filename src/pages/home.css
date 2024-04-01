@@ -46,7 +46,7 @@
 }
 
 .Top{
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,7 +55,7 @@
 }
 
 .Middle{
-  position: fixed;
+  position: absolute;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjusts for the element's own size */

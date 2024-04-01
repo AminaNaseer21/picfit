@@ -84,6 +84,7 @@ const Home = () =>{
 </div>
 
 
+
 <div className = "NavbuttonRight">
   <button type="NavbuttonRight" >Next</button>
 </div>
