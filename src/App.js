@@ -6,6 +6,7 @@ import Outfitter from "./pages/Outfitter";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Upload from "./pages/Upload";
+import WeatherApp from "./pages/WeatherApp";
 import Itempage from "./pages/itempage";
 import { UserProvider } from './UserContext';
 import { Route, Routes } from "react-router-dom";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/profile" element={ <Profile />} />
         <Route path="/signup" element={ <Signup />} />
         <Route path="/login" element={ <Login />} />
+        <Route path="/weatherapp" element={ <WeatherApp />} />
       </Routes>
     </div>
     </UserProvider>
