@@ -88,6 +88,7 @@
     text-transform: lowercase;
     font-size: 10px;
     transition: all 0.5s ease;
+   
   }
   
   button:hover {
@@ -137,11 +138,17 @@
     box-shadow: 15px 15px 30px #bebebe,
                -15px -15px 30px #ffffff;
   }
+  .wardrobeButton{
+    transform:translateY(200%);
+  }
+  .uploadButton{
+    transform:translateY(200%);
+  }
+  .favoriteButtons{
+    transform:translateY(200%);
+  }
 
-
-  /* .Weather {
-  padding-left: 20px;
-} */
+  
 
 .generateNowbutton{
   /*padding: 17px 40px;
@@ -237,7 +244,10 @@ button {
  .NavbuttonLeft:hover {
   transform: translate(-400%, -60%); /* Keeps the button in place */
 }
+
  
+
+/*Wardrobe cards for home page*/
 .Wardrobecard1 {
   width: 190px;
   height: 254px;
@@ -274,5 +284,9 @@ button {
   left: 50%;
   transform: translate(30%, -50%);    
   z-index: 1;
+ }
+ .IMGsize{
+  width: 254px;
+  height: 300px;
  }
  
