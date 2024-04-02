@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #E5E9F0;
+  background-color: #ECEFF4; /* Dark grey background for the nav */
 }
 
 .nav > div {
@@ -31,20 +31,25 @@
 .PicMyFit, .nav a {
   display: flex;
   align-items: center;
-  color: #434C5E;
+  color: #434C5E; /* Light text color for contrast */
   text-decoration: none;
   font-size: 18px;
   transition: all 0.3s ease;
 }
 
-.nav-left:hover, .nav-left .active a {
-  color: #2E3440; /* Highlight color for interactivity */
+.nav-left a:hover, .nav-left .active a {
+  color: #2E3440; /* Accent color for interactivity */
+  font-weight: 600;
+}
+
+.nav-right a:hover, .nav-right .active a {
+  color: #EcEff4; /* Accent color for interactivity */
 }
 
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 75px;
+  gap: 50px; /* Reduced gap for better space management */
   margin: 0;
   padding: 0;
 }
@@ -55,9 +60,9 @@
   width: 40px;
   border-radius: 50%;
   margin-right: 20px;
-  margin-left: 75px;
+  margin-left: 50px; /* Adjusted spacing */
   cursor: pointer;
-  border: 4px solid #434C5E;
+  border: 4px solid #ECEFF4; /* Border color for contrast */
 }
 
 .dropdown {
@@ -65,7 +70,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #fff;
+  background-color: #434C5E; /* Light grey background for dropdown */
   border-radius: 4px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   width: 150px;
@@ -73,16 +78,16 @@
   overflow: hidden;
 }
 
-.nav-right:hover .dropdown {
-  display: block; /* Show on hover */
+.dropdown-visible {
+  display: block; /* Show when toggled */
 }
 
 .dropdown a {
   display: block;
   padding: 10px 15px;
-  color: #333;
+  color: #ECEFF4; /* Light text color for contrast */
   text-decoration: none;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #3B4252; /* Dark grey border for separation */
 }
 
 .dropdown a:last-child {
@@ -90,7 +95,7 @@
 }
 
 .dropdown a:hover {
-  background-color: #f8f9fa;
+  background-color: #2E3440; /* Dark grey background for hovered item */
 }
 
 /* Responsive adjustments */
@@ -102,43 +107,30 @@
 
   .nav ul {
     flex-direction: column;
+    gap: 20px; /* Reduced gap for vertical layout */
+  }
+
+  .profilePlaceholder, .right-textbox {
+    margin-left: 0; /* Remove extra margin for mobile */
   }
 }
 
 .navbar-subtitle {
-  background-color: #3B4252; /* Light grey background */
-  color: #ECEFF4; /* Dark text color */
-  text-align: center; /* Center the text */
-  padding: 5px 0; /* 5px padding on the top and bottom */
-  font-size: 14px; /* Smaller font size */
+  background-color: #2E3440; /* Consistent dark grey background */
+  color: #ECEFF4; /* Light text color for contrast */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px; /* Adjusted font size for better visibility */
   font-weight: bold;
 }
 
-.right-textbox {
-  background-color:#3B4252;
-  color: #ECEFF4;
-  border: none;
-  border-radius: 0.1em;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  line-height: normal;
-  min-height: 2.75em;
-  padding: 1em 2.3em;
-  text-align: center;
+.right-textbox, .nav .right-textbox {
+  background-color: #2E3440; /* Lighter grey for the boxes */
+  color: #ECEFF4; /* Light text color for contrast */
+  padding: .5em 1em; /* Adjusted padding for better proportion */
+  border-radius: 2px; /* Consistent border-radius */
 }
 
-.nav-right:hover, .nav-right .active a {
-  color: #D8DEE9; /* Highlight color for interactivity */
+.right-textbox:hover {
+  color: #4b4e55; /* Dark grey text color when hovered */
 }
-
-.right-textbox:disabled {
-  pointer-events: none;
- }
- 
- .right-textbox:hover {
-  color: #fff;
-  
- }
- 
- 
