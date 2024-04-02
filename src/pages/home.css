@@ -46,6 +46,7 @@
   bottom: 0; /* Anchors the element to the bottom of the viewport */
   left: 0; /* Anchors the element to the left of the viewport */
   transform:translateX(165%);
+
 } 
 
 .BottomRightCard {
@@ -63,6 +64,17 @@
   left: 0; /* Align to the left */
   transform:translate(50%,-10%);
 }
+.BottomLeftCard img{
+  width: 100%; /* Make the image take up the full width of the .BottomMiddleCard */
+  height: 185px; /* Adjust the height automatically to maintain the aspect ratio */
+  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
+  border-radius: /* Your desired border radius */;
+  transform:translateY(-50%);
+  z-index: 2;
+}
+.BottomLeftCard img:nth-child(2) {
+  transform: translateY(-50%); /* Example transformation */
+}
 
 .BottomMiddleCard {
   left: 33.3%; /* Position in the middle */
@@ -70,9 +82,29 @@
   z-index: 1;
 }
 
+.BottomMiddleCard img {
+  width: 100%; /* Make the image take up the full width of the .BottomMiddleCard */
+  height: 175px; /* Adjust the height automatically to maintain the aspect ratio */
+  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
+  border-radius:; /* Your desired border radius */
+  transform:translateY(-5%);
+  z-index: 2;
+}
+
+
 .BottomRightCard {
   left: 66.6%; /* Align to the right */
   transform:translate(-5%,-10%);
+}
+
+.BottomRightCard img{
+  width:80%;
+color: black;
+  height:175px;
+  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
+  border-radius: /* Your desired border radius */;
+  z-index: 2;
+  transform:translateY(-5.5%);
 }
 
 
@@ -136,7 +168,7 @@
   content: "";
   background: transparent;
   position: absolute;
-  z-index: -1;
+  z-index: 3;
   left: -20%;
   right: -20%;
   top: 0;
@@ -150,12 +182,5 @@
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
  }
- .IMGSize{
-  display: block; /* Remove any default inline spacing */
-  width: 23.3vw; /* Adjust width relative to viewport width */
-  height: 10vh;
-  object-fit: cover; /* Cover the box area without distorting the aspect ratio */
-  margin-top: 10px; /* Adjust the space between the button and the image */
-  transform:translate(-10%,-150%);
- }
+
 

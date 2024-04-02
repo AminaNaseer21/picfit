@@ -3,6 +3,7 @@ import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
 import clothing1 from "../img/items/1.png";
 import clothing2 from "../img/items/2.png";
+import camera from "../img/camera.png";
 
 const Home = () =>{
  
@@ -10,8 +11,6 @@ const Home = () =>{
 
 
 <div className="Home">
-
-  
 <div className="header">
       <h1>Welcome to PicMyFit</h1> 
   </div>
@@ -26,11 +25,10 @@ const Home = () =>{
     <div className="FavoritesButton">
         <Link to ="THE OUTFITTER">
         <button type="Wardrobe">Favorites</button>
-        </Link>
-
-        <img src={clothing1} alt="Outfit1"/> 
-     
+        </Link>  
     </div>
+    <img src={clothing1} alt="Outfit1"/> 
+    <img src={clothing2} alt="Outfit2"/> 
 </div>
 
 
@@ -38,12 +36,10 @@ const Home = () =>{
     <h1>Wardrobe</h1>
         <div className = "Wardrobe">
             <Link to ="/Wardrobe">
-            <button type="Wardrobe">Favorites</button>
-            </Link>
-            <div className="IMGSize">
-            <img src={clothing2} alt="Outfit2"/>
-            </div>
+            <button type="Wardrobe">Wardrobe</button>
+            </Link> 
         </div>
+        <img src={clothing2} alt="Outfit2"/>
     </div>
 
 
@@ -53,8 +49,8 @@ const Home = () =>{
           <Link to = "profile">
           <button type = "profile">upload</button>
           </Link>
-            
         </div>
+        <img src={camera} alt="camera"/>
     </div>
 
 
