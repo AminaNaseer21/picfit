@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+position:absolute;
   height: 20vh; /* Maintains proportionate height relative to viewport */
   font-size: 2vw; /* Adjust font size relative to viewport width */
   letter-spacing: 1.5px;
@@ -82,16 +83,19 @@
 
 .BottomMiddleCard img {
   width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: 20vh; /* Adjust the height automatically to maintain the aspect ratio */
+  height: auto; /* Adjust the height automatically to maintain the aspect ratio */
+  position:absolute;
   object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
   border-radius:; /* Your desired border radius */
-  transform:translate(-20%,-10%);
+  transform:translate(0%,-10%);
   z-index: 2;
 }
 .BottomMiddleCard img:nth-of-type(2){
-  transform:translate(20%,-110%);
   width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: 17vh; /* Adjust the height automatically to maintain the aspect ratio */
+  height: auto; /* Adjust the height automatically to maintain the aspect ratio */
+  position:absolute;
+  transform:translate(-80%,-9%);
+  object-fit:contain;
 }
 
 
