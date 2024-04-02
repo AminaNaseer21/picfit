@@ -1,25 +1,42 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 
-const Home = () => {
+
+
+
+const Home = () =>{
+
+
   return (
-    <div className="header">
-      <h1>Home</h1>                             
 
-      <div className="favoriteButtons"> 
-        <button type="favorites">Favorites</button>
-      </div>   
 
-      <div className="wardrobeButton">
-        <button type="Wardrobe">Wardrobe</button>
-      </div>  
+<div className="Home">
 
-      <div className="uploadButton">
-        <button type="Upload">Upload</button>
-      </div> 
+  
+<div className="header">
+      <h1>Welcome to PicMyFit</h1> 
+  </div>
+    
+  <div className = "MiddleCard">
+  <h1>Outfits</h1>
+  </div>
 
+  <div className = "BottomLeftCard">
+    <h1>Favorites</h1>
     </div>
-  );
-};
 
-export default Home;
+    <div className= "BottomMiddleCard">
+    <h1>Wardrobe</h1>
+    </div>
+
+    <div className= "BottomRightCard">
+      <h1>Upload</h1>
+    </div>
+
+
+
+</div> /*end of <div className="Home">*/
+    
+  );
+
+}; export default Home;
