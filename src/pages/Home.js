@@ -1,9 +1,11 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
-import clothing1 from "../img/items/1.png";
 import clothing2 from "../img/items/2.png";
+import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
+import heart from "../img/heart.png";
+
 
 const Home = () =>{
  
@@ -27,8 +29,8 @@ const Home = () =>{
         <button type="Wardrobe">Favorites</button>
         </Link>  
     </div>
-    <img src={clothing1} alt="Outfit1"/> 
-    <img src={clothing2} alt="Outfit2"/> 
+    <img src={heart} alt="heart"/> 
+    
 </div>
 
 
@@ -39,7 +41,10 @@ const Home = () =>{
             <button type="Wardrobe">Wardrobe</button>
             </Link> 
         </div>
+        <img src={clothing1} alt="Outfit1"/>
+        
         <img src={clothing2} alt="Outfit2"/>
+       
     </div>
 
 
