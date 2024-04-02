@@ -11,6 +11,7 @@
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .nav-center {
@@ -44,6 +45,7 @@
 
 .nav-right a:hover, .nav-right .active a {
   color: #EcEff4; /* Accent color for interactivity */
+  font-weight: 600;
 }
 
 .nav ul {
@@ -68,7 +70,7 @@
 .dropdown {
   display: none; /* Hide by default */
   position: absolute;
-  top: 100%;
+  top: 110%;
   right: 0;
   background-color: #434C5E; /* Light grey background for dropdown */
   border-radius: 4px;
@@ -129,6 +131,8 @@
   color: #ECEFF4; /* Light text color for contrast */
   padding: .5em 1em; /* Adjusted padding for better proportion */
   border-radius: 2px; /* Consistent border-radius */
+  font-size: 18px;
+  width: fixed;
 }
 
 .right-textbox:hover {

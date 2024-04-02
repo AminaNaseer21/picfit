@@ -8,12 +8,14 @@ import profilePlaceholder from './img/profilePlaceholder.png';
 
 export default function Navbar() {
     
-    const { profilePicURL } = useUser();
+    
 
     // State to control the visibility of the dropdown
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
    
     const [user, setUser] = useState(null); // State to keep track of the user
+
+    const { profilePicURL } = useUser();
 
     useEffect(() => {
         const auth = getAuth();
