@@ -32,4 +32,7 @@ class OpenAIVisionService {
   }
 }
 
-export default new OpenAIVisionService();
+const openAIVisionServiceInstance = new OpenAIVisionService();
+
+// Export the instance
+export default openAIVisionServiceInstance;
