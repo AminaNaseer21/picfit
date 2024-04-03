@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
+
 import clothing2 from "../img/items/2.png";
 import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
@@ -11,32 +12,29 @@ const Home = () =>{
  
   return (
 
-
 <div className="Home">
 <div className="header">
       <h1>Welcome to PicMyFit</h1> 
-  </div>
+</div>
     
-  <div className = "MiddleCard">
+<div className = "MiddleCard">
   <h1>Outfits</h1>
-  <div className= "MiddleMiddleCard">
+<div className= "MiddleMiddleCard">
     <h2>Outfit #1</h2>
-  </div>
-  <div className= "LeftMiddleCard">
+</div>
+<div className= "LeftMiddleCard">
     <h2>Outfit #2</h2>
-  </div>
-
-  <div className= "RightMiddleCard">
+</div>
+<div className= "RightMiddleCard">
     <h3>Outfit #3</h3>
-  </div>
+</div>
 
-  <div className = "GenerateButton">
-  <Link to ="/Log In">
+<div className = "GenerateButton">
+  <Link to ="/Login">
         <button type="button">Generate Outfit</button>
    </Link>  
-  </div>
-
-  </div>
+</div>
+</div>
 
 
 <div className = "BottomLeftCard">
