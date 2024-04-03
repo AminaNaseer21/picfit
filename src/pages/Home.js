@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
+
 import clothing2 from "../img/items/2.png";
 import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
@@ -19,13 +20,20 @@ const Home = () =>{
     
   <div className = "MiddleCard">
   <h1>Outfits</h1>
+
+  <div className = "GenerateButton">
+  <Link to ="/Wardrobe">
+        <button type="">Generate Button</button>
+   </Link>  
+  </div>
+
   </div>
 
 
 <div className = "BottomLeftCard">
     <h1>Favorites</h1>
     <div className="FavoritesButton">
-        <Link to ="THE OUTFITTER">
+        <Link to ="/THE OUTFITTER">
         <button type="">Favorites</button>
         </Link>  
     </div>
