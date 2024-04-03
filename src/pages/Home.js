@@ -20,6 +20,12 @@ const Home = () =>{
     
   <div className = "MiddleCard">
   <h1>Outfits</h1>
+  <div className= "MiddleMiddleCard">
+    <h2>Outfit #1</h2>
+  </div>
+  <div className= "LeftMiddleCard">
+    <h2>Outfit #2</h2>
+  </div>
 
   <div className = "GenerateButton">
   <Link to ="/Wardrobe">

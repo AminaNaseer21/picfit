@@ -81,6 +81,43 @@ position:absolute;
   transform:translate(22%,-10%);
   z-index: 1;
 }
+.MiddleMiddleCard{
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #0356fb;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  z-index: 4;
+}
+.LeftMiddleCard{
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #88adf9;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-120%, -45%);
+  z-index: 3;
+}
+
+.RightMiddleCard{
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #1b1bf7;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-120%, -45%);
+  z-index: 5;
+}
 
 .BottomMiddleCard img {
   width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
@@ -239,31 +276,31 @@ color: black;
 
  /* This is the generate now button*/
  .GenerateButton{
-  width: 6.5em;
-  height: 2.3em;
-  margin: 0.3em;
+  width: 10vw;
+  height: 3.3vh;
+  margin: 1vw auto;
   background: transparent;
-  color: white;
+  color: grey;
   border: none;
   border-radius: 0.625em;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  z-index: 3;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
-  transform:translate(395%,500%);
+  transform: translateY(27vh);
  }
 
  .GenerateButton:after {
   content: "";
   background: transparent;
-  position: absolute;
   z-index: 2;
   left: -20%;
   right: -20%;
   top: 0;
   bottom: 0;
+  position: absolute;
   transform: skewX(-45deg) scale(0, 1);
   transition: all 0.5s;
  }
