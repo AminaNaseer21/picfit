@@ -26,11 +26,10 @@ const Home = () =>{
     <h1>Favorites</h1>
     <div className="FavoritesButton">
         <Link to ="THE OUTFITTER">
-        <button type="Wardrobe">Favorites</button>
+        <button type="">Favorites</button>
         </Link>  
     </div>
     <img src={heart} alt="heart"/> 
-    
 </div>
 
 
@@ -50,9 +49,9 @@ const Home = () =>{
 
     <div className= "BottomRightCard">
       <h1>Upload</h1>
-      <div className = "Wardrobe">
-          <Link to = "profile">
-          <button type = "profile">upload</button>
+      <div className = "UploadButton">
+          <Link to = "/Profile">
+          <button type ="Profile">Upload</button>
           </Link>
         </div>
         <img src={camera} alt="camera"/>

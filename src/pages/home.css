@@ -66,7 +66,7 @@ position:absolute;
   transform:translate(50%,-10%);
 }
 .BottomLeftCard img{
-  width: 15vh; /* Make the image take up the full width of the .BottomMiddleCard */
+  width: 20vw; /* Make the image take up the full width of the .BottomMiddleCard */
   height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
   object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
   border-radius: /* Your desired border radius */;
@@ -83,19 +83,20 @@ position:absolute;
 
 .BottomMiddleCard img {
   width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: auto; /* Adjust the height automatically to maintain the aspect ratio */
+  height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
   position:absolute;
   object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
   border-radius:; /* Your desired border radius */
-  transform:translate(0%,-10%);
+  transform:translate(-40%,-5%);
   z-index: 2;
 }
 .BottomMiddleCard img:nth-of-type(2){
-  width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: auto; /* Adjust the height automatically to maintain the aspect ratio */
+  width: 20vw; /* Make the image take up the full width of the .BottomMiddleCard */
+  height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
   position:absolute;
-  transform:translate(-80%,-9%);
   object-fit:contain;
+  transform:translate(-75%,-5%);
+  
 }
 
 
@@ -113,12 +114,13 @@ color: black;
   object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
   border-radius: /* Your desired border radius */;
   z-index: 2;
-  transform:translateY(-14%);
+  transform:translateY(-25%);
 }
 
 
 /*Favorites Button below: */
 .FavoritesButton {
+  width: 6.5em;
   width: 6.5em;
   height: 2.3em;
   margin: 0.3em;
@@ -130,10 +132,14 @@ color: black;
   font-weight: bold;
   cursor: pointer;
   position: relative;
-  z-index: 1;
+  bottom:10px;
+  right:10px;
+  z-index: 3;
   overflow: hidden;
   transform:translate(70%);
  }
+
+
 
  .FavoritesButton:after {
   content: "";
@@ -153,6 +159,8 @@ color: black;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
  }
+
+
 
 
 /*Wardrobe Buttons below: */
@@ -192,4 +200,38 @@ color: black;
   transition: all 0.5s;
  }
 
+ .UploadButton {
+  width: 6.5em;
+  height: 2.3em;
+  margin: 0.3em;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  transform:translate(70%);
+ }
 
+ .UploadButton:after {
+  content: "";
+  background: transparent;
+  position: absolute;
+  z-index: 3;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .UploadButton:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
