@@ -82,6 +82,7 @@ position:absolute;
   z-index: 1;
 }
 .MiddleMiddleCard{
+  font-size:18px;
   width: 16vw; /* Example: use viewport width to set width dynamically */
   height: 27vh; /* Example: use viewport height to set height dynamically */
   position: absolute;
@@ -94,6 +95,7 @@ position:absolute;
   z-index: 4;
 }
 .LeftMiddleCard{
+  font-size: 15px;
   width: 16vw; /* Example: use viewport width to set width dynamically */
   height: 27vh; /* Example: use viewport height to set height dynamically */
   position: absolute;
@@ -107,6 +109,7 @@ position:absolute;
 }
 
 .RightMiddleCard{
+  font-size: 15px;
   width: 16vw; /* Example: use viewport width to set width dynamically */
   height: 27vh; /* Example: use viewport height to set height dynamically */
   position: absolute;
@@ -115,8 +118,8 @@ position:absolute;
   box-shadow: transparent;
   top: 50%;
   left: 50%;
-  transform: translate(-120%, -45%);
-  z-index: 5;
+  transform: translate(20%, -45%);
+  z-index: 2;
 }
 
 .BottomMiddleCard img {

@@ -1,7 +1,6 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
-
 import clothing2 from "../img/items/2.png";
 import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
@@ -27,9 +26,13 @@ const Home = () =>{
     <h2>Outfit #2</h2>
   </div>
 
+  <div className= "RightMiddleCard">
+    <h3>Outfit #3</h3>
+  </div>
+
   <div className = "GenerateButton">
-  <Link to ="/Wardrobe">
-        <button type="">Generate Button</button>
+  <Link to ="/Log In">
+        <button type="button">Generate Outfit</button>
    </Link>  
   </div>
 
