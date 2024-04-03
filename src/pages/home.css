@@ -6,7 +6,7 @@ position:absolute;
   height: 20vh; /* Maintains proportionate height relative to viewport */
   font-size: 2vw; /* Adjust font size relative to viewport width */
   letter-spacing: 1.5px;
-  transform:translateY(-95%);
+  transform:translateY(-99%);
 }
 
 .MiddleCard {
@@ -14,9 +14,9 @@ position:absolute;
   width: 80vw; /* Example: use viewport width to set width dynamically */
   height: 40vh; /* Example: use viewport height to set height dynamically */
   position: absolute;
-  border-radius: 30px;
-  background: #2E3440;
-  box-shadow: 10px 10px 25px #8e8d8d, -10px -10px 25px #5c5b5b;
+  border-radius: 40px;
+  background: lightgrey;
+  box-shadow: 1px 1px 2px #8e8d8d, -5px -5px 15px #5c5b5b;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -65%);
@@ -109,6 +109,7 @@ position:absolute;
   z-index: 3;
 }
 
+
 .RightMiddleCard{
   font-size: 15px;
   width: 16vw; /* Example: use viewport width to set width dynamically */
@@ -180,7 +181,6 @@ color: black;
   overflow: hidden;
   transform:translate(70%);
  }
-
 
 
  .FavoritesButton:after {

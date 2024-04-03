@@ -1,7 +1,6 @@
 import React from 'react';
 import './home.css'; // Make sure to import the CSS file
 import { Link } from 'react-router-dom';
-
 import clothing2 from "../img/items/2.png";
 import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
@@ -50,7 +49,7 @@ const Home = () =>{
 
     <div className= "BottomMiddleCard">
     <h1>Wardrobe</h1>
-        <div className = "Wardrobe">
+        <div className = "FavoritesButton">
             <Link to ="/Wardrobe">
             <button type="Wardrobe">Wardrobe</button>
             </Link> 
@@ -64,9 +63,9 @@ const Home = () =>{
 
     <div className= "BottomRightCard">
       <h1>Upload</h1>
-      <div className = "UploadButton">
+      <div className = "FavoritesButton">
           <Link to = "/Profile">
-          <button type ="Profile">Upload</button>
+          <button type ="Upload">Upload</button>
           </Link>
         </div>
         <img src={camera} alt="camera"/>
@@ -74,8 +73,8 @@ const Home = () =>{
 
 
 
-</div> /*end of <div className="Home">*/
-    
+</div> 
+
   );
 
 }; export default Home;
