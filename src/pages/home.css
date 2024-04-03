@@ -202,7 +202,46 @@ color: black;
   transition: all 0.5s;
  }
 
+ /* This is the generate now button*/
+ 
+ .GenerateButton{
+  width: 6.5em;
+  width: 6.5em;
+  height: 2.3em;
+  margin: auto;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  bottom:10px;
+  right:10px;
+  z-index: 4;
+  overflow: hidden;
+  transform:translateY(550%);
+ }
 
+ .GenerateButton:after {
+  content: "";
+  background:transparent;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .GenerateButton:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
 
 
 /*Wardrobe Buttons below: */
@@ -242,7 +281,10 @@ color: black;
   transition: all 0.5s;
  }
 
+
+
  .UploadButton {
+  width: 6.5em;
   width: 6.5em;
   height: 2.3em;
   margin: 0.3em;
@@ -254,6 +296,8 @@ color: black;
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  bottom:10px;
+  right:10px;
   z-index: 3;
   overflow: hidden;
   transform:translate(70%);
@@ -278,39 +322,8 @@ color: black;
   transition: all 0.5s;
  }
 
- /* This is the generate now button*/
- .GenerateButton{
-  width: 10vw;
-  height: 3.3vh;
-  margin: 1vw auto;
-  background: transparent;
-  color: grey;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-  overflow: hidden;
-  transform: translateY(27vh);
- }
 
- .GenerateButton:after {
-  content: "";
-  background: transparent;
-  z-index: 2;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
+
  
- .GenerateButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
+ /* This is the generate now button*/
+ 

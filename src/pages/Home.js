@@ -16,6 +16,20 @@ const Home = () =>{
       <h1>Welcome to PicMyFit</h1> 
 </div>
     
+
+<div className = "BottomLeftCard">
+    <h1>Favorites</h1>
+    <div className="FavoritesButton">
+        <Link to ="/THE OUTFITTER">
+        <button type="">Favorites</button>
+        </Link>  
+    </div>
+    <img src={heart} alt="heart"/> 
+</div>
+
+
+
+
 <div className = "MiddleCard">
   <h1>Outfits</h1>
 <div className= "MiddleMiddleCard">
@@ -29,21 +43,10 @@ const Home = () =>{
 </div>
 
 <div className = "GenerateButton">
-  <Link to ="/Login">
+  <Link to ="/Outfitter">
         <button type="button">Generate Outfit</button>
    </Link>  
 </div>
-</div>
-
-
-<div className = "BottomLeftCard">
-    <h1>Favorites</h1>
-    <div className="FavoritesButton">
-        <Link to ="/THE OUTFITTER">
-        <button type="">Favorites</button>
-        </Link>  
-    </div>
-    <img src={heart} alt="heart"/> 
 </div>
 
 
