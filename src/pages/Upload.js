@@ -49,12 +49,12 @@ const App = () => {
         img.onload = () => {
           const canvas = document.createElement('canvas');
           canvas.width = img.width;
-          canvas.height = img.height + 10; // Add 10 pixels for the rainbow row
+          canvas.height = img.height + 50; // Add 50 pixels for the thicker rainbow row
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, img.width, img.height);
 
           // Draw rainbow pixels at the bottom
-          const rainbowGradient = ctx.createLinearGradient(0, img.height, 0, img.height + 10);
+          const rainbowGradient = ctx.createLinearGradient(0, img.height, 0, img.height + 50);
           rainbowGradient.addColorStop(0, 'red');
           rainbowGradient.addColorStop(0.17, 'orange');
           rainbowGradient.addColorStop(0.34, 'yellow');
@@ -64,7 +64,7 @@ const App = () => {
           rainbowGradient.addColorStop(1, 'violet');
 
           ctx.fillStyle = rainbowGradient;
-          ctx.fillRect(0, img.height, img.width, 10); // Draw rainbow row
+          ctx.fillRect(0, img.height, img.width, 50); // Draw thicker rainbow row
           setDeveloperImage(canvas.toDataURL());
         };
         img.src = reader.result;
