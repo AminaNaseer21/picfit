@@ -6,19 +6,21 @@ position:absolute;
   height: 20vh; /* Maintains proportionate height relative to viewport */
   font-size: 2vw; /* Adjust font size relative to viewport width */
   letter-spacing: 1.5px;
-  transform:translateY(-95%);
+  transform:translateY(-99%);
 }
 
 .MiddleCard {
+  color: black;
   width: 80vw; /* Example: use viewport width to set width dynamically */
   height: 40vh; /* Example: use viewport height to set height dynamically */
   position: absolute;
-  border-radius: 30px;
-  background: #2E3440;
-  box-shadow: 10px 10px 25px #8e8d8d, -10px -10px 25px #5c5b5b;
+  border-radius: 40px;
+  background: lightgrey;
+  box-shadow: 1px 1px 2px #8e8d8d, -5px -5px 15px #5c5b5b;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -65%);
+  z-index: 1;
 }
 
 .BottomLeftCard{
@@ -80,6 +82,47 @@ position:absolute;
   transform:translate(22%,-10%);
   z-index: 1;
 }
+.MiddleMiddleCard{
+  font-size:18px;
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #3d3e3e;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  z-index: 4;
+}
+.LeftMiddleCard{
+  font-size: 15px;
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #848383;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-160%, -45%);
+  z-index: 3;
+}
+
+
+.RightMiddleCard{
+  font-size: 15px;
+  width: 16vw; /* Example: use viewport width to set width dynamically */
+  height: 27vh; /* Example: use viewport height to set height dynamically */
+  position: absolute;
+  border-radius: 30px;
+  background: #ebebf7;
+  box-shadow: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(60%, -45%);
+  z-index: 2;
+}
 
 .BottomMiddleCard img {
   width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
@@ -140,7 +183,6 @@ color: black;
  }
 
 
-
  .FavoritesButton:after {
   content: "";
   background:transparent;
@@ -160,7 +202,46 @@ color: black;
   transition: all 0.5s;
  }
 
+ /* This is the generate now button*/
+ 
+ .GenerateButton{
+  width: 6.5em;
+  width: 6.5em;
+  height: 2.3em;
+  margin: auto;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  bottom:10px;
+  right:10px;
+  z-index: 4;
+  overflow: hidden;
+  transform:translateY(550%);
+ }
 
+ .GenerateButton:after {
+  content: "";
+  background:transparent;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .GenerateButton:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
 
 
 /*Wardrobe Buttons below: */
@@ -200,7 +281,10 @@ color: black;
   transition: all 0.5s;
  }
 
+
+
  .UploadButton {
+  width: 6.5em;
   width: 6.5em;
   height: 2.3em;
   margin: 0.3em;
@@ -212,6 +296,8 @@ color: black;
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  bottom:10px;
+  right:10px;
   z-index: 3;
   overflow: hidden;
   transform:translate(70%);
@@ -235,3 +321,9 @@ color: black;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
  }
+
+
+
+ 
+ /* This is the generate now button*/
+ 

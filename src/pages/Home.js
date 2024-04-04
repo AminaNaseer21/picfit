@@ -11,21 +11,16 @@ const Home = () =>{
  
   return (
 
-
 <div className="Home">
 <div className="header">
       <h1>Welcome to PicMyFit</h1> 
-  </div>
+</div>
     
-  <div className = "MiddleCard">
-  <h1>Outfits</h1>
-  </div>
-
 
 <div className = "BottomLeftCard">
     <h1>Favorites</h1>
     <div className="FavoritesButton">
-        <Link to ="THE OUTFITTER">
+        <Link to ="/THE OUTFITTER">
         <button type="">Favorites</button>
         </Link>  
     </div>
@@ -33,9 +28,31 @@ const Home = () =>{
 </div>
 
 
+
+
+<div className = "MiddleCard">
+  <h1>Outfits</h1>
+<div className= "MiddleMiddleCard">
+    <h2>Outfit #1</h2>
+</div>
+<div className= "LeftMiddleCard">
+    <h2>Outfit #2</h2>
+</div>
+<div className= "RightMiddleCard">
+    <h3>Outfit #3</h3>
+</div>
+
+<div className = "GenerateButton">
+  <Link to ="/Outfitter">
+        <button type="button">Generate Outfit</button>
+   </Link>  
+</div>
+</div>
+
+
     <div className= "BottomMiddleCard">
     <h1>Wardrobe</h1>
-        <div className = "Wardrobe">
+        <div className = "FavoritesButton">
             <Link to ="/Wardrobe">
             <button type="Wardrobe">Wardrobe</button>
             </Link> 
@@ -49,9 +66,9 @@ const Home = () =>{
 
     <div className= "BottomRightCard">
       <h1>Upload</h1>
-      <div className = "UploadButton">
+      <div className = "FavoritesButton">
           <Link to = "/Profile">
-          <button type ="Profile">Upload</button>
+          <button type ="Upload">Upload</button>
           </Link>
         </div>
         <img src={camera} alt="camera"/>
@@ -59,8 +76,8 @@ const Home = () =>{
 
 
 
-</div> /*end of <div className="Home">*/
-    
+</div> 
+
   );
 
 }; export default Home;
