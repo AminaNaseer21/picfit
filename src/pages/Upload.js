@@ -41,12 +41,10 @@ const App = () => {
     }
   };
 
-  const addRainbowWatermark = () => {
-    // Logic to add rainbow watermark
-    // For demo purposes, let's just console log
-    console.log('Adding rainbow watermark to the image');
-    // For demonstration, let's assume the rainbow watermark image is available at a certain URL
-    setDeveloperImage('https://example.com/rainbow-watermark.png');
+  const handleDeveloperButtonClick = () => {
+    if (image) {
+      setDeveloperImage(URL.createObjectURL(image));
+    }
   };
 
   return (
@@ -63,7 +61,7 @@ const App = () => {
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={handleRemoveBackground}>Remove Background</button>
-      <button onClick={addRainbowWatermark}>Remove Background (for Developer Testing only)</button>
+      <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
       {error && <div className="error">{error}</div>}
     </div>
   );
