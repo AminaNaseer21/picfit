@@ -9,9 +9,12 @@ const App = () => {
   const [result, setResult] = useState(null);
   const [developerImage, setDeveloperImage] = useState(null); // State for developer testing image
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [actionInitiated, setActionInitiated] = useState(false);
 
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
+    setActionInitiated(true); // Set action initiated when image is selected
   };
 
   const handleRemoveBackground = async () => {
@@ -34,6 +37,7 @@ const App = () => {
       const result = await response.blob();
       setResult(URL.createObjectURL(result));
       setError(null);
+      setShowModal(true); // Show modal after processing image
     } catch (error) {
       console.error(error); // Log the actual error
       setResult(null);
@@ -66,11 +70,28 @@ const App = () => {
           ctx.fillStyle = rainbowGradient;
           ctx.fillRect(0, img.height, img.width, 50); // Draw thicker rainbow row
           setDeveloperImage(canvas.toDataURL());
+          setShowModal(true); // Show modal after processing image
         };
         img.src = reader.result;
       };
       reader.readAsDataURL(image);
+      setActionInitiated(true);
     }
+  };
+
+  const handleConfirmUpload = () => {
+    // Handle confirming upload
+    setShowModal(false);
+    setActionInitiated(false); // Reset action initiated after confirming upload
+  };
+
+  const handleRetake = () => {
+    // Handle retaking image
+    setImage(null);
+    setResult(null);
+    setDeveloperImage(null);
+    setShowModal(false);
+    setActionInitiated(false); // Reset action initiated after retaking image
   };
 
   return (
@@ -89,6 +110,20 @@ const App = () => {
       <button onClick={handleRemoveBackground}>Remove Background</button>
       <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
       {error && <div className="error">{error}</div>}
+
+      {/* Modal for Confirm Upload or Retake */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Confirm Upload</h2>
+            <p>Would you like to confirm the upload or retake the image?</p>
+            <div className="modal-buttons">
+              <button onClick={handleConfirmUpload}>Confirm Upload</button>
+              <button onClick={handleRetake}>Retake</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
