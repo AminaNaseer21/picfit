@@ -20,7 +20,7 @@ const App = () => {
         method: 'POST',
         body: formData,
         headers: {
-          'x-api-key': 'YOUR_API_KEY', // Replace with your actual API key
+          'x-api-key': 'BkgRmvr_API_KEY', // Replace with your actual API key
         },
       });
 
@@ -32,8 +32,9 @@ const App = () => {
       setResult(URL.createObjectURL(result));
       setError(null);
     } catch (error) {
+      console.error(error); // Log the actual error
       setResult(null);
-      setError(error.message);
+      setError('Failed to remove background');
     }
   };
 
@@ -43,10 +44,17 @@ const App = () => {
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={handleRemoveBackground}>Remove Background</button>
       
+      {image && (
+        <div>
+          <h2>Uploaded Image</h2>
+          <img src={URL.createObjectURL(image)} alt="Uploaded Image" style={{ maxWidth: '100%', height: 'auto' }} />
+        </div>
+      )}
+
       {result && (
         <div>
           <h2>Result</h2>
-          <img src={result} alt="Processed Image" />
+          <img src={result} alt="Processed Image" style={{ maxWidth: '100%', height: 'auto' }} />
         </div>
       )}
 
