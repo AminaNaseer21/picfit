@@ -41,14 +41,14 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Remove Background API Demo</h1>
+    <div className="upload-container container">
+      <h1 className="begin-making">Remove Background API Demo</h1>
       <div className="image-container">
-        <div className="image-box">
-          {image && <div className="image-display-box"><img src={URL.createObjectURL(image)} alt="Uploaded Image" className="uploaded-image" /></div>}
+        <div className="image-display-box">
+          {image && <img src={URL.createObjectURL(image)} alt="Uploaded Image" className="uploaded-image" />}
         </div>
-        <div className="image-box">
-          {result && <div className="image-display-box"><img src={result} alt="Processed Image" className="processed-image" /></div>}
+        <div className="image-display-box">
+          {result && <img src={result} alt="Processed Image" className="processed-image" />}
         </div>
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />

@@ -1,11 +1,13 @@
-.upload-container .upload-container * {
+/* Your existing styles */
+
+.upload-container * {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-.upload-container .upload-container .begin-making {
+.upload-container .begin-making {
   float: left;
   text-align: left;
   font-size: 24px;
@@ -14,11 +16,11 @@
   width: 300px;
 }
 
-.upload-container .upload-container .begin-making small {
+.upload-container .begin-making small {
   font-size: 14px;
 }
 
-.upload-container .upload-container .image-holder {
+.upload-container .image-holder {
   float: right;
   width: 300px;
   height: 300px;
@@ -26,10 +28,14 @@
   margin-right: 100px;
 }
 
-.upload-container .upload-container .image-display-box {
-  width: 45%;
+.upload-container .image-container {
+  display: flex; /* Display images side by side */
+}
+
+.upload-container .image-display-box {
+  flex: 1; /* Each image box takes equal space */
   height: 70vh;
-  border: 2px dashed #ddd;
+  border: 4px dashed #ddd; /* Make the border thicker */
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -38,14 +44,13 @@
   margin-right: 20px;
 }
 
-.upload-container .upload-container .image-display-box img {
+.upload-container .image-display-box img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 15px;
 }
 
-.upload-container .upload-container .add-item-box {
-  clear: both;
+.upload-container .add-item-box {
   width: 45%;
   height: 70vh;
   background: blue;
@@ -57,63 +62,22 @@
   cursor: pointer;
 }
 
-.upload-container .upload-container .add-item-box label {
+.upload-container .add-item-box label {
   color: white;
   font-size: 16px;
 }
 
-.upload-container .upload-container .add-item-box input {
+.upload-container .add-item-box input {
   display: none;
 }
 
-.upload-container .upload-container .add-item-box span {
+.upload-container .add-item-box span {
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
 }
 
-.upload-container .upload-container .add-item-box:hover {
+.upload-container .add-item-box:hover {
   background: #0044cc;
   transition: background 0.3s ease;
-}
-
-/* Additional styles for the React component */
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.image-box,
-.result-box {
-  width: 45%;
-  height: 70vh;
-  border: 10px dashed #999;
-  padding: 250px;
-}
-
-.image-box {
-  margin-right: 10px;
-}
-
-.result-box {
-  margin-left: 10px;
-}
-
-.uploaded-image,
-.processed-image {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.error {
-  color: red;
 }
