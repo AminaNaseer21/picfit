@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'; // Import CSS file for styling
+import './Upload.css'; // Import CSS file for styling
 
 const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
 const BkgRmvr_API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
