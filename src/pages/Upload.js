@@ -7,6 +7,7 @@ const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
 const App = () => {
   const [image, setImage] = useState(null);
   const [result, setResult] = useState(null);
+  const [developerImage, setDeveloperImage] = useState(null); // State for developer testing image
   const [error, setError] = useState(null);
 
   const handleImageChange = (event) => {
@@ -40,6 +41,14 @@ const App = () => {
     }
   };
 
+  const addRainbowWatermark = () => {
+    // Logic to add rainbow watermark
+    // For demo purposes, let's just console log
+    console.log('Adding rainbow watermark to the image');
+    // For demonstration, let's assume the rainbow watermark image is available at a certain URL
+    setDeveloperImage('https://example.com/rainbow-watermark.png');
+  };
+
   return (
     <div className="upload-container container">
       <h1 className="begin-making">Remove Background API Demo</h1>
@@ -49,10 +58,12 @@ const App = () => {
         </div>
         <div className="image-display-box">
           {result && <img src={result} alt="Processed Image" className="processed-image" />}
+          {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />} {/* Display the developer testing image within the same box */}
         </div>
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={handleRemoveBackground}>Remove Background</button>
+      <button onClick={addRainbowWatermark}>Remove Background (for Developer Testing only)</button>
       {error && <div className="error">{error}</div>}
     </div>
   );
