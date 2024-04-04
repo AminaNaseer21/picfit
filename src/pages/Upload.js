@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BkgRmvr_API_KEY } from './config.js'; // Import API key from config.js
+import './Upload.css'; // Import the CSS file
 
 const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
 
@@ -44,10 +45,10 @@ const App = () => {
       <h1>Remove Background API Demo</h1>
       <div className="image-container">
         <div className="image-box">
-          {image && <div className="image-display-box"><img src={URL.createObjectURL(image)} alt="Uploaded Image" /></div>}
+          {image && <div className="image-display-box"><img src={URL.createObjectURL(image)} alt="Uploaded Image" className="uploaded-image" /></div>}
         </div>
-        <div className="result-box">
-          {result && <div className="image-display-box"><img src={result} alt="Processed Image" /></div>}
+        <div className="image-box">
+          {result && <div className="image-display-box"><img src={result} alt="Processed Image" className="processed-image" /></div>}
         </div>
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />

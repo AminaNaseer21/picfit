@@ -1,11 +1,11 @@
-* {
+.upload-container .upload-container * {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-.begin-making {
+.upload-container .upload-container .begin-making {
   float: left;
   text-align: left;
   font-size: 24px;
@@ -14,11 +14,11 @@
   width: 300px;
 }
 
-.begin-making small {
+.upload-container .upload-container .begin-making small {
   font-size: 14px;
 }
 
-.image-holder {
+.upload-container .upload-container .image-holder {
   float: right;
   width: 300px;
   height: 300px;
@@ -26,7 +26,7 @@
   margin-right: 100px;
 }
 
-.image-display-box {
+.upload-container .upload-container .image-display-box {
   width: 45%;
   height: 70vh;
   border: 2px dashed #ddd;
@@ -38,13 +38,13 @@
   margin-right: 20px;
 }
 
-.image-display-box img {
+.upload-container .upload-container .image-display-box img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 15px;
 }
 
-.add-item-box {
+.upload-container .upload-container .add-item-box {
   clear: both;
   width: 45%;
   height: 70vh;
@@ -57,22 +57,22 @@
   cursor: pointer;
 }
 
-.add-item-box label {
+.upload-container .upload-container .add-item-box label {
   color: white;
   font-size: 16px;
 }
 
-.add-item-box input {
+.upload-container .upload-container .add-item-box input {
   display: none;
 }
 
-.add-item-box span {
+.upload-container .upload-container .add-item-box span {
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
 }
 
-.add-item-box:hover {
+.upload-container .upload-container .add-item-box:hover {
   background: #0044cc;
   transition: background 0.3s ease;
 }
@@ -97,7 +97,7 @@
   width: 45%;
   height: 70vh;
   border: 10px dashed #999;
-  padding: 0; /* Remove padding */
+  padding: 250px;
 }
 
 .image-box {
