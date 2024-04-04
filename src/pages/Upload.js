@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './Upload.css'; // Import CSS file for styling
+import { BkgRmvr_API_KEY } from './config.js'; // Import API key from config.js
 
 const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
-const BkgRmvr_API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
 
 const App = () => {
   const [image, setImage] = useState(null);
@@ -45,29 +44,15 @@ const App = () => {
       <h1>Remove Background API Demo</h1>
       <div className="image-container">
         <div className="image-box">
-          {image && (
-            <div>
-              <h2>Uploaded Image</h2>
-              <img src={URL.createObjectURL(image)} alt="Uploaded Image" className="uploaded-image" />
-            </div>
-          )}
+          {image && <div className="image-display-box"><img src={URL.createObjectURL(image)} alt="Uploaded Image" /></div>}
         </div>
         <div className="result-box">
-          {result && (
-            <div>
-              <h2>Processed Image</h2>
-              <img src={result} alt="Processed Image" className="processed-image" />
-            </div>
-          )}
+          {result && <div className="image-display-box"><img src={result} alt="Processed Image" /></div>}
         </div>
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={handleRemoveBackground}>Remove Background</button>
-      {error && (
-        <div className="error">
-          <p>{error}</p>
-        </div>
-      )}
+      {error && <div className="error">{error}</div>}
     </div>
   );
 };
