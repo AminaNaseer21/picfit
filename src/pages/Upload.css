@@ -27,14 +27,15 @@
   }
   
   .upload-container .upload-container .image-display-box {
-    width: 100%;
-    height: 100%;
+    width: 45%; /* Adjust the width as needed */
+    height: 70vh; /* Adjust the height as needed */
     border: 2px dashed #ddd; /* Dotted border */
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Ensure image does not exceed box boundaries */
+    margin-right: 20px; /* Add margin between boxes */
   }
   
   .upload-container .upload-container .image-display-box img {
@@ -45,15 +46,14 @@
   
   .upload-container .upload-container .add-item-box {
     clear: both;
-    width: 300px;
-    height: 50px;
+    width: 45%; /* Adjust the width as needed */
+    height: 70vh; /* Adjust the height as needed */
     background: blue; /* Changed background color to blue */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
     margin-top: 20px;
-    margin-bottom: 20px; /* Adjusted margin-bottom */
     cursor: pointer;
   }
   
@@ -93,23 +93,25 @@
   }
   
   .image-box {
-    border: 1px dashed #999;
-    padding: 10px;
+    border: 10px dashed #999;
+    padding: 250px;
     margin-right: 10px;
   }
   
   .result-box {
-    border: 1px dashed #999;
-    padding: 10px;
+    border: 10px dashed #999;
+    padding: 250px;
     margin-left: 10px;
   }
   
   .uploaded-image {
-    max-width: 200px; /* Adjust image size as needed */
+    max-width: 100%; /* Adjust image size as needed */
+    max-height: 100%; /* Adjust image size as needed */
   }
   
   .processed-image {
-    max-width: 200px; /* Adjust image size as needed */
+    max-width: 100%; /* Adjust image size as needed */
+    max-height: 100%; /* Adjust image size as needed */
   }
   
   .error {
