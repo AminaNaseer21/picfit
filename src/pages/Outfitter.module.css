@@ -1,0 +1,67 @@
+/* Outfitter.module.css */
+
+.outfitterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.generateOutfitSection,
+.viewMoreOutfitsSection,
+.weatherOutfitsSection,
+.favoritesSection {
+  margin-bottom: 30px;
+}
+
+.generateOutfitButton,
+.favoriteButton,
+.rateOutfitButton {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.generateOutfitButton:hover,
+.favoriteButton:hover,
+.rateOutfitButton:hover {
+  background-color: #0056b3;
+}
+
+.weatherOutfitsSection {
+  text-align: center;
+}
+
+.weatherImage {
+  display: block;
+  margin: 0 auto;
+  max-width: 75%;
+  height: auto;
+}
+
+.rateOutfitSection {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+}
