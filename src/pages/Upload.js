@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { storage } from '../Services/firebase';
@@ -17,6 +18,7 @@ export default function Upload() {
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
     const firestore = getFirestore(); // Initialize Firestore here
+    const navigate = useNavigate();
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -72,6 +74,7 @@ export default function Upload() {
         // Handle confirming upload
         setShowModal(false);
         await uploadFiles(); // Upload images to Firebase
+        navigate('/wardrobe');
     };
 
     const handleRetake = () => {
