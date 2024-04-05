@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BkgRmvr_API_KEY } from './config.js'; // Import API key from config.js
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { storage } from '../Services/firebase';
@@ -9,6 +8,7 @@ import OpenAIVisionService from '../Services/OpenAIVisionService';
 import './Upload.css'; // Import the CSS file
 
 const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
+const BkgRmvr_API_KEY = 'f368c06e45ec67d424ea1fa9d4a0423733f8ffd7c3c5ed38aa49b991176f23012f613fe96a1c16e519a15418aa71fee5';
 
 const App = () => {
   const [image, setImage] = useState(null);
@@ -47,7 +47,6 @@ const App = () => {
       const result = await response.blob();
       setResult(URL.createObjectURL(result));
       setError(null);
-      setShowModal(true); // Show modal after processing image
     } catch (error) {
       console.error(error); // Log the actual error
       setResult(null);
