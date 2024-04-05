@@ -1,38 +1,37 @@
-// OpenAIVisionService.js
+import { OpenAI } from 'openai';
 
-import axios from 'axios'; // Ensure axios is installed
+const openai = new OpenAI({
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+});
 
-class OpenAIVisionService {
-  async analyzeImage(imageBlob, prompt) {
-    try {
-      // Convert image blob to base64
-      const reader = new FileReader();
-      reader.readAsDataURL(imageBlob);
-      reader.onloadend = async () => {
-        const base64data = reader.result.split(',')[1];
+const analyzeImage = async (imageUrl, prompt) => {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4-vision-preview",
+      messages: [
+        {
+          "role": "user",
+          "content": [
+            { "type": "text", "text": prompt },
+            {
+              "type": "image_url",
+              "image_url": {
+                "url": imageUrl,
+                "detail": "high"
+              },
+            },
+          ],
+        }
+      ],
+      max_tokens: 300,
+    });
 
-        // Call the OpenAI Vision API
-        const response = await axios.post('https://api.openai.com/v1/images', {
-          model: 'vision-base-v1',
-          images_base64: [base64data],
-          query: prompt,
-        }, {
-          headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
-          }
-        });
-
-        // Handle the response as needed
-        return response.data;
-      };
-    } catch (error) {
-      console.error('Error calling OpenAI Vision API:', error);
-      throw error;
-    }
+    // Assuming the API returns the desired text response directly
+    return response.choices[0].message.content;
+  } catch (error) {
+    console.error('Error analyzing image:', error);
+    throw error; // Rethrow the error so you can catch it in the component and handle it accordingly
   }
-}
+};
 
-const openAIVisionServiceInstance = new OpenAIVisionService();
-
-// Export the instance
-export default openAIVisionServiceInstance;
+export default analyzeImage;
