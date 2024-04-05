@@ -6,8 +6,15 @@
   align-items: center;
 }
 
+.outfitterContent {
+  display: flex;
+  align-items: center;
+}
+
 .outfitterButtonsContainer {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .outfitterButton {
@@ -15,5 +22,7 @@
 }
 
 .outfitterImage {
-  max-width: 100%; /* Adjust image size */
+  width: 40%; /* Adjust image size */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 20px; /* Adjust margin to separate image from buttons */
 }
