@@ -46,7 +46,7 @@ export default function Navbar() {
             <div className="nav-left">
                 <ul>
                     <CustomLink to="/">HOME</CustomLink>
-                    <CustomLink to="about">ABOUT US</CustomLink>
+                    <CustomLink to="aboutus">ABOUT US</CustomLink>
                 </ul>
             </div>  
 
