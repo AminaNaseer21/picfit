@@ -14,14 +14,12 @@ export default function Upload() {
     const [developerImage, setDeveloperImage] = useState(null); // State for developer testing image
     const [error, setError] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [actionInitiated, setActionInitiated] = useState(false);
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
     const firestore = getFirestore(); // Initialize Firestore here
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
-        setActionInitiated(true);  // Correctly setting state
         setImageUploads(Array.from(event.target.files));
     };
 
@@ -67,14 +65,12 @@ export default function Upload() {
                 img.src = reader.result;
             };
             reader.readAsDataURL(image);
-            setActionInitiated(true);
         }
     };
 
     const handleConfirmUpload = async () => {
         // Handle confirming upload
         setShowModal(false);
-        setActionInitiated(false); // Reset action initiated after confirming upload
         await uploadFiles(); // Upload images to Firebase
     };
 
@@ -84,7 +80,6 @@ export default function Upload() {
         setResult(null);
         setDeveloperImage(null);
         setShowModal(false);
-        setActionInitiated(false); // Reset action initiated after retaking image
     };
 
     const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
@@ -180,11 +175,11 @@ export default function Upload() {
             <h1 className="begin-making">Upload Image and Process</h1>
             <div className="image-container">
                 <div className="image-display-box">
-                    {image && <img src={URL.createObjectURL(image)} alt="Uploaded Image" className="uploaded-image" />}
+                    {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="uploaded-image" />}
                 </div>
                 <div className="image-display-box">
-                    {result && <img src={result} alt="Processed Image" className="processed-image" />}
-                    {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />} {/* Display the developer testing image within the same box */}
+                    {result && <img src={result} alt="Processed" className="processed-image" />}
+                    {developerImage && <img src={developerImage} alt="Developer Test" className="processed-image" />} {/* Display the developer testing image within the same box */}
                 </div>
             </div>
             <input type="file" accept="image/*" onChange={handleImageChange} />
