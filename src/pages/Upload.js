@@ -141,13 +141,14 @@ export default function Upload() {
         const processedImage = result || developerImage; // Use processed image if available, fallback to developerImage if not
         if (!processedImage) return; // Return if neither processedImage nor developerImage is available
 
-        const contentType = processedImage.startsWith('data:image/png') ? 'image/png' : 'application/octet-stream'; // Check if processed image is PNG or fallback to octet-stream
+        const contentType = 'image/png'; // Always set content type to PNG for uploaded images
 
         const promises = imageUploads.map((file) => {
             const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + uuidv4()}`);
             const metadata = {
                 contentType: contentType, // Set the content type
             };
+
             return fetch(processedImage)
                 .then(res => res.blob())
                 .then(blob => {
