@@ -3,8 +3,8 @@
 .outfitterContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 80vh; /* Adjust height as needed */
+  align-items: stretch; /* Stretch items vertically */
+  height: 80vh;
 }
 
 .outfitterContent {
@@ -12,64 +12,57 @@
   align-items: center;
 }
 
-.outfitterButtonsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.outfitterButton {
-  margin: 10px; /* Adjust margin as needed */
-  padding: 10px 20px; /* Add padding to the buttons */
-  background-color: #282936; /* Set background color */
-  color: #fff; /* Set text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Add border radius */
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Add transition */
-  font-size: 16px; /* Adjust font size */
-}
-
-.outfitterButton:hover {
-  background-color: #40414c; /* Change background color on hover */
-}
-
 .outfitterImage {
-  width: 40%; /* Adjust image size */
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 50px; /* Adjust margin to separate image from buttons */
+  width: 40%;
+  height: auto;
+  margin: 0 50px;
 }
 
-/* Sidebar styles */
 .sidebar {
-  width: 200px; /* Adjust width as needed */
+  width: 200px;
   background-color: #f7f7f7;
   padding: 20px;
-  border-right: 1px solid #d1d1d1; /* Add border */
+  border-right: 1px solid #d1d1d1;
 }
 
 .sidebarTitle {
-  font-size: 20px; /* Adjust font size */
-  font-weight: bold; /* Add font weight */
-  margin-bottom: 10px; /* Add margin bottom */
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .sidebarList {
-  list-style: none; /* Remove bullet points */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .sidebarList li {
-  padding: 10px 0; /* Adjust padding */
+  padding: 10px 0;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Add transition */
+  transition: background-color 0.3s ease;
 }
 
 .sidebarList li:hover {
-  background-color: #e0e0e0; /* Change background color on hover */
+  background-color: #e0e0e0;
 }
 
 .sidebarList li.active {
-  background-color: #d1d1d1; /* Set active background color */
+  background-color: #d1d1d1;
+}
+
+.outfitterButton {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #282936;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.outfitterButton:hover {
+  background-color: #40414c;
 }

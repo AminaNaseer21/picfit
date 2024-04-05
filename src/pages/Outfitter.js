@@ -5,10 +5,8 @@ import styles from './Outfitter.module.css';
 import TempOutfitterImg from '../img/TempOutfitterImg.png';
 
 const Outfitter = () => {
-  // State to track the active category for sidebar
   const [activeCategory, setActiveCategory] = useState('');
 
-  // Function to handle click on a button and set the active category
   const handleButtonClick = (category) => {
     setActiveCategory(category);
   };
@@ -27,21 +25,8 @@ const Outfitter = () => {
         </ul>
       </div>
       <div className={styles.outfitterContent}>
-        <div className={styles.outfitterButtonsContainer}>
-          {/* Buttons */}
-          {/* Button titles will be displayed in the sidebar */}
-          {/* Unique names for each button */}
-          <button className={styles.outfitterButton}>Generate Outfit</button>
-          <button className={styles.outfitterButton}>View More Outfits</button>
-          <button className={styles.outfitterButton}>Favorites</button>
-          <button className={styles.outfitterButton}>Why this Outfit?</button>
-          <button className={styles.outfitterButton}>Rate this Outfit</button>
-          <button className={styles.outfitterButton}>Edit Preferences</button>
-        </div>
-        {/* Image */}
         <img src={TempOutfitterImg} alt="Outfitter" className={styles.outfitterImage} />
       </div>
-      {/* Button on the right */}
       <button className={styles.outfitterButton}>Weather</button>
     </div>
   );
