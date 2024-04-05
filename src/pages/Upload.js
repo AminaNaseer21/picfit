@@ -5,7 +5,7 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
-import OpenAIVisionService from '../Services/OpenAIVisionService';
+//import OpenAIVisionService from '../Services/OpenAIVisionService';
 import removeBackground from '../Services/BackgroundRemovalService';
 import './Upload.css';
 
@@ -77,7 +77,7 @@ export default function Upload() {
         setShowModal(false);
     };
 
-    const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
+  /*  const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
                     1. **Short Name**: Provide a concise name for the clothing item based on its most distinguishing features (e.g., "Blue Striped Polo").
                     2. **Category**: Determine the main category of the clothing item. Choose from:
                         - Tops
@@ -107,63 +107,46 @@ export default function Upload() {
                     40
                     60`;
 
-    const uploadFiles = async () => {
-        if (!currentUser || imageUploads.length === 0) return;
-
-        const processedImage = result || developerImage;
-        if (!processedImage) return;
-
-        const contentType = 'image/png';
-
-        const promises = imageUploads.map((file) => {
-            const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + uuidv4()}`);
-            const metadata = {
-                contentType: contentType,
-            };
-
-            return fetch(processedImage)
-                .then(res => res.blob())
-                .then(blob => {
-                    return uploadBytes(imageRef, blob, metadata).then(snapshot => {
-                        return getDownloadURL(snapshot.ref).then(url => {
-                            return OpenAIVisionService.analyzeImage(blob, prompt)
-                                .then(async response => {
-                                    console.log('Vision API response:', response);
-
-                                    const [shortName, category, specificItemType, color, lowTemp, highTemp] = response.data.choices[0].text.trim().split('\n');
-
-                                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name + uuidv4()}`);
-                                    await setDoc(docRef, {
-                                        imageUrl: url,
-                                        shortName,
-                                        category,
-                                        specificItemType,
-                                        color,
-                                        temperatureRange: `${lowTemp} - ${highTemp}`,
-                                    });
-
-                                    return docRef;
-                                })
-                                .catch(err => {
-                                    console.error('Vision API error:', err);
-                                    throw err;
-                                });
-                        });
+*/                    
+        const uploadFiles = async () => {
+            if (!currentUser || imageUploads.length === 0) return;
+        
+            try {
+                const uploadPromises = imageUploads.map(async (file) => {
+                    // Create a reference for the file in Firebase Storage
+                    const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
+                    
+                    // Upload the file
+                    await uploadBytes(fileRef, file);
+                    
+                    // After upload, get the download URL
+                    const url = await getDownloadURL(fileRef);
+                    
+                    // Create a document reference in Firestore
+                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
+                    
+                    // Set the document with the imageUrl and any other necessary data
+                    await setDoc(docRef, { 
+                        imageUrl: url,
+                        shortName: "",
+                        category: "",
+                        specificItemType: "",
+                        color: "",
+                        temperatureRange: `${""} - ${""}`, 
                     });
-                }).catch(error => {
-                    console.error('Error during file upload and Firestore operation:', error);
-                    throw error;
+                    
+                    return url; // Return the URL if needed
                 });
-        });
-
-        try {
-            const docRefs = await Promise.all(promises);
-            console.log('Documents created:', docRefs);
-            
-        } catch (error) {
-            console.error('Error uploading files and saving data:', error);
-        }
-    };
+        
+                // Wait for all uploads to complete
+                await Promise.all(uploadPromises);
+                
+                console.log('All files uploaded successfully');
+                navigate('/wardrobe'); // Navigate to the wardrobe page after successful upload
+            } catch (error) {
+                console.error('Error uploading files:', error);
+            }
+        };
 
     return (
         <div className="upload-container container">
