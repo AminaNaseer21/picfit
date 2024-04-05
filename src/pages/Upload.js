@@ -8,7 +8,7 @@ import OpenAIVisionService from '../Services/OpenAIVisionService';
 import './Upload.css'; // Import the CSS file
 
 const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
-const { BkgRmvr_API_KEY } = require('./config.js'); // Import API key from config.js
+const BkgRmvr_API_KEY = 'f368c06e45ec67d424ea1fa9d4a0423733f8ffd7c3c5ed38aa49b991176f23012f613fe96a1c16e519a15418aa71fee5';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
