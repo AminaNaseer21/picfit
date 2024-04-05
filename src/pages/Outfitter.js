@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Outfitter.module.css';
+import styles from './Outfitter.css';
 import TempOutfitterImg from '../img/TempOutfitterImg.png';
 
 const Outfitter = () => {
