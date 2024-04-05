@@ -7,17 +7,17 @@ import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
 import OpenAIVisionService from '../Services/OpenAIVisionService';
 import removeBackground from '../Services/BackgroundRemovalService';
-import './Upload.css'; // Import the CSS file
+import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
     const [result, setResult] = useState(null);
-    const [developerImage, setDeveloperImage] = useState(null); // State for developer testing image
+    const [developerImage, setDeveloperImage] = useState(null);
     const [error, setError] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
-    const firestore = getFirestore(); // Initialize Firestore here
+    const firestore = getFirestore();
     const navigate = useNavigate();
 
     const handleImageChange = (event) => {
@@ -45,24 +45,18 @@ export default function Upload() {
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
                     canvas.width = img.width;
-                    canvas.height = img.height + 50; // Add 50 pixels for the thicker rainbow row
+                    canvas.height = img.height + 50;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, img.width, img.height);
 
                     // Draw rainbow pixels at the bottom
                     const rainbowGradient = ctx.createLinearGradient(0, img.height, 0, img.height + 50);
                     rainbowGradient.addColorStop(0, 'red');
-                    rainbowGradient.addColorStop(0.17, 'orange');
-                    rainbowGradient.addColorStop(0.34, 'yellow');
-                    rainbowGradient.addColorStop(0.51, 'green');
-                    rainbowGradient.addColorStop(0.68, 'blue');
-                    rainbowGradient.addColorStop(0.85, 'indigo');
-                    rainbowGradient.addColorStop(1, 'violet');
-
+                    rainbowGradient.addColorStop(1, 'red');
                     ctx.fillStyle = rainbowGradient;
-                    ctx.fillRect(0, img.height, img.width, 50); // Draw thicker rainbow row
+                    ctx.fillRect(0, img.height, img.width, 50);
                     setDeveloperImage(canvas.toDataURL());
-                    setShowModal(true); // Show modal after processing image
+                    setShowModal(true);
                 };
                 img.src = reader.result;
             };
@@ -71,14 +65,12 @@ export default function Upload() {
     };
 
     const handleConfirmUpload = async () => {
-        // Handle confirming upload
         setShowModal(false);
-        await uploadFiles(); // Upload images to Firebase
+        await uploadFiles();
         navigate('/wardrobe');
     };
 
     const handleRetake = () => {
-        // Handle retaking image
         setImage(null);
         setResult(null);
         setDeveloperImage(null);
@@ -118,15 +110,15 @@ export default function Upload() {
     const uploadFiles = async () => {
         if (!currentUser || imageUploads.length === 0) return;
 
-        const processedImage = result || developerImage; // Use processed image if available, fallback to developerImage if not
-        if (!processedImage) return; // Return if neither processedImage nor developerImage is available
+        const processedImage = result || developerImage;
+        if (!processedImage) return;
 
-        const contentType = 'image/png'; // Always set content type to PNG for uploaded images
+        const contentType = 'image/png';
 
         const promises = imageUploads.map((file) => {
             const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + uuidv4()}`);
             const metadata = {
-                contentType: contentType, // Set the content type
+                contentType: contentType,
             };
 
             return fetch(processedImage)
@@ -154,20 +146,20 @@ export default function Upload() {
                                 })
                                 .catch(err => {
                                     console.error('Vision API error:', err);
-                                    throw err; // Rethrow to be caught by the outer catch
+                                    throw err;
                                 });
                         });
                     });
                 }).catch(error => {
                     console.error('Error during file upload and Firestore operation:', error);
-                    throw error; // Rethrow to be caught by the outer promise chain
+                    throw error;
                 });
         });
 
         try {
             const docRefs = await Promise.all(promises);
             console.log('Documents created:', docRefs);
-            // Here you could update state to reflect the successful uploads or navigate the user to another page
+            
         } catch (error) {
             console.error('Error uploading files and saving data:', error);
         }
@@ -182,7 +174,7 @@ export default function Upload() {
                 </div>
                 <div className="image-display-box">
                     {result && <img src={result} alt="Processed" className="processed-image" />}
-                    {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />} {/* Display the developer testing image within the same box */}
+                    {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />}
                 </div>
             </div>
             <input type="file" accept="image/*" onChange={handleImageChange} />
@@ -190,7 +182,6 @@ export default function Upload() {
             <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
             {error && <div className="error">{error}</div>}
 
-            {/* Modal for Confirm Upload or Retake */}
             {showModal && (
                 <div className="modal">
                     <div className="modal-content">
