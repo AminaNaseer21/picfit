@@ -13,18 +13,18 @@ const BkgRmvr_API_KEY = 'f368c06e45ec67d424ea1fa9d4a0423733f8ffd7c3c5ed38aa49b99
 const App = () => {
   const [image, setImage] = useState(null);
   const [result, setResult] = useState(null);
-  const [developerImage, setDeveloperImage] = useState(null); // State for developer testing image
+  const [developerImage, setDeveloperImage] = useState(null);
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [actionInitiated, setActionInitiated] = useState(false);
   const [imageUploads, setImageUploads] = useState([]);
   const { currentUser } = useAuth();
-  const firestore = getFirestore(); // Initialize Firestore here
+  const firestore = getFirestore();
 
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
-    setActionInitiated(true); // Set action initiated when image is selected
-    setImageUploads(Array.from(event.target.files)); // Set image uploads for Firebase
+    setActionInitiated(false); // Reset action initiated when new image is selected
+    setImageUploads(Array.from(event.target.files));
   };
 
   const handleRemoveBackground = async () => {
@@ -47,8 +47,9 @@ const App = () => {
       const result = await response.blob();
       setResult(URL.createObjectURL(result));
       setError(null);
+      setActionInitiated(true); // Indicate that background removal process has been initiated
     } catch (error) {
-      console.error(error); // Log the actual error
+      console.error(error);
       setResult(null);
       setError('Failed to remove background');
     }
@@ -89,33 +90,30 @@ const App = () => {
   };
 
   const handleConfirmUpload = async () => {
-    // Handle confirming upload
     setShowModal(false);
-    setActionInitiated(false); // Reset action initiated after confirming upload
-    await uploadFiles(); // Upload images to Firebase
+    setActionInitiated(false);
+
+    // Upload both original and processed images if available
+    await uploadFiles(result || developerImage);
   };
 
   const handleRetake = () => {
-    // Handle retaking image
     setImage(null);
     setResult(null);
     setDeveloperImage(null);
     setShowModal(false);
-    setActionInitiated(false); // Reset action initiated after retaking image
+    setActionInitiated(false);
   };
 
-  const uploadFiles = async () => {
+  const uploadFiles = async (processedImage) => {
     if (!currentUser || imageUploads.length === 0) return;
 
-    const processedImage = result || developerImage; // Use processed image if available, fallback to developerImage if not
-    if (!processedImage) return; // Return if neither processedImage nor developerImage is available
-
-    const contentType = processedImage.startsWith('data:image/png') ? 'image/png' : 'application/octet-stream'; // Check if processed image is PNG or fallback to octet-stream
+    const contentType = processedImage.startsWith('data:image/png') ? 'image/png' : 'application/octet-stream';
 
     const promises = imageUploads.map((file) => {
       const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + uuidv4()}`);
       const metadata = {
-        contentType: contentType, // Set the content type
+        contentType: contentType,
       };
       return fetch(processedImage)
         .then(res => res.blob())
@@ -142,20 +140,19 @@ const App = () => {
                 })
                 .catch(err => {
                   console.error('Vision API error:', err);
-                  throw err; // Rethrow to be caught by the outer catch
+                  throw err;
                 });
             });
           });
         }).catch(error => {
           console.error('Error during file upload and Firestore operation:', error);
-          throw error; // Rethrow to be caught by the outer promise chain
+          throw error;
         });
     });
 
     try {
       const docRefs = await Promise.all(promises);
       console.log('Documents created:', docRefs);
-      // Here you could update state to reflect the successful uploads or navigate the user to another page
     } catch (error) {
       console.error('Error uploading files and saving data:', error);
     }
@@ -170,7 +167,7 @@ const App = () => {
         </div>
         <div className="image-display-box">
           {result && <img src={result} alt="Processed Image" className="processed-image" />}
-          {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />} {/* Display the developer testing image within the same box */}
+          {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />}
         </div>
       </div>
       <input type="file" accept="image/*" onChange={handleImageChange} />
@@ -178,8 +175,7 @@ const App = () => {
       <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
       {error && <div className="error">{error}</div>}
 
-      {/* Modal for Confirm Upload or Retake */}
-      {showModal && (
+      {actionInitiated && (
         <div className="modal">
           <div className="modal-content">
             <h2>Confirm Upload</h2>
