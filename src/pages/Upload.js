@@ -5,9 +5,8 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
-//import OpenAIVisionService from '../Services/OpenAIVisionService';
 import removeBackground from '../Services/BackgroundRemovalService';
-import { OpenAI } from 'openai';
+import analyzeImage from '../Services/OpenAIVisionService';
 import './Upload.css';
 
 export default function Upload() {
@@ -19,14 +18,8 @@ export default function Upload() {
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
     const firestore = getFirestore();
-    //const navigate = useNavigate();
+    const navigate = useNavigate(); // Uncomment this if navigation is required after uploading
     const [analysisResult, setAnalysisResult] = useState(null);
-
-    const openai = new OpenAI({
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-        dangerouslyAllowBrowser: true 
-      });
-      
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -35,7 +28,7 @@ export default function Upload() {
 
     const handleRemoveBackground = async () => {
         try {
-            const resultBlob = await removeBackground(image); // Use the background removal service
+            const resultBlob = await removeBackground(image);
             setResult(URL.createObjectURL(resultBlob));
             setError(null);
             setShowModal(true);
@@ -57,7 +50,6 @@ export default function Upload() {
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, img.width, img.height);
 
-                    // Draw rainbow pixels at the bottom
                     const rainbowGradient = ctx.createLinearGradient(0, img.height, 0, img.height + 50);
                     rainbowGradient.addColorStop(0, 'red');
                     rainbowGradient.addColorStop(1, 'red');
@@ -75,7 +67,6 @@ export default function Upload() {
     const handleConfirmUpload = async () => {
         setShowModal(false);
         await uploadFiles();
-        //navigate('/wardrobe');
     };
 
     const handleRetake = () => {
@@ -116,68 +107,35 @@ export default function Upload() {
                     60`;
 
                   
-const uploadFiles = async () => {
-    if (!currentUser || imageUploads.length === 0) return;
-  
-    try {
-      const uploadPromises = imageUploads.map(async (file) => {
-        // Create a reference for the file in Firebase Storage
-        const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
+    const uploadFiles = async () => {
+        if (!currentUser || imageUploads.length === 0) return;
         
-        // Upload the file
-        await uploadBytes(fileRef, file);
-        
-        // After upload, get the download URL
-        const url = await getDownloadURL(fileRef);
-  
-        // Here, you use the OpenAI Vision API to analyze the image
-        const response = await openai.chat.completions.create({
-          model: "gpt-4-vision-preview",
-          messages: [
-            {
-              "role": "user",
-              "content": [
-                {"type": "text", "text": prompt}, // Replace with your actual prompt
-                {
-                  "type": "image_url",
-                  "image_url": {
-                    "url": url,
-                    "detail": "high"
-                  },
-                },
-              ],
-            }
-          ],
-          max_tokens: 300,
-        });
-  
-        // Extract the necessary data from the response
-        const analyzedData = response.choices[0].message.content; // Adjust this line based on the actual structure of your response
+        try {
+            const uploadPromises = imageUploads.map(async (file) => {
+                const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
+                await uploadBytes(fileRef, file);
+                const url = await getDownloadURL(fileRef);
 
-        // Update state with the analysis results
-        setAnalysisResult(analyzedData);
+                const analyzedData = await analyzeImage(url, prompt);
 
-        // Create a document reference in Firestore
-        const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
-        
-        // Set the document with the imageUrl and the analyzed data
-        await setDoc(docRef, { 
-          imageUrl: url,
-          analyzedData: analyzedData, // This should match the structure of your Firestore document
-        });
-        
-        return url; // Return the URL if needed
-      });
-  
-      // Wait for all uploads and analyses to complete
-      await Promise.all(uploadPromises);
-      
-      console.log('All files uploaded and analyzed successfully');
-      //navigate('/wardrobe'); // Navigate to the wardrobe page after successful upload
-    } catch (error) {
-      console.error('Error uploading or analyzing files:', error);
-    }
-  };
+                setAnalysisResult(analyzedData);
+
+                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
+                await setDoc(docRef, { 
+                    imageUrl: url,
+                    analyzedData: analyzedData,
+                });
+
+                return url;
+            });
+
+            await Promise.all(uploadPromises);
+            console.log('All files uploaded and analyzed successfully');
+            // navigate('/wardrobe');
+        } catch (error) {
+            console.error('Error uploading or analyzing files:', error);
+        }
+    };
 
     return (
         <div className="upload-container container">
