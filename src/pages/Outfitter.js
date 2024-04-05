@@ -7,18 +7,18 @@ const Outfitter = () => {
     <div className={styles.outfitterContainer}>
       <div className={styles.outfitterContent}>
         <div className={styles.outfitterButtonsContainer}>
-          {/* Buttons in the center */}
-          <button className={styles.outfitterButton}>Button 1</button>
-          <button className={styles.outfitterButton}>Button 2</button>
-          <button className={styles.outfitterButton}>Button 3</button>
-          <button className={styles.outfitterButton}>Button 4</button>
-          <button className={styles.outfitterButton}>Button 5</button>
-          <button className={styles.outfitterButton}>Button 6</button>
+          {/* Unique names for each button */}
+          <button className={styles.outfitterButton}>Generate Outfit</button>
+          <button className={styles.outfitterButton}>View More Outfits</button>
+          <button className={styles.outfitterButton}>Favorites</button>
+          <button className={styles.outfitterButton}>Why this Outfit?</button>
+          <button className={styles.outfitterButton}>Rate this Outfit</button>
+          <button className={styles.outfitterButton}>Edit Preferences</button>
         </div>
         <img src={TempOutfitterImg} alt="Outfitter" className={styles.outfitterImage} />
       </div>
       {/* Button on the right */}
-      <button className={styles.outfitterButton}>Button 7</button>
+      <button className={styles.outfitterButton}>Weather</button>
     </div>
   );
 };
