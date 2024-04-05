@@ -2,7 +2,8 @@
 
 import React from 'react';
 import './Outfitter.css';
-import TempOutfitterImg from './img/TempOutfitterImg.png'; // import the image
+import TempOutfitterImg from '../img/TempOutfitterImg.png'; // adjust the path as needed
+
 
 const Outfitter = () => {
   return (
