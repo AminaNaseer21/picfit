@@ -7,6 +7,7 @@ import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
 //import OpenAIVisionService from '../Services/OpenAIVisionService';
 import removeBackground from '../Services/BackgroundRemovalService';
+import { OpenAI } from 'openai';
 import './Upload.css';
 
 export default function Upload() {
@@ -18,7 +19,14 @@ export default function Upload() {
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
     const firestore = getFirestore();
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
+    const [analysisResult, setAnalysisResult] = useState(null);
+
+    const openai = new OpenAI({
+        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+        dangerouslyAllowBrowser: true 
+      });
+      
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -67,7 +75,7 @@ export default function Upload() {
     const handleConfirmUpload = async () => {
         setShowModal(false);
         await uploadFiles();
-        navigate('/wardrobe');
+        //navigate('/wardrobe');
     };
 
     const handleRetake = () => {
@@ -77,7 +85,7 @@ export default function Upload() {
         setShowModal(false);
     };
 
-  /*  const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
+    const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
                     1. **Short Name**: Provide a concise name for the clothing item based on its most distinguishing features (e.g., "Blue Striped Polo").
                     2. **Category**: Determine the main category of the clothing item. Choose from:
                         - Tops
@@ -107,46 +115,69 @@ export default function Upload() {
                     40
                     60`;
 
-*/                    
-        const uploadFiles = async () => {
-            if (!currentUser || imageUploads.length === 0) return;
+                  
+const uploadFiles = async () => {
+    if (!currentUser || imageUploads.length === 0) return;
+  
+    try {
+      const uploadPromises = imageUploads.map(async (file) => {
+        // Create a reference for the file in Firebase Storage
+        const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
         
-            try {
-                const uploadPromises = imageUploads.map(async (file) => {
-                    // Create a reference for the file in Firebase Storage
-                    const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
-                    
-                    // Upload the file
-                    await uploadBytes(fileRef, file);
-                    
-                    // After upload, get the download URL
-                    const url = await getDownloadURL(fileRef);
-                    
-                    // Create a document reference in Firestore
-                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
-                    
-                    // Set the document with the imageUrl and any other necessary data
-                    await setDoc(docRef, { 
-                        imageUrl: url,
-                        shortName: "",
-                        category: "",
-                        specificItemType: "",
-                        color: "",
-                        temperatureRange: `${""} - ${""}`, 
-                    });
-                    
-                    return url; // Return the URL if needed
-                });
+        // Upload the file
+        await uploadBytes(fileRef, file);
         
-                // Wait for all uploads to complete
-                await Promise.all(uploadPromises);
-                
-                console.log('All files uploaded successfully');
-                navigate('/wardrobe'); // Navigate to the wardrobe page after successful upload
-            } catch (error) {
-                console.error('Error uploading files:', error);
+        // After upload, get the download URL
+        const url = await getDownloadURL(fileRef);
+  
+        // Here, you use the OpenAI Vision API to analyze the image
+        const response = await openai.chat.completions.create({
+          model: "gpt-4-vision-preview",
+          messages: [
+            {
+              "role": "user",
+              "content": [
+                {"type": "text", "text": prompt}, // Replace with your actual prompt
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": url,
+                    "detail": "high"
+                  },
+                },
+              ],
             }
-        };
+          ],
+          max_tokens: 300,
+        });
+  
+        // Extract the necessary data from the response
+        const analyzedData = response.choices[0].message.content; // Adjust this line based on the actual structure of your response
+
+        // Update state with the analysis results
+        setAnalysisResult(analyzedData);
+
+        // Create a document reference in Firestore
+        const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
+        
+        // Set the document with the imageUrl and the analyzed data
+        await setDoc(docRef, { 
+          imageUrl: url,
+          analyzedData: analyzedData, // This should match the structure of your Firestore document
+        });
+        
+        return url; // Return the URL if needed
+      });
+  
+      // Wait for all uploads and analyses to complete
+      await Promise.all(uploadPromises);
+      
+      console.log('All files uploaded and analyzed successfully');
+      //navigate('/wardrobe'); // Navigate to the wardrobe page after successful upload
+    } catch (error) {
+      console.error('Error uploading or analyzing files:', error);
+    }
+  };
 
     return (
         <div className="upload-container container">
@@ -164,6 +195,14 @@ export default function Upload() {
             <button onClick={handleRemoveBackground}>Remove Background</button>
             <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
             {error && <div className="error">{error}</div>}
+
+            {/* Display analysis results */}
+            {analysisResult && (
+            <div className="analysis-results">
+                <h2>Analysis Results</h2>
+                <p>{analysisResult}</p> {/* Adjust this as necessary based on the structure of your results */}
+            </div>
+            )}
 
             {showModal && (
                 <div className="modal">
