@@ -75,7 +75,7 @@ export default function Upload() {
         setDeveloperImage(null);
         setShowModal(false);
     };
-
+ 
     const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
                     1. **Short Name**: Provide a concise name for the clothing item based on its most distinguishing features (e.g., "Blue Striped Polo").
                     2. **Category**: Determine the main category of the clothing item. Choose from:
