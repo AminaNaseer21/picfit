@@ -7,7 +7,7 @@ const Outfitter = () => {
     <div className={styles.outfitterContainer}>
       <div className={styles.outfitterContent}>
         <div className={styles.outfitterButtonsContainer}>
-          {/* Buttons on the left */}
+          {/* Buttons in the center */}
           <button className={styles.outfitterButton}>Button 1</button>
           <button className={styles.outfitterButton}>Button 2</button>
           <button className={styles.outfitterButton}>Button 3</button>

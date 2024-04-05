@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80vh; /* Adjust height as needed */
 }
 
 .outfitterContent {
@@ -14,15 +15,15 @@
 .outfitterButtonsContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .outfitterButton {
-  margin: 5px; /* Adjust margin as needed */
+  margin: 30px; /* Adjust margin as needed */
 }
 
 .outfitterImage {
   width: 40%; /* Adjust image size */
   height: auto; /* Maintain aspect ratio */
-  margin: 0 20px; /* Adjust margin to separate image from buttons */
+  margin: 0 350px; /* Adjust margin to separate image from buttons */
 }
