@@ -15,4 +15,5 @@ num_classes = 10  # Example: 10 for CIFAR-10
 model = build_model(num_classes)
 
 # Now you can print the model summary
-print(model.summary())
+#print(model.summary())
+model.save('my_trained_model.h5')  # Saves the model

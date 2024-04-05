@@ -42,3 +42,4 @@ prob_predictions = None  # You need to define this if you want to calculate ROC-
 
 # Evaluate the model using the evaluation function
 evaluate_model(test_labels, predictions, prob_predictions)
+model.save('my_model.h5')
