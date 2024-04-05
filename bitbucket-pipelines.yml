@@ -9,6 +9,7 @@ pipelines:
             - npm install
             - npm i react-router-dom
             - npm run build
+            - echo "REACT_APP_OPENAI_API_KEY=$OPENAI_TOKEN" >> .env
             - pipe: atlassian/firebase-deploy:0.2.4
               variables:
                 FIREBASE_TOKEN: $FIREBASE_TOKEN
