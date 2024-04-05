@@ -1,3 +1,10 @@
+
+//Keeping this Upload File In case we need to use features from here due to
+//errors, or reorganizing. This file should not be used for any code
+//and instead our actual "Upload.js" should be the edited one.
+// As I didn't work on the OpenAi side yet, I'm keeping this here
+//for bug fixing/ testing for that. - Rogelio Atilano
+
 import React, { useState } from 'react';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
