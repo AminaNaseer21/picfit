@@ -179,7 +179,7 @@ export default function Upload() {
                 </div>
                 <div className="image-display-box">
                     {result && <img src={result} alt="Processed" className="processed-image" />}
-                    {developerImage && <img src={developerImage} alt="Developer Test" className="processed-image" />} {/* Display the developer testing image within the same box */}
+                    {developerImage && <img src={developerImage} alt="Developer Test Image" className="processed-image" />} {/* Display the developer testing image within the same box */}
                 </div>
             </div>
             <input type="file" accept="image/*" onChange={handleImageChange} />
