@@ -111,13 +111,18 @@ const App = () => {
     const processedImage = result || developerImage; // Use processed image if available, fallback to developerImage if not
     if (!processedImage) return; // Return if neither processedImage nor developerImage is available
 
+    const contentType = processedImage.startsWith('data:image/png') ? 'image/png' : 'application/octet-stream'; // Check if processed image is PNG or fallback to octet-stream
+
     const promises = imageUploads.map((file) => {
       const imageRef = ref(storage, `images/${currentUser.uid}/${file.name + uuidv4()}`);
-      return uploadBytes(imageRef, processedImage).then(snapshot => {
-        return getDownloadURL(snapshot.ref).then(url => {
-          return fetch(url)
-            .then(res => res.blob())
-            .then(blob => {
+      const metadata = {
+        contentType: contentType, // Set the content type
+      };
+      return fetch(processedImage)
+        .then(res => res.blob())
+        .then(blob => {
+          return uploadBytes(imageRef, blob, metadata).then(snapshot => {
+            return getDownloadURL(snapshot.ref).then(url => {
               return OpenAIVisionService.analyzeImage(blob, prompt)
                 .then(async response => {
                   console.log('Vision API response:', response);
@@ -141,11 +146,11 @@ const App = () => {
                   throw err; // Rethrow to be caught by the outer catch
                 });
             });
+          });
+        }).catch(error => {
+          console.error('Error during file upload and Firestore operation:', error);
+          throw error; // Rethrow to be caught by the outer promise chain
         });
-      }).catch(error => {
-        console.error('Error during file upload and Firestore operation:', error);
-        throw error; // Rethrow to be caught by the outer promise chain
-      });
     });
 
     try {
