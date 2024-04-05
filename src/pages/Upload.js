@@ -5,10 +5,8 @@ import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
 import OpenAIVisionService from '../Services/OpenAIVisionService';
+import removeBackground from '../Services/BackgroundRemovalService';
 import './Upload.css'; // Import the CSS file
-
-const API_ENDPOINT = 'https://clipdrop-api.co/remove-background/v1';
-const BkgRmvr_API_KEY = 'f368c06e45ec67d424ea1fa9d4a0423733f8ffd7c3c5ed38aa49b991176f23012f613fe96a1c16e519a15418aa71fee5';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
@@ -23,33 +21,17 @@ export default function Upload() {
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
-        setActionInitiated(true); // Set action initiated when image is selected
-        setImageUploads(Array.from(event.target.files)); // Set image uploads for Firebase
+        setActionInitiated(true);  // Correctly setting state
+        setImageUploads(Array.from(event.target.files));
     };
 
     const handleRemoveBackground = async () => {
         try {
-            const formData = new FormData();
-            formData.append('image_file', image);
-
-            const response = await fetch(API_ENDPOINT, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'x-api-key': BkgRmvr_API_KEY,
-                },
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to remove background');
-            }
-
-            const result = await response.blob();
-            setResult(URL.createObjectURL(result));
+            const resultBlob = await removeBackground(image); // Use the background removal service
+            setResult(URL.createObjectURL(resultBlob));
             setError(null);
-            setShowModal(true); // Show modal after processing image
+            setShowModal(true);
         } catch (error) {
-            console.error(error); // Log the actual error
             setResult(null);
             setError('Failed to remove background');
         }
