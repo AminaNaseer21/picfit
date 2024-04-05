@@ -1,4 +1,4 @@
-/* Outfitter.css */
+/* Outfitter.module.css */
 
 .outfitterContainer {
   display: flex;
@@ -19,11 +19,57 @@
 }
 
 .outfitterButton {
-  margin: 30px; /* Adjust margin as needed */
+  margin: 10px; /* Adjust margin as needed */
+  padding: 10px 20px; /* Add padding to the buttons */
+  background-color: #282936; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition */
+  font-size: 16px; /* Adjust font size */
+}
+
+.outfitterButton:hover {
+  background-color: #40414c; /* Change background color on hover */
 }
 
 .outfitterImage {
   width: 40%; /* Adjust image size */
   height: auto; /* Maintain aspect ratio */
-  margin: 0 350px; /* Adjust margin to separate image from buttons */
+  margin: 0 50px; /* Adjust margin to separate image from buttons */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px; /* Adjust width as needed */
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-right: 1px solid #d1d1d1; /* Add border */
+}
+
+.sidebarTitle {
+  font-size: 20px; /* Adjust font size */
+  font-weight: bold; /* Add font weight */
+  margin-bottom: 10px; /* Add margin bottom */
+}
+
+.sidebarList {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarList li {
+  padding: 10px 0; /* Adjust padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition */
+}
+
+.sidebarList li:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
+
+.sidebarList li.active {
+  background-color: #d1d1d1; /* Set active background color */
 }
