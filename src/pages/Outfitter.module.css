@@ -28,10 +28,11 @@
   height: 80vh;
 }
 
+
 .outfitterContent {
-  flex-grow: 1; /* Allow the content to grow */
   display: flex;
-  justify-content: center; /* Horizontally center items */
+  flex-direction: column;
+  align-items: center;
 }
 
 .square {
@@ -91,4 +92,8 @@
 
 .outfitterButton:hover {
   background-color: #40414c;
+}
+.outfitTitle {
+  font-size: 20px;
+  font-weight: bold;
 }

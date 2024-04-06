@@ -54,6 +54,7 @@ const Outfitter = () => {
       </div>
       <div className={styles.outfitterContent}>
         <div className={styles.square}></div>
+        <div className={styles.outfitTitle}>Today's Outfit</div> {/* Move this line inside outfitterContent */}
       </div>
       <button className={styles.outfitterButton} onClick={() => handleButtonClick('Weather')}>
         Weather
