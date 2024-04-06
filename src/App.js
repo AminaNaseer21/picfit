@@ -8,7 +8,6 @@ import Signup from "./pages/Signup";
 import Upload from "./pages/Upload";
 import WeatherApp from "./pages/WeatherApp";
 import Itempage from "./pages/itempage";
-import Aboutus from "./pages/Aboutus";
 import { UserProvider } from './UserContext';
 import { Route, Routes } from "react-router-dom";
 
@@ -29,7 +28,6 @@ function App() {
         <Route path="/signup" element={ <Signup />} />
         <Route path="/login" element={ <Login />} />
         <Route path="/weatherapp" element={ <WeatherApp />} />
-        <Route path="/aboutus" element={ <Aboutus />} />
       </Routes>
     </div>
     </UserProvider>
