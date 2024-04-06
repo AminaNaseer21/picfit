@@ -46,6 +46,9 @@ const Home = () =>{
   <Link to ="/Outfitter">
         <button type="button">Generate Outfit</button>
    </Link>  
+   <Link to ="/Login">
+    <button type="button">Begin</button>
+   </Link>
 </div>
 </div>
 
