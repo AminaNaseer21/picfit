@@ -6,9 +6,9 @@ import clothing1 from "../img/items/1.png";
 import camera from "../img/camera.png";
 import heart from "../img/heart.png";
 
-
 const Home = () =>{
- 
+
+
   return (
 
 <div className="Home">
@@ -20,7 +20,7 @@ const Home = () =>{
 <div className = "BottomLeftCard">
     <h1>Favorites</h1>
     <div className="FavoritesButton">
-        <Link to ="/THE OUTFITTER">
+        <Link to ="/Outfitter">
         <button type="">Favorites</button>
         </Link>  
     </div>
@@ -49,6 +49,7 @@ const Home = () =>{
    <Link to ="/Login">
     <button type="button">Begin</button>
    </Link>
+  
 </div>
 </div>
 
