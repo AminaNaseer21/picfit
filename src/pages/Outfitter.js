@@ -14,20 +14,21 @@ const Outfitter = () => {
   });
 
   const [typedText, setTypedText] = useState('');
-  const [textIndex, setTextIndex] = useState(0);
   const text = "Today's Outfit"; // Text to be typed
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTypedText(text.substring(0, textIndex + 1));
-      setTextIndex(textIndex + 1);
+    let currentIndex = 0;
+    const timer = setInterval(() => {
+      if (currentIndex <= text.length) {
+        setTypedText(text.substring(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(timer);
+      }
     }, 100); // Typing speed: 100 milliseconds
 
-    // Clear timeout and stop typing when text is fully typed
-    return () => {
-      if (textIndex === text.length) clearTimeout(timer);
-    };
-  }, [textIndex, text]);
+    return () => clearInterval(timer); // Cleanup function to clear interval
+  }, [text]);
 
   const handleButtonClick = (category) => {
     setActiveCategory(category);
@@ -69,8 +70,8 @@ const Outfitter = () => {
         </ul>
       </div>
       <div className={styles.outfitterContent}>
-        <div className={styles.square}></div>
         <div className={styles.outfitTitle}>{typedText}</div>
+        <div className={styles.square}></div>
       </div>
       <button className={styles.outfitterButton} onClick={() => handleButtonClick('Weather')}>
         Weather
