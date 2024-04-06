@@ -3,14 +3,22 @@ import styles from './Outfitter.module.css';
 
 const Outfitter = () => {
   const [activeCategory, setActiveCategory] = useState('');
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState({
+    'Generate Outfit': false,
+    'View More Outfits': false,
+    'Favorites': false,
+    'Why this Outfit?': false,
+    'Rate this Outfit': false,
+    'Edit Preferences': false,
+    'Weather': false,
+  });
 
   const handleButtonClick = (category) => {
     setActiveCategory(category);
-    // Toggle dropdown visibility only if the clicked category is not "Weather"
-    if (category !== 'Weather') {
-      setDropdownVisible(!dropdownVisible);
-    }
+    setDropdownVisible({
+      ...dropdownVisible,
+      [category]: !dropdownVisible[category],
+    });
   };
 
   return (
@@ -20,27 +28,27 @@ const Outfitter = () => {
         <ul className={styles.sidebarList}>
           <li className={activeCategory === 'Generate Outfit' ? styles.active : ''} onClick={() => handleButtonClick('Generate Outfit')}>
             Generate Outfit
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['Generate Outfit'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
           <li className={activeCategory === 'View More Outfits' ? styles.active : ''} onClick={() => handleButtonClick('View More Outfits')}>
             View More Outfits
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['View More Outfits'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
           <li className={activeCategory === 'Favorites' ? styles.active : ''} onClick={() => handleButtonClick('Favorites')}>
             Favorites
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['Favorites'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
           <li className={activeCategory === 'Why this Outfit?' ? styles.active : ''} onClick={() => handleButtonClick('Why this Outfit?')}>
             Why this Outfit?
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['Why this Outfit?'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
           <li className={activeCategory === 'Rate this Outfit' ? styles.active : ''} onClick={() => handleButtonClick('Rate this Outfit')}>
             Rate this Outfit
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['Rate this Outfit'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
           <li className={activeCategory === 'Edit Preferences' ? styles.active : ''} onClick={() => handleButtonClick('Edit Preferences')}>
             Edit Preferences
-            {dropdownVisible && <span className={styles.dropdownText}>Temp Text</span>}
+            {dropdownVisible['Edit Preferences'] && <span className={styles.dropdownText}>Temp Text</span>}
           </li>
         </ul>
       </div>
@@ -49,6 +57,7 @@ const Outfitter = () => {
       </div>
       <button className={styles.outfitterButton} onClick={() => handleButtonClick('Weather')}>
         Weather
+        {dropdownVisible['Weather'] && <span className={styles.dropdownText}>Temp Text</span>}
       </button>
     </div>
   );
