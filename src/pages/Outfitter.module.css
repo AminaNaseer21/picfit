@@ -2,13 +2,19 @@
 
 @keyframes pastelGradientAnimation {
   0% {
-    background-position: 0% 50%;
+    background-color: #ff9eb8; /* Start color */
+  }
+  25% {
+    background-color: #ffdde1; /* First pastel color */
   }
   50% {
-    background-position: 100% 50%;
+    background-color: #afe9e1; /* Second pastel color */
+  }
+  75% {
+    background-color: #ffcaaf; /* Third pastel color */
   }
   100% {
-    background-position: 0% 50%;
+    background-color: #ff9eb8; /* Return to start color */
   }
 }
 
@@ -26,11 +32,10 @@
 }
 
 .square {
-  width: 600px; /* Adjust the width of the square */
+  width: 650px; /* Adjust the width of the square */
   height: 400px; /* Keep the height of the square */
-  background: linear-gradient(45deg, #ff9eb8, #ffdde1); /* Replace with desired gradient colors */
   border-radius: 10px; /* Adjust the border-radius for rounded corners */
-  animation: pastelGradientAnimation 5s infinite; /* Make animation faster */
+  animation: pastelGradientAnimation 2s infinite; /* Make animation faster */
 }
 
 .sidebar {
