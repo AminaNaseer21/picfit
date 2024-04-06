@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import styles from './Outfitter.module.css';
-import TempOutfitterImg from '../img/TempOutfitterImg.png';
 
 const Outfitter = () => {
   const [activeCategory, setActiveCategory] = useState('');
@@ -25,7 +24,7 @@ const Outfitter = () => {
         </ul>
       </div>
       <div className={styles.outfitterContent}>
-        <img src={TempOutfitterImg} alt="Outfitter" className={styles.outfitterImage} />
+        <div className={styles.square}></div>
       </div>
       <button className={styles.outfitterButton}>Weather</button>
     </div>
