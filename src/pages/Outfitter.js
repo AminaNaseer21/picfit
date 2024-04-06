@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Outfitter.module.css';
 
 const Outfitter = () => {
@@ -12,6 +12,22 @@ const Outfitter = () => {
     'Edit Preferences': false,
     'Weather': false,
   });
+
+  const [typedText, setTypedText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const text = "Today's Outfit"; // Text to be typed
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTypedText(text.substring(0, textIndex + 1));
+      setTextIndex(textIndex + 1);
+    }, 100); // Typing speed: 100 milliseconds
+
+    // Clear timeout and stop typing when text is fully typed
+    return () => {
+      if (textIndex === text.length) clearTimeout(timer);
+    };
+  }, [textIndex, text]);
 
   const handleButtonClick = (category) => {
     setActiveCategory(category);
@@ -54,7 +70,7 @@ const Outfitter = () => {
       </div>
       <div className={styles.outfitterContent}>
         <div className={styles.square}></div>
-        <div className={styles.outfitTitle}>Today's Outfit</div> {/* Move this line inside outfitterContent */}
+        <div className={styles.outfitTitle}>{typedText}</div>
       </div>
       <button className={styles.outfitterButton} onClick={() => handleButtonClick('Weather')}>
         Weather
