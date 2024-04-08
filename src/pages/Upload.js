@@ -67,7 +67,20 @@ export default function Upload() {
 
     const handleConfirmUpload = async () => {
         setShowModal(false);
-        await uploadFiles();
+    
+        // Convert developerImage from data URL to Blob if it's not null
+        let imageToUpload = image; // Default to the original image
+        if (result) {
+            // If background removal was applied, set imageToUpload to the result blob
+            imageToUpload = await fetch(result).then(r => r.blob());
+        } else if (developerImage) {
+            // If developer image is set, convert it to a blob and set it as imageToUpload
+            const response = await fetch(developerImage);
+            const blob = await response.blob();
+            imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
+        }
+    
+        await uploadFiles(imageToUpload); // Pass the selected image to uploadFiles
     };
 
     const handleRetake = () => {
@@ -108,49 +121,41 @@ export default function Upload() {
                     60`;
 
                   
-    const uploadFiles = async () => {
-        if (!currentUser || imageUploads.length === 0) return;
-        
-        try {
-            const uploadPromises = imageUploads.map(async (file) => {
-                const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
-                await uploadBytes(fileRef, file);
-                const url = await getDownloadURL(fileRef);
-
-                const analyzedData = await analyzeImage(url, prompt);
-
-                try {
-                    const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
-    
-                    setAnalysisResult(analyzedData);
-    
-                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
-                    await setDoc(docRef, {
-                        imageUrl: url,
-                        shortName,
-                        category,
-                        subCategory,
-                        color,
-                        tempRangeLow,
-                        tempRangeHigh,
-                        wearCount: 0,
-                        ItemNotes: "",
-                    });
-    
-                } catch (error) {
-                    console.error('Error parsing analyzed data:', error);
-                }
-    
-                return url;
-            });
-
-            await Promise.all(uploadPromises);
-        console.log('All files uploaded and analyzed successfully');
-        // navigate('/wardrobe');
-    } catch (error) {
-        console.error('Error uploading or analyzing files:', error);
-    }
-    };
+                    const uploadFiles = async (fileToUpload) => {
+                        if (!currentUser || !fileToUpload) return;
+                    
+                        try {
+                            const fileRef = ref(storage, `images/${currentUser.uid}/${fileToUpload.name}-${uuidv4()}`);
+                            await uploadBytes(fileRef, fileToUpload);
+                            const url = await getDownloadURL(fileRef);
+                    
+                            const analyzedData = await analyzeImage(url, prompt);
+                    
+                            try {
+                                const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
+                    
+                                setAnalysisResult(analyzedData);
+                    
+                                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${fileToUpload.name}-${uuidv4()}`);
+                                await setDoc(docRef, {
+                                    imageUrl: url,
+                                    shortName,
+                                    category,
+                                    subCategory,
+                                    color,
+                                    tempRangeLow,
+                                    tempRangeHigh,
+                                    wearCount: 0,
+                                    ItemNotes: "",
+                                });
+                    
+                            } catch (error) {
+                                console.error('Error parsing analyzed data:', error);
+                            }
+                        } catch (error) {
+                            console.error('Error uploading or analyzing file:', error);
+                        }
+                    };
 
     return (
         <div className="upload-container">
