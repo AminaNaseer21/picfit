@@ -61,9 +61,11 @@ export default function Wardrobe() {
         const handleUploadClick = () => {
           navigate('/upload'); // Use the path you've defined for the Upload component in your router setup
         };
-        const handleItemClick = () => {
-            navigate('/itempage'); // Use the path you've defined for the Upload component in your router setup
-          };
+        const handleItemClick = (itemId) => {
+            // Navigate to '/itempage' with the item ID as state or part of the URL
+            // This is just an example, you can adjust it based on your routing setup
+            navigate('/itempage', { state: { itemId } });
+        };
         const handleWeatherClick = () => {
             navigate('/weatherapp');
         }
@@ -142,11 +144,13 @@ export default function Wardrobe() {
 
                 <div className="items">
                 {imageUrls.map((url, index) => (
-                <img key={index} src={url} alt={`Uploaded ${index}`} className="item-image"/>
-                ))}
-                    <div className="item add-new-item" onClick={handleItemClick}> {/* Div for adding a new item */}
-                        <span className="plus-button">+</span> {/* You can style this as needed */}
+                    <div key={index} className="item-image-container" onClick={() => handleItemClick(index)}> {/* Use a more unique identifier if available */}
+                        <img src={url} alt={`Uploaded ${index}`} className="item-image"/>
                     </div>
+                ))}
+                <div className="item add-new-item" onClick={handleItemClick}> {/* Update this as needed */}
+                    <span className="plus-button">+</span>
+                </div>
                 </div>
             </div>
         </div>    

@@ -16,7 +16,7 @@ const categoriesWithSubcategories = {
 };
 
 const ItemPage = () => {
-  const [itemName, setItemName] = useState('Blue Button Up');
+  const [itemName, setItemName] = useState('');
   const [itemCategory, setItemCategory] = useState(Object.keys(categoriesWithSubcategories)[0]);
   const [itemSubcategory, setItemSubcategory] = useState('');
   const [itemColor, setItemColor] = useState('Color');
@@ -120,6 +120,7 @@ const ItemPage = () => {
         className="item-notes"
         placeholder="Add notes here..."
       ></textarea>
+      <div className="confirm-icon">✓</div>
     </div>
   );
 };
