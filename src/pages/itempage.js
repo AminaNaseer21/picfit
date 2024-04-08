@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './itempage.css';
 import { useNavigate } from 'react-router-dom';
 import item1 from '../img/items/1.png';
 
+const categoriesWithSubcategories = {
+  "T-shirts": ["Graphic", "Plain", "Polo", "Tank Tops"],
+  "Shirts": ["Shirt Jackets", "Short-Sleeve Shirts", "Long-Sleeve Shirts", "Sweater Polos"],
+  "Sweatshirts": ["Crew Neck Sweatshirts", "Graphic Sweatshirts"],
+  "Denim": ["Straight", "Tapered", "Boyfriend", "Baggy", "Slim", "Bootcut", "Flared", "Jeggings", "Mom", "Wide Leg"],
+  "Pants": ["Chinos", "Trousers", "Joggers", "Workwear", "Cargo"],
+  "Sweatpants": ["Jogger", "Classic"],
+  "Shorts": ["Classic", "Active", "Mesh Shorts", "Denim Shorts", "Cargo"],
+  "Hoodies": ["Zip-Up Hoodies", "Pullover Hoodies", "Graphic Hoodies"],
+  "Sweaters": ["Pullover Sweaters", "Cardigan Sweaters"]
+};
+
 const ItemPage = () => {
-  const [itemName, setItemName] = useState('Blue Button Up');
-  const [itemCategory, setItemCategory] = useState('Category');
-  const [itemSubcategory, setItemSubcategory] = useState('Subcategory');
+  const [itemName, setItemName] = useState('');
+  const [itemCategory, setItemCategory] = useState(Object.keys(categoriesWithSubcategories)[0]);
+  const [itemSubcategory, setItemSubcategory] = useState('');
   const [itemColor, setItemColor] = useState('Color');
   const [wearCount, setWearCount] = useState(3);
   const [itemNotes, setItemNotes] = useState('');
@@ -14,8 +26,6 @@ const ItemPage = () => {
   const navigate = useNavigate();
 
   const handleNameChange = (e) => setItemName(e.target.value);
-  const handleCategoryChange = (e) => setItemCategory(e.target.value);
-  const handleSubcategoryChange = (e) => setItemSubcategory(e.target.value);
   const handleColorChange = (e) => setItemColor(e.target.value);
   const handleNotesChange = (e) => setItemNotes(e.target.value);
 
@@ -23,10 +33,13 @@ const ItemPage = () => {
   const incrementWearCount = () => setWearCount(wearCount + 1);
   const decrementWearCount = () => setWearCount(Math.max(0, wearCount - 1));
 
+  useEffect(() => {
+    setItemSubcategory(categoriesWithSubcategories[itemCategory][0]);
+  }, [itemCategory]);
   
   return (
     <div className="item-page">
-      <div className="header">
+      <div className="headerr">
         <button onClick={() => navigate(-1)} className="back-button">← Back</button> {/* Back button */}
         <input
           type="text"
@@ -44,22 +57,33 @@ const ItemPage = () => {
         </div>
 
         <div className="details-section">
-          <select value={itemCategory} onChange={handleCategoryChange} className="item-category">
-            {/* Placeholder options */}
-            <option value="Category 1">Tops</option>
-            <option value="Category 2">Shirt</option>
-            <option value="Category 3">Layering</option>
-          </select>
-          <select value={itemSubcategory} onChange={handleSubcategoryChange} className="item-subcategory">
-            {/* Placeholder options */}
-            <option value="Subcategory 1">Long-Sleeve Shirts</option>
-            <option value="Subcategory 2">Shirt Jackets</option>
-            <option value="Subcategory 2">Short-Sleeve Shirts</option>
-            <option value="Subcategory 2">Sweater Polos</option>
-          </select>
-      
+
+        <label htmlFor="dropdown labels">Category</label>
+        <select
+          id="item-category"
+          value={itemCategory}
+          onChange={(e) => setItemCategory(e.target.value)}
+          className="item-category"
+        >
+          {Object.keys(categoriesWithSubcategories).map((category) => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+
+        <label htmlFor="dropdown labels">Subcategory</label>
+        <select
+          id="item-subcategory"
+          value={itemSubcategory}
+          onChange={(e) => setItemSubcategory(e.target.value)}
+          className="item-subcategory"
+        >
+          {categoriesWithSubcategories[itemCategory].map((subcategory) => (
+            <option key={subcategory} value={subcategory}>{subcategory}</option>
+          ))}
+        </select>
+          
+        <label htmlFor="dropdown labels">Color</label>
           <select value={itemColor} onChange={handleColorChange} className="item-color">
-            {/* Placeholder options */}
             <option value="Blue">Blue</option>
             <option value="Orange">Orange</option>
             <option value="Yellow">Yellow</option>
@@ -78,11 +102,14 @@ const ItemPage = () => {
             <option value="Cyan">Cyan</option>
             <option value="Teal">Teal</option>
           </select>
+
           <div className="wear-counter">
+            <label htmlFor="dropdown labels">Wear Count </label>
             <button onClick={decrementWearCount}>-</button>
             <span>{wearCount}</span>
             <button onClick={incrementWearCount}>+</button>
           </div>
+
           <div className="weather-range">Min-Max Temperature Labels Here</div>
         </div>
       </div>
@@ -93,6 +120,7 @@ const ItemPage = () => {
         className="item-notes"
         placeholder="Add notes here..."
       ></textarea>
+      <div className="confirm-icon">✓</div>
     </div>
   );
 };

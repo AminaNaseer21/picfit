@@ -7,6 +7,7 @@ import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
 import removeBackground from '../Services/BackgroundRemovalService';
 import analyzeImage from '../Services/OpenAIVisionService';
+import { parseAnalyzedData } from '../Services/parseAnalyzedDataService';
 import './Upload.css';
 
 export default function Upload() {
@@ -66,7 +67,20 @@ export default function Upload() {
 
     const handleConfirmUpload = async () => {
         setShowModal(false);
-        await uploadFiles();
+    
+        // Convert developerImage from data URL to Blob if it's not null
+        let imageToUpload = image; // Default to the original image
+        if (result) {
+            // If background removal was applied, set imageToUpload to the result blob
+            imageToUpload = await fetch(result).then(r => r.blob());
+        } else if (developerImage) {
+            // If developer image is set, convert it to a blob and set it as imageToUpload
+            const response = await fetch(developerImage);
+            const blob = await response.blob();
+            imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
+        }
+    
+        await uploadFiles(imageToUpload); // Pass the selected image to uploadFiles
     };
 
     const handleRetake = () => {
@@ -99,81 +113,87 @@ export default function Upload() {
                     5. **Weather Range**: Suggest a temperature range with two numbers (in degrees Celsius or Fahrenheit, based on your preference) that the item is most suitable for. Consider factors like material thickness, coverage, and intended use (e.g., "40°F - 68°F").
                     Ensure that the analysis is concise and directly relevant to the visible features of the clothing item in the uploaded image. Avoid speculation or assumptions not supported by visible evidence. The output should be printing with one answer in each line with only the answer like the example below that has the name in the first line, category in second, subcategory in third, the color in forth, the low end temp in fifth, and the high end temp in sixth. Ensure that the output contains no other words or information other than the exact output:
                     OUTPUT:
-                    Blue Striped Polo
-                    Top
-                    Polo
-                    Blue
-                    40
+                    Blue Striped Polo,
+                    Top,
+                    Polo,
+                    Blue,
+                    40,
                     60`;
 
                   
-    const uploadFiles = async () => {
-        if (!currentUser || imageUploads.length === 0) return;
-        
-        try {
-            const uploadPromises = imageUploads.map(async (file) => {
-                const fileRef = ref(storage, `images/${currentUser.uid}/${file.name}-${uuidv4()}`);
-                await uploadBytes(fileRef, file);
-                const url = await getDownloadURL(fileRef);
-
-                const analyzedData = await analyzeImage(url, prompt);
-
-                setAnalysisResult(analyzedData);
-
-                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
-                await setDoc(docRef, { 
-                    imageUrl: url,
-                    analyzedData: analyzedData,
-                });
-
-                return url;
-            });
-
-            await Promise.all(uploadPromises);
-            console.log('All files uploaded and analyzed successfully');
-            // navigate('/wardrobe');
-        } catch (error) {
-            console.error('Error uploading or analyzing files:', error);
-        }
-    };
+                    const uploadFiles = async (fileToUpload) => {
+                        if (!currentUser || !fileToUpload) return;
+                    
+                        try {
+                            const fileRef = ref(storage, `images/${currentUser.uid}/${fileToUpload.name}-${uuidv4()}`);
+                            await uploadBytes(fileRef, fileToUpload);
+                            const url = await getDownloadURL(fileRef);
+                    
+                            const analyzedData = await analyzeImage(url, prompt);
+                    
+                            try {
+                                const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
+                    
+                                setAnalysisResult(analyzedData);
+                    
+                                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${fileToUpload.name}-${uuidv4()}`);
+                                await setDoc(docRef, {
+                                    imageUrl: url,
+                                    shortName,
+                                    category,
+                                    subCategory,
+                                    color,
+                                    tempRangeLow,
+                                    tempRangeHigh,
+                                    wearCount: 0,
+                                    ItemNotes: "",
+                                });
+                    
+                            } catch (error) {
+                                console.error('Error parsing analyzed data:', error);
+                            }
+                        } catch (error) {
+                            console.error('Error uploading or analyzing file:', error);
+                        }
+                    };
 
     return (
-        <div className="upload-container container">
-            <h1 className="begin-making">Upload Image and Process</h1>
-            <div className="image-container">
-                <div className="image-display-box">
-                    {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="uploaded-image" />}
+        <div className="upload-container">
+            <h1 className="page-title">Upload and Process Image</h1>
+            <div className="content">
+                <div className="image-upload-section">
+                    <div className="image-preview">
+                        {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="preview-image" />}
+                        {(result || developerImage) && (
+                            <img src={result || developerImage} alt="Processed" className="preview-image" />
+                        )}
+                    </div>
+                    <input type="file" accept="image/*" className="file-input" onChange={handleImageChange} />
                 </div>
-                <div className="image-display-box">
-                    {result && <img src={result} alt="Processed" className="processed-image" />}
-                    {developerImage && <img src={developerImage} alt="Developer Test" className="processed-image" />}
+                <div className="action-buttons">
+                    <button className="action-button" onClick={handleRemoveBackground}>Remove Background</button>
+                    <button className="action-button" onClick={handleDeveloperButtonClick}>Developer Testing</button>
                 </div>
+                {error && <div className="error-message">{error}</div>}
+                {analysisResult && (
+                    <div className="analysis-results">
+                        <h2>Analysis Results</h2>
+                        <p>{analysisResult}</p>
+                    </div>
+                )}
             </div>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            <button onClick={handleRemoveBackground}>Remove Background</button>
-            <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
-            {error && <div className="error">{error}</div>}
-
-            {/* Display analysis results */}
-            {analysisResult && (
-            <div className="analysis-results">
-                <h2>Analysis Results</h2>
-                <p>{analysisResult}</p> {/* Adjust this as necessary based on the structure of your results */}
-            </div>
-            )}
-
             {showModal && (
-                <div className="modal">
+                <div className="modal-overlay">
                     <div className="modal-content">
                         <h2>Confirm Upload</h2>
                         <p>Would you like to confirm the upload or retake the image?</p>
-                        <div className="modal-buttons">
-                            <button onClick={handleConfirmUpload}>Confirm Upload</button>
-                            <button onClick={handleRetake}>Retake</button>
+                        <div className="modal-actions">
+                            <button className="modal-action-button" onClick={handleConfirmUpload}>Confirm Upload</button>
+                            <button className="modal-action-button" onClick={handleRetake}>Retake</button>
                         </div>
                     </div>
                 </div>
-            )}
-        </div>
+    )}
+</div>
     );
 }
