@@ -67,7 +67,7 @@ const Home = () =>{
     <div className= "BottomRightCard">
       <h1>Upload</h1>
       <div className = "FavoritesButton">
-          <Link to = "/Profile">
+          <Link to = "/Upload">
           <button type ="Upload">Upload</button>
           </Link>
         </div>
