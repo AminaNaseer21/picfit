@@ -7,6 +7,7 @@ import { useAuth } from '../Services/authentication';
 import { v4 as uuidv4 } from 'uuid';
 import removeBackground from '../Services/BackgroundRemovalService';
 import analyzeImage from '../Services/OpenAIVisionService';
+import { parseAnalyzedData } from '../Services/parseAnalyzedDataService';
 import './Upload.css';
 
 export default function Upload() {
@@ -118,23 +119,35 @@ export default function Upload() {
 
                 const analyzedData = await analyzeImage(url, prompt);
 
-                setAnalysisResult(analyzedData);
-
-                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
-                await setDoc(docRef, { 
-                    imageUrl: url,
-                    analyzedData: analyzedData,
-                });
-
+                try {
+                    const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
+    
+                    setAnalysisResult(analyzedData);
+    
+                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${file.name}-${uuidv4()}`);
+                    await setDoc(docRef, {
+                        imageUrl: url,
+                        shortName,
+                        category,
+                        subCategory,
+                        color,
+                        tempRangeLow,
+                        tempRangeHigh,
+                    });
+    
+                } catch (error) {
+                    console.error('Error parsing analyzed data:', error);
+                }
+    
                 return url;
             });
 
             await Promise.all(uploadPromises);
-            console.log('All files uploaded and analyzed successfully');
-            // navigate('/wardrobe');
-        } catch (error) {
-            console.error('Error uploading or analyzing files:', error);
-        }
+        console.log('All files uploaded and analyzed successfully');
+        // navigate('/wardrobe');
+    } catch (error) {
+        console.error('Error uploading or analyzing files:', error);
+    }
     };
 
     return (
