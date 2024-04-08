@@ -148,7 +148,7 @@ export default function Wardrobe() {
                         <img src={url} alt={`Uploaded ${index}`} className="item-image"/>
                     </div>
                 ))}
-                <div className="item add-new-item" onClick={handleItemClick}> {/* Update this as needed */}
+                <div className="item add-new-item" onClick={handleUploadClick}> {/* Update this as needed */}
                     <span className="plus-button">+</span>
                 </div>
                 </div>
