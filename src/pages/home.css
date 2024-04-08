@@ -23,6 +23,7 @@ position:absolute;
   z-index: 1;
 }
 
+
 .BottomLeftCard{
   width: 23.3vw; /* Adjust width relative to viewport width */
   height: 30vh; /* Adjust height relative to viewport height */
@@ -202,6 +203,46 @@ color: black;
   transition: all 0.5s;
  }
 
+ .LoginButton{
+  width: 6.5em;
+  width: 6.5em;
+  height: 2.3em;
+  margin: auto;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  bottom:10px;
+  right:10px;
+  z-index: 4;
+  overflow: hidden;
+  transform:translateY(520%);
+ }
+ .LoginButton:after {
+  content: "";
+  background:transparent;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .LoginButton:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
+
+
+
  /* This is the generate now button*/
  
  .GenerateButton{
@@ -221,7 +262,7 @@ color: black;
   right:10px;
   z-index: 4;
   overflow: hidden;
-  transform:translateY(550%);
+  transform:translateY(510%);
  }
 
  .GenerateButton:after {
