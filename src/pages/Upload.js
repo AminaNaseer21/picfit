@@ -153,42 +153,42 @@ export default function Upload() {
     };
 
     return (
-        <div className="upload-container container">
-            <h1 className="begin-making">Upload Image and Process</h1>
-            <div className="image-container">
-                <div className="image-display-box">
-                    {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="uploaded-image" />}
+        <div className="upload-container">
+            <h1 className="page-title">Upload and Process Image</h1>
+            <div className="content">
+                <div className="image-upload-section">
+                    <div className="image-preview">
+                        {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="preview-image" />}
+                        {(result || developerImage) && (
+                            <img src={result || developerImage} alt="Processed" className="preview-image" />
+                        )}
+                    </div>
+                    <input type="file" accept="image/*" className="file-input" onChange={handleImageChange} />
                 </div>
-                <div className="image-display-box">
-                    {result && <img src={result} alt="Processed" className="processed-image" />}
-                    {developerImage && <img src={developerImage} alt="Developer Test" className="processed-image" />}
+                <div className="action-buttons">
+                    <button className="action-button" onClick={handleRemoveBackground}>Remove Background</button>
+                    <button className="action-button" onClick={handleDeveloperButtonClick}>Developer Testing</button>
                 </div>
+                {error && <div className="error-message">{error}</div>}
+                {analysisResult && (
+                    <div className="analysis-results">
+                        <h2>Analysis Results</h2>
+                        <p>{analysisResult}</p>
+                    </div>
+                )}
             </div>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            <button onClick={handleRemoveBackground}>Remove Background</button>
-            <button onClick={handleDeveloperButtonClick}>Display Uploaded Image (for Developer Testing only)</button>
-            {error && <div className="error">{error}</div>}
-
-            {/* Display analysis results */}
-            {analysisResult && (
-            <div className="analysis-results">
-                <h2>Analysis Results</h2>
-                <p>{analysisResult}</p> {/* Adjust this as necessary based on the structure of your results */}
-            </div>
-            )}
-
             {showModal && (
-                <div className="modal">
+                <div className="modal-overlay">
                     <div className="modal-content">
                         <h2>Confirm Upload</h2>
                         <p>Would you like to confirm the upload or retake the image?</p>
-                        <div className="modal-buttons">
-                            <button onClick={handleConfirmUpload}>Confirm Upload</button>
-                            <button onClick={handleRetake}>Retake</button>
+                        <div className="modal-actions">
+                            <button className="modal-action-button" onClick={handleConfirmUpload}>Confirm Upload</button>
+                            <button className="modal-action-button" onClick={handleRetake}>Retake</button>
                         </div>
                     </div>
                 </div>
-            )}
-        </div>
+    )}
+</div>
     );
 }
