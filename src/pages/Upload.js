@@ -133,6 +133,8 @@ export default function Upload() {
                         color,
                         tempRangeLow,
                         tempRangeHigh,
+                        wearCount: 0,
+                        ItemNotes: "",
                     });
     
                 } catch (error) {
