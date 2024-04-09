@@ -169,7 +169,7 @@ Sprint 2:
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-113-add-vision-api
 - Jira Task 1128: Fix project repo IMG directory and organize remaining file
 		-https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-128-fix-project-repo-img-directo
-### Rogelio: Input overall what you did
+### Rogelio: Upload Background Remover API, Outfitter page layout and features
 - Jira Task 114: Refine a background removal using JS to process the uploaded photo and remove its background.
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-114-final-threshold-feature
 - Jira Task 116: Create a draft of what the outfitter should look like
@@ -212,7 +212,9 @@ Sprint 2:
 	• Amina:
 		-  
 	• Rogelio:
-		- 
+		- Enhancing the front end by optimizing the display of clothing items for a visually appealing layout
+		- Provide the user a dynamic display based on previous outfits
+		- Crafting an engaging and dynamic homepage experience
 	• Matthew:
 		-
 
