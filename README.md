@@ -140,7 +140,7 @@ Sprint 2:
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-55-add-google-sign-in
 - Jira Task 58: Users images are retrieved from storage and appear in wardrobe when signed in
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-58-users-images-are-retrieved-fr
-### Umer: Input overall what you did
+### Umer: worked on profile page, and styling navbar
 - Jira Task 99: Design Navbar css and js
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-99-design-navbar-css-and-js
 - Jira Task 101: Create a dropdown menu that is triggered by clicking cirle profile image
@@ -184,7 +184,7 @@ Sprint 2:
 		- https://bitbucket.org/%7B%7D/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-126-implement-outfitter-basic
 - Jira Task 117: Edit paths, functionality, and css changes to the outfitter page
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-117-outfitter-adjustments
-### Amina: Input overall what you did
+### Amina: Researched and worked on Machine Learning model for outfit generator
 - Jira Task 80: Integrate ML model with firebase
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-80-integrate-ml-model-with-fireb
 - Jira Task 77: Research and select a pre-trained ML model
@@ -193,7 +193,7 @@ Sprint 2:
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-78-implement-pretrained-model-tr
 - Jira Task 79: Fine tune the ML model
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-79-fine-tune-the-ml-model
-### Matthew: Input overall what you did
+### Matthew: Worked on home page
 - Jira Task 103: Design a welcoming and intuitive layout for the home page.
 		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-103-design-a-welcoming-and-intui
 - Jira Task 105: For logged-in users, ensure the "Generate Now" button redirects to the Outfitter page. For visitors, the "Login to Begin" button should redirect to the login page. For logged-in users, ensure the "Generate Now" button redirects to the Outfitter
