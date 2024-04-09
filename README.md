@@ -123,6 +123,100 @@ We are working together to build a platform that transforms the way users approa
 	• Matthew:
 		-
 
+
+Sprint 2:
+
+## Features
+### Ramiro: provided users with the ability to upload images and view the weather securely
+- Jira Task 57: Allow users to upload images to storage
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-57-allow-users-to-upload-images-
+- Jira Task 59: Work on about us page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-59-work-on-about-us-page
+- Jira Task 56: Connect to firebase firestore / storage 
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-56-connect-to-firebase-firestore
+- Jira Task 98: Connect to openweathermap api 
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-98-connect-to-openweatherorg-usi
+- Jira Task 55: Add Google Sign In button
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-55-add-google-sign-in
+- Jira Task 58: Users images are retrieved from storage and appear in wardrobe when signed in
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-58-users-images-are-retrieved-fr
+### Umer: Input overall what you did
+- Jira Task 99: Design Navbar css and js
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-99-design-navbar-css-and-js
+- Jira Task 101: Create a dropdown menu that is triggered by clicking cirle profile image
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-101-create-a-dropdown-menu-that-
+- Jira Task 100: Add header items to navbar
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-100-add-header-items-to-navbar
+- Jira Task 102: Dynamically dropdown change
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-102-dynamically-dropdown-change
+- Jira Task 108: Design Profile Page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-108-design-profile-page
+- Jira Task 111: Color and Style Prefrences
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-111-color-and-style-preferences
+- Jira Task 109: Connect profile database
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-109-connect-profile-database
+- Jira Task 110: Database Profile photo
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-110-database-profile-photo
+- Jira Task 124: Create formated doc
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-124-create-formated-doc
+- Jira Task 120: VisionAPI image from Firebase Storage
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-120-visionapi-image-from-firebas
+- Jira Task 112: Connect API to Firebase
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-112-connect-api-to-firebase
+- Jira Task 121: Remove background and create doc
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-121-remove-background-and-create
+- Jira Task 113: Add vision api
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-113-add-vision-api
+- Jira Task 1128: Fix project repo IMG directory and organize remaining file
+		-https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-128-fix-project-repo-img-directo
+### Rogelio: Input overall what you did
+- Jira Task 114: Refine a background removal using JS to process the uploaded photo and remove its background.
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-114-final-threshold-feature
+- Jira Task 116: Create a draft of what the outfitter should look like
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-116-create-a-draft-outfitter
+- Jira Task 129: Refine and use an API to remove the background. Use the previous JS as the first background remover, or alt.
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-129-refine-and-use-an-api-to-rem
+- Jira Task 115: Refine the Display & Give option to retake/  Integrate a non-BkgRmvr feature to save on credits for API (testing Purposes)
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-115-display-give-options
+- Jira Task 118: Make Paths compatible with DataBase
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-118-make-paths-compatible
+- Jira Task 126: Implement a skeleton of the outfitter page 
+		- https://bitbucket.org/%7B%7D/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-126-implement-outfitter-basic
+- Jira Task 117: Edit paths, functionality, and css changes to the outfitter page
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-117-outfitter-adjustments
+### Amina: Input overall what you did
+- Jira Task 80: Integrate ML model with firebase
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-80-integrate-ml-model-with-fireb
+- Jira Task 77: Research and select a pre-trained ML model
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-77-research-and-select-a-pre-tra
+- Jira Task 78:  Implement Pretrained Model Training Pipeline
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-78-implement-pretrained-model-tr
+- Jira Task 79: Fine tune the ML model
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-79-fine-tune-the-ml-model
+### Matthew: Input overall what you did
+- Jira Task 103: Design a welcoming and intuitive layout for the home page.
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-103-design-a-welcoming-and-intui
+- Jira Task 105: For logged-in users, ensure the "Generate Now" button redirects to the Outfitter page. For visitors, the "Login to Begin" button should redirect to the login page. For logged-in users, ensure the "Generate Now" button redirects to the Outfitter
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-105-for-logged-in-users-ensure-t
+- Jira Task 106: Design Nav Cards
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-106-design-nav-cards
+- Jira Task 104: Dynamic Main Button
+		- https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-104-dynamic-main-button
+		
+## Next Steps (for Sprint 3)
+	• Ramiro:
+		- Work on weather to automatically detect users location when signed in
+		- Allow outfit suggestions to work taking weather temp/condition into account.
+	• Umer:
+		- 
+	• Amina:
+		-  
+	• Rogelio:
+		- 
+	• Matthew:
+		-
+
+	
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
