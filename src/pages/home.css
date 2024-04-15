@@ -1,20 +1,14 @@
-/* Add this to your existing CSS file */
+/* home.css */
 
-.Home {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Styles for the enlarged rectangle */
+.enlargedRectangle {
+  width: 500px; /* Adjust the width of the rectangle */
+  height: 400px; /* Adjust the height of the rectangle */
+  border: 2px dashed black;
+  animation: pastelGradientAnimation 8.5s infinite;
 }
 
-.dotted-box {
-  width: 200px;
-  height: 200px;
-  border: 2px dotted black;
-}
-
+/* Styles for the upload button */
 .upload-button {
   position: absolute;
   top: 20px;
@@ -27,4 +21,46 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* Styles for the upload popup */
+.upload-popup {
+  position: absolute;
+  top: 60px;
+  right: 120px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+/* Styles for the camera icon */
+.camera-icon {
+  width: 30px; /* Adjust the size of the camera icon */
+  height: auto;
+  cursor: pointer;
+}
+
+.camera-icon.hovered {
+  filter: brightness(0.8); /* Adjust brightness when hovered */
+}
+
+@keyframes pastelGradientAnimation {
+  0% {
+    background-color: #ff9eb8; /* Pink */
+  }
+  20% {
+    background-color: #ffb3ba; /* Red */
+  }
+  40% {
+    background-color: #d7a9ff; /* Purple */
+  }
+  60% {
+    background-color: #a0c4ff; /* Blue */
+  }
+  80% {
+    background-color: #64c8ff; /* Turquoise */
+  }
+  100% {
+    background-color: #ff9eb8; /* Back to Pink */
+  }
 }
