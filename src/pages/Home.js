@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraHovered, setCameraHovered] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setUploadPopupVisible(true);
+    }, 2000); // 2000 milliseconds = 2 seconds
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
 
   const toggleUploadPopup = () => {
     setUploadPopupVisible(!uploadPopupVisible);
