@@ -49,6 +49,8 @@
   position: fixed;
   top: 130px; /* Adjust distance from the top */
   right: 30px; /* Adjust distance from the right */
+  opacity: 0; /* Initially hide the camera icon */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .camera-icon {
@@ -60,4 +62,14 @@
 
 .camera-icon:hover {
   filter: invert(75%); /* Change to desired hover color */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
