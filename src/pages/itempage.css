@@ -10,7 +10,7 @@
   border-radius: 10px;
 }
 
-.header {
+.headerr {
   display: flex;
   width: 100%;
   align-items: center;
@@ -20,14 +20,21 @@
 .item-name {
   flex-grow: 1;
   padding: 10px;
+  margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-right: 10px;
+  max-width: calc(100% - 40px); /* Adjust the 40px to account for padding and margins */
+}
+@media (max-width: 768px) {
+  .item-name {
+    max-width: calc(100% - 20px); /* Smaller screens may require different adjustments */
+  }
+  /* Other responsive design adjustments as necessary */
 }
 
 .confirm-icon {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 22px;
   background-color: green;
   color: white;
   display: flex;
@@ -50,11 +57,8 @@
 .item-photo {
   width: 100%;
   height: auto;
-  padding-top: 0px 0px 0px; /* Aspect ratio 1:1 */
-  margin-top: 0;
   background-color: #f0f0f0;
   text-align: center;
-  position: relative;
 }
 
 .details-section {
@@ -73,7 +77,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px; /* Adjust based on content height to match photo height */
+  margin-bottom: 10px;
 }
 
 .wear-counter {
@@ -93,14 +97,25 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  height: 100px; /* Adjust as needed */
+  height: 100px;
 }
 
 .back-button {
-  margin-right: 20px; /* Adds some space between the back button and the next element */
-  cursor: pointer; /* Changes the cursor to a pointer on hover */
-  background: none; /* Removes any default background */
-  border: none; /* Removes any default border */
-  font-size: 16px; /* Adjusts the font size */
-  /* Add any additional styling as needed */
+  margin-right: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .photo-section,
+  .details-section {
+    width: 100%;
+  }
 }
