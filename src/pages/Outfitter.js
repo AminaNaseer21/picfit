@@ -64,6 +64,12 @@ const Outfitter = () => {
 
           </div>
         </div>
+
+        <div className="favorites-section">
+          <h3>Your Favorite Outfits</h3>
+            <p>No favorite outfits added yet.</p>
+      </div>
+
     </div>
   );
 };
