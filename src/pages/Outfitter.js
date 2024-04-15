@@ -24,18 +24,21 @@ const Outfitter = () => {
               <img src="outfit1_top.jpg" alt="Top Outfit 1" />
               <img src="outfit1_middle.jpg" alt="Middle Outfit 1" />
               <img src="outfit1_bottom.jpg" alt="Bottom Outfit 1" />
-              
+              <button className='outfitter-buttons'>Wear this outfit</button>
+
           </div>
           <div className="outfit-grid">
               <img src="outfit2_top.jpg" alt="Top Outfit 2" />
               <img src="outfit2_middle.jpg" alt="Middle Outfit 2" />
               <img src="outfit2_bottom.jpg" alt="Bottom Outfit 2" />
+              <button className='outfitter-buttons'>Wear this outfit</button>
 
           </div>
           <div className="outfit-grid">
               <img src="outfit3_top.jpg" alt="Top Outfit 3" />
               <img src="outfit3_middle.jpg" alt="Middle Outfit 3" />
               <img src="outfit3_bottom.jpg" alt="Bottom Outfit 3" />
+              <button className='outfitter-buttons'>Wear this outfit</button>
               
           </div>
         </div>
