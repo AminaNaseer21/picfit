@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import Config from "../Services/Config";
@@ -31,31 +31,33 @@ function WeatherApp() {
     }
   }, [API_KEY]);
 
-  const handleButtonClick = async () => {
-    // Fetch user location and weather data
-    const auth = getAuth();
-    const firestore = getFirestore();
-    const user = auth.currentUser;
+  useEffect(() => {
+    const fetchUserLocation = async () => {
+      const auth = getAuth();
+      const firestore = getFirestore();
+      const user = auth.currentUser;
+      
+      if (user) {
+        try {
+          const userDocRef = doc(firestore, 'users', user.uid);
+          const userDocSnap = await getDoc(userDocRef);
 
-    if (user) {
-      try {
-        const userDocRef = doc(firestore, 'users', user.uid);
-        const userDocSnap = await getDoc(userDocRef);
-
-        if (userDocSnap.exists()) {
-          const userData = userDocSnap.data();
-          setUserLocation(userData.location || '');
-          fetchWeather(userData.location || '');
+          if (userDocSnap.exists()) {
+            const userData = userDocSnap.data();
+            setUserLocation(userData.location || '');
+            fetchWeather(userData.location || '');
+          }
+        } catch (error) {
+          console.error('Error fetching user data:', error);
         }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
       }
-    }
-  };
+    };
+
+    fetchUserLocation();
+  }, [fetchWeather]);
 
   return (
     <div>
-      <button onClick={handleButtonClick}>Fetch Weather</button>
       {weather && (
         <div>
           <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
