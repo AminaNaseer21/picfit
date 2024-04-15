@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraHovered, setCameraHovered] = useState(false);
-  const history = useHistory();
 
   const toggleUploadPopup = () => {
     setUploadPopupVisible(!uploadPopupVisible);
@@ -20,34 +18,37 @@ const Home = () => {
     setCameraHovered(false);
   };
 
-  const handleCameraClick = () => {
+  const handleUploadClick = () => {
     // Redirect to the upload page
-    history.push('/upload');
+    window.location.href = '/upload';
   };
 
   return (
-    <div className="outfitterContainer">
+    <div className="homeContainer">
       {/* Enlarged rectangle */}
       <div className="enlargedRectangle"></div>
 
-      {/* Upload button */}
-      <div className="upload-button">
-        <button onClick={toggleUploadPopup}>Upload New Clothing Items</button>
-
-        {/* Upload popup */}
-        {uploadPopupVisible && (
-          <div className="upload-popup">
-            <button onClick={toggleUploadPopup}>Close</button>
+      {/* Upload popup */}
+      {uploadPopupVisible && (
+        <div className="upload-popup">
+          <button className="close-button" onClick={toggleUploadPopup}>X</button>
+          <div className="upload-content">
+            <h2>Upload New Clothing Items</h2>
             <img
               src={camera}
               alt="Camera Icon"
               className={cameraHovered ? "camera-icon hovered" : "camera-icon"}
               onMouseEnter={handleCameraHover}
               onMouseLeave={handleCameraLeave}
-              onClick={handleCameraClick}
+              onClick={handleUploadClick}
             />
           </div>
-        )}
+        </div>
+      )}
+
+      {/* Upload button */}
+      <div className="upload-button">
+        <button onClick={toggleUploadPopup}>Upload</button>
       </div>
     </div>
   );
