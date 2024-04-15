@@ -4,7 +4,7 @@ import camera from "../img/camera.png";
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
-  const [cameraHovered, setCameraHovered] = useState(false);
+  const [cameraIconVisible, setCameraIconVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,12 +18,14 @@ const Home = () => {
     window.location.href = '/upload';
   };
 
-  const handleCameraHover = () => {
-    setCameraHovered(true);
+  const handleCloseButtonClick = () => {
+    setUploadPopupVisible(false);
+    setCameraIconVisible(true);
   };
 
-  const handleCameraLeave = () => {
-    setCameraHovered(false);
+  const handleCameraIconClick = () => {
+    // Redirect to the upload page
+    window.location.href = '/upload';
   };
 
   return (
@@ -34,6 +36,7 @@ const Home = () => {
       {/* Upload popup */}
       {uploadPopupVisible && (
         <div className="upload-popup">
+          <button className="close-button" onClick={handleCloseButtonClick}>X</button>
           <div className="upload-content">
             <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
           </div>
@@ -41,16 +44,16 @@ const Home = () => {
       )}
 
       {/* Camera icon */}
-      <div className="camera-icon-container">
-        <img
-          src={camera}
-          alt="Camera Icon"
-          className="camera-icon"
-          onMouseEnter={handleCameraHover}
-          onMouseLeave={handleCameraLeave}
-          onClick={handleUploadClick}
-        />
-      </div>
+      {cameraIconVisible && (
+        <div className="camera-icon-container">
+          <img
+            src={camera}
+            alt="Camera Icon"
+            className="camera-icon"
+            onClick={handleCameraIconClick}
+          />
+        </div>
+      )}
     </div>
   );
 };

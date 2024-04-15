@@ -6,8 +6,8 @@
 }
 
 .enlargedRectangle {
-  width: 500px; /* Adjust width as needed */
-  height: 200px; /* Adjust height as needed */
+  width: 600px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
   background-color: transparent;
   margin: auto; /* Center the rectangle */
   margin-top: 50px; /* Adjust top margin as needed */
@@ -25,6 +25,14 @@
   border: 1px solid black; /* Add a border for visibility */
 }
 
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 /* Upload content */
 .upload-content h2 {
   margin: 0;
@@ -39,8 +47,9 @@
 /* Camera icon */
 .camera-icon-container {
   position: fixed;
-  bottom: 20px; /* Adjust distance from the bottom */
-  right: 20px; /* Adjust distance from the right */
+  top: 50%;
+  right: calc(20px + 10%); /* Adjust distance from the right */
+  transform: translateY(-50%);
 }
 
 .camera-icon {
