@@ -1,60 +1,60 @@
 .mainBody {
+  display: flex; /* Ensures sidebar and content are laid out horizontally */
+}
+
+.sidebar {
+  width: 20%; /* Fixed width for sidebar */
+  min-width: 200px; /* Ensures the sidebar doesn't become too narrow */
+  padding: 20px;
+}
+
+.content {
+  flex-grow: 1; /* Takes up the remaining space */
   display: flex;
-  background-color: #ECEFF4;
+  flex-direction: column; /* Ensures vertical stacking of outfit-container and favorites-section */
+  width: 80%; /* Adjusts width to fill remaining space */
 }
 
 .outfit-container {
-  flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  padding: 20px;
-  margin: 20px;
 }
 
 .outfit-grid {
   text-align: center;
+  width: 30%; /* Adjust the width as needed to fit three across on larger screens */
+  margin: 10px;
+  box-sizing: border-box;
 }
 
 .outfit-grid img {
-  width: 100%;
-  display: block; /* Ensures that each image takes up the full width and stacks vertically */
-  margin-bottom: 10px; /* Spacing between images */
+  width: 100%; /* Ensures images fill their container */
+  display: block;
+  margin-bottom: 10px;
   background-color: #D8DEE9;
   height: 200px;
-  width: 200px;
 }
 
-.sidebar {
-  flex-basis: 20%;
+.favorites-section {
+  width: 100%; /* Ensures it stretches across the full width below the outfits */
   padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds some shadow for better visual separation */
 }
-
-.info-block, .weather-widget {
-  margin-bottom: 20px;
-}
-
-.button-container button {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-}
-
 
 .outfitter-buttons {
-  display: block;
   padding: 10px;
-  margin-top: 10px; /* Add margin above the button */
-  border: none; /* Remove the default border */
+  margin-top: 10px;
+  border: none;
   border-radius: 5px;
-  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
-  color: white; /* Text color for the button */
+  background-color: #4c566a;
+  color: white;
   font-size: 16px;
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-  outline: none; /* Remove default focus outline */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
 }
 
 .outfitter-buttons:hover {
-  background-color: #3b4252; /* Darken the button when hovering */
+  background-color: #3b4252;
 }
