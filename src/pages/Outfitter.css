@@ -1,0 +1,43 @@
+.mainBody {
+  display: flex;
+  background-color: #ECEFF4;
+}
+
+.outfit-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
+}
+
+.outfit-grid {
+  text-align: center;
+}
+
+.outfit-grid img {
+  width: 100%;
+  display: block; /* Ensures that each image takes up the full width and stacks vertically */
+  margin-bottom: 10px; /* Spacing between images */
+  background-color: #D8DEE9;
+  height: 200px;
+  width: 200px;
+}
+
+.outfitter-buttons {
+  display: block;
+  padding: 10px;
+  margin-top: 10px; /* Add margin above the button */
+  border: none; /* Remove the default border */
+  border-radius: 5px;
+  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
+  color: white; /* Text color for the button */
+  font-size: 16px;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  outline: none; /* Remove default focus outline */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.outfitter-buttons:hover {
+  background-color: #3b4252; /* Darken the button when hovering */
+}
