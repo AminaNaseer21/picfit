@@ -47,9 +47,8 @@
 /* Camera icon */
 .camera-icon-container {
   position: fixed;
-  top: 50%;
-  right: calc(20px + 10%); /* Adjust distance from the right */
-  transform: translateY(-50%);
+  top: 130px; /* Adjust distance from the top */
+  right: 30px; /* Adjust distance from the right */
 }
 
 .camera-icon {
