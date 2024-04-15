@@ -6,30 +6,23 @@
 }
 
 .enlargedRectangle {
-  width: 400px; /* Adjust width as needed */
-  height: 300px; /* Adjust height as needed */
-  background-color: lightgrey; /* or any other color you prefer */
+  width: 500px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  background-color: transparent;
   margin: auto; /* Center the rectangle */
   margin-top: 50px; /* Adjust top margin as needed */
+  border: 2px dashed black; /* Add a dashed border */
 }
 
 /* Upload popup */
 .upload-popup {
   position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 20px; /* Adjust distance from the right */
+  transform: translateY(-50%);
   background-color: white;
   padding: 20px;
   border: 1px solid black; /* Add a border for visibility */
-}
-
-/* Close button */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
 }
 
 /* Upload content */
@@ -40,19 +33,23 @@
 }
 
 .upload-content h2:hover {
-  color: blue; /* Change to desired hover color */
-}
-
-/* Camera icon container */
-.camera-icon-container {
-  position: fixed;
-  top: 10px;
-  right: 10px;
+  color: grey; /* Change to desired hover color */
 }
 
 /* Camera icon */
+.camera-icon-container {
+  position: fixed;
+  bottom: 20px; /* Adjust distance from the bottom */
+  right: 20px; /* Adjust distance from the right */
+}
+
 .camera-icon {
   width: 40px;
   height: 40px;
   cursor: pointer;
+  filter: invert(100%); /* Make the camera icon black */
+}
+
+.camera-icon:hover {
+  filter: invert(75%); /* Change to desired hover color */
 }
