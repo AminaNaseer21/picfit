@@ -24,3 +24,19 @@
   width: 200px;
 }
 
+.outfitter-buttons {
+  padding: 10px;
+  margin-top: 10px; /* Add margin above the button */
+  border: none; /* Remove the default border */
+  border-radius: 5px;
+  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
+  color: white; /* Text color for the button */
+  font-size: 16px;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  outline: none; /* Remove default focus outline */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.outfitter-buttons:hover {
+  background-color: #3b4252; /* Darken the button when hovering */
+}
