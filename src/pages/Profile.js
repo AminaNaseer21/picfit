@@ -13,7 +13,7 @@ const commonColors = [
 ];
 
 function ProfilePage() {
-  const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '' });
+  const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '', zipcode: '' });
   const [profileImage, setProfileImage] = useState(null);
   const [dislikedColors, setDislikedColors] = useState([]);
   const [dislikedStyles, setDislikedStyles] = useState([]);
@@ -68,6 +68,7 @@ function ProfilePage() {
         await setDoc(doc(firestore, "users", user.uid), {
           name: userData.name,
           phone: userData.phone,
+          zipcode: userData.zipcode,
           dislikedColors,
           dislikedStyles,
           profilePicture: await uploadProfilePicture()
@@ -98,9 +99,6 @@ function ProfilePage() {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-
-
-
   return (
     <div className="profile-container">
       <div className="profile-sidebar">
@@ -115,65 +113,67 @@ function ProfilePage() {
         <h2 className="profile-name">Welcome {userData.name}</h2>
       </div>
       <div className="profile-main">
-        
-          <div className="profile-info">
-            <form className="profile-form" onSubmit={handleSubmit}>
-              
-              <div className="profile-header">P R O F I L E</div>
-
-              <input 
-                type="text" 
-                placeholder="Your Name" 
-                className="profile-input" 
-                value={userData.name}
-                name="name"
-                onChange={handleChange}
-              />
-              <input 
-                type="email" 
-                placeholder="youremail@example.com" 
-                className="profile-input" 
-                value={userData.email}
-                name="email"
-                onChange={handleChange}
-                disabled // Email should not be editable as it's used for login
-              />
-              <input 
-                type="tel" 
-                placeholder="(555) 123-4567" 
-                className="profile-input" 
-                value={userData.phone}
-                name="phone"
-                onChange={handleChange}
-              />
-              <div className="upload-photo">Upload Profile Picture</div>
-              <input 
-                type="file" 
-                className="profile-input-file"
-                onChange={handleFileChange}
-              />
-              <button type="submit" className="profile-submit">Update Profile Details</button>
-
-              <div className="profile-additional-settings">
-                <h3 className="settings-header">P R E F E R E N C E</h3>
-                <div className="settings-content">
-                  <h1 className="settings2-header">Avoid Colors</h1>
-                  <div className="settings3-header">Select any colors that you prefer not to wear.</div>
-                    <div className="color-grid">
-                      {commonColors.map(color => (
-                        <div 
-                          key={color}
-                          className={`color-square ${dislikedColors.includes(color) ? 'disliked' : ''}`}
-                          style={{ backgroundColor: color }}
-                          onClick={() => toggleColor(color)}
-                        />
-                      ))}
-                    </div>
-
-
-              <div className="style-preferences">
-                <h1 className="settings2-header">Avoid Styles</h1>
-                <div className="settings3-header">Select any styles that you prefer not to wear.</div>
+        <div className="profile-info">
+          <form className="profile-form" onSubmit={handleSubmit}>
+            <div className="profile-header">P R O F I L E</div>
+            <input 
+              type="text" 
+              placeholder="Your Name" 
+              className="profile-input" 
+              value={userData.name}
+              name="name"
+              onChange={handleChange}
+            />
+            <input 
+              type="email" 
+              placeholder="youremail@example.com" 
+              className="profile-input" 
+              value={userData.email}
+              name="email"
+              onChange={handleChange}
+              disabled // Email should not be editable as it's used for login
+            />
+            <input 
+              type="tel" 
+              placeholder="(555) 123-4567" 
+              className="profile-input" 
+              value={userData.phone}
+              name="phone"
+              onChange={handleChange}
+            />
+            <input 
+              type="text" 
+              placeholder="Your Zipcode" 
+              className="profile-input" 
+              value={userData.zipcode}
+              name="zipcode"
+              onChange={handleChange}
+            />
+            <div className="upload-photo">Upload Profile Picture</div>
+            <input 
+              type="file" 
+              className="profile-input-file"
+              onChange={handleFileChange}
+            />
+            <button type="submit" className="profile-submit">Update Profile Details</button>
+            <div className="profile-additional-settings">
+              <h3 className="settings-header">P R E F E R E N C E</h3>
+              <div className="settings-content">
+                <h1 className="settings2-header">Avoid Colors</h1>
+                <div className="settings3-header">Select any colors that you prefer not to wear.</div>
+                <div className="color-grid">
+                  {commonColors.map(color => (
+                    <div 
+                      key={color}
+                      className={`color-square ${dislikedColors.includes(color) ? 'disliked' : ''}`}
+                      style={{ backgroundColor: color }}
+                      onClick={() => toggleColor(color)}
+                    />
+                  ))}
+                </div>
+                <div className="style-preferences">
+                  <h1 className="settings2-header">Avoid Styles</h1>
+                  <div className="settings3-header">Select any styles that you prefer not to wear.</div>
                   <div className="style-grid">
                     {['Casual', 'Athletic', 'Formal'].map(style => (
                       <button
@@ -185,18 +185,14 @@ function ProfilePage() {
                       </button>
                     ))}
                   </div>
-              </div>
-
-                    <button onClick={savePreferences} className="save-colors-btn">Save Preferences</button>
                 </div>
+                <button onClick={savePreferences} className="save-colors-btn">Save Preferences</button>
               </div>
-
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        
+      </div>
     </div>
-    
   );
 }
 
