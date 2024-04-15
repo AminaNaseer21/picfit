@@ -22,6 +22,21 @@ const Outfitter = () => {
 
   return (
     <div className="mainBody">
+      
+      <div className="sidebar">
+          <div className="info-block">
+              <h2>About This Selection</h2>
+              <p>Learn why these outfits were generated and how they suit your preferences and the current weather.</p>
+          </div>
+          <div className="weather-widget">
+              <h3>Current Weather</h3>
+              <p>{temperature}°F, Sunny</p> {/* Display dynamic temperature */}
+              <input type="number" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
+              <button onClick={updateOutfits}>Update</button>
+          </div>
+          <button className="edit-preferences">Edit Preferences</button>
+      </div>
+
 
       <div className="outfit-container">
           <div className="outfit-grid">
