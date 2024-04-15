@@ -52,11 +52,6 @@ const Home = () => {
           </div>
         </div>
       )}
-
-      {/* Upload button */}
-      <div className="upload-button">
-        <button onClick={toggleUploadPopup}>Upload</button>
-      </div>
     </div>
   );
 };
