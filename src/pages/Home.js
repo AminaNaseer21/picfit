@@ -1,87 +1,61 @@
-import React from 'react';
-import './home.css'; // Make sure to import the CSS file
-import { Link } from 'react-router-dom';
-import clothing2 from "../img/items/2.png";
-import clothing1 from "../img/items/1.png";
+import React, { useState, useEffect } from 'react';
+import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
-import heart from "../img/heart.png";
 
-const Home = () =>{
+const Home = () => {
+  const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
+  const [cameraIconVisible, setCameraIconVisible] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setUploadPopupVisible(true);
+    }, 2000); // Show upload popup after 2 seconds
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
+
+  const handleUploadClick = () => {
+    // Redirect to the upload page
+    window.location.href = '/upload';
+  };
+
+  const handleCloseButtonClick = () => {
+    setUploadPopupVisible(false);
+    setCameraIconVisible(true);
+  };
+
+  const handleCameraIconClick = () => {
+    // Redirect to the upload page
+    window.location.href = '/upload';
+  };
 
   return (
+    <div className="homeContainer">
+      {/* Enlarged rectangle */}
+      <div className="enlargedRectangle"></div>
 
-<div className="Home">
-<div className="header">
-      <h1>Welcome to PicMyFit</h1> 
-</div>
-    
-
-<div className = "BottomLeftCard">
-    <h1>Favorites</h1>
-    <div className="FavoritesButton">
-        <Link to ="/Outfitter">
-        <button type="">Favorites</button>
-        </Link>  
-    </div>
-    <img src={heart} alt="heart"/> 
-</div>
-
-
-
-
-<div className = "MiddleCard">
-  <h1>Outfits</h1>
-<div className= "MiddleMiddleCard">
-    <h2>Outfit #1</h2>
-</div>
-<div className= "LeftMiddleCard">
-    <h2>Outfit #2</h2>
-</div>
-<div className= "RightMiddleCard">
-    <h3>Outfit #3</h3>
-</div>
-
-<div className = "GenerateButton">
-  <Link to ="/Outfitter">
-        <button type="button">Generate Outfit</button>
-   </Link>  
-   <Link to ="/Login">
-    <button type="button">Begin</button>
-   </Link>
-  
-</div>
-</div>
-
-
-    <div className= "BottomMiddleCard">
-    <h1>Wardrobe</h1>
-        <div className = "FavoritesButton">
-            <Link to ="/Wardrobe">
-            <button type="Wardrobe">Wardrobe</button>
-            </Link> 
+      {/* Upload popup */}
+      {uploadPopupVisible && (
+        <div className="upload-popup">
+          <button className="close-button" onClick={handleCloseButtonClick}>X</button>
+          <div className="upload-content">
+            <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+          </div>
         </div>
-        <img src={clothing1} alt="Outfit1"/>
-        
-        <img src={clothing2} alt="Outfit2"/>
-       
-    </div>
+      )}
 
-
-    <div className= "BottomRightCard">
-      <h1>Upload</h1>
-      <div className = "FavoritesButton">
-          <Link to = "/Upload">
-          <button type ="Upload">Upload</button>
-          </Link>
+      {/* Camera icon */}
+      {cameraIconVisible && (
+        <div className="camera-icon-container">
+          <img
+            src={camera}
+            alt="Camera Icon"
+            className="camera-icon"
+            onClick={handleCameraIconClick}
+          />
         </div>
-        <img src={camera} alt="camera"/>
+      )}
     </div>
-
-
-
-</div> 
-
   );
+};
 
-}; export default Home;
+export default Home;

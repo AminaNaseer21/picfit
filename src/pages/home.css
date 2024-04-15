@@ -1,370 +1,75 @@
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-position:absolute;
-  height: 20vh; /* Maintains proportionate height relative to viewport */
-  font-size: 2vw; /* Adjust font size relative to viewport width */
-  letter-spacing: 1.5px;
-  transform:translateY(-99%);
+/* home.css */
+
+/* Enlarged rectangle */
+.homeContainer {
+  position: relative;
 }
 
-.MiddleCard {
-  color: black;
-  width: 80vw; /* Example: use viewport width to set width dynamically */
-  height: 40vh; /* Example: use viewport height to set height dynamically */
-  position: absolute;
-  border-radius: 40px;
-  background: lightgrey;
-  box-shadow: 1px 1px 2px #8e8d8d, -5px -5px 15px #5c5b5b;
+.enlargedRectangle {
+  width: 600px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+  background-color: transparent;
+  margin: auto; /* Center the rectangle */
+  margin-top: 50px; /* Adjust top margin as needed */
+  border: 2px dashed black; /* Add a dashed border */
+}
+
+/* Upload popup */
+.upload-popup {
+  position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -65%);
-  z-index: 1;
+  right: 20px; /* Adjust distance from the right */
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black; /* Add a border for visibility */
 }
 
-
-.BottomLeftCard{
-  width: 23.3vw; /* Adjust width relative to viewport width */
-  height: 30vh; /* Adjust height relative to viewport height */
-  position: absolute; /* Keeps the element in place relative to the viewport */
-  border-radius: 50px; /* Unified the border-radius property */
-  background: #e0e7f7;
-  border: rgb(19, 18, 18);
-  box-shadow: 5px 5px 10px #201f1f,
-             -5px -5px 10px #363636;
-  bottom: 0; /* Anchors the element to the bottom of the viewport */
-
-} 
-
-.BottomMiddleCard{
-  width: 23.3vw;
-  height: 30vh;
-  border-radius: 50px; /* Unified the border-radius property */
-  background: #e0e7f7;
-  border: rgb(19, 18, 18);
-  box-shadow: 5px 5px 10px #201f1f,
-             -5px -5px 10px #363636;
-  /* Positioning */
-  position: absolute; /* Keeps the element in place relative to the viewport */
-  bottom: 0; /* Anchors the element to the bottom of the viewport */
-  left: 0; /* Anchors the element to the left of the viewport */
-  transform:translateX(165%);
-
-} 
-
-.BottomRightCard {
-  width: 23.3vw; /* Adjust width relative to viewport width */
-  height: 30vh; /* Adjust height relative to viewport height */
-  border-radius: 50px;
-  background: #e0e7f7;
-  border: rgb(19, 18, 18);
-  box-shadow: 5px 5px 10px #201f1f, -5px -5px 10px #363636;
+/* Close button */
+.close-button {
   position: absolute;
-  bottom: 0;
-}
-
-.BottomLeftCard {
-  left: 0; /* Align to the left */
-  transform:translate(50%,-10%);
-}
-.BottomLeftCard img{
-  width: 20vw; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
-  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
-  border-radius: /* Your desired border radius */;
-  transform:translateY(-20%);
-  z-index: 2;
-}
-
-
-.BottomMiddleCard {
-  left: 33.3%; /* Position in the middle */
-  transform:translate(22%,-10%);
-  z-index: 1;
-}
-.MiddleMiddleCard{
-  font-size:18px;
-  width: 16vw; /* Example: use viewport width to set width dynamically */
-  height: 27vh; /* Example: use viewport height to set height dynamically */
-  position: absolute;
-  border-radius: 30px;
-  background: #3d3e3e;
-  box-shadow: transparent;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  z-index: 4;
-}
-.LeftMiddleCard{
-  font-size: 15px;
-  width: 16vw; /* Example: use viewport width to set width dynamically */
-  height: 27vh; /* Example: use viewport height to set height dynamically */
-  position: absolute;
-  border-radius: 30px;
-  background: #848383;
-  box-shadow: transparent;
-  top: 50%;
-  left: 50%;
-  transform: translate(-160%, -45%);
-  z-index: 3;
-}
-
-
-.RightMiddleCard{
-  font-size: 15px;
-  width: 16vw; /* Example: use viewport width to set width dynamically */
-  height: 27vh; /* Example: use viewport height to set height dynamically */
-  position: absolute;
-  border-radius: 30px;
-  background: #ebebf7;
-  box-shadow: transparent;
-  top: 50%;
-  left: 50%;
-  transform: translate(60%, -45%);
-  z-index: 2;
-}
-
-.BottomMiddleCard img {
-  width: 20vh; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
-  position:absolute;
-  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
-  border-radius:; /* Your desired border radius */
-  transform:translate(-40%,-5%);
-  z-index: 2;
-}
-.BottomMiddleCard img:nth-of-type(2){
-  width: 20vw; /* Make the image take up the full width of the .BottomMiddleCard */
-  height: 15vh; /* Adjust the height automatically to maintain the aspect ratio */
-  position:absolute;
-  object-fit:contain;
-  transform:translate(-75%,-5%);
-  
-}
-
-
-.BottomRightCard {
-  left: 66.6%; /* Align to the right */
-  transform:translate(-5%,-10%);
-}
-
-.BottomRightCard img{
-  width:10vh;
-  height:10vh;
-  position:center;
-color: black;
-  height:175px;
-  object-fit: contain; /* This makes sure the entire image fits within the box, though it might not cover the entire area if aspect ratios differ */
-  border-radius: /* Your desired border radius */;
-  z-index: 2;
-  transform:translateY(-25%);
-}
-
-
-/*Favorites Button below: */
-.FavoritesButton {
-  width: 6.5em;
-  width: 6.5em;
-  height: 2.3em;
-  margin: 0.3em;
-  background: transparent;
-  color: white;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
-  position: relative;
-  bottom:10px;
-  right:10px;
-  z-index: 3;
-  overflow: hidden;
-  transform:translate(70%);
- }
+}
 
-
- .FavoritesButton:after {
-  content: "";
-  background:transparent;
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
- 
- .FavoritesButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
-
- .LoginButton{
-  width: 6.5em;
-  width: 6.5em;
-  height: 2.3em;
-  margin: auto;
-  background: transparent;
-  color: white;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
+/* Upload content */
+.upload-content h2 {
+  margin: 0;
   cursor: pointer;
-  position: relative;
-  bottom:10px;
-  right:10px;
-  z-index: 4;
-  overflow: hidden;
-  transform:translateY(520%);
- }
- .LoginButton:after {
-  content: "";
-  background:transparent;
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
- 
- .LoginButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
+  color: black; /* Default color */
+}
 
+.upload-content h2:hover {
+  color: grey; /* Change to desired hover color */
+}
 
+/* Camera icon */
+.camera-icon-container {
+  position: fixed;
+  top: 130px; /* Adjust distance from the top */
+  right: 30px; /* Adjust distance from the right */
+  opacity: 0; /* Initially hide the camera icon */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
 
- /* This is the generate now button*/
- 
- .GenerateButton{
-  width: 6.5em;
-  width: 6.5em;
-  height: 2.3em;
-  margin: auto;
-  background: transparent;
-  color: white;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
+.camera-icon {
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  position: relative;
-  bottom:10px;
-  right:10px;
-  z-index: 4;
-  overflow: hidden;
-  transform:translateY(510%);
- }
+  filter: invert(100%); /* Make the camera icon black */
+}
 
- .GenerateButton:after {
-  content: "";
-  background:transparent;
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
- 
- .GenerateButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
+.camera-icon:hover {
+  filter: invert(75%); /* Change to desired hover color */
+}
 
-
-/*Wardrobe Buttons below: */
-.WardrobeButton {
-  width: 6.5em;
-  height: 2.3em;
-  margin: 0.3em;
-  background: transparent;
-  color: white;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-  overflow: hidden;
-  transform:translate(70%);
- }
-
- .WardrobeButton:after {
-  content: "";
-  background: transparent;
-  position: absolute;
-  z-index: 3;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
- 
- .WardrobeButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
-
-
-
- .UploadButton {
-  width: 6.5em;
-  width: 6.5em;
-  height: 2.3em;
-  margin: 0.3em;
-  background: transparent;
-  color: white;
-  border: none;
-  border-radius: 0.625em;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  bottom:10px;
-  right:10px;
-  z-index: 3;
-  overflow: hidden;
-  transform:translate(70%);
- }
-
- .UploadButton:after {
-  content: "";
-  background: transparent;
-  position: absolute;
-  z-index: 3;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
- }
- 
- .UploadButton:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
- }
-
-
-
- 
- /* This is the generate now button*/
- 
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
