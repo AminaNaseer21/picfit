@@ -13,7 +13,7 @@ const commonColors = [
 ];
 
 function ProfilePage() {
-  const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '', zipcode: '' });
+  const [userData, setUserData] = useState({ name: '', email: '', phone: '', profilePicture: '', location: '' });
   const [profileImage, setProfileImage] = useState(null);
   const [dislikedColors, setDislikedColors] = useState([]);
   const [dislikedStyles, setDislikedStyles] = useState([]);
@@ -68,7 +68,7 @@ function ProfilePage() {
         await setDoc(doc(firestore, "users", user.uid), {
           name: userData.name,
           phone: userData.phone,
-          zipcode: userData.zipcode,
+          location: userData.location,
           dislikedColors,
           dislikedStyles,
           profilePicture: await uploadProfilePicture()
@@ -143,10 +143,10 @@ function ProfilePage() {
             />
             <input 
               type="text" 
-              placeholder="Your Zipcode" 
+              placeholder="Your Zipcode or City" 
               className="profile-input" 
-              value={userData.zipcode}
-              name="zipcode"
+              value={userData.location}
+              name="location"
               onChange={handleChange}
             />
             <div className="upload-photo">Upload Profile Picture</div>

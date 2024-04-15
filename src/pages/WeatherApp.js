@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { getAuth } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import Config from "../Services/Config";
 import './WeatherApp.css';
 
 function WeatherApp() {
-  const [location, setLocation] = useState('');
   const [weather, setWeather] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
+  const [userLocation, setUserLocation] = useState('');
 
   const API_KEY = Config.API_KEY;
 
-  const fetchWeather = async () => {
+  const fetchWeather = useCallback(async (location) => {
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID=${API_KEY}`);
       const data = await response.json();
@@ -27,24 +29,40 @@ function WeatherApp() {
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
+  }, [API_KEY]);
+
+  const handleButtonClick = async () => {
+    // Fetch user location and weather data
+    const auth = getAuth();
+    const firestore = getFirestore();
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        const userDocRef = doc(firestore, 'users', user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          setUserLocation(userData.location || '');
+          fetchWeather(userData.location || '');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    }
   };
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter city or ZIP code"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <button onClick={fetchWeather}>Get Weather</button>
+      <button onClick={handleButtonClick}>Fetch Weather</button>
       {weather && (
         <div>
           <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
-          <p>The weather condition in {location} is: {weather.weather}</p>
-          <p>The temperature in {location} is: {weather.temp}°F</p>
-          <p>The wind speed in {location} is: {weather.windSpeed} mph</p>
-          <p>The humidity in {location} is: {weather.humidity}%</p>
+          <p>The weather condition in {userLocation} is: {weather.weather}</p>
+          <p>The temperature in {userLocation} is: {weather.temp}°F</p>
+          <p>The wind speed in {userLocation} is: {weather.windSpeed} mph</p>
+          <p>The humidity in {userLocation} is: {weather.humidity}%</p>
         </div>
       )}
     </div>
