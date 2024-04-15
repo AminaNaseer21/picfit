@@ -61,6 +61,9 @@ export default function Wardrobe() {
         const handleUploadClick = () => {
           navigate('/upload'); // Use the path you've defined for the Upload component in your router setup
         };
+        const handleCaptureClick = () => {
+            navigate('/capture'); // Use the path you've defined for the Upload component in your router setup
+          };
         const handleItemClick = (itemId) => {
             // Navigate to '/itempage' with the item ID as state or part of the URL
             // This is just an example, you can adjust it based on your routing setup
@@ -87,7 +90,7 @@ export default function Wardrobe() {
                         </button>
 
 
-                        <button className="uc-button learn-more">
+                        <button className="uc-button learn-more" onClick={handleCaptureClick}>
                             <span className="circle" aria-hidden="true">
                                 <img src={camera} alt="Capture" className="icon camera" />
                             </span>

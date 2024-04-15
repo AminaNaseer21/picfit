@@ -9,6 +9,7 @@ import Upload from "./pages/Upload";
 import WeatherApp from "./pages/WeatherApp";
 import Itempage from "./pages/itempage";
 import AboutUs from "./pages/Aboutus";
+import Capture from "./pages/Capture";
 import { UserProvider } from './UserContext';
 import { Route, Routes } from "react-router-dom";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/login" element={ <Login />} />
         <Route path="/weatherapp" element={ <WeatherApp />} />
         <Route path="/aboutus" element={ <AboutUs />} />
+        <Route path="/capture" element={ <Capture />} />
       </Routes>
     </div>
     </UserProvider>
