@@ -1,0 +1,26 @@
+.mainBody {
+  display: flex;
+  background-color: #ECEFF4;
+}
+
+.outfit-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
+}
+
+.outfit-grid {
+  text-align: center;
+}
+
+.outfit-grid img {
+  width: 100%;
+  display: block; /* Ensures that each image takes up the full width and stacks vertically */
+  margin-bottom: 10px; /* Spacing between images */
+  background-color: #D8DEE9;
+  height: 200px;
+  width: 200px;
+}
+
