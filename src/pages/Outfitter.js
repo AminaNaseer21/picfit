@@ -18,21 +18,22 @@ const Outfitter = () => {
 
   return (
     <div className="mainBody">
-      <div className="sidebar">
-          <div className="info-block">
-              <h2>About This Selection</h2>
-              <p>Learn why these outfits were generated and how they suit your preferences and the current weather.</p>
-          </div>
-          <div className="weather-widget">
-              <h3>Current Weather</h3>
-              <p>{temperature}°F, Sunny</p>
-              <input type="number" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
-              <button onClick={updateOutfits}>Update</button>
-          </div>
-          <button className="edit-preferences">Edit Preferences</button>
-      </div>
+      <aside className="sidebar">
+        <div className="info-block">
+          <h2>Why This Fit?</h2>
+          <p>Learn why these outfits were generated and how they suit your preferences and the current weather.</p>
+        </div>
+        <div className="weather-widget">
+          <h3>Current Weather</h3>
+          <p>{temperature}°F</p>
+          <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
+          <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
+        </div>
+        <button className='outfitter-buttons' >Edit Preferences</button>
+      </aside>
 
-      <div className="content">
+      <section className="content">
+        <div className="title">O U T F I T T E R</div>
         <div className="outfit-container">
           <div className="outfit-grid">
               <img src="outfit1_top.jpg" alt="Top Outfit 1" />
@@ -60,7 +61,7 @@ const Outfitter = () => {
           <h3>Your Favorite Outfits</h3>
           <p>No favorite outfits added yet.</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
