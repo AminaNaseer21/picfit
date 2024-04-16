@@ -5,7 +5,8 @@ import { useAuth } from '../Services/authentication';
 import { useNavigate } from 'react-router-dom';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
-import sun from "../img/sun.png"
+import WeatherApp from './WeatherApp';
+
 
 
 export default function Wardrobe() {
@@ -69,9 +70,6 @@ export default function Wardrobe() {
             // This is just an example, you can adjust it based on your routing setup
             navigate('/itempage', { state: { itemId } });
         };
-        const handleWeatherClick = () => {
-            navigate('/weatherapp');
-        }
           const toggleSubcategory = (subcategory) => setActiveSubcategory(activeSubcategory === subcategory ? '' : subcategory);
 
     return (
@@ -96,14 +94,6 @@ export default function Wardrobe() {
                             </span>
                             <span className="button-text">Capture</span>
                             </button>
-
-                        <button className="uc-button learn-more" onClick={handleWeatherClick}>
-                            <span className="circle" aria-hidden="true">
-                                <img src={sun} alt="Weather Info" className="sun icon" />
-                            </span>
-                            <span className="button-text">Weather</span>
-                            </button>
-                    
                     
                     </div>
                     <div className="right-side">
@@ -156,6 +146,9 @@ export default function Wardrobe() {
                 </div>
                 </div>
             </div>
-        </div>    
+            <div className="weather-card">
+                <WeatherApp />
+                </div>
+            </div>    
     );
 }
