@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import './Outfitter.css';
 
 const Outfitter = () => {
-  // State to manage the temperature input
   const [temperature, setTemperature] = useState('');
 
-  // Function to handle temperature change
   const handleTemperatureChange = (event) => {
     setTemperature(event.target.value);
   };
 
-  // Function to update outfits based on temperature (this needs to be implemented)
   const updateOutfits = () => {
     console.log(`Updating outfits for ${temperature}°F`);
-    // Implementation needed here to fetch or change outfits based on the temperature
   };
 
   const showPopup = () => {
@@ -22,15 +18,29 @@ const Outfitter = () => {
 
   return (
     <div className="mainBody">
+      <aside className="sidebar">
+        <div className="info-block">
+          <h2>Why This Fit?</h2>
+          <p>Learn why these outfits were generated and how they suit your preferences and the current weather.</p>
+        </div>
+        <div className="weather-widget">
+          <h3>Current Weather</h3>
+          <p>{temperature}°F</p>
+          <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
+          <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
+        </div>
+        <button className='outfitter-buttons' >Edit Preferences</button>
+      </aside>
 
-      <div className="outfit-container">
+      <section className="content">
+        <div className="title">O U T F I T T E R</div>
+        <div className="outfit-container">
           <div className="outfit-grid">
               <img src="outfit1_top.jpg" alt="Top Outfit 1" />
               <img src="outfit1_middle.jpg" alt="Middle Outfit 1" />
               <img src="outfit1_bottom.jpg" alt="Bottom Outfit 1" />
               <button className='outfitter-buttons' onClick={showPopup}>Wear This Outfit</button>
               <button className='outfitter-buttons'>Add to Favorites</button>
-
           </div>
           <div className="outfit-grid">
               <img src="outfit2_top.jpg" alt="Top Outfit 2" />
@@ -38,7 +48,6 @@ const Outfitter = () => {
               <img src="outfit2_bottom.jpg" alt="Bottom Outfit 2" />
               <button className='outfitter-buttons' onClick={showPopup}>Wear This Outfit</button>
               <button className='outfitter-buttons'>Add to Favorites</button>
-
           </div>
           <div className="outfit-grid">
               <img src="outfit3_top.jpg" alt="Top Outfit 3" />
@@ -46,9 +55,13 @@ const Outfitter = () => {
               <img src="outfit3_bottom.jpg" alt="Bottom Outfit 3" />
               <button className='outfitter-buttons' onClick={showPopup}>Wear This Outfit</button>
               <button className='outfitter-buttons'>Add to Favorites</button>
-
           </div>
         </div>
+        <div className="favorites-section">
+          <h3>Your Favorite Outfits</h3>
+          <p>No favorite outfits added yet.</p>
+        </div>
+      </section>
     </div>
   );
 };

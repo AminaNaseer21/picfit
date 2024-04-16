@@ -1,43 +1,84 @@
 .mainBody {
+  display: grid;
+  grid-template-columns: .75fr 3.25fr;
+  gap: 1rem;
+  height: 100vh; /* Using viewport height to fill the screen */
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  align-items: start;
+}
+
+.sidebar {
+  padding: 1rem;
+  background: #f7f7f7; /* A light background for the sidebar */
+}
+
+.content {
   display: flex;
-  background-color: #ECEFF4;
+  flex-direction: column; /* Aligns content in a vertical stack */
+  align-items: center; /* Centers content horizontally */
+  padding: 20px;
+  padding-top: 0px;
 }
 
 .outfit-container {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  margin: 20px;
+  display: flex; /* Enables flexbox layout */
+  flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+  justify-content: space-evenly; /* Distributes space evenly between the items */
+  align-items: flex-start; /* Aligns items to the start of the cross axis */
+  width: 100%; /* Takes the full width of its parent */
 }
 
 .outfit-grid {
-  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stacks items vertically within each outfit grid */
+  align-items: center; /* Centers items horizontally within each outfit grid */
+  width: calc(33.333% - 40px); /* Adjusts the width to 3 items per row, subtracting the total padding/margin */
+  margin: 20px; /* Adds space between the boxes */
+  box-sizing: border-box;
+  padding: 20px; /* Padding inside each outfit grid */
+  border: 1px solid #eaeaea; /* Light border for the grid */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
 .outfit-grid img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #eaeaea; /* Light border for the grid */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.favorites-section {
+  background: #fff;
   width: 100%;
-  display: block; /* Ensures that each image takes up the full width and stacks vertically */
-  margin-bottom: 10px; /* Spacing between images */
-  background-color: #D8DEE9;
-  height: 200px;
-  width: 200px;
+  border: 1px solid #eaeaea; /* Light border for the grid */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 .outfitter-buttons {
-  display: block;
   padding: 10px;
-  margin-top: 10px; /* Add margin above the button */
-  border: none; /* Remove the default border */
+  margin-top: 10px;
+  border: none;
   border-radius: 5px;
-  background-color: #4c566a; /* Use the same color as the sidebar for consistency */
-  color: white; /* Text color for the button */
+  background-color: #4c566a;
+  color: white;
   font-size: 16px;
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-  outline: none; /* Remove default focus outline */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
 }
 
 .outfitter-buttons:hover {
-  background-color: #3b4252; /* Darken the button when hovering */
+  background-color: #3b4252;
 }
