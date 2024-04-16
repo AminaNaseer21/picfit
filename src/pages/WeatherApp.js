@@ -6,7 +6,6 @@ import './WeatherApp.css';
 
 function WeatherApp() {
   const [weather, setWeather] = useState(null);
-  const [weatherIcon, setWeatherIcon] = useState(null);
   const [userLocation, setUserLocation] = useState('');
 
   const API_KEY = Config.API_KEY;
@@ -20,11 +19,7 @@ function WeatherApp() {
       } else {
         const weatherDescription = data.weather[0].description;
         const temp = Math.round(data.main.temp);
-        const humidity = data.main.humidity;
-        const windSpeed = data.wind.speed;
-        const iconCode = data.weather[0].icon;
-        setWeather({ weather: weatherDescription, temp, humidity, windSpeed });
-        setWeatherIcon(`http://openweathermap.org/img/w/${iconCode}.png`);
+        setWeather({ weather: weatherDescription, temp });
       }
     } catch (error) {
       console.error('Error fetching weather data:', error);
@@ -57,14 +52,11 @@ function WeatherApp() {
   }, [fetchWeather]);
 
   return (
-    <div>
+    <div className="weather-container">
       {weather && (
         <div>
-          <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />
-          <p>The weather condition in {userLocation} is: {weather.weather}</p>
-          <p>The temperature in {userLocation} is: {weather.temp}°F</p>
-          <p>The wind speed in {userLocation} is: {weather.windSpeed} mph</p>
-          <p>The humidity in {userLocation} is: {weather.humidity}%</p>
+          <p className="weather-info">The weather condition in {userLocation} is: {weather.weather}</p>
+          <p className="weather-info">The temperature in {userLocation} is: {weather.temp}°F</p>
         </div>
       )}
     </div>
