@@ -12,10 +12,9 @@ const AboutUs = () => {
       <p> </p>
       <h2>Mission: </h2>
       <p>At PicMyFit, our mission is to simplify your daily wardrobe decisions. Whether it's a chilly, rainy day or a warm, sunny one, you can count on us to take the guesswork out of what to wear. No more wardrobe worries—just stylish solutions tailored to any weather.</p>
-      
     </div>
-
-   
+    <div className = "TeamMembers">
+   </div>
     </>
   );
 };
