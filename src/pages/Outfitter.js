@@ -51,7 +51,10 @@ const Outfitter = () => {
             <div key={index} className="outfit-grid">
               <h3>Outfit {index + 1}</h3>
               {outfit.map((item, itemIndex) => (
-                <p key={itemIndex}>{item}</p>
+                <div key={itemIndex} className="clothing-item">
+                  <img src={item.imageUrl} alt={item.shortName} />
+                  <p>{item.shortName}</p>
+                </div>
               ))}
               <button className='outfitter-buttons' onClick={() => showPopup(index)}>Wear This Outfit</button>
               <button className='outfitter-buttons'>Add to Favorites</button>

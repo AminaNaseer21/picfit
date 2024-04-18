@@ -7,13 +7,21 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
-const parseOutfits = (outfitsText) => {
+const parseOutfits = (outfitsText, clothingItems) => {
   // Assuming each outfit is separated by a line that says something like "Outfit 1:"
   const outfits = outfitsText.split(/Outfit \d+:/).slice(1); // Remove the first split part before the first "Outfit"
-  return outfits.map(outfit =>
-    outfit.trim().split("\n") // Split each outfit into individual items
-      .filter(line => line.trim() !== '') // Remove any empty lines
-  );
+  return outfits.map(outfitText => {
+    const itemNames = outfitText.trim().split("\n").filter(line => line.trim() !== ''); // Get array of item names
+    return itemNames.map(name => {
+      // Find the clothing item object by its shortName
+      const item = clothingItems.find(item => item.shortName.trim() === name.trim());
+      // Return an object with the shortName and imageUrl
+      return {
+        shortName: name.trim(),
+        imageUrl: item ? item.imageUrl : undefined // Or a placeholder URL for missing images
+      };
+    });
+  });
 };
 
 const generateOutfits = async (clothingItems) => {
@@ -38,8 +46,8 @@ const generateOutfits = async (clothingItems) => {
 
     // Assuming the API returns the desired text response directly
     const outfitsText = response.choices[0].message.content.trim();
-    const structuredOutfits = parseOutfits(outfitsText);
-    return structuredOutfits;
+    const structuredOutfitsWithImages = parseOutfits(outfitsText, clothingItems);
+    return structuredOutfitsWithImages;
   } catch (error) {
     console.error('Error generating outfits:', error);
     throw error; // Rethrow the error so you can catch it in the component and handle it accordingly
