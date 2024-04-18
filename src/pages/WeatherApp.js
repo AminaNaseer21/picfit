@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import Config from "../Services/Config";
 import './WeatherApp.css';
 
-function WeatherApp() {
+function WeatherApp({ externalTemperature }) {
   const [weather, setWeather] = useState(null);
   const [userLocation, setUserLocation] = useState('');
 
@@ -33,14 +33,22 @@ function WeatherApp() {
       const user = auth.currentUser;
       
       if (user) {
-        try {
-          const userDocRef = doc(firestore, 'users', user.uid);
-          const userDocSnap = await getDoc(userDocRef);
+        try 
+        {
+          if (externalTemperature) 
+          {
+            setWeather({ temp: externalTemperature });
+          } 
+          else 
+          {
+            const userDocRef = doc(firestore, 'users', user.uid);
+            const userDocSnap = await getDoc(userDocRef);
 
-          if (userDocSnap.exists()) {
-            const userData = userDocSnap.data();
-            setUserLocation(userData.location || '');
-            fetchWeather(userData.location || '');
+            if (userDocSnap.exists()) {
+              const userData = userDocSnap.data();
+              setUserLocation(userData.location || '');
+              fetchWeather(userData.location || '');
+            }
           }
         } catch (error) {
           console.error('Error fetching user data:', error);
@@ -49,14 +57,19 @@ function WeatherApp() {
     };
 
     fetchUserLocation();
-  }, [fetchWeather]);
+  }, [externalTemperature, fetchWeather]);
 
   return (
     <div className="weather-container">
       {weather && (
         <div>
-          <p className="weather-info">The weather condition in {userLocation} is: {weather.weather}</p>
-          <p className="weather-info">The temperature in {userLocation} is: {weather.temp}°F</p>
+          {externalTemperature ? (
+            <p className="weather-info">The temperature in {userLocation} is: {externalTemperature}°F</p>
+          ) : (
+            <>
+              <p className="weather-info">The temperature in {userLocation} is: {weather.temp}°F</p>
+            </>
+          )}
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import getAllClothingItems from '../Services/getAllClothingItems'; // Ensure this is correctly imported
 import generateOutfits from '../Services/generateOutfits'; // Ensure this is correctly imported
+import WeatherApp from './WeatherApp';
 import './Outfitter.css';
 
 const Outfitter = () => {
@@ -36,7 +37,7 @@ const Outfitter = () => {
         </div>
         <div className="weather-widget">
           <h3>Current Weather</h3>
-          <p>{temperature}°F</p>
+          <WeatherApp externalTemperature={temperature} /> {/* Pass temperature as a prop */}
           <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
           <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
         </div>
