@@ -1,6 +1,6 @@
 //Outfitter.js
 import React, { useState } from 'react';
-import { getAllClothingItems, generateOutfits } from '../Services/OutfitService';
+import { getAllClothingItems, generateOutfits, getUserPreferences } from '../Services/OutfitService';
 import WeatherApp from './WeatherApp';
 import './Outfitter.css';
 import tempPlaceholder from '../img/items/1.png';
@@ -34,8 +34,11 @@ const Outfitter = () => {
     try {
       const clothingItems = await getAllClothingItems(); // Debugging log here could help
       console.log('All clothing items:', clothingItems);
+
+      const userPreferences = await getUserPreferences(); // Retrieve user preferences
+    console.log('User preferences:', userPreferences);
   
-      const outfitNames = await generateOutfits(clothingItems, temperature);
+      const outfitNames = await generateOutfits(clothingItems, temperature, userPreferences);
       console.log('Generated outfit names:', outfitNames);
   
       const detailedOutfits = await fetchItemDetails(outfitNames);
