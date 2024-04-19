@@ -1,6 +1,6 @@
+//Outfitter.js
 import React, { useState } from 'react';
-import getAllClothingItems from '../Services/getAllClothingItems';
-import generateOutfits from '../Services/generateOutfits';
+import { getAllClothingItems, generateOutfits } from '../Services/OutfitService';
 import WeatherApp from './WeatherApp';
 import './Outfitter.css';
 import tempPlaceholder from '../img/items/1.png';
