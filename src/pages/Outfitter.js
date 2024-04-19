@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import getAllClothingItems from '../Services/getAllClothingItems'; // Ensure this is correctly imported
-import generateOutfits from '../Services/generateOutfits'; // Ensure this is correctly imported
+import getAllClothingItems from '../Services/getAllClothingItems';
+import generateOutfits from '../Services/generateOutfits';
 import WeatherApp from './WeatherApp';
 import './Outfitter.css';
+import tempPlaceholder from '../img/items/1.png';
 
 const Outfitter = () => {
   const [temperature, setTemperature] = useState('');
@@ -12,20 +13,39 @@ const Outfitter = () => {
     setTemperature(event.target.value);
   };
 
-  const updateOutfits = async () => {
-    console.log(`Updating outfits for ${temperature}°F`);
-    try {
-      const clothingItems = await getAllClothingItems();
-      const outfitSuggestions = await generateOutfits(clothingItems);
-      setOutfits(outfitSuggestions);
-    } catch (error) {
-      console.error("Error updating outfits:", error);
-      alert("Failed to update outfits. Please check the console for more information.");
-    }
+
+  const fetchItemDetails = async (outfitNames) => {
+    const allItems = await getAllClothingItems();
+    return outfitNames.map(outfit =>
+      outfit.map(itemName =>
+        allItems.find(item => item.shortName.trim().toLowerCase() === itemName.trim().toLowerCase()) || {
+          shortName: itemName,
+          imageUrl: tempPlaceholder // Placeholder if not found
+        }
+      )
+    );
   };
 
   const showPopup = (outfitIndex) => {
     alert(`That's a great choice! Outfit ${outfitIndex + 1} is all set to turn heads!`);
+  };
+
+  const updateOutfits = async () => {
+    try {
+      const clothingItems = await getAllClothingItems(); // Debugging log here could help
+      console.log('All clothing items:', clothingItems);
+  
+      const outfitNames = await generateOutfits(clothingItems);
+      console.log('Generated outfit names:', outfitNames);
+  
+      const detailedOutfits = await fetchItemDetails(outfitNames);
+      console.log('Detailed outfits:', detailedOutfits);
+  
+      setOutfits(detailedOutfits);
+    } catch (error) {
+      console.error("Error updating outfits:", error);
+      alert("Failed to update outfits. Please check the console for more information.");
+    }
   };
 
   return (
