@@ -28,17 +28,18 @@ export const getAllClothingItems = async () => {
   }
 };
 
-export const generateOutfits = async (clothingItems) => {
+export const generateOutfits = async (clothingItems, temperature) => {
   const clothingItemsStrings = clothingItems.map(item => `${item.shortName}`).join(', ');
+  const temperatureStatement = `The current temperature is ${temperature}°F. `;
 
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-0125",
       messages: [
-        { "role": "system", "content": "You are a helpful assistant." },
+        { "role": "system", "content": "You are an AI fashion consultant. You are aware of current fashion trends, color coordination, and other information to create great outfits." },
         {
           "role": "user",
-          "content": `I have these items: ${clothingItemsStrings}. please suggest three stylish outfits that showcase good color coordination and contemporary fashion sense. Consider creating versatile looks that could be worn for various daily activities, focusing on the harmonious blending of colors and modern styling. Please list each outfit on a new line with items separated by commas and no item numbering. For example:\nOutfit: Blue Polo Shirt, Light Blue Denim Jeans\nOutfit: Black Denim Jacket, Biker Denim Jeans`
+          "content": `${temperatureStatement}I have these clothing items: ${clothingItemsStrings}. Please suggest three stylish outfits that are suitable for this weather and that showcase good color coordination and contemporary fashion sense. Consider creating versatile looks that could be worn for various daily activities, focusing on the harmonious blending of colors and modern styling. Outfits should consist of a 1 top, 1 botton, and if wanted 1 layering item. Please list each outfit on a new line with items separated by commas and no item numbering. For example:\nOutfit: Blue Polo Shirt, Light Blue Denim Jeans\nOutfit: Black Denim Jacket, Biker Denim Jeans`
         }
       ],
       max_tokens: 300,
