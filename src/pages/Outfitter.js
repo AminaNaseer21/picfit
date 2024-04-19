@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { getAllClothingItems, generateOutfits, getUserPreferences } from '../Services/OutfitService';
 import WeatherApp from './WeatherApp';
+import { useNavigate } from 'react-router-dom';
 import './Outfitter.css';
 import tempPlaceholder from '../img/items/1.png';
 
@@ -12,7 +13,6 @@ const Outfitter = () => {
   const handleTemperatureChange = (event) => {
     setTemperature(event.target.value);
   };
-
 
   const fetchItemDetails = async (outfitNames) => {
     const allItems = await getAllClothingItems();
@@ -51,6 +51,11 @@ const Outfitter = () => {
     }
   };
 
+  let navigate = useNavigate();
+  const handleProfileClick = () => {
+    navigate('/profile');
+  };
+
   return (
     <div className="mainBody">
       <aside className="sidebar">
@@ -62,9 +67,9 @@ const Outfitter = () => {
           <h3>Current Weather</h3>
           <WeatherApp externalTemperature={temperature} /> {/* Pass temperature as a prop */}
           <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
-          <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
         </div>
-        <button className='outfitter-buttons' >Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={handleProfileClick}>Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={updateOutfits}>Generate Outfits</button>
       </aside>
 
       <section className="content">
