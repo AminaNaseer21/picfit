@@ -35,7 +35,7 @@ const Outfitter = () => {
       const clothingItems = await getAllClothingItems(); // Debugging log here could help
       console.log('All clothing items:', clothingItems);
   
-      const outfitNames = await generateOutfits(clothingItems);
+      const outfitNames = await generateOutfits(clothingItems, temperature);
       console.log('Generated outfit names:', outfitNames);
   
       const detailedOutfits = await fetchItemDetails(outfitNames);
