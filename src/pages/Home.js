@@ -80,10 +80,11 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
-            transition: 'transform 1s ease', // Smooth transition for image size
-            left: `${bottomsPosition.x}px`, // Position bottoms element
-            top: `${bottomsPosition.y}px`, // Position bottoms element
+            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            left: `${bottomsPosition.x + 225}px`, // Position bottoms element
+            top: `${bottomsPosition.y + 110}px`, // Position bottoms element
           }}
         ></div>
 
@@ -92,10 +93,11 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
-            transition: 'transform 1s ease', // Smooth transition for image size
-            left: `${shirtPosition.x}px`, // Position shirt element
-            top: `${shirtPosition.y}px`, // Position shirt element
+            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            left: `${shirtPosition.x + 225}px`, // Position shirt element
+            top: `${shirtPosition.y + 110}px`, // Position shirt element
           }}
         ></div>
 
@@ -104,10 +106,11 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
-            transition: 'transform 1s ease', // Smooth transition for image size
-            left: `${shoesPosition.x}px`, // Position shoes element
-            top: `${shoesPosition.y}px`, // Position shoes element
+            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            left: `${shoesPosition.x + 225}px`, // Position shoes element
+            top: `${shoesPosition.y + 110}px`, // Position shoes element
           }}
         ></div>
 

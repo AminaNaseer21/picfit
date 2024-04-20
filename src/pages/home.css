@@ -50,13 +50,12 @@
 /* Background images */
 .background-image {
   position: absolute; /* Position the background images absolutely */
-  top: 0; /* Align to the top of the parent */
-  left: 0; /* Align to the left of the parent */
   width: 50%; /* Set width to fill the parent */
   height: 50%; /* Set height to fill the parent */
   background-size: cover; /* Ensure the background images cover the entire div */
   background-position: center; /* Center the background images */
-  transition: transform 1s ease; /* Smooth transition for image size */
+  transition: transform 1s ease, opacity 1s ease; /* Smooth transition for image size and opacity */
+  opacity: 1; /* Initially visible */
 }
 
 
