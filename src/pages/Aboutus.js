@@ -1,7 +1,7 @@
 import React from 'react';
 import './Aboutus.css';
 import UmerPhoto from "../img/TeamHeadshots/UmerPhoto.jpg";
-
+import RogelioHeadPic from "../img/TeamHeadshots/RogelioHeadPic.png";
 
 
 const AboutUs = () => {
@@ -15,12 +15,24 @@ const AboutUs = () => {
       <h2>Mission: </h2>
       <p>At PicMyFit, our mission is to simplify your daily wardrobe decisions. Whether it's a chilly, rainy day or a warm, sunny one, you can count on us to take the guesswork out of what to wear. No more wardrobe worries—just stylish solutions tailored to any weather.</p>
     </div>
+
     <div className = "TeamMembers">
       <h1>Meet the team!</h1>
-   </div>
-   <div className="team-member-photo">
-      <img src={UmerPhoto} alt="Umer" className="team-member-photo" />
       </div>
+
+      <div className = "umer-container">
+      <div className="umer-photo">
+      <img src={UmerPhoto} alt="umer" className="umer-photo" />
+      
+      </div>
+   </div>
+
+    <div className = "Rogelio-container">
+      <div className = "Rogelio-photo">
+    <img src={RogelioHeadPic} alt="Rogelio" className="Rogelio-photo" />
+    </div>
+    </div>
+   
     </>
   );
 };
