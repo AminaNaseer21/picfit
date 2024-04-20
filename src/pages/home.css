@@ -8,7 +8,6 @@
 .enlargedRectangle {
   width: 600px; /* Adjust width as needed */
   height: 400px; /* Adjust height as needed */
-  background-color: transparent;
   margin: auto; /* Center the rectangle */
   margin-top: 50px; /* Adjust top margin as needed */
   border: 2px dashed black; /* Add a dashed border */
@@ -72,4 +71,21 @@
   to {
     opacity: 1;
   }
+}
+
+/* Add a class for the color-changing background */
+.color-changing-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content */
+  animation: changeBackground 10s infinite; /* Change background color every 10 seconds */
+}
+
+@keyframes changeBackground {
+  0% { background-color: rgba(0, 0, 0, 0.5); } /* Initial background color */
+  50% { background-color: rgba(255, 0, 0, 0.5); } /* Change to red */
+  100% { background-color: rgba(0, 0, 255, 0.5); } /* Change to blue */
 }

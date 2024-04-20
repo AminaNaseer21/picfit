@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
+import testOutfitHp from "../HPimg/testOutfitHP.png"; // Import the image file
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
@@ -31,29 +32,39 @@ const Home = () => {
   return (
     <div className="homeContainer">
       {/* Enlarged rectangle */}
-      <div className="enlargedRectangle"></div>
+      <div
+        className="enlargedRectangle"
+        style={{
+          backgroundImage: `url(${testOutfitHp})`, // Set image as background
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+      >
+        {/* Color-changing background */}
+        <div className="color-changing-background"></div>
 
-      {/* Upload popup */}
-      {uploadPopupVisible && (
-        <div className="upload-popup">
-          <button className="close-button" onClick={handleCloseButtonClick}>X</button>
-          <div className="upload-content">
-            <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+        {/* Upload popup */}
+        {uploadPopupVisible && (
+          <div className="upload-popup">
+            <button className="close-button" onClick={handleCloseButtonClick}>X</button>
+            <div className="upload-content">
+              <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Camera icon */}
-      {cameraIconVisible && (
-        <div className="camera-icon-container">
-          <img
-            src={camera}
-            alt="Camera Icon"
-            className="camera-icon"
-            onClick={handleCameraIconClick}
-          />
-        </div>
-      )}
+        {/* Camera icon */}
+        {cameraIconVisible && (
+          <div className="camera-icon-container">
+            <img
+              src={camera}
+              alt="Camera Icon"
+              className="camera-icon"
+              onClick={handleCameraIconClick}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
