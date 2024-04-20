@@ -22,7 +22,7 @@ const Home = () => {
     setTimeout(() => {
       setCurrentSet(currentSet === 1 ? 2 : 1);
       setIsTransitioning(false); // End transition animation
-    }, 1000); // Adjust timing to match CSS transition duration
+    }, 2000); // Adjust timing to match CSS transition duration
   };
 
   useEffect(() => {
@@ -36,20 +36,20 @@ const Home = () => {
     const moveInterval = setInterval(() => {
       // Move shirt
       setShirtPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 2, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 2, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 1, // Random vertical movement
       }));
 
       // Move bottoms
       setBottomsPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 3, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 3, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.5) * 1.5, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 1.5, // Random vertical movement
       }));
 
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 4, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 4, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.5) * 2, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 2, // Random vertical movement
       }));
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
@@ -80,9 +80,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`,
-            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
             left: `${bottomsPosition.x + 225}px`, // Position bottoms element
             top: `${bottomsPosition.y + 110}px`, // Position bottoms element
           }}
@@ -93,9 +93,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`,
-            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
             left: `${shirtPosition.x + 225}px`, // Position shirt element
             top: `${shirtPosition.y + 110}px`, // Position shirt element
           }}
@@ -106,9 +106,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`,
-            transform: isTransitioning ? "scale(0)" : "scale(1)", // Shrink or grow
+            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 1s ease, opacity 1s ease', // Smooth transition for image size and opacity
+            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
             left: `${shoesPosition.x + 225}px`, // Position shoes element
             top: `${shoesPosition.y + 110}px`, // Position shoes element
           }}

@@ -21,7 +21,7 @@
   0% {
     transform: translateX(-10px); /* Move left */
   }
-  100% {
+  75% {
     transform: translateX(10px); /* Move right */
   }
 }
@@ -48,15 +48,19 @@
 }
 
 /* Background images */
+/* Background images */
 .background-image {
   position: absolute; /* Position the background images absolutely */
-  width: 50%; /* Set width to fill the parent */
-  height: 50%; /* Set height to fill the parent */
-  background-size: cover; /* Ensure the background images cover the entire div */
-  background-position: center; /* Center the background images */
-  transition: transform 1s ease, opacity 1s ease; /* Smooth transition for image size and opacity */
+  width: 85%; /* Set width to fill the parent (slightly larger) */
+  height: 85%; /* Set height to fill the parent (slightly larger) */
+  background-size: auto 100%; /* Auto-adjust width while maintaining aspect ratio */
+  margin-left: -145px; /* Adjust horizontally towards the left */
+  margin-top: -75px; /* Adjust vertically upwards */
+  transition: transform 2s ease, opacity 2s ease; /* Smooth transition for image size and opacity (slower) */
   opacity: 1; /* Initially visible */
 }
+
+
 
 
 @keyframes changeBackground {
