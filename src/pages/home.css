@@ -19,8 +19,8 @@
   width: 85%; /* Set width to fill the parent (slightly larger) */
   height: 85%; /* Set height to fill the parent (slightly larger) */
   background-size: auto 100%; /* Auto-adjust width while maintaining aspect ratio */
-  margin-left: center; /* Adjust horizontally towards the left */
-  margin-top: center; /* Adjust vertically upwards */
+  margin-left: 50px; /* Adjust horizontally towards the left */
+  margin-top: 10px; /* Adjust vertically upwards */
   opacity: 1; /* Initially visible */
 }
 

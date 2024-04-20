@@ -34,26 +34,30 @@ const Home = () => {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
+      // Define a movement range
+      const movementRange = 5; // Adjust this value as needed
+  
       // Move shirt
       setShirtPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
+        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-
+  
       // Move bottoms
       setBottomsPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
+        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-
+  
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
+        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
   }, []);
+  
 
   const handleUploadClick = () => {
     // Redirect to the upload page
