@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
-import testOutfitHp from "../HPimg/testOutfitHP.png"; // Import the image file
+import bottoms from "../HPimg/1bottoms.png"; // Import the bottoms image
+import shirt from "../HPimg/1shirt.png"; // Import the shirt image
+import shoes from "../HPimg/1shoes.png"; // Import the shoes image
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
@@ -34,14 +36,33 @@ const Home = () => {
       {/* Enlarged rectangle */}
       <div
         className="enlargedRectangle"
-        style={{
-          backgroundImage: `url(${testOutfitHp})`, // Set image as background
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
       >
         {/* Color-changing background */}
         <div className="color-changing-background"></div>
+
+        {/* Bottoms */}
+        <div
+          className="background-image"
+          style={{
+            backgroundImage: `url(${bottoms})`, // Set image as background
+          }}
+        ></div>
+
+        {/* Shirt */}
+        <div
+          className="background-image"
+          style={{
+            backgroundImage: `url(${shirt})`, // Set image as background
+          }}
+        ></div>
+
+        {/* Shoes */}
+        <div
+          className="background-image"
+          style={{
+            backgroundImage: `url(${shoes})`, // Set image as background
+          }}
+        ></div>
 
         {/* Upload popup */}
         {uploadPopupVisible && (

@@ -6,11 +6,40 @@
 }
 
 .enlargedRectangle {
+  position: relative; /* Change position to relative */
   width: 900px; /* Adjust width as needed */
   height: 440px; /* Adjust height as needed */
   margin: auto; /* Center the rectangle */
   margin-top: 50px; /* Adjust top margin as needed */
   border: 2px dashed black; /* Add a dashed border */
+}
+
+/* Background images */
+.background-image {
+  position: absolute; /* Position the background images absolutely */
+  top: 0; /* Align to the top of the parent */
+  left: 0; /* Align to the left of the parent */
+  width: 100%; /* Set width to fill the parent */
+  height: 100%; /* Set height to fill the parent */
+  background-size: cover; /* Ensure the background images cover the entire div */
+  background-position: center; /* Center the background images */
+}
+
+/* Color-changing background */
+.color-changing-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content */
+  animation: changeBackground 10s infinite; /* Change background color every 10 seconds */
+}
+
+@keyframes changeBackground {
+  0% { background-color: rgba(0, 0, 0, 0.5); } /* Initial background color */
+  50% { background-color: rgba(255, 0, 0, 0.5); } /* Change to red */
+  100% { background-color: rgba(0, 0, 255, 0.5); } /* Change to blue */
 }
 
 /* Upload popup */
@@ -71,21 +100,4 @@
   to {
     opacity: 1;
   }
-}
-
-/* Add a class for the color-changing background */
-.color-changing-background {
-  position: absolute;
-  top: 0;
-  left: 255px;
-  width: 900px; /* Same width as enlargedRectangle */
-  height: 440px; /* Same height as enlargedRectangle */
-  z-index: -1; /* Ensure it's behind other content */
-  animation: changeBackground 10s infinite; /* Change background color every 10 seconds */
-}
-
-@keyframes changeBackground {
-  0% { background-color: rgba(0, 0, 0, 0.5); } /* Initial background color */
-  50% { background-color: rgba(255, 0, 0, 0.5); } /* Change to red */
-  100% { background-color: rgba(0, 0, 255, 0.5); } /* Change to blue */
 }
