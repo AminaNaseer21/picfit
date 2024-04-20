@@ -51,8 +51,8 @@ const Home = () => {
   
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
-        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
+        x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0.5) * 1, // Random vertical movement within the range
       }));
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
@@ -84,9 +84,8 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${bottomsPosition.x}px`, // Position bottoms element
             top: `${bottomsPosition.y}px`, // Position bottoms element
           }}
@@ -97,9 +96,8 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shirtPosition.x}px`, // Position shirt element
             top: `${shirtPosition.y}px`, // Position shirt element
           }}
@@ -110,9 +108,8 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`,
-            transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
-            transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shoesPosition.x}px`, // Position shoes element
             top: `${shoesPosition.y}px`, // Position shoes element
           }}
