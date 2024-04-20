@@ -36,20 +36,20 @@ const Home = () => {
     const moveInterval = setInterval(() => {
       // Move shirt
       setShirtPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 1, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
       }));
 
       // Move bottoms
       setBottomsPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 1.5, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 1.5, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
       }));
 
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 2, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 2, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.0) * 1, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.0) * 1, // Random vertical movement
       }));
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
@@ -83,8 +83,8 @@ const Home = () => {
             transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
-            left: `${bottomsPosition.x + 225}px`, // Position bottoms element
-            top: `${bottomsPosition.y + 110}px`, // Position bottoms element
+            left: `${bottomsPosition.x}px`, // Position bottoms element
+            top: `${bottomsPosition.y}px`, // Position bottoms element
           }}
         ></div>
 
@@ -96,8 +96,8 @@ const Home = () => {
             transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
-            left: `${shirtPosition.x + 225}px`, // Position shirt element
-            top: `${shirtPosition.y + 110}px`, // Position shirt element
+            left: `${shirtPosition.x}px`, // Position shirt element
+            top: `${shirtPosition.y}px`, // Position shirt element
           }}
         ></div>
 
@@ -109,8 +109,8 @@ const Home = () => {
             transform: isTransitioning ? "scale(0.5)" : "scale(1)", // Shrink or grow
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'transform 2s ease, opacity 2s ease', // Smooth transition for image size and opacity
-            left: `${shoesPosition.x + 225}px`, // Position shoes element
-            top: `${shoesPosition.y + 110}px`, // Position shoes element
+            left: `${shoesPosition.x}px`, // Position shoes element
+            top: `${shoesPosition.y}px`, // Position shoes element
           }}
         ></div>
 
