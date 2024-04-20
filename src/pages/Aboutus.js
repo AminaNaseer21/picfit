@@ -2,7 +2,8 @@ import React from 'react';
 import './Aboutus.css';
 import UmerPhoto from "../img/TeamHeadshots/UmerPhoto.jpg";
 import RogelioHeadPic from "../img/TeamHeadshots/RogelioHeadPic.png";
-
+import RamiroPic from  "../img/TeamHeadshots/RamiroPic.jpg";
+import MatthewPic from "../img/TeamHeadshots/MatthewPic.jpg";
 
 const AboutUs = () => {
   return (
@@ -30,6 +31,18 @@ const AboutUs = () => {
     <div className = "Rogelio-container">
       <div className = "Rogelio-photo">
     <img src={RogelioHeadPic} alt="Rogelio" className="Rogelio-photo" />
+    </div>
+    </div>
+
+    <div className = "Ramiro-container">
+      <div className = "Ramiro-photo">
+    <img src={RamiroPic} alt="Ramiro" className="Ramiro-photo" />
+    </div>
+    </div>
+
+    <div className = "Matthew-container">
+      <div className = "Matthew-photo">
+    <img src={MatthewPic} alt="Matthew" className="Matthew-photo" />
     </div>
     </div>
    
