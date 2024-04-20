@@ -8,6 +8,9 @@ import shoes from "../HPimg/1shoes.png"; // Import the shoes image
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraIconVisible, setCameraIconVisible] = useState(false);
+  const [shirtPosition, setShirtPosition] = useState({ x: 0, y: 0 });
+  const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
+  const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,6 +18,29 @@ const Home = () => {
     }, 2000); // Show upload popup after 2 seconds
     return () => clearTimeout(timer);
   }, []); // Empty dependency array ensures this effect runs only once after initial render
+
+  useEffect(() => {
+    const moveInterval = setInterval(() => {
+      // Move shirt
+      setShirtPosition((prevState) => ({
+        x: prevState.x + (Math.random() - 0.5) * 2, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 2, // Random vertical movement
+      }));
+
+      // Move bottoms
+      setBottomsPosition((prevState) => ({
+        x: prevState.x + (Math.random() - 0.5) * 3, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 3, // Random vertical movement
+      }));
+
+      // Move shoes
+      setShoesPosition((prevState) => ({
+        x: prevState.x + (Math.random() - 0.5) * 4, // Random horizontal movement
+        y: prevState.y + (Math.random() - 0.5) * 4, // Random vertical movement
+      }));
+    }, 100); // Adjust movement interval as needed
+    return () => clearInterval(moveInterval);
+  }, []);
 
   const handleUploadClick = () => {
     // Redirect to the upload page
@@ -34,9 +60,7 @@ const Home = () => {
   return (
     <div className="homeContainer">
       {/* Enlarged rectangle */}
-      <div
-        className="enlargedRectangle"
-      >
+      <div className="enlargedRectangle">
         {/* Color-changing background */}
         <div className="color-changing-background"></div>
 
@@ -45,6 +69,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${bottoms})`, // Set image as background
+            left: `${bottomsPosition.x}px`, // Position bottoms element
+            top: `${bottomsPosition.y}px`, // Position bottoms element
+            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
@@ -53,6 +80,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${shirt})`, // Set image as background
+            left: `${shirtPosition.x}px`, // Position shirt element
+            top: `${shirtPosition.y}px`, // Position shirt element
+            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
@@ -61,6 +91,9 @@ const Home = () => {
           className="background-image"
           style={{
             backgroundImage: `url(${shoes})`, // Set image as background
+            left: `${shoesPosition.x}px`, // Position shoes element
+            top: `${shoesPosition.y}px`, // Position shoes element
+            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
