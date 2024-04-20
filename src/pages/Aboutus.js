@@ -1,5 +1,7 @@
 import React from 'react';
 import './Aboutus.css';
+import UmerPhoto from "../img/TeamHeadshots/UmerPhoto.jpg";
+
 
 
 const AboutUs = () => {
@@ -14,7 +16,11 @@ const AboutUs = () => {
       <p>At PicMyFit, our mission is to simplify your daily wardrobe decisions. Whether it's a chilly, rainy day or a warm, sunny one, you can count on us to take the guesswork out of what to wear. No more wardrobe worries—just stylish solutions tailored to any weather.</p>
     </div>
     <div className = "TeamMembers">
+      <h1>Meet the team!</h1>
    </div>
+   <div className="team-member-photo">
+      <img src={UmerPhoto} alt="Umer" className="team-member-photo" />
+      </div>
     </>
   );
 };

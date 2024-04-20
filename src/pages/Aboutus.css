@@ -35,7 +35,21 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(50px);
+    z-index: 2;
   }
+  .TeamMembers h1{
+    color: #333;
+  }
+  .team-member-photo {
+    width: 200px; /* or any size */
+    height: 200px;
+margin:0 auto;
+    border-radius: 50%; /* circular images */
+    margin: 10px;
+    z-index: 1;
+  }
+  
+  
   
 
 
