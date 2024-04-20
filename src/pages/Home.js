@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'; // Import your existing CSS file
 import camera from "../img/camera.png";
-import bottoms from "../HPimg/1bottoms.png"; // Import the bottoms image
-import shirt from "../HPimg/1shirt.png"; // Import the shirt image
-import shoes from "../HPimg/1shoes.png"; // Import the shoes image
+import bottoms1 from "../HPimg/1bottoms.png"; // Import the 1 bottoms image
+import shirt1 from "../HPimg/1shirt.png"; // Import the 1 shirt image
+import shoes1 from "../HPimg/1shoes.png"; // Import the 1 shoes image
+import bottoms2 from "../HPimg/2bottoms.png"; // Import the 2 bottoms image
+import shirt2 from "../HPimg/2shirt.png"; // Import the 2 shirt image
+import shoes2 from "../HPimg/2shoes.png"; // Import the 2 shoes image
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraIconVisible, setCameraIconVisible] = useState(false);
+  const [currentSet, setCurrentSet] = useState(1);
+
+  const handleNextSetClick = () => {
+    setCurrentSet(currentSet === 1 ? 2 : 1);
+  };
+
   const [shirtPosition, setShirtPosition] = useState({ x: 0, y: 0 });
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
@@ -62,13 +71,13 @@ const Home = () => {
       {/* Enlarged rectangle */}
       <div className="enlargedRectangle">
         {/* Color-changing background */}
-        <div className="color-changing-background"></div>
+        <div className={`color-changing-background set${currentSet}`}></div>
 
         {/* Bottoms */}
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${bottoms})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`, // Set image as background
             left: `${bottomsPosition.x}px`, // Position bottoms element
             top: `${bottomsPosition.y}px`, // Position bottoms element
             transition: 'left 1s ease, top 1s ease', // Smoother transition
@@ -79,7 +88,7 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${shirt})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`, // Set image as background
             left: `${shirtPosition.x}px`, // Position shirt element
             top: `${shirtPosition.y}px`, // Position shirt element
             transition: 'left 1s ease, top 1s ease', // Smoother transition
@@ -90,7 +99,7 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${shoes})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`, // Set image as background
             left: `${shoesPosition.x}px`, // Position shoes element
             top: `${shoesPosition.y}px`, // Position shoes element
             transition: 'left 1s ease, top 1s ease', // Smoother transition
@@ -118,6 +127,11 @@ const Home = () => {
             />
           </div>
         )}
+      </div>
+
+      {/* Next Set button */}
+      <div className="next-set-button" onClick={handleNextSetClick}>
+        <span>&#10132;</span> {/* Right arrow icon */}
       </div>
     </div>
   );
