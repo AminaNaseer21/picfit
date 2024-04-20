@@ -15,17 +15,6 @@
   overflow: hidden; /* Hide overflowing content */
 }
 
-/* Background images */
-.background-image {
-  position: absolute; /* Position the background images absolutely */
-  top: 0; /* Align to the top of the parent */
-  left: 0; /* Align to the left of the parent */
-  width: 100%; /* Set width to fill the parent */
-  height: 100%; /* Set height to fill the parent */
-  background-size: cover; /* Ensure the background images cover the entire div */
-  background-position: center; /* Center the background images */
-  animation: moveLeftRight 3s ease-in-out infinite alternate; /* Animation for moving left and right */
-}
 
 /* Animation for moving left and right */
 @keyframes moveLeftRight {
@@ -37,6 +26,7 @@
   }
 }
 
+/* CSS Changes */
 /* Color-changing background */
 .color-changing-background {
   position: absolute;
@@ -45,8 +35,30 @@
   width: 100%;
   height: 100%;
   z-index: -1; /* Ensure it's behind other content */
-  animation: changeBackground 10s infinite; /* Change background color every 10 seconds */
+  transition: background-color 1s ease; /* Smooth transition for background color */
 }
+
+/* Gradient transition for sets */
+.set1 {
+  background: linear-gradient(to right, #000033, #660033); /* Dark blue and red gradient */
+}
+
+.set2 {
+  background: linear-gradient(to right, #ff99cc, #66ccff); /* Pink and light blue gradient */
+}
+
+/* Background images */
+.background-image {
+  position: absolute; /* Position the background images absolutely */
+  top: 0; /* Align to the top of the parent */
+  left: 0; /* Align to the left of the parent */
+  width: 50%; /* Set width to fill the parent */
+  height: 50%; /* Set height to fill the parent */
+  background-size: cover; /* Ensure the background images cover the entire div */
+  background-position: center; /* Center the background images */
+  transition: transform 1s ease; /* Smooth transition for image size */
+}
+
 
 @keyframes changeBackground {
   0% { background-color: rgba(0, 0, 0, 0.5); } /* Initial background color */
@@ -112,4 +124,5 @@
   to {
     opacity: 1;
   }
+  
 }
