@@ -19,8 +19,6 @@ const AboutUs = () => {
 
     <div className = "TeamMembers">
       <h1>Meet the team!</h1>
-      </div>
-
       <div className = "umer-container">
       <div className="umer-photo">
       <img src={UmerPhoto} alt="umer" className="umer-photo" />
@@ -49,6 +47,13 @@ const AboutUs = () => {
     <h1>Matthew Lee</h1>
     </div>
     </div>
+
+    <div className = "Amina-container">
+      <h1>Amina Naseer</h1>
+    </div>
+      </div>
+
+     
    
     </>
   );
