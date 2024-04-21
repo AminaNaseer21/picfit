@@ -6,7 +6,14 @@ import shirt1 from "../HPimg/1shirt.png"; // Import the 1 shirt image
 import shoes1 from "../HPimg/1shoes.png"; // Import the 1 shoes image
 import bottoms2 from "../HPimg/2bottoms.png"; // Import the 2 bottoms image
 import shirt2 from "../HPimg/2shirt.png"; // Import the 2 shirt image
-import shoes2 from "../HPimg/2shoes.png"; // Import the 2 shoes image
+import shoes2 from "../HPimg/2shoes.png";
+import shoes3 from "../HPimg/3shoes.png";
+import bottoms3 from "../HPimg/3bottoms.png"; // Import the 3 bottoms image
+import shirt3 from "../HPimg/3shirt.png"; // Import the 3 shirt image
+import bottoms4 from "../HPimg/4bottoms.png"; // Import the 4 bottoms image
+import shirt4 from "../HPimg/4shirt.png"; // Import the 4 shirt image
+import bottoms5 from "../HPimg/5bottoms.png"; // Import the 5 bottoms image
+import shoes5 from "../HPimg/5shoes.png"; // Import the 5 shirt image
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
@@ -36,19 +43,19 @@ const Home = () => {
     const moveInterval = setInterval(() => {
       // Define a movement range
       const movementRange = 5; // Adjust this value as needed
-  
+
       // Move shirt
       setShirtPosition((prevState) => ({
         x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
         y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-  
+
       // Move bottoms
       setBottomsPosition((prevState) => ({
         x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
         y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-  
+
       // Move shoes
       setShoesPosition((prevState) => ({
         x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement within the range
@@ -57,7 +64,6 @@ const Home = () => {
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
   }, []);
-  
 
   const handleUploadClick = () => {
     // Redirect to the upload page
