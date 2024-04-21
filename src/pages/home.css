@@ -75,7 +75,7 @@
   transition: background-color 1s ease; /* Smooth transition for background color */
 }
 
-/* Gra/* Gradient transition for set1 */
+/* Gradient transition for set1 */
 .set1 {
   background: linear-gradient(214deg, #d21c1c, #3565ff, #a55733, #5fc6d7); /* Animated gradient background */
   background-size: 800% 800%; /* Background size for animation */
@@ -97,23 +97,26 @@
 
 /* Gradient transition for set2 */
 .set2 {
-  background: linear-gradient(to right, #ff99cc, #66ccff); /* Pink and light blue gradient */
+  background: linear-gradient(#ff99cc, #66ccff); /* Pink and light blue gradient */
   background-size: 800% 800%; /* Background size for animation */
-  animation: gradientAnimation2 5s ease infinite; /* Apply gradient animation */
+  animation: gradientAnimation2 14s ease infinite; /* Apply gradient animation */
 }
 
 /* Gradient animation for set2 */
 @keyframes gradientAnimation2 {
   0% {
-    background-position: 0% 50%; /* Start position */
+    background-position: 150% 50%; /* Start position */
   }
   50% {
-    background-position: 200% 200%; /* Middle position */
+    background-position: 50% 50%; /* Middle position */
   }
   100% {
-    background-position: 0% 50%; /* End position */
+    background-position: -50% 50%; /* End position */
   }
 }
+
+
+
 
 
 /* Upload popup */
