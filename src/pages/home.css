@@ -22,6 +22,7 @@
   margin-left: 50px; /* Adjust horizontally towards the left */
   margin-top: 10px; /* Adjust vertically upwards */
   opacity: 1; /* Initially visible */
+  filter: drop-shadow(12px 12px 25px rgba(0,.1,.2,.8)); /* Apply drop shadow with darker color */
 }
 
 /* Animation for moving side to side */
