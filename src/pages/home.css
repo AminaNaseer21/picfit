@@ -116,65 +116,61 @@
   }
 }
 
-/* Gradient transition for set3 */
 .set3 {
-  background: linear-gradient(#66ff66, #339966); /* Green gradient */
-  background-size: 800% 800%; /* Background size for animation */
-  animation: gradientAnimation3 14s ease infinite; /* Apply gradient animation */
+  background: linear-gradient(270deg, #32ca22, #ae7737, #228a4a);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
 }
 
-/* Gradient animation for set3 */
-@keyframes gradientAnimation3 {
+@keyframes AnimationName {
   0% {
-    background-position: 100% 50%; /* Start position */
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 0% 50%; /* Middle position */
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 100% 50%; /* End position */
+    background-position: 0% 50%;
   }
 }
 
-/* Gradient transition for set4 */
+
 .set4 {
-  background: linear-gradient(#00ccff, #0099ff); /* Blue gradient */
-  background-size: 800% 800%; /* Background size for animation */
-  animation: gradientAnimation4 14s ease infinite; /* Apply gradient animation */
+  background: linear-gradient(270deg, #e6cd7e, #ae7737, #b5a871);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
 }
 
-/* Gradient animation for set4 */
-@keyframes gradientAnimation4 {
+@keyframes AnimationName {
   0% {
-    background-position: 200% 50%; /* Start position */
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 0% 50%; /* Middle position */
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 200% 50%; /* End position */
+    background-position: 0% 50%;
   }
 }
 
-/* Gradient transition for set5 */
 .set5 {
-  background: linear-gradient(#9933ff, #ff66ff); /* Purple gradient */
-  background-size: 800% 800%; /* Background size for animation */
-  animation: gradientAnimation5 14s ease infinite; /* Apply gradient animation */
+  background: linear-gradient(270deg, #e6cd7e, #ce6a53, #e8dea9);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
 }
 
-/* Gradient animation for set5 */
-@keyframes gradientAnimation5 {
+@keyframes AnimationName {
   0% {
-    background-position: 300% 50%; /* Start position */
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 0% 50%; /* Middle position */
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 300% 50%; /* End position */
+    background-position: 0% 50%;
   }
 }
+
 
 /* Upload popup */
 .upload-popup {
