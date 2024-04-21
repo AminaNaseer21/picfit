@@ -61,6 +61,12 @@
     transform:translateY(-150px);
     transform:translateX(-250px);
   }
+  .umer-container h1 {
+    color: #333;
+    font-size:15px;
+    transform:translateX(-250px);
+  }
+
 
   .Rogelio-container {
     max-width: 200px; /* Limiting the container size */
@@ -81,6 +87,11 @@
     
     transform:translateX(-125px);
     margin:0 auto;
+  }
+  .Rogelio-container h1 {
+    color: #333;
+    font-size: 15px;
+    transform:translateX(-150px);
   }
 
   .Amina-container {
@@ -103,7 +114,9 @@
     transform:translateX(-125px);
     margin:0 auto;
   }
-
+  .Amina-container h1 {
+    color: #333;
+  }
   .Ramiro-container {
     max-width: 175px; /* Limiting the container size */
     max-height: 200px;
@@ -124,6 +137,11 @@
     transform:translateY(-95px);
     margin:0 auto;
   }
+  .Ramiro-container h1 {
+    color: #333;
+    font-size:15px;
+    transform:translateY(-100px);
+  }
 
   .Matthew-container {
     max-width: 240px; /* Limiting the container size */
@@ -131,9 +149,9 @@
     display: flex; /* Using flex to center the image */
     justify-content: center;
     align-items: center;
-    transform: translateX(720px); /* Move horizontally by 40px */
+    transform:translateX(250px);
     z-index: 2;
-   
+    margin:0 auto;
   }
   
   .Matthew-photo {
@@ -143,6 +161,11 @@
     z-index: 3;
     transform: translateY(-470px); /* Adjust position as needed */
     margin: 0 auto;
+  }
+  .Matthew-container h1 {
+    color: #333;
+    font-size:15px;
+    transform:translateY(-470px);
   }
   
   

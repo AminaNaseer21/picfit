@@ -24,6 +24,7 @@ const AboutUs = () => {
       <div className = "umer-container">
       <div className="umer-photo">
       <img src={UmerPhoto} alt="umer" className="umer-photo" />
+      <h1>Umer Seliya</h1>
       
       </div>
    </div>
@@ -31,18 +32,21 @@ const AboutUs = () => {
     <div className = "Rogelio-container">
       <div className = "Rogelio-photo">
     <img src={RogelioHeadPic} alt="Rogelio" className="Rogelio-photo" />
+    <h1>Rogelio Hernandez</h1>
     </div>
     </div>
 
     <div className = "Ramiro-container">
       <div className = "Ramiro-photo">
     <img src={RamiroPic} alt="Ramiro" className="Ramiro-photo" />
+    <h1>Ramiro Ramirez</h1>
     </div>
     </div>
 
     <div className = "Matthew-container">
       <div className = "Matthew-photo">
     <img src={MatthewPic} alt="Matthew" className="Matthew-photo" />
+    <h1>Matthew Lee</h1>
     </div>
     </div>
    
