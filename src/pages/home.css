@@ -327,20 +327,39 @@
   animation: bounce 2s ease 5s 5 normal forwards; /* Apply bounce animation to close button */
 }
 
-
+/* Upload popup */
 .upload-popup {
-  position: fixed;
+  position: absolute;
   top: 50%;
-  right: -65px; /* Adjust the right position to be on the right side */
+  right: -65px; /* Adjust the right position to be on the right side of the box */
   transform: translate(100%, -50%) scale(0); /* Start as scaled down */
-  background-color: white;
   padding: 10px; /* Adjust the padding */
-  border-radius: 5px; /* Adjust the border-radius */
+  border-radius: 20px; /* Adjust the border-radius to make it look like a bubble */
+  background-color: #2E3440; /* Transparent gray background */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   overflow: hidden; /* Hide overflowing content */
   transition: transform 0.5s ease; /* Smooth transition for scaling */
   max-width: 200px; /* Set maximum width */
+}
+
+/* Tail for the conversation bubble */
+.upload-popup::before {
+  content: '';
+  position: absolute;
+  top: 10px; /* Adjust the top position of the tail */
+  right: 100%; /* Align the tail to the right side */
+  border-style: solid;
+  border-width: 10px 0 10px 10px; /* Define the shape of the tail */
+  border-color: transparent rgba(46, 52, 64, 0.7) transparent transparent; /* Use the same background color as the popup */
+}
+
+.upload-popup.show {
+  animation: growAndBounce 2s ease forwards, bounce 5s ease 2s infinite; /* Apply grow and bounce animation */
+}
+
+.upload-popup.show .close-button {
+  animation: bounce 5s ease 2s infinite; /* Apply bounce animation to close button */
 }
 
 .close-button {
@@ -351,7 +370,7 @@
   background: transparent;
   border: none;
   font-size: 16px; /* Adjust font size */
-  color: #333;
+  color: white; /* White text */
 }
 
 .upload-content {
@@ -361,7 +380,13 @@
 .upload-content h2 {
   margin: 0;
   cursor: pointer;
-  color: #333;
+  color: white; /* Default color */
+  font-weight: bold; /* Set default font weight to normal */
+}
+
+.upload-content h2:hover {
+
+  color: rgb(218, 240, 228); /* Default color */
 }
 
 .camera-icon-container {
