@@ -32,20 +32,19 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg); /* Adjust rotation */
+  transform: translate(-50%, -50%) rotate(90deg); /* Rotate arrows */
   cursor: pointer;
 }
 
 .arrow span {
   display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 15px; /* Adjust arrow size */
-  border-color: transparent transparent transparent white; /* Adjust arrow color */
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
   transform: rotate(45deg);
   margin: -10px;
-  animation: animate 2s infinite; /* Apply animation */
+  animation: animate 2s infinite;
 }
 
 .arrow span:nth-child(2) {
@@ -59,16 +58,19 @@
 @keyframes animate {
   0% {
       opacity: 0;
-      transform: rotate(45deg) translate(-20px, -20px);
+      transform: rotate(45deg) translate(-20px, -20px); /* Adjust initial position */
   }
   50% {
       opacity: 1;
   }
   100% {
       opacity: 0;
-      transform: rotate(45deg) translate(20px, 20px);
+      transform: rotate(45deg) translate(20px, 20px); /* Adjust final position */
   }
 }
+
+
+
 
 /* Background images */
 .background-image {
