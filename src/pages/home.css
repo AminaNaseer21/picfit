@@ -20,7 +20,7 @@
 .arrow-container {
   position: absolute;
   top: calc(50% - 10px); /* Adjust vertical position */
-  left: calc(100% - 20px); /* Adjust horizontal position */
+  left: calc(100% - 65px); /* Adjust horizontal position */
   transform: translateY(-50%);
   z-index: 999; /* Ensure it's above other content */
 }
@@ -32,7 +32,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg); /* Rotate arrows */
+  transform: translate(100%, -100%) rotate(270deg); /* Rotate arrows */
   cursor: pointer;
 }
 
