@@ -4,17 +4,48 @@
 .homeContainer {
   position: relative;
 }
-
 .enlargedRectangle {
-  position: relative; /* Maintain position */
-  width: 900px; /* Maintain width */
-  height: 440px; /* Maintain height */
-  margin: auto; /* Center the rectangle */
-  margin-top: 50px; /* Maintain top margin */
-  overflow: hidden; /* Hide overflowing content */
-  border: 2px dashed black; /* Add a dashed border */
-  border-image: repeating-linear-gradient(45deg, #2E3440, #2E3440 10px, lightgrey 10px, lightgrey 20px) 8; /* Apply border animation */
+  position: relative;
+  width: 900px;
+  height: 440px;
+  margin: auto;
+  margin-top: 50px;
+  overflow: hidden;
+  border: 8px solid transparent; /* Start with a thicker transparent solid border */
+  border-radius: 10px; /* Add border radius to make edges slightly rounded */
+  animation: drawBorder 4s forwards; /* Apply the border animation */
 }
+
+
+/* Keyframes for border animation */
+@keyframes drawBorder {
+  0% {
+    border-top-color: transparent; /* Start with transparent top border */
+    border-left-color: transparent; /* Start with transparent left border */
+    border-right-color: transparent; /* Start with transparent right border */
+    border-bottom-color: transparent; /* Start with transparent bottom border */
+  }
+  20% {
+    border-top-color: #5486ec; /* Draw top border */
+  }
+  40% {
+    border-left-color: #2b4882;/* Draw left border */
+  }
+  60% {
+    border-right-color: #2b3750; /* Draw right border */
+  }
+  80% {
+    border-bottom-color:#262e3f; /* Draw bottom border */
+  }
+  100% {
+    border-color: #2E3440; /* Fully draw all borders */
+  }
+}
+
+
+
+
+
 
 
 /* Arrow */
