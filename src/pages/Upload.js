@@ -111,7 +111,23 @@ export default function Upload() {
                         - **Outerwear**:
                             - Hoodies: Zip-Up Hoodies, Pullover Hoodies, Graphic Hoodies
                             - Sweaters: Pullover Sweaters, Cardigan Sweaters
-                    4. **Color**: Identify the primary color of the clothing item. If there are multiple prominent colors, list up to three.
+                    4. **Color**: Identify the primary color of the clothing item. Choose from:
+                        - Red
+                        - Lime
+                        - Blue
+                        - Yellow
+                        - Cyan
+                        - Magenta
+                        - White
+                        - Black
+                        - Maroon
+                        - Olive
+                        - Green
+                        - Purple
+                        - Teal
+                        - Navy
+                        - Gray
+                        - Silver
                     5. **Weather Range**: Suggest a temperature range with two numbers (in degrees Celsius or Fahrenheit, based on your preference) that the item is most suitable for. Consider factors like material thickness, coverage, and intended use (e.g., "40°F - 68°F").
                     Ensure that the analysis is concise and directly relevant to the visible features of the clothing item in the uploaded image. Avoid speculation or assumptions not supported by visible evidence. The output should be printing with one answer in each line with only the answer like the example below that has the name in the first line, category in second, subcategory in third, the color in forth, the low end temp in fifth, and the high end temp in sixth. Ensure that the output contains no other words or information other than the exact output:
                     OUTPUT:
