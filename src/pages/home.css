@@ -5,16 +5,17 @@
   position: relative;
 }
 
-/* Enlarged rectangle */
 .enlargedRectangle {
-  position: relative; /* Change position to relative */
-  width: 900px; /* Adjust width as needed */
-  height: 440px; /* Adjust height as needed */
+  position: relative; /* Maintain position */
+  width: 900px; /* Maintain width */
+  height: 440px; /* Maintain height */
   margin: auto; /* Center the rectangle */
-  margin-top: 50px; /* Adjust top margin as needed */
-  border: 2px dashed black; /* Add a dashed border */
+  margin-top: 50px; /* Maintain top margin */
   overflow: hidden; /* Hide overflowing content */
+  border: 2px dashed black; /* Add a dashed border */
+  border-image: repeating-linear-gradient(45deg, #2E3440, #2E3440 10px, lightgrey 10px, lightgrey 20px) 8; /* Apply border animation */
 }
+
 
 /* Arrow */
 .arrow-container {
