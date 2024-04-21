@@ -17,7 +17,6 @@ import bottoms5 from "../HPimg/5bottoms.png"; // Import the 5 bottoms image
 import shirt5 from "../HPimg/5shirt.png"; // Import the 5 shirt image
 import shoes5 from "../HPimg/5shoes.png"; // Import the 5 shoes image
 
-
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraIconVisible, setCameraIconVisible] = useState(false);
@@ -154,6 +153,15 @@ const Home = () => {
           }}
         ></div>
 
+        {/* Animated arrow */}
+        <div className="arrow-container">
+          <div className="arrow" onClick={handleNextSetClick}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         {/* Rest of your code remains the same... */}
       </div>
 
@@ -180,11 +188,6 @@ const Home = () => {
           />
         </div>
       )}
-
-      {/* Next Set button */}
-      <div className="next-set-button" onClick={handleNextSetClick}>
-        <span>&#10132;</span> {/* Right arrow icon */}
-      </div>
     </div>
   );
 };
