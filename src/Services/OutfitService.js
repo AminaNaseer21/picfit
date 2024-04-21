@@ -1,6 +1,6 @@
 // OutfitService.js
 import { OpenAI } from 'openai';
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "./firebase";
 
@@ -28,17 +28,45 @@ export const getAllClothingItems = async () => {
   }
 };
 
-export const generateOutfits = async (clothingItems) => {
+export const getUserPreferences = async () => {
+  const auth = getAuth(firebaseApp);
+  const firestore = getFirestore(firebaseApp);
+  const user = auth.currentUser;
+
+  if (!user) throw new Error("No authenticated user found");
+
+  try {
+    const userDocRef = doc(firestore, 'users', user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+      const data = userDoc.data();
+      return {
+        dislikedColors: data.dislikedColors || [],
+        dislikedStyles: data.dislikedStyles || [],
+      };
+    } else {
+      return { dislikedColors: [], dislikedStyles: [] };
+    }
+  } catch (error) {
+    console.error("Error fetching user preferences:", error);
+    throw error;
+  }
+};
+
+export const generateOutfits = async (clothingItems, temperature, userPreferences) => {
   const clothingItemsStrings = clothingItems.map(item => `${item.shortName}`).join(', ');
+  const temperatureStatement = `The current temperature is ${temperature}°F. `;
+  const preferencesContext = `dont use the colors: ${userPreferences.dislikedColors.join(', ')} and avoid styles: ${userPreferences.dislikedStyles.join(', ')}.`;
 
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-0125",
       messages: [
-        { "role": "system", "content": "You are a helpful assistant." },
+        { "role": "system", "content": "You are an AI fashion consultant for a user that has color and style prefrences. You are aware of current fashion trends, color coordination, and other information to create great outfits." },
         {
           "role": "user",
-          "content": `I have these items: ${clothingItemsStrings}. please suggest three stylish outfits that showcase good color coordination and contemporary fashion sense. Consider creating versatile looks that could be worn for various daily activities, focusing on the harmonious blending of colors and modern styling. Please list each outfit on a new line with items separated by commas and no item numbering. For example:\nOutfit: Blue Polo Shirt, Light Blue Denim Jeans\nOutfit: Black Denim Jacket, Biker Denim Jeans`
+          "content": `I have these clothing items: ${clothingItemsStrings}. ${temperatureStatement} Please suggest three stylish outfits that are suitable for this weather and ${preferencesContext}  Outfits should consist of a 1 top, 1 botton, and if wanted 1 layering item. Please list each outfit on a new line with items separated by commas and no item numbering. For example:\nOutfit: Blue Polo Shirt, Light Blue Denim Jeans\nOutfit: Black Denim Jacket, Biker Denim Jeans`
         }
       ],
       max_tokens: 300,

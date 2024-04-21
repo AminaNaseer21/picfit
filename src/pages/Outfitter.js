@@ -1,7 +1,8 @@
 //Outfitter.js
 import React, { useState } from 'react';
-import { getAllClothingItems, generateOutfits } from '../Services/OutfitService';
+import { getAllClothingItems, generateOutfits, getUserPreferences } from '../Services/OutfitService';
 import WeatherApp from './WeatherApp';
+import { useNavigate } from 'react-router-dom';
 import './Outfitter.css';
 import tempPlaceholder from '../img/items/1.png';
 
@@ -12,7 +13,6 @@ const Outfitter = () => {
   const handleTemperatureChange = (event) => {
     setTemperature(event.target.value);
   };
-
 
   const fetchItemDetails = async (outfitNames) => {
     const allItems = await getAllClothingItems();
@@ -34,8 +34,11 @@ const Outfitter = () => {
     try {
       const clothingItems = await getAllClothingItems(); // Debugging log here could help
       console.log('All clothing items:', clothingItems);
+
+      const userPreferences = await getUserPreferences(); // Retrieve user preferences
+    console.log('User preferences:', userPreferences);
   
-      const outfitNames = await generateOutfits(clothingItems);
+      const outfitNames = await generateOutfits(clothingItems, temperature, userPreferences);
       console.log('Generated outfit names:', outfitNames);
   
       const detailedOutfits = await fetchItemDetails(outfitNames);
@@ -46,6 +49,11 @@ const Outfitter = () => {
       console.error("Error updating outfits:", error);
       alert("Failed to update outfits. Please check the console for more information.");
     }
+  };
+
+  let navigate = useNavigate();
+  const handleProfileClick = () => {
+    navigate('/profile');
   };
 
   return (
@@ -59,9 +67,9 @@ const Outfitter = () => {
           <h3>Current Weather</h3>
           <WeatherApp externalTemperature={temperature} /> {/* Pass temperature as a prop */}
           <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
-          <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
         </div>
-        <button className='outfitter-buttons' >Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={handleProfileClick}>Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={updateOutfits}>Generate Outfits</button>
       </aside>
 
       <section className="content">
