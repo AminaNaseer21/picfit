@@ -6,10 +6,22 @@ import './Profile.css';
 import profilePlaceholder from '../img/profilePlaceholder.png';
 
 const commonColors = [
-  '#FF0000', '#00FF00', '#0000FF', '#FFFF00',
-  '#00FFFF', '#FF00FF', '#FFFFFF', '#000000',
-  '#800000', '#808000', '#008000', '#800080',
-  '#008080', '#000080', '#808080', '#C0C0C0',
+  'Red',         // #FF0000
+  'Lime',        // #00FF00
+  'Blue',        // #0000FF
+  'Yellow',      // #FFFF00
+  'Cyan',        // #00FFFF
+  'Magenta',     // #FF00FF
+  'White',       // #FFFFFF
+  'Black',       // #000000
+  'Maroon',      // #800000
+  'Olive',       // #808000
+  'Green',       // #008000
+  'Purple',      // #800080
+  'Teal',        // #008080
+  'Navy',        // #000080
+  'Gray',        // #808080
+  'Silver'       // #C0C0C0
 ];
 
 function ProfilePage() {
