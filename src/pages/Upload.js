@@ -165,6 +165,7 @@ export default function Upload() {
                                     tempRangeHigh,
                                     wearCount: 0,
                                     ItemNotes: "",
+                                    favorite: 0,
                                 });
                     
                             } catch (error) {
