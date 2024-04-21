@@ -331,7 +331,7 @@
 .upload-popup {
   position: fixed;
   top: 50%;
-  right: 10px; /* Adjust the right position to be on the right side */
+  right: -65px; /* Adjust the right position to be on the right side */
   transform: translate(100%, -50%) scale(0); /* Start as scaled down */
   background-color: white;
   padding: 10px; /* Adjust the padding */
