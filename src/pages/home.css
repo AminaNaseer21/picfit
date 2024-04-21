@@ -60,14 +60,11 @@
   animation: moveUpDown 3s infinite; /* Apply up and down movement animation */
 }
 
-.background-image:nth-child(3),
-.background-image:nth-child(4),
-.background-image:nth-child(5) {
+.background-image:nth-child(3) {
   animation: moveSideToSide 5s infinite; /* Apply side to side movement animation */
 }
 
 /* CSS Changes */
-
 /* Color-changing background */
 .color-changing-background {
   position: absolute;
@@ -121,7 +118,7 @@
 
 /* Gradient transition for set3 */
 .set3 {
-  background: linear-gradient(#00b894, #00cec9); /* Green and light green gradient */
+  background: linear-gradient(#66ff66, #339966); /* Green gradient */
   background-size: 800% 800%; /* Background size for animation */
   animation: gradientAnimation3 14s ease infinite; /* Apply gradient animation */
 }
@@ -129,19 +126,19 @@
 /* Gradient animation for set3 */
 @keyframes gradientAnimation3 {
   0% {
-    background-position: 150% 50%; /* Start position */
+    background-position: 100% 50%; /* Start position */
   }
   50% {
-    background-position: 50% 50%; /* Middle position */
+    background-position: 0% 50%; /* Middle position */
   }
   100% {
-    background-position: -50% 50%; /* End position */
+    background-position: 100% 50%; /* End position */
   }
 }
 
 /* Gradient transition for set4 */
 .set4 {
-  background: linear-gradient(#0984e3, #6c5ce7); /* Blue and purple gradient */
+  background: linear-gradient(#00ccff, #0099ff); /* Blue gradient */
   background-size: 800% 800%; /* Background size for animation */
   animation: gradientAnimation4 14s ease infinite; /* Apply gradient animation */
 }
@@ -149,19 +146,19 @@
 /* Gradient animation for set4 */
 @keyframes gradientAnimation4 {
   0% {
-    background-position: 150% 50%; /* Start position */
+    background-position: 200% 50%; /* Start position */
   }
   50% {
-    background-position: 50% 50%; /* Middle position */
+    background-position: 0% 50%; /* Middle position */
   }
   100% {
-    background-position: -50% 50%; /* End position */
+    background-position: 200% 50%; /* End position */
   }
 }
 
 /* Gradient transition for set5 */
 .set5 {
-  background: linear-gradient(#fdcb6e, #e17055); /* Yellow and orange gradient */
+  background: linear-gradient(#9933ff, #ff66ff); /* Purple gradient */
   background-size: 800% 800%; /* Background size for animation */
   animation: gradientAnimation5 14s ease infinite; /* Apply gradient animation */
 }
@@ -169,13 +166,13 @@
 /* Gradient animation for set5 */
 @keyframes gradientAnimation5 {
   0% {
-    background-position: 150% 50%; /* Start position */
+    background-position: 300% 50%; /* Start position */
   }
   50% {
-    background-position: 50% 50%; /* Middle position */
+    background-position: 0% 50%; /* Middle position */
   }
   100% {
-    background-position: -50% 50%; /* End position */
+    background-position: 300% 50%; /* End position */
   }
 }
 
