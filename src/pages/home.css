@@ -290,3 +290,88 @@
     opacity: 1;
   }
 }
+@keyframes growAndBounce {
+  0% {
+    transform: translate(100%, -50%) scale(0);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -55%) scale(1.05);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  75% {
+    transform: translate(-50%, -55%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.upload-popup.show {
+  animation: growAndBounce 2s ease forwards, bounce 2s ease 2s 5 normal forwards; /* Apply grow and bounce animation */
+}
+
+.upload-popup.show .close-button {
+  animation: bounce 2s ease 5s 5 normal forwards; /* Apply bounce animation to close button */
+}
+
+
+.upload-popup {
+  position: fixed;
+  top: 50%;
+  right: 10px; /* Adjust the right position to be on the right side */
+  transform: translate(100%, -50%) scale(0); /* Start as scaled down */
+  background-color: white;
+  padding: 10px; /* Adjust the padding */
+  border-radius: 5px; /* Adjust the border-radius */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.5s ease; /* Smooth transition for scaling */
+  max-width: 200px; /* Set maximum width */
+}
+
+.close-button {
+  position: absolute;
+  top: 5px; /* Adjust the top position */
+  right: 5px; /* Adjust the right position */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16px; /* Adjust font size */
+  color: #333;
+}
+
+.upload-content {
+  text-align: center;
+}
+
+.upload-content h2 {
+  margin: 0;
+  cursor: pointer;
+  color: #333;
+}
+
+.camera-icon-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.camera-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}

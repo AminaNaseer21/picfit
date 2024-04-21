@@ -22,6 +22,7 @@ const Home = () => {
   const [cameraIconVisible, setCameraIconVisible] = useState(false);
   const [currentSet, setCurrentSet] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [popupClass, setPopupClass] = useState('');
   const [shirtPosition, setShirtPosition] = useState({ x: 0, y: 0 });
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
@@ -37,6 +38,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setUploadPopupVisible(true);
+      setPopupClass('show'); // Add 'show' class to trigger animation
     }, 2000); // Show upload popup after 2 seconds
     return () => clearTimeout(timer);
   }, []); // Empty dependency array ensures this effect runs only once after initial render
@@ -73,8 +75,11 @@ const Home = () => {
   };
 
   const handleCloseButtonClick = () => {
-    setUploadPopupVisible(false);
-    setCameraIconVisible(true);
+    setPopupClass(''); // Remove 'show' class to trigger closing animation
+    setTimeout(() => {
+      setUploadPopupVisible(false);
+      setCameraIconVisible(true);
+    }, 500); // Adjust timing to match CSS transition duration
   };
 
   const handleCameraIconClick = () => {
@@ -166,16 +171,14 @@ const Home = () => {
       </div>
 
       {/* Upload popup */}
-      {uploadPopupVisible && (
-        <div className="upload-popup">
-          <button className="close-button" onClick={handleCloseButtonClick}>
-            X
-          </button>
-          <div className="upload-content">
-            <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
-          </div>
+      <div className={`upload-popup ${popupClass}`}>
+        <button className="close-button" onClick={handleCloseButtonClick}>
+          X
+        </button>
+        <div className="upload-content">
+          <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
         </div>
-      )}
+      </div>
 
       {/* Camera icon */}
       {cameraIconVisible && (
