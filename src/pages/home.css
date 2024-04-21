@@ -28,20 +28,24 @@
 .arrow-container.animate .arrow span {
   animation: animate 2s infinite; /* Apply animation when transitioning */
 }
-
 .arrow {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg); /* Adjust rotation */
   cursor: pointer;
 }
 
 .arrow span {
   display: block;
-  width: 20px; /* Adjust arrow size */
-  height: 20px; /* Adjust arrow size */
-  border-bottom: 2px solid white; /* Change arrow direction to point to the right */
-  border-right: 2px solid white; /* Change arrow direction to point to the right */
-  transform: rotate(-45deg) scale(0.7); /* Adjust arrow rotation and scale */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 15px; /* Adjust arrow size */
+  border-color: transparent transparent transparent white; /* Adjust arrow color */
+  transform: rotate(45deg);
   margin: -10px;
+  animation: animate 2s infinite; /* Apply animation */
 }
 
 .arrow span:nth-child(2) {
@@ -52,9 +56,18 @@
   animation-delay: -0.4s;
 }
 
-/* Remove arrow functionality from outside the box */
-.arrow-container-outside {
-  display: none;
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(20px, 20px);
+  }
 }
 
 /* Background images */
