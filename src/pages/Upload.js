@@ -47,15 +47,17 @@ export default function Upload() {
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
                     canvas.width = img.width;
-                    canvas.height = img.height + 50;
+                    canvas.height = img.height;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, img.width, img.height);
-
-                    const rainbowGradient = ctx.createLinearGradient(0, img.height, 0, img.height + 50);
-                    rainbowGradient.addColorStop(0, 'red');
-                    rainbowGradient.addColorStop(1, 'red');
-                    ctx.fillStyle = rainbowGradient;
-                    ctx.fillRect(0, img.height, img.width, 50);
+    
+                    // Add watermark text at the bottom right of the image
+                    const text = "DEVTEST"; // Change the text as needed
+                    ctx.font = "100px Arial"; // You can change the font size and type
+                    ctx.fillStyle = "rgba(0, 0, 0, 1)"; // Semi-transparent white text
+                    ctx.textAlign = "right";
+                    ctx.fillText(text, img.width - 10, img.height - 10); // Position text from the bottom right corner
+    
                     setDeveloperImage(canvas.toDataURL());
                     setShowModal(true);
                 };

@@ -1,8 +1,10 @@
+//Outfitter.js
 import React, { useState } from 'react';
-import getAllClothingItems from '../Services/getAllClothingItems'; // Ensure this is correctly imported
-import generateOutfits from '../Services/generateOutfits'; // Ensure this is correctly imported
+import { getAllClothingItems, generateOutfits, getUserPreferences } from '../Services/OutfitService';
 import WeatherApp from './WeatherApp';
+import { useNavigate } from 'react-router-dom';
 import './Outfitter.css';
+import tempPlaceholder from '../img/items/1.png';
 
 const Outfitter = () => {
   const [temperature, setTemperature] = useState('');
@@ -12,20 +14,46 @@ const Outfitter = () => {
     setTemperature(event.target.value);
   };
 
+  const fetchItemDetails = async (outfitNames) => {
+    const allItems = await getAllClothingItems();
+    return outfitNames.map(outfit =>
+      outfit.map(itemName =>
+        allItems.find(item => item.shortName.trim().toLowerCase() === itemName.trim().toLowerCase()) || {
+          shortName: itemName,
+          imageUrl: tempPlaceholder // Placeholder if not found
+        }
+      )
+    );
+  };
+
+  const showPopup = (outfitIndex) => {
+    alert(`That's a great choice! Outfit ${outfitIndex + 1} is all set to turn heads!`);
+  };
+
   const updateOutfits = async () => {
-    console.log(`Updating outfits for ${temperature}°F`);
     try {
-      const clothingItems = await getAllClothingItems();
-      const outfitSuggestions = await generateOutfits(clothingItems);
-      setOutfits(outfitSuggestions);
+      const clothingItems = await getAllClothingItems(); // Debugging log here could help
+      console.log('All clothing items:', clothingItems);
+
+      const userPreferences = await getUserPreferences(); // Retrieve user preferences
+    console.log('User preferences:', userPreferences);
+  
+      const outfitNames = await generateOutfits(clothingItems, temperature, userPreferences);
+      console.log('Generated outfit names:', outfitNames);
+  
+      const detailedOutfits = await fetchItemDetails(outfitNames);
+      console.log('Detailed outfits:', detailedOutfits);
+  
+      setOutfits(detailedOutfits);
     } catch (error) {
       console.error("Error updating outfits:", error);
       alert("Failed to update outfits. Please check the console for more information.");
     }
   };
 
-  const showPopup = (outfitIndex) => {
-    alert(`That's a great choice! Outfit ${outfitIndex + 1} is all set to turn heads!`);
+  let navigate = useNavigate();
+  const handleProfileClick = () => {
+    navigate('/profile');
   };
 
   return (
@@ -39,9 +67,9 @@ const Outfitter = () => {
           <h3>Current Weather</h3>
           <WeatherApp externalTemperature={temperature} /> {/* Pass temperature as a prop */}
           <input type="number" className="weather-input" placeholder="Change temperature" value={temperature} onChange={handleTemperatureChange} />
-          <button className='outfitter-buttons' onClick={updateOutfits}>Update</button>
         </div>
-        <button className='outfitter-buttons' >Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={handleProfileClick}>Edit Preferences</button>
+        <button className='outfitter-buttons' onClick={updateOutfits}>Generate Outfits</button>
       </aside>
 
       <section className="content">
@@ -51,7 +79,10 @@ const Outfitter = () => {
             <div key={index} className="outfit-grid">
               <h3>Outfit {index + 1}</h3>
               {outfit.map((item, itemIndex) => (
-                <p key={itemIndex}>{item}</p>
+                <div key={itemIndex} className="clothing-item">
+                  <img src={item.imageUrl} alt={item.shortName} />
+                  <p>{item.shortName}</p>
+                </div>
               ))}
               <button className='outfitter-buttons' onClick={() => showPopup(index)}>Wear This Outfit</button>
               <button className='outfitter-buttons'>Add to Favorites</button>
