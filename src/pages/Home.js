@@ -6,7 +6,16 @@ import shirt1 from "../HPimg/1shirt.png"; // Import the 1 shirt image
 import shoes1 from "../HPimg/1shoes.png"; // Import the 1 shoes image
 import bottoms2 from "../HPimg/2bottoms.png"; // Import the 2 bottoms image
 import shirt2 from "../HPimg/2shirt.png"; // Import the 2 shirt image
-import shoes2 from "../HPimg/2shoes.png"; // Import the 2 shoes image
+import shoes2 from "../HPimg/2shoes.png";
+import bottoms3 from "../HPimg/3bottoms.png"; // Import the 3 bottoms image
+import shirt3 from "../HPimg/3shirt.png"; // Import the 3 shirt image
+import shoes3 from "../HPimg/3shoes.png"; // Import the 3 shoes image
+import bottoms4 from "../HPimg/4bottoms.png"; // Import the 4 bottoms image
+import shirt4 from "../HPimg/4shirt.png"; // Import the 4 shirt image
+import shoes4 from "../HPimg/4shoes.png"; // Import the 4 shoes image
+import bottoms5 from "../HPimg/5bottoms.png"; // Import the 5 bottoms image
+import shirt5 from "../HPimg/5shirt.png"; // Import the 5 shirt image
+import shoes5 from "../HPimg/5shoes.png"; // Import the 5 shoes image
 
 const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
@@ -20,7 +29,7 @@ const Home = () => {
   const handleNextSetClick = () => {
     setIsTransitioning(true); // Start transition animation
     setTimeout(() => {
-      setCurrentSet(currentSet === 1 ? 2 : 1);
+      setCurrentSet(currentSet === 1 ? 2 : currentSet === 2 ? 3 : currentSet === 3 ? 4 : currentSet === 4 ? 5 : 1);
       setIsTransitioning(false); // End transition animation
     }, 2000); // Adjust timing to match CSS transition duration
   };
@@ -57,7 +66,6 @@ const Home = () => {
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
   }, []);
-  
 
   const handleUploadClick = () => {
     // Redirect to the upload page
@@ -83,7 +91,17 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`,
+            backgroundImage: `url(${
+              currentSet === 1
+                ? bottoms1
+                : currentSet === 2
+                ? bottoms2
+                : currentSet === 3
+                ? bottoms3
+                : currentSet === 4
+                ? bottoms4
+                : bottoms5
+            })`,
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${bottomsPosition.x}px`, // Position bottoms element
@@ -95,7 +113,17 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`,
+            backgroundImage: `url(${
+              currentSet === 1
+                ? shirt1
+                : currentSet === 2
+                ? shirt2
+                : currentSet === 3
+                ? shirt3
+                : currentSet === 4
+                ? shirt4
+                : shirt5
+            })`,
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shirtPosition.x}px`, // Position shirt element
@@ -107,7 +135,17 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`,
+            backgroundImage: `url(${
+              currentSet === 1
+                ? shoes1
+                : currentSet === 2
+                ? shoes2
+                : currentSet === 3
+                ? shoes3
+                : currentSet === 4
+                ? shoes4
+                : shoes5
+            })`,
             opacity: isTransitioning ? 0 : 1, // Fade out or in
             transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shoesPosition.x}px`, // Position shoes element
@@ -115,13 +153,24 @@ const Home = () => {
           }}
         ></div>
 
+        {/* Animated arrow */}
+        <div className="arrow-container">
+          <div className="arrow" onClick={handleNextSetClick}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         {/* Rest of your code remains the same... */}
       </div>
 
       {/* Upload popup */}
       {uploadPopupVisible && (
         <div className="upload-popup">
-          <button className="close-button" onClick={handleCloseButtonClick}>X</button>
+          <button className="close-button" onClick={handleCloseButtonClick}>
+            X
+          </button>
           <div className="upload-content">
             <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
           </div>
@@ -139,11 +188,6 @@ const Home = () => {
           />
         </div>
       )}
-
-      {/* Next Set button */}
-      <div className="next-set-button" onClick={handleNextSetClick}>
-        <span>&#10132;</span> {/* Right arrow icon */}
-      </div>
     </div>
   );
 };

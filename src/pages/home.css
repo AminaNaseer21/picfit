@@ -1,8 +1,11 @@
-/* Enlarged rectangle */
+/* home.css */
+
+/* Container for the entire home page */
 .homeContainer {
   position: relative;
 }
 
+/* Enlarged rectangle */
 .enlargedRectangle {
   position: relative; /* Change position to relative */
   width: 900px; /* Adjust width as needed */
@@ -12,6 +15,62 @@
   border: 2px dashed black; /* Add a dashed border */
   overflow: hidden; /* Hide overflowing content */
 }
+
+/* Arrow */
+.arrow-container {
+  position: absolute;
+  top: calc(50% - 10px); /* Adjust vertical position */
+  left: calc(100% - 65px); /* Adjust horizontal position */
+  transform: translateY(-50%);
+  z-index: 999; /* Ensure it's above other content */
+}
+
+.arrow-container.animate .arrow span {
+  animation: animate 2s infinite; /* Apply animation when transitioning */
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(100%, -100%) rotate(270deg); /* Rotate arrows */
+  cursor: pointer;
+}
+
+.arrow span {
+  display: block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-20px, -20px); /* Adjust initial position */
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(20px, 20px); /* Adjust final position */
+  }
+}
+
+
+
 
 /* Background images */
 .background-image {
@@ -116,9 +175,60 @@
   }
 }
 
+.set3 {
+  background: linear-gradient(270deg, #32ca22, #ae7737, #228a4a);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 
+.set4 {
+  background: linear-gradient(270deg, #e6cd7e, #ae7737, #b5a871);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
+}
 
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.set5 {
+  background: linear-gradient(270deg, #e6cd7e, #ce6a53, #e8dea9);
+  background-size: 600% 600%;
+  animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 /* Upload popup */
 .upload-popup {
@@ -158,6 +268,7 @@
   opacity: 0; /* Initially hide the camera icon */
   animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
+
 
 .camera-icon {
   width: 40px;
