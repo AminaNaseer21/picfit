@@ -12,14 +12,18 @@ const Home = () => {
   const [uploadPopupVisible, setUploadPopupVisible] = useState(false);
   const [cameraIconVisible, setCameraIconVisible] = useState(false);
   const [currentSet, setCurrentSet] = useState(1);
-
-  const handleNextSetClick = () => {
-    setCurrentSet(currentSet === 1 ? 2 : 1);
-  };
-
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [shirtPosition, setShirtPosition] = useState({ x: 0, y: 0 });
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
+
+  const handleNextSetClick = () => {
+    setIsTransitioning(true); // Start transition animation
+    setTimeout(() => {
+      setCurrentSet(currentSet === 1 ? 2 : 1);
+      setIsTransitioning(false); // End transition animation
+    }, 2000); // Adjust timing to match CSS transition duration
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,26 +34,30 @@ const Home = () => {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
+      // Define a movement range
+      const movementRange = 5; // Adjust this value as needed
+  
       // Move shirt
       setShirtPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 2, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 2, // Random vertical movement
+        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-
+  
       // Move bottoms
       setBottomsPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 3, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 3, // Random vertical movement
+        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
       }));
-
+  
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 4, // Random horizontal movement
-        y: prevState.y + (Math.random() - 0.5) * 4, // Random vertical movement
+        x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement within the range
+        y: prevState.y + (Math.random() - 0.5) * 1, // Random vertical movement within the range
       }));
     }, 100); // Adjust movement interval as needed
     return () => clearInterval(moveInterval);
   }, []);
+  
 
   const handleUploadClick = () => {
     // Redirect to the upload page
@@ -68,19 +76,18 @@ const Home = () => {
 
   return (
     <div className="homeContainer">
-      {/* Enlarged rectangle */}
       <div className="enlargedRectangle">
-        {/* Color-changing background */}
         <div className={`color-changing-background set${currentSet}`}></div>
 
         {/* Bottoms */}
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? bottoms1 : bottoms2})`,
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${bottomsPosition.x}px`, // Position bottoms element
             top: `${bottomsPosition.y}px`, // Position bottoms element
-            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
@@ -88,10 +95,11 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? shirt1 : shirt2})`,
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shirtPosition.x}px`, // Position shirt element
             top: `${shirtPosition.y}px`, // Position shirt element
-            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
@@ -99,35 +107,38 @@ const Home = () => {
         <div
           className="background-image"
           style={{
-            backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`, // Set image as background
+            backgroundImage: `url(${currentSet === 1 ? shoes1 : shoes2})`,
+            opacity: isTransitioning ? 0 : 1, // Fade out or in
+            transition: 'opacity 2s ease', // Smooth transition for opacity
             left: `${shoesPosition.x}px`, // Position shoes element
             top: `${shoesPosition.y}px`, // Position shoes element
-            transition: 'left 1s ease, top 1s ease', // Smoother transition
           }}
         ></div>
 
-        {/* Upload popup */}
-        {uploadPopupVisible && (
-          <div className="upload-popup">
-            <button className="close-button" onClick={handleCloseButtonClick}>X</button>
-            <div className="upload-content">
-              <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
-            </div>
-          </div>
-        )}
-
-        {/* Camera icon */}
-        {cameraIconVisible && (
-          <div className="camera-icon-container">
-            <img
-              src={camera}
-              alt="Camera Icon"
-              className="camera-icon"
-              onClick={handleCameraIconClick}
-            />
-          </div>
-        )}
+        {/* Rest of your code remains the same... */}
       </div>
+
+      {/* Upload popup */}
+      {uploadPopupVisible && (
+        <div className="upload-popup">
+          <button className="close-button" onClick={handleCloseButtonClick}>X</button>
+          <div className="upload-content">
+            <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+          </div>
+        </div>
+      )}
+
+      {/* Camera icon */}
+      {cameraIconVisible && (
+        <div className="camera-icon-container">
+          <img
+            src={camera}
+            alt="Camera Icon"
+            className="camera-icon"
+            onClick={handleCameraIconClick}
+          />
+        </div>
+      )}
 
       {/* Next Set button */}
       <div className="next-set-button" onClick={handleNextSetClick}>
