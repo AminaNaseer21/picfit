@@ -175,7 +175,7 @@ function ProfilePage() {
                   <h1 className="settings2-header">Avoid Styles</h1>
                   <div className="settings3-header">Select any styles that you prefer not to wear.</div>
                   <div className="style-grid">
-                    {['Casual', 'Athletic', 'Formal'].map(style => (
+                    {['Casual', 'Athletic', 'Formal', 'Vintage', 'Retro', 'Streetwear', 'Preppy', 'Minimalist', 'Hipster', 'Business Casual', 'Chic', 'Gothic'].map(style => (
                       <button
                         key={style}
                         className={`style-button ${dislikedStyles.includes(style) ? 'disliked-style' : ''}`}
