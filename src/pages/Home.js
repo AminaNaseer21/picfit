@@ -26,13 +26,34 @@ const Home = () => {
   const [shirtPosition, setShirtPosition] = useState({ x: 0, y: 0 });
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
+  const [text, setText] = useState('');
+  const sets = ['Set 1', 'Set 2', 'Set 3', 'Set 4', 'Set 5'];
+
+  useEffect(() => {
+    // Typewriter effect
+    let currentIndex = 0;
+    let intervalId;
+    const typeText = () => {
+      if (currentIndex < sets[currentSet - 1].length) {
+        setText((prevText) => prevText + sets[currentSet - 1].charAt(currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(intervalId);
+      }
+    };
+    intervalId = setInterval(typeText, 100);
+    return () => clearInterval(intervalId);
+  }, [currentSet]);
 
   const handleNextSetClick = () => {
-    setIsTransitioning(true); // Start transition animation
-    setTimeout(() => {
-      setCurrentSet(currentSet === 1 ? 2 : currentSet === 2 ? 3 : currentSet === 3 ? 4 : currentSet === 4 ? 5 : 1);
-      setIsTransitioning(false); // End transition animation
-    }, 2000); // Adjust timing to match CSS transition duration
+    if (!isTransitioning) {
+      setIsTransitioning(true); // Start transition animation
+      setTimeout(() => {
+        setCurrentSet((prevSet) => (prevSet === 5 ? 1 : prevSet + 1));
+        setIsTransitioning(false); // End transition animation
+        setText('');
+      }, 2000); // Adjust timing to match CSS transition duration
+    }
   };
 
   useEffect(() => {
@@ -87,9 +108,12 @@ const Home = () => {
     window.location.href = '/upload';
   };
 
-  return (
-    <div className="homeContainer">
-
+ 
+return (
+  <div className="homeContainer">
+    <div className="typewriter">
+      <h1>Is today's outfit for {text}</h1>
+    </div>
         <svg
         version="1.1"
         id="home-anim"
