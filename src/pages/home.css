@@ -396,14 +396,15 @@
 
 .close-button {
   position: absolute;
-  top: 5px; /* Adjust the top position */
-  right: 5px; /* Adjust the right position */
+  top: 20px; /* Adjust the top position */
+  right: 0px; /* Adjust the right position */
   cursor: pointer;
   background: transparent;
   border: none;
   font-size: 16px; /* Adjust font size */
   color: white; /* White text */
 }
+
 
 .upload-content {
   text-align: center;
