@@ -19,18 +19,21 @@ export default function Wardrobe() {
 
     useEffect(() => {
         if (!currentUser) return;
-    
+        
         const wardrobeCollectionRef = collection(firestore, `users/${currentUser.uid}/wardrobe`);
         
         getDocs(wardrobeCollectionRef)
             .then((querySnapshot) => {
-                const urls = [];
+                const items = [];
                 querySnapshot.forEach((doc) => {
-                    // Assuming each document contains an 'imageUrl' field
-                    const imageUrl = doc.data().imageUrl;
-                    urls.push(imageUrl);
+                    const data = doc.data();
+                    const item = {
+                        imageUrl: data.imageUrl,
+                        subCategory: data.subCategory
+                    };
+                    items.push(item);
                 });
-                setImageUrls(urls);
+                setImageUrls(items);
             })
             .catch((error) => {
                 console.error('Error fetching wardrobe items:', error);
@@ -75,11 +78,11 @@ export default function Wardrobe() {
 
     const toggleSubSubcategory = (subsubcategory) => setActiveSubSubcategory(activeSubSubcategory === subsubcategory ? '' : subsubcategory);
 
-    // Filter image URLs based on active subcategory and sub-subcategory
-    const filteredImageUrls = imageUrls.filter(url => {
-        if (activeCategory && !url.includes(activeCategory)) return false;
-        if (activeSubcategory && !url.includes(activeSubcategory)) return false;
-        if (activeSubSubcategory && !url.includes(activeSubSubcategory)) return false;
+    const filteredImageUrls = imageUrls.filter(item => {
+        const subCategory = item.subCategory;
+        if (activeCategory && !activeCategory in categories) return false; // Check if active category exists
+        if (activeSubcategory && !subCategory.includes(activeSubcategory)) return false;
+        if (activeSubSubcategory && !subCategory.includes(activeSubSubcategory)) return false;
         return true;
     });
 
@@ -137,9 +140,9 @@ export default function Wardrobe() {
                     ))}
                 </div>
                 <div className="items">
-                    {filteredImageUrls.map((url, index) => (
-                        <div key={index} className="item-image-container" onClick={() => handleItemClick(index)}>
-                            <img src={url} alt={`Uploaded ${index}`} className="item-image"/>
+                    {filteredImageUrls.map((item, index) => (
+                    <div key={index} className="item-image-container" onClick={() => handleItemClick(index)}>
+                        <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
                         </div>
                     ))}
                     <div className="item add-new-item" onClick={handleUploadClick}>
