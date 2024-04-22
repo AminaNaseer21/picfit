@@ -438,39 +438,11 @@
   clip-path: url(#cache);
 }
 
-/* Styles for the red lines */
-#red {
-  fill: none;
-  opacity: 0.15;
-  stroke: #CE1B5F;
-  stroke-width: 12;
-  stroke-miterlimit: 10;
-  /* Animation settings */
-  animation: show 4s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-/* Styles for the blue lines */
-#blue {
-  fill: none;
-  opacity: 0.15;
-  stroke: #06A1C4;
-  stroke-width: 12;
-  stroke-miterlimit: 10;
-  /* Animation settings */
-  animation: show 4s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
 /* Styles for the light blue lines */
 #light-blue {
   fill: none;
   opacity: 0.15;
-  stroke: #06A1C4;
+  stroke:#5486ec;
   stroke-width: 6;
   stroke-miterlimit: 10;
   stroke-dasharray: 200;
