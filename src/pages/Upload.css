@@ -3,6 +3,7 @@
   --secondary-color: #6c757d;
   --background-color: #f8f9fa;
   --error-color: #dc3545;
+  z-index: 3;
 }
 
 .upload-container {
@@ -26,7 +27,7 @@
 
 .image-upload-section {
   margin-bottom: 20px;
-  z-index: 3;
+  z-index: 2;
 }
 
 .image-preview {
@@ -92,7 +93,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
 }
 
 .error-message {
@@ -127,7 +128,7 @@
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .modal-actions {
