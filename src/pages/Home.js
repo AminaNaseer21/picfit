@@ -27,7 +27,8 @@ const Home = () => {
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
   const [text, setText] = useState('');
-  const sets = ['Set 1', 'Set 2', 'Set 3', 'Set 4', 'Set 5'];
+  const sets = [' a causal day?', ' girls night?', ' game day?', ' date night?', ' Valentines?'];
+
 
   useEffect(() => {
     // Typewriter effect
@@ -41,7 +42,7 @@ const Home = () => {
         clearInterval(intervalId);
       }
     };
-    intervalId = setInterval(typeText, 100);
+    intervalId = setInterval(typeText, 200); // Increase the interval duration to 300 milliseconds
     return () => clearInterval(intervalId);
   }, [currentSet]);
 
