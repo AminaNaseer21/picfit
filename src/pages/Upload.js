@@ -165,7 +165,7 @@ export default function Upload() {
         x="0px"
         y="0px"
         viewBox="0 0 1820 1080"
-        style={{ enableBackground: 'new 0 0 1820 1080' }}
+        style={{ enableBackground: 'new 0 0 1820 1080', top: 'calc(120px)' }}
         xmlSpace="preserve"
       >
      <g id="home">
