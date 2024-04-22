@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "@firebase/storage";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBvwxniL5TX1B9WPpBi-uwLKpUKbAWe1Z0",
@@ -19,4 +20,5 @@ provider.setCustomParameters({
 export const auth = getAuth();
 export const storage = getStorage(app);
 export const firebaseApp = initializeApp(firebaseConfig);
+export const firestore = getFirestore(app);
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);

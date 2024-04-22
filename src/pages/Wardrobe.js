@@ -3,6 +3,9 @@ import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
 import { useNavigate } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../Services/firebase';
+
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
 import WeatherApp from './WeatherApp';
@@ -16,17 +19,21 @@ export default function Wardrobe() {
 
     useEffect(() => {
         if (!currentUser) return;
-
-        const imagesListRef = ref(storage, `images/${currentUser.uid}/`);
-        listAll(imagesListRef)
-            .then((response) => {
-                return Promise.all(response.items.map((item) => getDownloadURL(item)));
-            })
-            .then((urls) => {
+    
+        const wardrobeCollectionRef = collection(firestore, `users/${currentUser.uid}/wardrobe`);
+        
+        getDocs(wardrobeCollectionRef)
+            .then((querySnapshot) => {
+                const urls = [];
+                querySnapshot.forEach((doc) => {
+                    // Assuming each document contains an 'imageUrl' field
+                    const imageUrl = doc.data().imageUrl;
+                    urls.push(imageUrl);
+                });
                 setImageUrls(urls);
             })
             .catch((error) => {
-                console.error('Error fetching images:', error);
+                console.error('Error fetching wardrobe items:', error);
             });
     }, [currentUser]);
 
