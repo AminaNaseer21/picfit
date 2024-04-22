@@ -4,6 +4,8 @@ import UmerPhoto from "../img/TeamHeadshots/UmerPhoto.jpg";
 import RogelioHeadPic from "../img/TeamHeadshots/RogelioHeadPic.png";
 import RamiroPic from  "../img/TeamHeadshots/RamiroPic.jpg";
 import MatthewPic from "../img/TeamHeadshots/MatthewPic.jpg";
+import AminaPic from "../img/TeamHeadshots/AminaPic.jpg"
+
 
 const AboutUs = () => {
   return (
@@ -49,7 +51,11 @@ const AboutUs = () => {
     </div>
 
     <div className = "Amina-container">
-      <h1>Amina Naseer</h1>
+      <div className= "Amina-photo">
+        <img src={AminaPic} alt="Amina" className = "Amina-photo"/>
+        <h1>Amina Naseer</h1>
+      </div>
+    
     </div>
       </div>
 

@@ -28,7 +28,7 @@
 
   .TeamMembers{
     width: 1300px;
-    height: 500px;
+    height: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #e8eef9;
@@ -95,30 +95,29 @@
   }
 
   .Amina-container {
-    max-height: 200px;
     max-width: 200px; /* Limiting the container size */
+    max-height: 200px;
     margin:0 auto;
-    border-radius: 25%;
     display: flex; /* Using flex to center the image */
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    transform:translateY(-900px);
     transform:translateX(500px);
-    transform:translateY(-800px);
     z-index:2;
   }
   
   .Amina-photo {
-    max-width: 200px; /* Make the image responsive within the container */
+    max-width: 300px; /* Make the image responsive within the container */
     max-height: 200px;
     border-radius: 50%; /* If you want the image to be circular */
+    transform:translateY(-400px);
     z-index: 3;
     margin:0 auto;
   }
   .Amina-container h1 {
     color: #333;
-    transform:translateX(400px);
-    transform:translateY(205px);
+    
+    transform:translateY(-405px);
     font-size: 15px;
   }
 
