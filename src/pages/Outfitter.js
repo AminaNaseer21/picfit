@@ -1,7 +1,7 @@
 //Outfitter.js
 import React, { useState, useEffect } from 'react';
 import { getAllClothingItems, generateOutfits, getUserPreferences } from '../Services/OutfitService';
-import { addFavoriteOutfit, getFavoriteOutfits } from '../Services/FavoritesService';
+import { addFavoriteOutfit, getFavoriteOutfits, removeFavoriteOutfit } from '../Services/FavoritesService';
 import WeatherApp from './WeatherApp';
 import { useNavigate } from 'react-router-dom';
 import './Outfitter.css';
@@ -36,6 +36,16 @@ const Outfitter = () => {
       setFavorites(updatedFavorites);
     } catch (error) {
       console.error("Error adding to favorites:", error);
+    }
+  };
+
+  const handleRemoveFavorite = async (favoriteId) => {
+    try {
+      await removeFavoriteOutfit(favoriteId);
+      setFavorites(prevFavorites => prevFavorites.filter(fav => fav.id !== favoriteId));
+    } catch (error) {
+      console.error("Error removing outfit from favorites:", error);
+      // Optionally, display a user-friendly error message
     }
   };
 
@@ -126,7 +136,9 @@ const Outfitter = () => {
                         <p>{item.shortName}</p>
                       </div>
                     ))}
-                    {/* Add any additional buttons or functionality for favorited outfits here */}
+                    <button className='outfitter-buttons' onClick={() => handleRemoveFavorite(favorite.id)}>
+                      Remove From Favorites
+                    </button>
                   </div>
                 ))}
               </div>
