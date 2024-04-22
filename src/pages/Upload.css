@@ -8,21 +8,25 @@
 .upload-container {
   padding: 20px;
   background-color: var(--background-color);
+  z-index: 2;
 }
 
 .page-title {
   text-align: center;
   margin-bottom: 30px;
+  z-index: 2;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 
 .image-upload-section {
   margin-bottom: 20px;
+  z-index: 2;
 }
 
 .image-preview {
@@ -35,6 +39,7 @@
   border: 8px solid transparent; /* Start with a thicker transparent solid border */
   border-radius: 10px; /* Add border radius to make edges slightly rounded */
   animation: drawBorder 4s forwards; /* Apply the border animation */
+  z-index: 2;
 }
 
 /* Keyframes for border animation */
@@ -62,10 +67,10 @@
   }
 }
 
-
 .preview-image {
   max-width: 100%;
   max-height: 100%;
+  z-index: 2;
 }
 
 .file-input {
@@ -76,6 +81,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  z-index: 2;
 }
 
 .action-button {
@@ -85,16 +91,19 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .error-message {
   color: var(--error-color);
   margin-bottom: 20px;
+  z-index: 2;
 }
 
 .analysis-results {
   margin-top: 20px;
   text-align: center;
+  z-index: 3;
 }
 
 .modal-overlay {
@@ -107,6 +116,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  
 }
 
 .modal-content {
@@ -115,12 +126,14 @@
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
+  z-index: 2;
 }
 
 .modal-actions {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+  z-index: 2;
 }
 
 .modal-action-button {
@@ -130,8 +143,57 @@
   cursor: pointer;
   background-color: var(--secondary-color);
   color: white;
+  z-index: 2;
 }
 
 .modal-action-button:first-child {
   background-color: var(--primary-color);
 }
+#home {
+  /* Apply clipping path */
+  clip-path: url(#cache);
+}
+
+/* Styles for the light blue lines */
+#light-blue {
+  fill: none;
+  opacity: 0.15;
+  stroke:#5486ec;
+  stroke-width: 6;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 800;
+  /* Animation settings */
+  animation: draw 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Keyframes for the draw animation */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Keyframes for the show animation */
+@keyframes show {
+  0% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
