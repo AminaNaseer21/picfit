@@ -98,20 +98,20 @@ export default function Upload() {
                         - Tops
                         - Bottoms
                         - Outerwear
-                    3. **Specific Item Type**: Based on the selected category, identify the specific type of the clothing item. Refer to the list below for options:
-                        - **Tops**:
+                    3. **Specific Item Type**: Based on the selected category, identify the specific type of the clothing item. Pick only from to the list below of options (Example: "Graphic" or "Short-Sleeve Shirts" etc.):
+                        - Tops:
                             - T-Shirts: Graphic, Plain, Tank Tops, Polo
                             - Shirts: Shirt Jackets, Short-Sleeve Shirts, Long-Sleeve Shirts, Sweater Polos
                             - Sweatshirts: Crew Neck Sweatshirts, Graphic Sweatshirts
-                        - **Bottoms**:
+                        - Bottoms:
                             - Denim: Straight, Tapered, Boyfriend, Baggy, Slim, Bootcut, Flared, Jeggings, Mom, Wide Leg
                             - Pants: Chinos, Trousers, Joggers, Workwear, Cargo
                             - Sweatpants: Jogger Sweatpants, Classic Sweatpants
                             - Shorts: Classic/Active, Mesh Shorts, Denim Shorts, Cargo
-                        - **Outerwear**:
+                        - Outerwear:
                             - Hoodies: Zip-Up Hoodies, Pullover Hoodies, Graphic Hoodies
                             - Sweaters: Pullover Sweaters, Cardigan Sweaters
-                    4. **Color**: Identify the primary color of the clothing item. Choose from:
+                    4. **Color**: Identify the primary color of the clothing item. If multipule colors, pick the one color that will represent the clothing the best. Only choose from one of the following:
                         - Red
                         - Lime
                         - Blue
