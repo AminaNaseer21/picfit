@@ -14,6 +14,7 @@
   border: 8px solid transparent; /* Start with a thicker transparent solid border */
   border-radius: 10px; /* Add border radius to make edges slightly rounded */
   animation: drawBorder 4s forwards; /* Apply the border animation */
+  z-index: 1;
 }
 
 
@@ -479,7 +480,7 @@ svg {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -5;
 }
 
 .typewriter {
