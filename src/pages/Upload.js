@@ -111,7 +111,7 @@ export default function Upload() {
                         - **Outerwear**:
                             - Hoodies: Zip-Up Hoodies, Pullover Hoodies, Graphic Hoodies
                             - Sweaters: Pullover Sweaters, Cardigan Sweaters
-                    4. **Color**: Identify the primary color of the clothing item. Choose from:
+                    4. **Color**: Identify the primary color of the clothing item. If multipule colors, pick the one color that will represent the clothing the best. Only choose from one of the following:
                         - Red
                         - Lime
                         - Blue
