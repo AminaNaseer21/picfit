@@ -17,9 +17,16 @@ const Outfitter = () => {
   };
 
   useEffect(() => {
-    getFavoriteOutfits()
-      .then(favorites => setFavorites(favorites))
-      .catch(console.error);
+    const loadFavorites = async () => {
+      try {
+        const fetchedFavorites = await getFavoriteOutfits();
+        setFavorites(fetchedFavorites);
+      } catch (error) {
+        console.error("Error fetching favorites:", error);
+      }
+    };
+
+    loadFavorites();
   }, []);
 
   const handleAddToFavorites = async (outfit) => {
@@ -108,9 +115,25 @@ const Outfitter = () => {
           ))}
         </div>
         <div className="favorites-section">
-          <h3>Your Favorite Outfits</h3>
-          <p>No favorite outfits added yet.</p>
-        </div>
+            <h3>Your Favorite Outfits</h3>
+            {favorites.length > 0 ? (
+              <div className="outfit-container">
+                {favorites.map((favorite, index) => (
+                  <div key={index} className="outfit-grid">
+                    {favorite.items.map((item, itemIndex) => (
+                      <div key={itemIndex} className="clothing-item">
+                        <img src={item.imageUrl} alt={item.shortName} className="clothing-item-image" />
+                        <p>{item.shortName}</p>
+                      </div>
+                    ))}
+                    {/* Add any additional buttons or functionality for favorited outfits here */}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>No favorite outfits added yet.</p>
+            )}
+          </div>
       </section>
     </div>
   );
