@@ -1,4 +1,4 @@
-import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, where, doc, deleteDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "./firebase";
 
@@ -43,6 +43,22 @@ export const getFavoriteOutfits = async () => {
     }));
   } catch (error) {
     console.error("Error fetching favorite outfits:", error);
+    throw error;
+  }
+};
+
+export const removeFavoriteOutfit = async (favoriteId) => {
+  const auth = getAuth(firebaseApp);
+  const user = auth.currentUser;
+  const firestore = getFirestore(firebaseApp);
+
+  if (!user) throw new Error("User is not authenticated");
+
+  try {
+    const favoriteDocRef = doc(firestore, "users", user.uid, "favorites", favoriteId);
+    await deleteDoc(favoriteDocRef);
+  } catch (error) {
+    console.error("Error removing favorite outfit:", error);
     throw error;
   }
 };
