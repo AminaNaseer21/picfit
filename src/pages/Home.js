@@ -42,7 +42,7 @@ const Home = () => {
         clearInterval(intervalId);
       }
     };
-    intervalId = setInterval(typeText, 200); // Increase the interval duration to 300 milliseconds
+    intervalId = setInterval(typeText, 150); // Increase the interval duration to 150 milliseconds
     return () => clearInterval(intervalId);
   }, [currentSet]);
 

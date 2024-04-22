@@ -9,7 +9,7 @@
   width: 900px;
   height: 440px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   overflow: hidden;
   border: 8px solid transparent; /* Start with a thicker transparent solid border */
   border-radius: 10px; /* Add border radius to make edges slightly rounded */
@@ -480,4 +480,8 @@ svg {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.typewriter {
+  margin-top: 1px; /* Adjust the top margin */
 }
