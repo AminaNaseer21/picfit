@@ -50,7 +50,7 @@
 
 
 /* Arrow */
-.arrow-container {
+.arrow-homepage-container {
   position: absolute;
   top: calc(50% - 10px); /* Adjust vertical position */
   left: calc(100% - 65px); /* Adjust horizontal position */
@@ -58,10 +58,10 @@
   z-index: 999; /* Ensure it's above other content */
 }
 
-.arrow-container.animate .arrow span {
+.arrow-homepage-container.animate .arrow-homepage span {
   animation: animate 2s infinite; /* Apply animation when transitioning */
 }
-.arrow {
+.arrow-homepage {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 
-.arrow span {
+.arrow-homepage span {
   display: block;
   width: 1.5vw;
   height: 1.5vw;
@@ -80,11 +80,11 @@
   animation: animate 2s infinite;
 }
 
-.arrow span:nth-child(2) {
+.arrow-homepage span:nth-child(2) {
   animation-delay: -0.2s;
 }
 
-.arrow span:nth-child(3) {
+.arrow-homepage span:nth-child(3) {
   animation-delay: -0.4s;
 }
 

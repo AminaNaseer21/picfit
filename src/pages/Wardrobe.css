@@ -126,13 +126,13 @@
   background-color: #e0e0e0;
 }
 
-.arrow {
+.arrow-wardrobe {
   position: absolute;
   right: 15px;
   transition: transform 0.3s ease;
 }
 
-.arrow.active {
+.arrow-wardrobe.active {
   transform: rotate(180deg);
 }
 
@@ -307,7 +307,7 @@
   background: #282936;
  }
  
- .uc-button.learn-more .circle .icon.arrow {
+ .uc-button.learn-more .circle .icon.arrow-wardrobe{
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.425rem;
   width: 1.125rem;
@@ -315,7 +315,7 @@
   background: none;
  }
  
- .uc-button.learn-more .circle .icon.arrow::before {
+ .uc-button.learn-more .circle .icon.arrow-wardrobe::before {
   position: absolute;
   content: "";
   top: -0.29rem;
@@ -347,7 +347,7 @@
   width: 100%;
  }
  
- .uc-button:hover .circle .icon.arrow {
+ .uc-button:hover .circle .icon.arrow-wardrobe {
   background: #ffffff;
   transform: translate(-2.2rem, 0);
  }

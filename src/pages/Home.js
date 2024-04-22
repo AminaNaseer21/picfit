@@ -237,14 +237,15 @@ return (
           }}
         ></div>
 
-        {/* Animated arrow */}
-        <div className="arrow-container">
-          <div className="arrow" onClick={handleNextSetClick}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+<div className="arrow-homepage-container">
+  <span className="arrow-homepage">↓</span>
+  <div className="arrow-homepage" onClick={handleNextSetClick}>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
 
         {/* Rest of your code remains the same... */}
       </div>

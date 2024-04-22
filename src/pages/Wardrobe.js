@@ -119,9 +119,9 @@ export default function Wardrobe() {
                             {Object.entries(subcategories).map(([subcategory, subsubcategories]) => (
                                 <div key={subcategory} className="subcategory">
                                     <button className="dropdown-button" onClick={() => toggleSubcategory(subcategory)}>
-                                        {subcategory}
-                                        <span className={`arrow ${activeSubcategory === subcategory ? 'active' : ''}`}>↓</span>
-                                    </button>
+                                          {subcategory}
+                                           <span className={`arrow arrow-wardrobe ${activeSubcategory === subcategory ? 'active' : ''}`}>↓</span>
+                                            </button>
                                     {activeSubcategory === subcategory && (
                                         <ul className="subcategory-list">
                                             {subsubcategories.map((subsubcategory) => (
