@@ -68,9 +68,6 @@ export default function Wardrobe() {
         navigate('/capture');
     };
 
-    const handleItemClick = (itemId) => {
-        navigate('/itempage', { state: { itemId } });
-    };
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
 
@@ -141,7 +138,7 @@ export default function Wardrobe() {
                 </div>
                 <div className="items">
                     {filteredImageUrls.map((item, index) => (
-                    <div key={index} className="item-image-container" onClick={() => handleItemClick(index)}>
+                    <div key={index} className="item-image-container">
                         <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
                         </div>
                     ))}
