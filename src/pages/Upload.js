@@ -21,6 +21,7 @@ export default function Upload() {
     const firestore = getFirestore();
     const navigate = useNavigate(); // Uncomment this if navigation is required after uploading
     const [analysisResult, setAnalysisResult] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -68,7 +69,8 @@ export default function Upload() {
     };
 
     const handleConfirmUpload = async () => {
-        setShowModal(false);
+        setIsLoading(true); // Show loader
+        setShowModal(false); // Hide modal if shown
     
         // Convert developerImage from data URL to Blob if it's not null
         let imageToUpload = image; // Default to the original image
@@ -82,7 +84,21 @@ export default function Upload() {
             imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
         }
     
-        await uploadFiles(imageToUpload); // Pass the selected image to uploadFiles
+        try {
+            await uploadFiles(imageToUpload); // Pass the selected image to uploadFiles
+    
+            // Reset states after successful upload and analysis
+            setImage(null);
+            setResult(null);
+            setDeveloperImage(null);
+            setError(null);
+            setIsLoading(false); // Hide loader
+            navigate('/wardrobe'); // Navigate to success page or another page as required
+        } catch (error) {
+            console.error('Error during upload/analysis:', error);
+            setError('An error occurred during file upload or analysis.'); // Update error state to display error message
+            setIsLoading(false); // Hide loader
+        }
     };
 
     const handleRetake = () => {
@@ -264,7 +280,15 @@ export default function Upload() {
                         </div>
                     </div>
                 </div>
-    )}
-</div>
+            )}
+            {isLoading && (
+                    <div className="loader-overlay">
+                        <div className="loader-container">
+                            <div className="loader"></div>
+                            <p className="loader-text">Analyzing image, please wait...</p>
+                        </div>
+                    </div>
+                )}
+        </div>
     );
 }
