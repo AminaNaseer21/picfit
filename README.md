@@ -216,7 +216,9 @@ Sprint 2:
 		- Provide the user a dynamic display based on previous outfits
 		- Crafting an engaging and dynamic homepage experience
 	• Matthew:
-		-
+		-Design and construct AboutUs page.
+		-Implement section that explains what the Website is about, what it does, and why it was developed.
+		-Design members section and upload pictures of each team members.
 
 	
 ## Setup
@@ -258,4 +260,4 @@ Umer Seliya - hme36@txstate.edu
 Ramiro Ramirez - r_r888@txstate.edu
 Rogelio Atilano-Hernandez -  bav74@txstate.edu
 Amina Naseer - 
-Matthew Lee - 
+Matthew Lee - mwl36@txstate.edu
