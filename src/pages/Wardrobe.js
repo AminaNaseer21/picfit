@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ref, getDownloadURL, listAll } from 'firebase/storage';
-import { storage } from '../Services/firebase';
 import { useAuth } from '../Services/authentication';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../Services/firebase';
+import { addFavoriteStyle, getFavoriteStyles, removeFavoriteStyle } from '../Services/FavoritesItem';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
 import WeatherApp from './WeatherApp';
@@ -17,6 +16,8 @@ export default function Wardrobe() {
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [activeSubSubcategory, setActiveSubSubcategory] = useState('');
     const [imageUrls, setImageUrls] = useState([]);
+    const [style, setStyles] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     const { currentUser } = useAuth();
 
     useEffect(() => {
@@ -75,8 +76,14 @@ export default function Wardrobe() {
         // Logic to handle trashcan click for item at given index
       };
       
-      const handleHeartClick = () => {
-        // Logic to handle heart click for item at given index
+      const handleHeartClick = async (style) => {
+        try {
+            await addFavoriteStyle(style);
+            const updatedFavorites = await getFavoriteStyles();
+            setFavorites(updatedFavorites);
+          } catch (error) {
+            console.error("Error adding to favorites:", error);
+          }
       };
 
       const handleFavoriteClick = () => {
@@ -158,7 +165,7 @@ export default function Wardrobe() {
                         <button className="trash-button" onClick={handleTrashClick}>
                             <img src={icontrashcan} alt="Delete item" />
                         </button>
-                        <button className="heart-button" onClick={handleHeartClick}>
+                        <button className='heart-button' onClick={() => handleHeartClick(style)}>
                             <img src={iconheart} alt="Favorite item" />
                         </button>
                         </div>
