@@ -31,6 +31,8 @@
 .right-side {
   display: flex;
   align-items: center;
+  padding-left: 70px;
+  padding-right: 120px;
 }
 
 .weather {
@@ -186,9 +188,10 @@
 }
 
 
-.heart-button {
+.favorite-button {
   border: none; /* Removes border */
-  background: none; /* Removes default background */
+  background: #282936; /* Removes default background */
+  border-radius: 50%;
   cursor: pointer; /* Changes cursor to pointer on hover */
   padding: 5px; /* Padding around the image */
   width: 50px; /* Adjusted width of the button */
@@ -196,9 +199,10 @@
   display: flex; /* Ensures contents are centered */
   align-items: center; /* Center align items vertically */
   justify-content: center; /* Center align items horizontally */
+  position: absolute;
 }
 
-.heart-button img {
+.favorite-button img {
   width: 100%; /* Makes the image fill the button */
   height: auto; /* Maintains aspect ratio */
 }
@@ -358,7 +362,6 @@ input:hover {
 
 .item-image-container {
   position: relative; /* This will be the anchor point for the absolutely positioned icons */
-  display: block;
   max-width: 200px;
   max-height: 200px;
   object-fit: contain;

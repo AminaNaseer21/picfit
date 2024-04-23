@@ -79,6 +79,10 @@ export default function Wardrobe() {
         // Logic to handle heart click for item at given index
       };
 
+      const handleFavoriteClick = () => {
+        // Logic to handle heart click for item at given index
+      };
+
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
 
@@ -111,12 +115,13 @@ export default function Wardrobe() {
                         </span>
                         <span className="button-text">Capture</span>
                     </button>
+                    <div className="right-side">
+                        <button className="favorite-button" onClick={handleFavoriteClick}>
+                            <img src={HeartButtonImage} alt="Heart" />
+                        </button>
+                    </div>
                 </div>
-                <div className="right-side">
-                    <button className="heart-button">
-                        <img src={HeartButtonImage} alt="Heart" />
-                    </button>
-                </div>
+                
             </div>
             <div className="wardrobe-container">
                 <div className="categories">
