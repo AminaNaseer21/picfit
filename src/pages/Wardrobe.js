@@ -70,6 +70,15 @@ export default function Wardrobe() {
         navigate('/capture');
     };
 
+    const handleTrashClick = () => {
+        
+        // Logic to handle trashcan click for item at given index
+      };
+      
+      const handleHeartClick = () => {
+        // Logic to handle heart click for item at given index
+      };
+
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
 
@@ -141,12 +150,12 @@ export default function Wardrobe() {
                     {filteredImageUrls.map((item, index) => (
                         <div key={index} className="item-image-container">
                         <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
-                            <button className="heart-button">
-                                <img src={icontrashcan} alt="trash" />
-                            </button>
-                            <button className="heart-button">
-                                <img src={iconheart} alt="heart" />
-                            </button>
+                        <button className="trash-button" onClick={handleTrashClick}>
+                            <img src={icontrashcan} alt="Delete item" />
+                        </button>
+                        <button className="heart-button" onClick={handleHeartClick}>
+                            <img src={iconheart} alt="Favorite item" />
+                        </button>
                         </div>
                     ))}
                     <div className="item add-new-item" onClick={handleUploadClick}>

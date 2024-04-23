@@ -350,17 +350,21 @@ input:hover {
 }
 
 .item-image {
-  max-width: calc(100% - 48px); /* Subtract the size of the icons plus some margin */
-  max-height: calc(100% - 48px); /* Subtract the size of the icons plus some margin */
+  max-width: 200px; /* Subtract the size of the icons plus some margin */
+  max-height: 200px; /* Subtract the size of the icons plus some margin */
   object-fit: contain;
   margin: 24px; /* This margin makes space for the icons */
 }
 
 .item-image-container {
+  position: relative; /* This will be the anchor point for the absolutely positioned icons */
+  display: block;
   max-width: 200px;
   max-height: 200px;
   object-fit: contain;
   margin: 5px;
+  /* Ensure there's enough padding for the icons */
+  padding-top: -4px; /* space for icons */
 }
 
 .uc-button.learn-more .icon.sun {
@@ -382,4 +386,37 @@ input:hover {
   padding: 10px;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.heart-button, .trash-button {
+  position: absolute;
+  background: none;
+  border: none;
+  width: 40px; /* Width of the icon */
+  height: 40px; /* Height of the icon */
+  cursor: pointer;
+}
+
+.heart-button img, .trash-button img {
+  width: 100%; /* Make the img fill the button */
+  height: auto;
+}
+
+/* Positioning the trash button on the top left */
+.trash-button {
+  top: 5px;
+  left: 5px;
+}
+
+/* Positioning the heart button on the top right */
+.heart-button {
+  top: 5px;
+  right: 5px;
+}
+
+.item-image {
+  display: block; /* Added display block */
+  max-width: 100%;
+  max-height: calc(100% - 30px); /* Adjusted for padding */
+  margin-top: 20px; /* Push the image down to make space for the icons */
 }
