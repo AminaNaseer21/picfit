@@ -16,7 +16,7 @@ export default function Wardrobe() {
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [activeSubSubcategory, setActiveSubSubcategory] = useState('');
     const [imageUrls, setImageUrls] = useState([]);
-    const [style, setStyles] = useState([]);
+    const [item, setItem] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const { currentUser } = useAuth();
 
@@ -76,15 +76,18 @@ export default function Wardrobe() {
         // Logic to handle trashcan click for item at given index
       };
       
-      const handleHeartClick = async (style) => {
+      const handleHeartClick = async (item) => {
         try {
-            await addFavoriteStyle(style);
+            console.log("Heart clicked! Item:", item);
+            await addFavoriteStyle([item]); // Ensure item is passed as an array
             const updatedFavorites = await getFavoriteStyles();
             setFavorites(updatedFavorites);
-          } catch (error) {
+        } catch (error) {
             console.error("Error adding to favorites:", error);
-          }
-      };
+        }
+    };
+    
+    
 
       const handleFavoriteClick = () => {
         // Logic to handle heart click for item at given index
@@ -165,7 +168,7 @@ export default function Wardrobe() {
                         <button className="trash-button" onClick={handleTrashClick}>
                             <img src={icontrashcan} alt="Delete item" />
                         </button>
-                        <button className='heart-button' onClick={() => handleHeartClick(style)}>
+                        <button className='heart-button' onClick={() => handleHeartClick(item)}>
                             <img src={iconheart} alt="Favorite item" />
                         </button>
                         </div>

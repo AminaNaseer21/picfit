@@ -4,7 +4,7 @@ import { firebaseApp } from "./firebase";
 
 const db = getFirestore(firebaseApp);
 
-export const addFavoriteStyle = async (style) => {
+export const addFavoriteStyle = async (item) => {
   const auth = getAuth(firebaseApp);
   const user = auth.currentUser;
 
@@ -12,20 +12,30 @@ export const addFavoriteStyle = async (style) => {
 
   try {
     const userFavoritesRef = collection(db, "users", user.uid, "favoriteStyle");
-    const styleDoc = {
-      items: style.map(item => ({
-        shortName: item.shortName,
-        imageUrl: item.imageUrl
-      })),
+    
+    // Ensure item is an array
+    if (!Array.isArray(item)) {
+      throw new Error("Item must be an array");
+    }
+
+    // Map each item in the array to create style documents
+    const styleDocs = item.map((item) => ({
+      imageUrl: item.imageUrl,
+      subCategory: item.subCategory,
       createdAt: new Date() // Timestamp to know when this was added
-    };
-    const docRef = await addDoc(userFavoritesRef, styleDoc);
-    return docRef.id; // Returns the document reference id
+    }));
+
+    // Add each style document to Firestore
+    const promises = styleDocs.map((styleDoc) => addDoc(userFavoritesRef, styleDoc));
+    const docRefs = await Promise.all(promises);
+    
+    return docRefs.map((docRef) => docRef.id); // Returns an array of document reference ids
   } catch (error) {
     console.error("Error adding favorite outfit:", error);
     throw error;
   }
 };
+
 
 export const getFavoriteStyles = async () => {
   const auth = getAuth(firebaseApp);
