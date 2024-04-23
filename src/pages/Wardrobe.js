@@ -16,8 +16,7 @@ export default function Wardrobe() {
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [activeSubSubcategory, setActiveSubSubcategory] = useState('');
     const [imageUrls, setImageUrls] = useState([]);
-    const [item, setItem] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+    const [favorite, setFavorites] = useState([]);
     const { currentUser } = useAuth();
 
     useEffect(() => {
@@ -31,6 +30,7 @@ export default function Wardrobe() {
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     const item = {
+                        id: doc.id, // Document ID
                         imageUrl: data.imageUrl,
                         subCategory: data.subCategory
                     };
@@ -71,15 +71,19 @@ export default function Wardrobe() {
         navigate('/capture');
     };
 
-    const handleTrashClick = () => {
-        
-        // Logic to handle trashcan click for item at given index
-      };
+    const handleTrashClick = async (favoriteItemId) => {
+        try {
+            await removeFavoriteStyle(favoriteItemId); // Ensure favoriteItemId is correctly passed here
+            const updatedFavorites = await getFavoriteStyles();
+            setFavorites(updatedFavorites);
+        } catch (error) {
+            console.error("Error removing from favorites:", error);
+        }
+    };
       
       const handleHeartClick = async (item) => {
         try {
-            console.log("Heart clicked! Item:", item);
-            await addFavoriteStyle([item]); // Ensure item is passed as an array
+            await addFavoriteStyle([item]);
             const updatedFavorites = await getFavoriteStyles();
             setFavorites(updatedFavorites);
         } catch (error) {
@@ -89,9 +93,35 @@ export default function Wardrobe() {
     
     
 
-      const handleFavoriteClick = () => {
-        // Logic to handle heart click for item at given index
-      };
+    const handleFavoriteClick = async () => {
+        console.log("Favorite button clicked")
+        if (imageUrls.length === 0) {
+            const wardrobeCollectionRef = collection(firestore, `users/${currentUser.uid}/wardrobe`);
+    
+            try {
+                const querySnapshot = await getDocs(wardrobeCollectionRef);
+                const items = querySnapshot.docs.map(doc => ({
+                    imageUrl: doc.data().imageUrl,
+                    subCategory: doc.data().subCategory
+                }));
+                setImageUrls(items);
+            } catch (error) {
+                console.error('Error fetching wardrobe items:', error);
+            }
+        } else {
+            try {
+                const updatedFavorites = await getFavoriteStyles();
+                setFavorites(updatedFavorites);
+    
+                const favoriteImageUrls = imageUrls.filter(item => {
+                    return updatedFavorites.some(favorite => favorite.imageUrl === item.imageUrl);
+                });
+                setImageUrls(favoriteImageUrls);
+            } catch (error) {
+                console.error("Error fetching favorite styles:", error);
+            }
+        }
+    };
 
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
@@ -165,7 +195,7 @@ export default function Wardrobe() {
                     {filteredImageUrls.map((item, index) => (
                         <div key={index} className="item-image-container">
                         <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
-                        <button className="trash-button" onClick={handleTrashClick}>
+                        <button className="trash-button" onClick={() => handleTrashClick(item.id)}>
                             <img src={icontrashcan} alt="Delete item" />
                         </button>
                         <button className='heart-button' onClick={() => handleHeartClick(item)}>

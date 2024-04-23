@@ -64,6 +64,8 @@ export const removeFavoriteStyle = async (favoriteStyleId) => {
 
   if (!user) throw new Error("User is not authenticated");
 
+  console.log("Favorite Style ID:", favoriteStyleId); // Add this line for debugging
+
   try {
     const favoriteDocRef = doc(firestore, "users", user.uid, "favoriteStyle", favoriteStyleId);
     await deleteDoc(favoriteDocRef);
