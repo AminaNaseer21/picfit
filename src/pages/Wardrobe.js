@@ -15,6 +15,7 @@ export default function Wardrobe() {
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [activeSubSubcategory, setActiveSubSubcategory] = useState('');
+    const [isFilteredByFavorites, setIsFilteredByFavorites] = useState(false);
     const [imageUrls, setImageUrls] = useState([]);
     const [favorite, setFavorites] = useState([]);
     const { currentUser } = useAuth();
@@ -94,35 +95,39 @@ export default function Wardrobe() {
     
 
     const handleFavoriteClick = async () => {
-        console.log("Favorite button clicked")
-        if (imageUrls.length === 0) {
-            const wardrobeCollectionRef = collection(firestore, `users/${currentUser.uid}/wardrobe`);
-    
-            try {
-                const querySnapshot = await getDocs(wardrobeCollectionRef);
-                const items = querySnapshot.docs.map(doc => ({
-                    imageUrl: doc.data().imageUrl,
-                    subCategory: doc.data().subCategory
-                }));
-                setImageUrls(items);
-            } catch (error) {
-                console.error('Error fetching wardrobe items:', error);
-            }
-        } else {
-            try {
-                const updatedFavorites = await getFavoriteStyles();
-                setFavorites(updatedFavorites);
-    
-                const favoriteImageUrls = imageUrls.filter(item => {
-                    return updatedFavorites.some(favorite => favorite.imageUrl === item.imageUrl);
-                });
-                setImageUrls(favoriteImageUrls);
-            } catch (error) {
-                console.error("Error fetching favorite styles:", error);
-            }
-        }
-    };
+    console.log("Favorite button clicked");
 
+    if (isFilteredByFavorites) {
+        const wardrobeCollectionRef = collection(firestore, `users/${currentUser.uid}/wardrobe`);
+
+        try {
+            const querySnapshot = await getDocs(wardrobeCollectionRef);
+            const items = querySnapshot.docs.map(doc => ({
+                imageUrl: doc.data().imageUrl,
+                subCategory: doc.data().subCategory
+            }));
+            setImageUrls(items);
+            setIsFilteredByFavorites(false);
+        } catch (error) {
+            console.error('Error fetching wardrobe items:', error);
+        }
+    } else {
+        try {
+            const updatedFavorites = await getFavoriteStyles();
+            setFavorites(updatedFavorites);
+
+            const favoriteImageUrls = imageUrls.filter(item => {
+                return updatedFavorites.some(favorite => favorite.imageUrl === item.imageUrl);
+            });
+            setImageUrls(favoriteImageUrls);
+            setIsFilteredByFavorites(true);
+        } catch (error) {
+            console.error("Error fetching favorite styles:", error);
+        }
+    }
+};
+
+    
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
 
@@ -132,7 +137,7 @@ export default function Wardrobe() {
 
     const filteredImageUrls = imageUrls.filter(item => {
         const subCategory = item.subCategory;
-        if (activeCategory && !activeCategory in categories) return false; // Check if active category exists
+        if (activeCategory && !(activeCategory in categories)) return false; // Check if active category exists
         if (activeSubcategory && !subCategory.includes(activeSubcategory)) return false;
         if (activeSubSubcategory && !subCategory.includes(activeSubSubcategory)) return false;
         return true;
