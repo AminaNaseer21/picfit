@@ -11,11 +11,13 @@ import camera from "../img/camera.png";
 import WeatherApp from './WeatherApp';
 
 export default function Wardrobe() {
+    const [items, setItems] = useState([]); // Now 'setItems' is defined
     const [activeCategory, setActiveCategory] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState('');
     const [activeSubSubcategory, setActiveSubSubcategory] = useState('');
     const [imageUrls, setImageUrls] = useState([]);
     const { currentUser } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!currentUser) return;
@@ -24,22 +26,24 @@ export default function Wardrobe() {
         
         getDocs(wardrobeCollectionRef)
             .then((querySnapshot) => {
-                const items = [];
+                const fetchedItems = [];
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
-                    const item = {
+                    fetchedItems.push({
+                        id: doc.id,
                         imageUrl: data.imageUrl,
+                        name: data.name,
                         subCategory: data.subCategory
-                    };
-                    items.push(item);
+                    });
                 });
-                setImageUrls(items);
+                setItems(fetchedItems);  // Properly sets fetched items to state
             })
             .catch((error) => {
                 console.error('Error fetching wardrobe items:', error);
             });
     }, [currentUser]);
 
+    
     const categories = {
         TOPS: {
             "T-shirts": ["Graphic", "Plain", "Polo", "Tank Tops"],
@@ -58,7 +62,6 @@ export default function Wardrobe() {
         }
     };
 
-    const navigate = useNavigate();
 
     const handleUploadClick = () => {
         navigate('/upload');
@@ -69,7 +72,7 @@ export default function Wardrobe() {
     };
 
     const handleItemClick = (itemId) => {
-        navigate('/itempage', { state: { itemId } });
+        navigate(`/itempage/${itemId}`); // Correct navigation to include the item ID
     };
 
     const toggleCategory = (category) => setActiveCategory(activeCategory === category ? '' : category);
@@ -78,14 +81,11 @@ export default function Wardrobe() {
 
     const toggleSubSubcategory = (subsubcategory) => setActiveSubSubcategory(activeSubSubcategory === subsubcategory ? '' : subsubcategory);
 
-    const filteredImageUrls = imageUrls.filter(item => {
-        const subCategory = item.subCategory;
-        if (activeCategory && !activeCategory in categories) return false; // Check if active category exists
-        if (activeSubcategory && !subCategory.includes(activeSubcategory)) return false;
-        if (activeSubSubcategory && !subCategory.includes(activeSubSubcategory)) return false;
-        return true;
+    const filteredItems = items.filter(item => {
+        return (!activeCategory || item.subCategory.includes(activeCategory)) &&
+               (!activeSubcategory || item.subCategory.includes(activeSubcategory)) &&
+               (!activeSubSubcategory || item.subCategory.includes(activeSubSubcategory));
     });
-
     return (
         <div>
             <div className="headerx">
@@ -140,11 +140,12 @@ export default function Wardrobe() {
                     ))}
                 </div>
                 <div className="items">
-                    {filteredImageUrls.map((item, index) => (
-                    <div key={index} className="item-image-container" onClick={() => handleItemClick(index)}>
-                        <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
-                        </div>
-                    ))}
+                {filteredItems.map(item => (
+                    <div key={item.id} className="item-image-container" onClick={() => handleItemClick(item.id)}>
+                        <img src={item.imageUrl} alt={`Item ${item.name}`} className="item-image"/>
+                        <div>{item.name}</div> {/* Display the item name */}
+                    </div>
+                ))}
                     <div className="item add-new-item" onClick={handleUploadClick}>
                         <span className="plus-button">+</span>
                     </div>
