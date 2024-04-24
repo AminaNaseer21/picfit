@@ -31,6 +31,8 @@
 .right-side {
   display: flex;
   align-items: center;
+  padding-left: 70px;
+  padding-right: 120px;
 }
 
 .weather {
@@ -186,85 +188,24 @@
 }
 
 
-/* HEART BUTTON STYLES */
-.heart-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 11px 10px 11px;
-    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #282936;
-    border-color: #ffffff;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 35px;
-    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5), 
-    border-color 400ms ease-in-out,
-    background-color 400ms ease-in-out;
-    word-spacing: -2px;
-  }
-  
-  @keyframes movingBorders {
-    0% {
-      border-color: #fce4e4;
-    }
-  
-    50% {
-      border-color: #ffd8d8;
-    }
-  
-    90% {
-      border-color: #fce4e4;
-    }
-  }
-  
-  .heart-button:hover {
-    background-color: #282936;
-    transform: scale(105%);
-    animation: movingBorders 3s infinite;
-  }
-  
-  .filled,
-  .empty {
-    fill: rgb(255, 110, 110);
-    transition: opacity 100ms ease-in-out;
-  }
-  
-  .filled {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  @keyframes beatingHeart {
-    0% {
-      transform: scale(1);
-    }
-  
-    15% {
-      transform: scale(1.15);
-    }
-  
-    30% {
-      transform: scale(1);
-    }
-  
-    45% {
-      transform: scale(1.15);
-    }
-  
-    60% {
-      transform: scale(1);
-    }
-  }
-  
-  .heart-button:hover .empty {
-    opacity: 0;
-  }
-  
-  .heart-button:hover .filled {
-    opacity: 1;
-    animation: beatingHeart 1.2s infinite;
-  }
+.favorite-button {
+  border: none; /* Removes border */
+  background: #282936; /* Removes default background */
+  border-radius: 50%;
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  padding: 5px; /* Padding around the image */
+  width: 50px; /* Adjusted width of the button */
+  height: 50px; /* Adjusted height of the button */
+  display: flex; /* Ensures contents are centered */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  position: absolute;
+}
+
+.favorite-button img {
+  width: 100%; /* Makes the image fill the button */
+  height: auto; /* Maintains aspect ratio */
+}
 
 
 /* UPLOAD & CAPTURE BUTTON */
@@ -413,16 +354,20 @@ input:hover {
 }
 
 .item-image {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 200px; /* Subtract the size of the icons plus some margin */
+  max-height: 200px; /* Subtract the size of the icons plus some margin */
   object-fit: contain;
-  margin: 5px;
+  margin: 24px; /* This margin makes space for the icons */
 }
+
 .item-image-container {
+  position: relative; /* This will be the anchor point for the absolutely positioned icons */
   max-width: 200px;
   max-height: 200px;
   object-fit: contain;
   margin: 5px;
+  /* Ensure there's enough padding for the icons */
+  padding-top: -4px; /* space for icons */
 }
 
 .uc-button.learn-more .icon.sun {
@@ -444,4 +389,37 @@ input:hover {
   padding: 10px;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.heart-button, .trash-button {
+  position: absolute;
+  background: none;
+  border: none;
+  width: 40px; /* Width of the icon */
+  height: 40px; /* Height of the icon */
+  cursor: pointer;
+}
+
+.heart-button img, .trash-button img {
+  width: 100%; /* Make the img fill the button */
+  height: auto;
+}
+
+/* Positioning the trash button on the top left */
+.trash-button {
+  top: 5px;
+  left: 5px;
+}
+
+/* Positioning the heart button on the top right */
+.heart-button {
+  top: 5px;
+  right: 5px;
+}
+
+.item-image {
+  display: block; /* Added display block */
+  max-width: 100%;
+  max-height: calc(100% - 30px); /* Adjusted for padding */
+  margin-top: 20px; /* Push the image down to make space for the icons */
 }
