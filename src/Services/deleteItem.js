@@ -7,11 +7,10 @@ const storage = getStorage();
 
 export const deleteItem = async (userId, itemId, imageName) => {
   try {
-    // Delete the document from Firestore
+    
     const docRef = doc(firestore, `users/${userId}/wardrobe/${itemId}`);
     await deleteDoc(docRef);
 
-    // Delete the image from Storage
     const imageRef = ref(storage, `images/${userId}/${imageName}`);
     await deleteObject(imageRef);
 

@@ -77,11 +77,9 @@ export default function Wardrobe() {
         const confirmation = window.confirm("Are you sure you want to delete this item?");
         if (confirmation) {
           const { success } = await deleteItem(currentUser.uid, itemId, imageName);
+          window.location.reload();
           if (success) {
-            // Update the state to remove the item from the UI
-            setImageUrls(prevUrls => prevUrls.filter(item => item.id !== itemId));
-          } else {
-            // Handle the error, e.g., show an error message to the user
+            setImageUrls(imageUrls => imageUrls.filter(item => item.id !== itemId));
           }
         }
       };
