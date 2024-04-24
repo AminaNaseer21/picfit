@@ -238,8 +238,8 @@ return (
         ></div>
 
         {/* Animated arrow */}
-        <div className="arrow-container">
-          <div className="arrow" onClick={handleNextSetClick}>
+        <div className="arrow-homecontainer">
+          <div className="arrowHome" onClick={handleNextSetClick}>
             <span></span>
             <span></span>
             <span></span>
