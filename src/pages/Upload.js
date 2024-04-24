@@ -13,13 +13,14 @@ import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
-    const [removeImage, setResult] = useState(null);
+    const [result, setResult] = useState(null);
     const [developerImage, setDeveloperImage] = useState(null);
     const [error, setError] = useState(null);
+    const [showModal, setShowModal] = useState(false);
     const [imageUploads, setImageUploads] = useState([]);
     const { currentUser } = useAuth();
     const firestore = getFirestore();
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Uncomment this if navigation is required after uploading
     const [analysisResult, setAnalysisResult] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -31,11 +32,9 @@ export default function Upload() {
     const handleRemoveBackground = async () => {
         try {
             const resultBlob = await removeBackground(image);
-            const resultUrl = URL.createObjectURL(resultBlob);
-            setResult(resultUrl);
+            setResult(URL.createObjectURL(resultBlob));
             setError(null);
-            // Wait for state update
-            setTimeout(() => handleConfirmUpload(), 0);
+            setShowModal(true);
         } catch (error) {
             setResult(null);
             setError('Failed to remove background');
@@ -62,7 +61,7 @@ export default function Upload() {
                     ctx.fillText(text, img.width - 10, img.height - 10); // Position text from the bottom right corner
     
                     setDeveloperImage(canvas.toDataURL());
-                    handleConfirmUpload(); // Directly initiate upload after processing
+                    setShowModal(true);
                 };
                 img.src = reader.result;
             };
@@ -71,49 +70,44 @@ export default function Upload() {
     };
 
     const handleConfirmUpload = async () => {
-        setIsLoading(true);
+        setIsLoading(true); // Show loader
+        setShowModal(false); // Hide modal if shown
     
-        let imageToUpload = image; // Default to original image
-        console.log("Original Image for upload:", image);
-    
-        if (removeImage) {
-            console.log("Attempting to upload removed background image");
-            const response = await fetch(removeImage);
-            const blob = await response.blob();
-            if (!blob.size) {
-                console.error("Failed to create blob from removeImage");
-            } else {
-                imageToUpload = new File([blob], `${image.name}-processed`, { type: 'image/png' });
-                console.log("New image file created with removed background:", imageToUpload);
-            }
+        // Convert developerImage from data URL to Blob if it's not null
+        let imageToUpload = image; // Default to the original image
+        if (result) {
+            // If background removal was applied, set imageToUpload to the result blob
+            imageToUpload = await fetch(result).then(r => r.blob());
         } else if (developerImage) {
-            console.log("Attempting to upload developer modified image");
+            // If developer image is set, convert it to a blob and set it as imageToUpload
             const response = await fetch(developerImage);
             const blob = await response.blob();
-            if (!blob.size) {
-                console.error("Failed to create blob from developerImage");
-            } else {
-                imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
-                console.log("New image file created for developer test:", imageToUpload);
-            }
+            imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
         }
     
-        // Confirm the file to be uploaded
-        console.log("Final file to upload:", imageToUpload);
-    
-        // Proceed with the upload
         try {
-            await uploadFiles(imageToUpload);
-            navigate('/wardrobe');
+            await uploadFiles(imageToUpload); // Pass the selected image to uploadFiles
+    
+            // Reset states after successful upload and analysis
+            setImage(null);
+            setResult(null);
+            setDeveloperImage(null);
+            setError(null);
+            setIsLoading(false); // Hide loader
+            navigate('/wardrobe'); // Navigate to success page or another page as required
         } catch (error) {
             console.error('Error during upload/analysis:', error);
-            setError('An error occurred during file upload or analysis.');
-        } finally {
-            setIsLoading(false);
+            setError('An error occurred during file upload or analysis.'); // Update error state to display error message
+            setIsLoading(false); // Hide loader
         }
     };
 
-    
+    const handleRetake = () => {
+        setImage(null);
+        setResult(null);
+        setDeveloperImage(null);
+        setShowModal(false);
+    };
  
     const prompt = `Please analyze the uploaded image of a clothing item and provide the following information in the specified format:
                     1. **Short Name**: Provide a concise name for the clothing item based on its most distinguishing features (e.g., "Blue Striped Polo").
@@ -162,42 +156,42 @@ export default function Upload() {
                     60`;
 
                   
-    const uploadFiles = async (fileToUpload) => {
-        if (!currentUser || !fileToUpload) return;
-    
-        try {
-            const fileRef = ref(storage, `images/${currentUser.uid}/${fileToUpload.name}-${uuidv4()}`);
-            await uploadBytes(fileRef, fileToUpload);
-            const url = await getDownloadURL(fileRef);
-    
-            const analyzedData = await analyzeImage(url, prompt);
-    
+        const uploadFiles = async (fileToUpload) => {
+            if (!currentUser || !fileToUpload) return;
+        
             try {
-                const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
-    
-                setAnalysisResult(analyzedData);
-    
-                const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${fileToUpload.name}-${uuidv4()}`);
-                await setDoc(docRef, {
-                    imageUrl: url,
-                    shortName,
-                    category,
-                    subCategory,
-                    color,
-                    tempRangeLow,
-                    tempRangeHigh,
-                    wearCount: 0,
-                    ItemNotes: "",
-                    favorite: 0,
-                });
-    
+                const fileRef = ref(storage, `images/${currentUser.uid}/${fileToUpload.name}-${uuidv4()}`);
+                await uploadBytes(fileRef, fileToUpload);
+                const url = await getDownloadURL(fileRef);
+        
+                const analyzedData = await analyzeImage(url, prompt);
+        
+                try {
+                    const { shortName, category, subCategory, color, tempRangeLow, tempRangeHigh } = parseAnalyzedData(analyzedData);
+        
+                    setAnalysisResult(analyzedData);
+        
+                    const docRef = doc(firestore, `users/${currentUser.uid}/wardrobe/${fileToUpload.name}-${uuidv4()}`);
+                    await setDoc(docRef, {
+                        imageUrl: url,
+                        shortName,
+                        category,
+                        subCategory,
+                        color,
+                        tempRangeLow,
+                        tempRangeHigh,
+                        wearCount: 0,
+                        ItemNotes: "",
+                        favorite: 0,
+                    });
+        
+                } catch (error) {
+                    console.error('Error parsing analyzed data:', error);
+                }
             } catch (error) {
-                console.error('Error parsing analyzed data:', error);
+                console.error('Error uploading or analyzing file:', error);
             }
-        } catch (error) {
-            console.error('Error uploading or analyzing file:', error);
-        }
-    };
+        };
 
     return (
         <div className="upload-container">
@@ -207,8 +201,8 @@ export default function Upload() {
                 <div className="image-upload-section">
                     <div className="image-preview">
                         {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="preview-image" />}
-                        {(removeImage || developerImage) && (
-                            <img src={removeImage || developerImage} alt="Processed" className="preview-image" />
+                        {(result || developerImage) && (
+                            <img src={result || developerImage} alt="Processed" className="preview-image" />
                         )}
                     </div>
                     <input type="file" accept="image/*" className="file-input" onChange={handleImageChange} />
@@ -225,14 +219,26 @@ export default function Upload() {
                     </div>
                 )}
             </div>
-            {isLoading && (
-                <div className="loader-overlay">
-                    <div className="loader-container">
-                        <div className="loader"></div>
-                        <p className="loader-text">Analyzing image, please wait...</p>
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h2>Confirm Upload</h2>
+                        <p>Would you like to confirm the upload or retake the image?</p>
+                        <div className="modal-actions">
+                            <button className="modal-action-button" onClick={handleConfirmUpload}>Confirm Upload</button>
+                            <button className="modal-action-button" onClick={handleRetake}>Retake</button>
+                        </div>
                     </div>
                 </div>
             )}
+            {isLoading && (
+                    <div className="loader-overlay">
+                        <div className="loader-container">
+                            <div className="loader"></div>
+                            <p className="loader-text">Analyzing image, please wait...</p>
+                        </div>
+                    </div>
+                )}
         </div>
     );
 }
