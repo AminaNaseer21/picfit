@@ -13,7 +13,7 @@ import './Upload.css';
 
 export default function Upload() {
     const [image, setImage] = useState(null);
-    const [result, setResult] = useState(null);
+    const [removeImage, setResult] = useState(null);
     const [developerImage, setDeveloperImage] = useState(null);
     const [error, setError] = useState(null);
     const [imageUploads, setImageUploads] = useState([]);
@@ -31,9 +31,11 @@ export default function Upload() {
     const handleRemoveBackground = async () => {
         try {
             const resultBlob = await removeBackground(image);
-            setResult(URL.createObjectURL(resultBlob));
+            const resultUrl = URL.createObjectURL(resultBlob);
+            setResult(resultUrl);
             setError(null);
-            handleConfirmUpload(); // Directly initiate upload after processing
+            // Wait for state update
+            setTimeout(() => handleConfirmUpload(), 0);
         } catch (error) {
             setResult(null);
             setError('Failed to remove background');
@@ -70,26 +72,43 @@ export default function Upload() {
 
     const handleConfirmUpload = async () => {
         setIsLoading(true);
-        let imageToUpload = image;
-        if (result) {
-            imageToUpload = await fetch(result).then(r => r.blob());
+    
+        let imageToUpload = image; // Default to original image
+        console.log("Original Image for upload:", image);
+    
+        if (removeImage) {
+            console.log("Attempting to upload removed background image");
+            const response = await fetch(removeImage);
+            const blob = await response.blob();
+            if (!blob.size) {
+                console.error("Failed to create blob from removeImage");
+            } else {
+                imageToUpload = new File([blob], `${image.name}-processed`, { type: 'image/png' });
+                console.log("New image file created with removed background:", imageToUpload);
+            }
         } else if (developerImage) {
+            console.log("Attempting to upload developer modified image");
             const response = await fetch(developerImage);
             const blob = await response.blob();
-            imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
+            if (!blob.size) {
+                console.error("Failed to create blob from developerImage");
+            } else {
+                imageToUpload = new File([blob], `${image.name}-developer`, { type: 'image/png' });
+                console.log("New image file created for developer test:", imageToUpload);
+            }
         }
     
+        // Confirm the file to be uploaded
+        console.log("Final file to upload:", imageToUpload);
+    
+        // Proceed with the upload
         try {
             await uploadFiles(imageToUpload);
-            setImage(null);
-            setResult(null);
-            setDeveloperImage(null);
-            setError(null);
-            setIsLoading(false);
             navigate('/wardrobe');
         } catch (error) {
             console.error('Error during upload/analysis:', error);
             setError('An error occurred during file upload or analysis.');
+        } finally {
             setIsLoading(false);
         }
     };
@@ -188,8 +207,8 @@ export default function Upload() {
                 <div className="image-upload-section">
                     <div className="image-preview">
                         {image && <img src={URL.createObjectURL(image)} alt="Uploaded" className="preview-image" />}
-                        {(result || developerImage) && (
-                            <img src={result || developerImage} alt="Processed" className="preview-image" />
+                        {(removeImage || developerImage) && (
+                            <img src={removeImage || developerImage} alt="Processed" className="preview-image" />
                         )}
                     </div>
                     <input type="file" accept="image/*" className="file-input" onChange={handleImageChange} />
