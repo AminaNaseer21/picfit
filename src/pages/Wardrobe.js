@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../Services/firebase';
 import { addFavoriteStyle, getFavoriteStyles, removeFavoriteStyle } from '../Services/FavoritesItem';
+import { deleteItem } from '../Services/deleteItem';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
 import WeatherApp from './WeatherApp';
@@ -72,15 +73,18 @@ export default function Wardrobe() {
         navigate('/capture');
     };
 
-    const handleTrashClick = async (favoriteItemId) => {
-        try {
-            await removeFavoriteStyle(favoriteItemId); // Ensure favoriteItemId is correctly passed here
-            const updatedFavorites = await getFavoriteStyles();
-            setFavorites(updatedFavorites);
-        } catch (error) {
-            console.error("Error removing from favorites:", error);
+    const handleTrashClick = async (itemId, imageName) => {
+        const confirmation = window.confirm("Are you sure you want to delete this item?");
+        if (confirmation) {
+          const { success } = await deleteItem(currentUser.uid, itemId, imageName);
+          if (success) {
+            // Update the state to remove the item from the UI
+            setImageUrls(prevUrls => prevUrls.filter(item => item.id !== itemId));
+          } else {
+            // Handle the error, e.g., show an error message to the user
+          }
         }
-    };
+      };
       
       const handleHeartClick = async (item) => {
         try {
@@ -197,11 +201,11 @@ export default function Wardrobe() {
                     ))}
                 </div>
                 <div className="items">
-                    {filteredImageUrls.map((item, index) => (
-                        <div key={index} className="item-image-container">
+                {filteredImageUrls.map((item, index) => (
+                    <div key={index} className="item-image-container">
                         <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
-                        <button className="trash-button" onClick={() => handleTrashClick(item.id)}>
-                            <img src={icontrashcan} alt="Delete item" />
+                        <button className="trash-button" onClick={() => handleTrashClick(item.id, item.imageName)}>
+                        <img src={icontrashcan} alt="Delete item" />
                         </button>
                         <button className='heart-button' onClick={() => handleHeartClick(item)}>
                             <img src={iconheart} alt="Favorite item" />
