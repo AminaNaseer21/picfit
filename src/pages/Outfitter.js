@@ -129,11 +129,10 @@ const Outfitter = () => {
             {favorites.length > 0 ? (
               <div className="outfit-container">
                 {favorites.map((favorite, index) => (
-                  <div key={index} className="outfit-grid">
+                  <div key={index} className="outfit-grid2">
                     {favorite.items.map((item, itemIndex) => (
                       <div key={itemIndex} className="clothing-item">
                         <img src={item.imageUrl} alt={item.shortName} className="clothing-item-image" />
-                        <p>{item.shortName}</p>
                       </div>
                     ))}
                     <button className='outfitter-buttons' onClick={() => handleRemoveFavorite(favorite.id)}>

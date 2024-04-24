@@ -47,8 +47,33 @@
 }
 
 .outfit-grid img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  border: 1px solid #eaeaea; /* Light border for the grid */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.outfit-grid2 {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically within each outfit grid */
+  align-items: center; /* Centers items horizontally within each outfit grid */
+  width: calc(33.333% - 40px); /* Adjusts the width to 3 items per row, subtracting the total padding/margin */
+  margin: 20px; /* Adds space between the boxes */
+  box-sizing: border-box;
+  padding: 20px; /* Padding inside each outfit grid */
+  border: 1px solid #eaeaea; /* Light border for the grid */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.outfit-grid2 img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
   border: 1px solid #eaeaea; /* Light border for the grid */
   border-radius: 8px; /* Rounded corners */
   background-color: #fff; /* White background */
