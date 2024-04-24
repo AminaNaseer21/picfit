@@ -30,6 +30,7 @@ export default function Upload() {
     };
 
     const handleRemoveBackground = async () => {
+        console.log("Selected images:", imageUploads);
         try {
             const resultBlob = await removeBackground(image);
             setResult(URL.createObjectURL(resultBlob));
