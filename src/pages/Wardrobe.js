@@ -3,7 +3,7 @@ import { useAuth } from '../Services/authentication';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../Services/firebase';
-import { addFavoriteStyle, getFavoriteStyles, removeFavoriteStyle } from '../Services/FavoritesItem';
+import { addFavoriteStyle, getFavoriteStyles } from '../Services/FavoritesItem';
 import { deleteItem } from '../Services/deleteItem';
 import './Wardrobe.css'; // Make sure to create a corresponding CSS file
 import camera from "../img/camera.png";
@@ -90,7 +90,7 @@ export default function Wardrobe() {
             const updatedFavorites = await getFavoriteStyles();
             setFavorites(updatedFavorites);
         } catch (error) {
-            console.error("Error adding to favorites:", error);
+            console.error("Error adding to favorites:", favorite, error);
         }
     };
     
@@ -174,7 +174,7 @@ export default function Wardrobe() {
                 <div className="categories">
                     {Object.entries(categories).map(([categoryName, subcategories]) => (
                         <div key={categoryName}>
-                            <div className="category-title">{categoryName}</div>
+                            <div className="category-title" onClick={() => toggleCategory(categoryName)} >{categoryName}</div>
                             {Object.entries(subcategories).map(([subcategory, subsubcategories]) => (
                                 <div key={subcategory} className="subcategory">
                                     <button className="dropdown-button" onClick={() => toggleSubcategory(subcategory)}>

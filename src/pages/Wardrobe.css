@@ -57,7 +57,7 @@
   flex-wrap: wrap;
   gap: 20px;
   overflow-y: auto;
-  justify-content: left;
+  justify-content: center;
 }
 
 .item {
@@ -361,11 +361,18 @@ input:hover {
 }
 
 .item-image-container {
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 25px;
   position: relative; /* This will be the anchor point for the absolutely positioned icons */
-  max-width: 200px;
-  max-height: 200px;
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  overflow: hidden;
   object-fit: contain;
-  margin: 5px;
+  margin: 10px;
   /* Ensure there's enough padding for the icons */
   padding-top: -4px; /* space for icons */
 }
