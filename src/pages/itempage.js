@@ -42,44 +42,30 @@ const ItemPage = () => {
   const userId = auth.currentUser ? auth.currentUser.uid : null;
 
   useEffect(() => {
-   
-
-    const fetchItem = async () => {
-      if (!userId || !itemId) return;
-
-    setLoading(true); // Start loading indicator
-    setError('');
-
-    
-      const docRef = doc(firestore, 'users', userId, 'wardrobe', itemId);
-      try {
-        const docSnap = await getDoc(docRef); // Attempt to fetch the document
-        if (docSnap.exists()) {
-          // Assuming your document's structure matches your component's state structure
-          setItem({
-            itemName: docSnap.data().shortName || '',
-            itemCategory: docSnap.data().category || '',
-            itemSubcategory: docSnap.data().subCategory || '',
-            itemColor: docSnap.data().color || '',
-            itemNotes: docSnap.data().ItemNotes || '',
-            imageUrl: docSnap.data().imageUrl || '',
-            maxTemp: docSnap.data().tempRangeHigh || '',
-            minTemp: docSnap.data().tempRangeLow || '',
-            wearCount: docSnap.data().wearCount || '',
-
-          });
-        } else {
-          setError('Item not found.');
-        }
-      } catch (error) {
-        console.error("Error fetching item:", error);
-        setError('Failed to fetch item.'); // Set error state on fetch error
-      } finally {
-        setLoading(false); // Ensure loading is set to false after fetch attempt
+    if (!userId || !itemId) return;
+    setLoading(true);
+    const docRef = doc(firestore, 'users', userId, 'wardrobe', itemId);
+    getDoc(docRef).then(docSnap => {
+      if (docSnap.exists()) {
+        setItem({
+          itemName: docSnap.data().shortName,
+          itemCategory: docSnap.data().category,
+          itemSubcategory: docSnap.data().subCategory,
+          itemColor: docSnap.data().color,
+          itemNotes: docSnap.data().ItemNotes,
+          imageUrl: docSnap.data().imageUrl,
+          maxTemp: docSnap.data().tempRangeHigh,
+          minTemp: docSnap.data().tempRangeLow,
+          wearCount: docSnap.data().wearCount,
+        });
+      } else {
+        setError('Item not found');
       }
-    };
-    fetchItem();
-    
+    }).catch(error => {
+      setError('Failed to fetch item');
+    }).finally(() => {
+      setLoading(false);
+    });
   }, [userId, itemId]);
 
   const handleInputChange = (e) => {

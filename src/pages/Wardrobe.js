@@ -44,6 +44,7 @@ export default function Wardrobe() {
                 console.error('Error fetching wardrobe items:', error);
             });
     }, [currentUser]);
+    
 
     const categories = {
         TOPS: {
@@ -199,22 +200,25 @@ export default function Wardrobe() {
                     ))}
                 </div>
                 <div className="items">
-                {filteredImageUrls.map((item, index) => (
-                    <div key={index} className="item-image-container">
+                    {filteredImageUrls.map((item, index) => (
+                        <div key={index} className="item-image-container" onClick={() => navigate(`/item/${item.id}`)}>
                         <img src={item.imageUrl} alt={`Uploaded ${index}`} className="item-image"/>
-                        <button className="trash-button" onClick={() => handleTrashClick(item.id, item.imageName)}>
-                        <img src={icontrashcan} alt="Delete item" />
+                        <button className="trash-button" onClick={e => {
+                            e.stopPropagation(); // Prevent navigation when clicking on trash
+                            handleTrashClick(item.id, item.imageName);
+                        }}>
+                            <img src={icontrashcan} alt="Delete item" />
                         </button>
-                        <button className='heart-button' onClick={() => handleHeartClick(item)}>
+                        <button className='heart-button' onClick={e => {
+                            e.stopPropagation(); // Prevent navigation when clicking on heart
+                            handleHeartClick(item);
+                        }}>
                             <img src={iconheart} alt="Favorite item" />
                         </button>
                         </div>
                     ))}
-                    <div className="item add-new-item" onClick={handleUploadClick}>
-                        <span className="plus-button">+</span>
                     </div>
                 </div>
-            </div>
             <div className="weather-card">
                 <WeatherApp />
             </div>
