@@ -14,7 +14,7 @@ const categoriesWithSubcategories = {
   "Shirts": ["Shirt Jackets", "Short-Sleeve Shirts", "Long-Sleeve Shirts", "Sweater Polos"],
   "Sweatshirts": ["Crew Neck Sweatshirts", "Graphic Sweatshirts"],
   "Denim": ["Straight", "Tapered", "Boyfriend", "Baggy", "Slim", "Bootcut", "Flared", "Jeggings", "Mom", "Wide Leg"],
-  "Bottoms": ["Chinos", "Trousers", "Joggers", "Workwear", "Cargo"],
+  "Bottoms": ["Chinos", "Trousers", "Joggers", "Workwear", "Cargo", 'Slacks'],
   "Sweatpants": ["Jogger", "Classic"],
   "Shorts": ["Classic", "Active", "Mesh Shorts", "Denim Shorts", "Cargo"],
   "Hoodies": ["Zip-Up Hoodies", "Pullover Hoodies", "Graphic Hoodies"],
