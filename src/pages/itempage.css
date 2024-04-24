@@ -1,121 +1,132 @@
 .item-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .headerr {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .item-name {
   flex-grow: 1;
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: calc(100% - 40px); /* Adjust the 40px to account for padding and margins */
-}
-@media (max-width: 768px) {
-  .item-name {
-    max-width: calc(100% - 20px); /* Smaller screens may require different adjustments */
-  }
-  /* Other responsive design adjustments as necessary */
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  font-size: 1rem;
 }
 
 .confirm-icon {
-  width: 25px;
-  height: 22px;
-  background-color: green;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
+  background-color: #4CAF50; /* Green */
+  border: none;
   border-radius: 50%;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
-.content {
-  display: flex;
-  width: 100%;
-  margin-bottom: 20px;
+.back-button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.photo-section {
-  width: 50%;
-  padding-right: 10px;
-}
-
-.item-photo {
+.photo-section img {
+  display: block; /* Removes bottom space under the image */
   width: 100%;
   height: auto;
-  background-color: #f0f0f0;
-  text-align: center;
+  object-fit: cover;
 }
 
 .details-section {
-  width: 50%;
-  padding-left: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 1rem;
 }
 
-.item-category,
-.item-subcategory,
-.item-color,
-.wear-counter,
-.weather-range {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.details-section label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.details-section select,
+.details-section input,
+.details-section textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 .wear-counter {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .wear-counter button {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  margin: 0;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  height: 2rem;
   cursor: pointer;
 }
 
-.item-notes {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  height: 100px;
+.wear-counter span {
+  margin: 0 1rem;
 }
 
-.back-button {
-  margin-right: 20px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 16px;
+.item-notes::placeholder {
+  color: #aaa;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-  .content {
-    flex-direction: column;
-  }
+.weather-range {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  color: #666;
+  display: flex;
+  justify-content: space-between; /* This will space out your min and max temp fields */
+  align-items: center;
+}
 
-  .photo-section,
-  .details-section {
-    width: 100%;
+.weather-range label {
+  margin-right: 0.5rem; /* Adds some space between the label and the input */
+}
+
+.weather-range input[type="number"] {
+  padding: 0.25rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 60px; /* or any width that fits your design */
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  .item-page {
+    max-width: 90%;
   }
 }
