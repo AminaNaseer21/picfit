@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './home.css'; // Import your existing CSS file
 import HomeAnimation from '../Services/HomeAnimation';
 import camera from "../img/camera.png";
@@ -28,11 +28,12 @@ const Home = () => {
   const [bottomsPosition, setBottomsPosition] = useState({ x: 0, y: 0 });
   const [shoesPosition, setShoesPosition] = useState({ x: 0, y: 0 });
   const [text, setText] = useState('');
-  const sets = [' a causal day?', ' girls night?', ' game day?', ' date night?', ' Valentines?'];
+  const sets = useMemo(() => [
+    ' a casual day?', ' girls night?', ' game day?', ' date night?', ' Valentines?'
+  ], []);
 
 
   useEffect(() => {
-    // Typewriter effect
     let currentIndex = 0;
     let intervalId;
     const typeText = () => {
@@ -43,9 +44,9 @@ const Home = () => {
         clearInterval(intervalId);
       }
     };
-    intervalId = setInterval(typeText, 150); // Increase the interval duration to 150 milliseconds
+    intervalId = setInterval(typeText, 150);
     return () => clearInterval(intervalId);
-  }, [currentSet]);
+  }, [currentSet, sets]);
 
   const handleNextSetClick = () => {
     if (!isTransitioning) {
@@ -68,27 +69,26 @@ const Home = () => {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      // Define a movement range
-      const movementRange = 5; // Adjust this value as needed
+      const movementRange = 5; // Define movement range
   
       // Move shirt
       setShirtPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
-        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
+        x: prevState.x + (Math.random() - 0.5) * movementRange,
+        y: prevState.y + (Math.random() - 0.5) * movementRange,
       }));
   
       // Move bottoms
       setBottomsPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0) * 0, // Random horizontal movement within the range
-        y: prevState.y + (Math.random() - 0) * 0, // Random vertical movement within the range
+        x: prevState.x + (Math.random() - 0.5) * movementRange,
+        y: prevState.y + (Math.random() - 0.5) * movementRange,
       }));
   
       // Move shoes
       setShoesPosition((prevState) => ({
-        x: prevState.x + (Math.random() - 0.5) * 1, // Random horizontal movement within the range
-        y: prevState.y + (Math.random() - 0.5) * 1, // Random vertical movement within the range
+        x: prevState.x + (Math.random() - 0.5) * movementRange,
+        y: prevState.y + (Math.random() - 0.5) * movementRange,
       }));
-    }, 100); // Adjust movement interval as needed
+    }, 100);
     return () => clearInterval(moveInterval);
   }, []);
 
@@ -200,14 +200,16 @@ return (
       </div>
 
       {/* Upload popup */}
-      <div className={`upload-popup ${popupClass}`}>
-        <button className="close-button" onClick={handleCloseButtonClick}>
-          X
-        </button>
-        <div className="upload-content">
-          <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+      {uploadPopupVisible && (
+        <div className={`upload-popup ${popupClass}`}>
+          <button className="close-button" onClick={handleCloseButtonClick}>
+            X
+          </button>
+          <div className="upload-content">
+            <h2 onClick={handleUploadClick}>Upload New Clothing Items</h2>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Camera icon */}
       {cameraIconVisible && (
