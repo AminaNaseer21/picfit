@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './itempage.css';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
-
-import item1 from '../img/items/1.png';
-import { firestore } from '../Services/firebase'; // Ensure you have this import from your Firebase config
+import { firestore } from '../Services/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import itemPlaceholder from '../img/items/1.png';
 
 
 const categoriesWithSubcategories = {
@@ -23,7 +21,7 @@ const categoriesWithSubcategories = {
 };
 
 const ItemPage = () => {
-  const { itemId } = useParams(); // Retrieve the item ID from URL
+  const { itemId } = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState({
     itemName: '',
@@ -32,12 +30,12 @@ const ItemPage = () => {
     itemColor: 'Color',
     wearCount: 3,
     itemNotes: '',
-    minTemp: '', // Initialize min temperature
-  maxTemp: ''
+    minTemp: '',
+    maxTemp: ''
   });
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
   const auth = getAuth();
   const userId = auth.currentUser ? auth.currentUser.uid : null;
 
@@ -82,13 +80,9 @@ const ItemPage = () => {
   };
 
   const handleSaveChanges = async () => {
-    if (!userId || !itemId) {
-      console.error("UserId or ItemId is undefined", { userId, itemId });
-      return;
-    }
+    if (!userId || !itemId) return;
     const docRef = doc(firestore, 'users', userId, 'wardrobe', itemId);
     try {
-      console.log("Updating with item data", item);
       await updateDoc(docRef, {
         shortName: item.itemName,
         category: item.itemCategory,
@@ -100,74 +94,48 @@ const ItemPage = () => {
         tempRangeHigh: item.maxTemp,
         tempRangeLow: item.minTemp,
         wearCount: item.wearCount
-        });      
-        console.log('Item updated successfully!');
+      });      
     } catch (error) {
       console.error("Error updating document: ", error);
     }
   };
 
-  
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
 
   return (
-<div className="item-page">
-    {loading ? (
-      <div className="loading">Loading...</div>
-    ) : error ? (
-      <div className="error">{error}</div>
-    ) : (
-      <>
-        <div className="header">
-    <button onClick={() => navigate(-1)} className="back-button">← Back</button>
-    <input
-      type="text"
-      name="itemName"
-      value={item.itemName}
-      onChange={handleInputChange}
-      className="item-name"
-    />
-    <button onClick={handleSaveChanges} className="confirm-icon">✓</button>
-  </div>
-  <div className="content">
-
-  <div className="photo-section">
-            <img src={item.imageUrl || item1} alt="Item" className="item-photo"/>
-          </div>
-
-
+    <div className="item-page">
+      <div className="header">
+        <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+        <input type="text" name="itemName" value={item.itemName} onChange={handleInputChange} className="item-name" />
+        <button onClick={handleSaveChanges} className="save-button">Save</button>
+      </div>
+      <div className="content">
+        <div className="photo-section">
+          <img src={item.imageUrl || itemPlaceholder} alt="Item" className="item-photo"/>
+        </div>
         <div className="details-section">
-        <label htmlFor="itemCategory">Category</label>
-            <select
-              name="itemCategory"
-              value={item.itemCategory}
-              onChange={handleInputChange}
-              className="item-category"
-            >
+          <div className="form-field">
+            <label htmlFor="itemCategory">Category</label>
+            <select name="itemCategory" value={item.itemCategory} onChange={handleInputChange} className="item-category">
               {Object.keys(categoriesWithSubcategories).map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
             </select>
-
+          </div>
+          <div className="form-field">
             <label htmlFor="itemSubcategory">Subcategory</label>
             <select name="itemSubcategory" value={item.itemSubcategory} onChange={handleInputChange} className="item-subcategory">
-  {
-    (categoriesWithSubcategories[item.itemCategory] || []).map(subcategory => (
-      <option key={subcategory} value={subcategory}>{subcategory}</option>
-    ))
-  }
-</select>
-          
+              {categoriesWithSubcategories[item.itemCategory]?.map(subcategory => (
+                <option key={subcategory} value={subcategory}>{subcategory}</option>
+              ))}
+            </select>
+          </div>
+          <div className="form-field">
             <label htmlFor="itemColor">Color</label>
-            <select
-              name="itemColor"
-              value={item.itemColor}
-              onChange={handleInputChange}
-              className="item-color"
-            >
-            <option value="Blue">Blue</option>
+            <select name="itemColor" value={item.itemColor} onChange={handleInputChange} className="item-color">
+              <option value="Blue">Blue</option>
             <option value="Orange">Orange</option>
             <option value="Yellow">Yellow</option>
             <option value="Green">Green</option>
@@ -184,50 +152,30 @@ const ItemPage = () => {
             <option value="White">White</option>
             <option value="Cyan">Cyan</option>
             <option value="Teal">Teal</option>
-          </select>
-
-          <div className="wear-counter">
-            <label htmlFor="wearCount">Wear Count </label>
-            <button onClick={decrementWearCount}>-</button>
-            <span>{item.wearCount}</span>
-            <button onClick={incrementWearCount}>+</button>
+            </select>
           </div>
-          <textarea
-            name="itemNotes"
-            value={item.itemNotes}
-            onChange={handleInputChange}
-            className="item-notes"
-            placeholder="Add notens here..."
-            ></textarea>
-            <div className="confirm-icon">✓</div>
+          <div className="form-field">
+            <label htmlFor="wearCount">Wear Count</label>
+            <div className="wear-counter">
+              <button onClick={decrementWearCount}>-</button>
+              <span>{item.wearCount}</span>
+              <button onClick={incrementWearCount}>+</button>
+            </div>
+          </div>
+          <div className="form-field">
+            <label htmlFor="itemNotes">Notes</label>
+            <textarea name="itemNotes" value={item.itemNotes} onChange={handleInputChange} className="item-notes" placeholder="Add notes here..."></textarea>
           </div>
           <div className="weather-range">
-          <label htmlFor="minTemp">Min Temp:</label>
-<input
-  type="number"
-  id="minTemp"
-  name="minTemp"
-  value={item.minTemp}
-  onChange={handleInputChange}
-  
-/>
-
-<label htmlFor="maxTemp">Max Temp:</label>
-<input
-  type="number"
-  id="maxTemp"
-  name="maxTemp"
-  value={item.maxTemp}
-  onChange={handleInputChange}
-  
-/>
-
-</div>
+            <label htmlFor="minTemp">Min Temp:</label>
+            <input type="number" id="minTemp" name="minTemp" value={item.minTemp} onChange={handleInputChange} />
+            <label htmlFor="maxTemp">Max Temp:</label>
+            <input type="number" id="maxTemp" name="maxTemp" value={item.maxTemp} onChange={handleInputChange} />
+          </div>
         </div>
-      </>
-    )}
-  </div>
-);
+      </div>
+    </div>
+  );
 };
 
 export default ItemPage;
