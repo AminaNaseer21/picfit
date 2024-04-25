@@ -4,6 +4,11 @@ pipelines:
   branches:
     main:
       - step:
+          name: "Debug environment variable"
+          script:
+            - echo "Checking API Key"
+            - echo $OPENAI_API_KEY
+      - step:
           name: Build and Deploy to Production
           script:
             - npm install
