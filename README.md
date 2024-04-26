@@ -238,7 +238,45 @@ Sprint 3:
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-197-add-more-styles-to-avoid
 - Jira Task 224: Auto update weather when page is reloaded
 		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-224-auto-update-whenever-page-is
-### Umer: 
+
+### Umer: Added generate outfit functionality to website. Streamlined the upload prosses for clothing, and added option to take picture and upload.
+- Jira Task 180: Design the layout to showcase three outfits at a time in the center of the page.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-180-design-the-layout-to-showcas
+- Jira Task 182: Create a UI component below the main display that shows favorite outfits.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-182-create-a-ui-component-below-
+- Jira Task 183: Implement functionality to add outfits to the favorites section by integrating a database update feature.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-183-implement-functionality-to-a
+- Jira Task 184: Add an "Add to Favorite" button for each outfit, with functionality to mark outfits as favorites in the Firestore database.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-184-add-an-add-to-favorite-butto
+- Jira Task 185: Implement a "Wear This Outfit" button that updates the wear count of each piece in the outfit in the Firestore database.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-185-implement-a-wear-this-outfit
+- Jira Task 199: Automated Photo Processing and Redirection Workflow
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-199-automated-photo-processing-a
+- Jira Task 200: Integrate a weather API to fetch and display current weather conditions on the top right corner of the Outfitter page.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-200-integrate-a-weather-api-to-f
+- Jira Task 202: Create a button that removes background and uploads photo in one button
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-202-create-a-button-that-removes
+- Jira Task 203: Display clothing images on outfitter
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-203-display-clothing-images-on-o
+- Jira Task 206: Develop a system that incorporates user preferences into the outfit generation process.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-206-develop-a-system-that-incorp
+- Jira Task 207: Add loader while vision api loads
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-207-add-loader-while-vision-api-
+- Jira Task 208: Use weather data to influence outfit suggestions, ensuring the outfits are suitable for the current conditions.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-208-use-weather-data-to-influenc
+- Jira Task 210: Implement a service to retrieve clothing items from Firestore, ensuring each item has a unique identifier.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-210-implement-a-service-to-retri
+- Jira Task 211: Update prompt to pick only from list of colors
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-211-update-prompt-to-pick-only-f
+- Jira Task 212: Update prompt with list of categories.
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-212-update-prompt-with-list-of-c
+- Jira Task 213: Write a function to construct detailed prompts for OpenAI, including clothing item references, which are used to generate ...
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-213-write-a-function-to-construc
+- Jira Task 214: Set up a service that sends these prompts to OpenAI's text completion API and parse the response to identify item references ...
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-214-set-up-a-service-that-sends-
+- Jira Task 215: Open a page where user can take a photo with there camera
+		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-215-open-a-page-where-user-can-t
+
 ### Rogelio:
 - Jira Task 172: Reorganize HomePage layout & add pop up for Upload:
 https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-172-reorganize-hp
@@ -269,13 +307,18 @@ https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7
 	• Ramiro:
 		
 	• Umer:
-		- 
+		- Improve AI outfit generation
+		- Impliment multi-image upload feature
+		- Work on API issues after class is defunded
+		- Make website theme match and fix UI
+		- Make website mobile accesable. 
+		- Add feature to recoment items to buy to fill in gaps in wardobe
 	• Amina:
 		-  
 	• Rogelio:
-- Next update will include Firebase deployment feature for our project.
-- Facilitates easy showcasing of our work on team members' portfolios and resumes.
-- Empowers each member to highlight our project as a notable achievement in their professional endeavors.
+		- Next update will include Firebase deployment feature for our project.
+		- Facilitates easy showcasing of our work on team members' portfolios and resumes.
+		- Empowers each member to highlight our project as a notable achievement in their professional endeavors.
 	
 	• Matthew:
 
