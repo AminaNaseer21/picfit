@@ -223,7 +223,21 @@ Sprint 2:
 Sprint 3:
 
 ## Features
-### Ramiro:
+### Ramiro: provided users with the ability to filter as well as favorite their items in wardrobe.
+- Jira Task 223: Get zipcode from profile firestore doc
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-223-get-zipcode-from-profile-fir
+- Jira Task 177: Display weather using zip code in firestore doc
+		-  https://bitbucket.org/cs3398s24miranda/picfit/commits/8d18c88e372c1298dcdac97182eeeec08cd26bc5
+- Jira Task 178: Make dropdown filters work
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-178-make-filters-dropdown-work-w
+- Jira Task 179: Make favorite button work
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-179-make-favorite-option-work-wi
+- Jira Task 196: Added zip code to profile
+		-  https://bitbucket.org/%7B%7D/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-196-add-zip-code-to-profile
+- Jira Task 197: Add more styles to avoid
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-197-add-more-styles-to-avoid
+- Jira Task 224: Auto update weather when page is reloaded
+		-  https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-224-auto-update-whenever-page-is
 ### Umer: 
 ### Rogelio:
 - Jira Task 172: Reorganize HomePage layout & add pop up for Upload:
