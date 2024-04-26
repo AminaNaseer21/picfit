@@ -226,10 +226,32 @@ Sprint 3:
 ### Ramiro:
 ### Umer: 
 ### Rogelio:
+- Jira Task 172: Reorganize HomePage layout & add pop up for Upload:
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-172-reorganize-hp
+
+- Jira Task 170: Make it dynamic with moving pictures
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-170-make-it-dynamic-with-moving-
+
+- Jira Task 171: make transition between images smooth with fading and picture movement
+
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-171-make-transition-between-imag
+
+- Jira Task 165: add more images and a cycling function to randomize display;
+
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-165-add-more-images-and-a-cycling-between
+
+- Jira 167: Task make HomePage have animated background and dynamic picture border
+
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-167-make-HP-have-more-cohesive
+
+- Jira Task 169: Update Pages to have universal color and style palette for project 
+
+https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-169-update-pages-to-have-univers
+
 ### Amina: 
 ### Matthew: 
 
-## Next Steps (for Sprint 3)
+## Next Steps (for After Class)
 	• Ramiro:
 		
 	• Umer:
@@ -237,6 +259,9 @@ Sprint 3:
 	• Amina:
 		-  
 	• Rogelio:
+- Next update will include Firebase deployment feature for our project.
+- Facilitates easy showcasing of our work on team members' portfolios and resumes.
+- Empowers each member to highlight our project as a notable achievement in their professional endeavors.
 	
 	• Matthew:
 
