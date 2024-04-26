@@ -220,6 +220,26 @@ Sprint 2:
 		-Implement section that explains what the Website is about, what it does, and why it was developed.
 		-Design members section and upload pictures of each team members.
 
+Sprint 3:
+
+## Features
+### Ramiro:
+### Umer: 
+### Rogelio:
+### Amina: 
+### Matthew: 
+
+## Next Steps (for Sprint 3)
+	• Ramiro:
+		
+	• Umer:
+		- 
+	• Amina:
+		-  
+	• Rogelio:
+	
+	• Matthew:
+
 	
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
