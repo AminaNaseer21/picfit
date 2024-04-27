@@ -277,7 +277,8 @@ Sprint 3:
 - Jira Task 215: Open a page where user can take a photo with there camera
 		-	https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-215-open-a-page-where-user-can-t
 
-### Rogelio:
+### Rogelio: ensured a streamlined theme across all pages aswell as created a dynamic homepage
+### with displays of outfits and features.
 - Jira Task 172: Reorganize HomePage layout & add pop up for Upload:
 https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7D/branch/MIRANDA-172-reorganize-hp
 
