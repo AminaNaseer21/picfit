@@ -209,8 +209,8 @@ Sprint 2:
 		- Allow outfit suggestions to work taking weather temp/condition into account.
 	• Umer:
 		- 
-	• Amina:
-		-  
+	• Amina: 
+		-  Worked on database and visually displaying 
 	• Rogelio:
 		- Enhancing the front end by optimizing the display of clothing items for a visually appealing layout
 		- Provide the user a dynamic display based on previous outfits
@@ -315,7 +315,9 @@ https://bitbucket.org/cs3398s24miranda/%7B9057d6fe-0b00-4613-b784-22b1a91cc60a%7
 		- Make website mobile accesable. 
 		- Add feature to recoment items to buy to fill in gaps in wardobe
 	• Amina:
-		-  
+		-  Worked on database and front end work on displaying the creating account and login page.
+  		-  Items page where user can view all there uploaded items from the wardrobe.
+    		-  Favourite outfits page where user can save their favourite outfits from outfit generator.
 	• Rogelio:
 		- Next update will include Firebase deployment feature for our project.
 		- Facilitates easy showcasing of our work on team members' portfolios and resumes.
@@ -362,5 +364,5 @@ Members:
 Umer Seliya - hme36@txstate.edu
 Ramiro Ramirez - r_r888@txstate.edu
 Rogelio Atilano-Hernandez -  bav74@txstate.edu
-Amina Naseer - 
+Amina Naseer - mqn7@txstate.edu
 Matthew Lee - mwl36@txstate.edu
